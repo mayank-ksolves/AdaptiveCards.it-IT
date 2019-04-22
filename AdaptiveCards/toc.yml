@@ -1,0 +1,57 @@
+items:
+- name: Panoramica
+  href: index.md
+- name: Attività iniziali
+  items:
+  - name: Sviluppatori di bot
+    href: getting-started/bots.md
+  - name: Sviluppatori Windows
+    href: getting-started/windows.md
+  - name: Sviluppatori di Outlook
+    href: getting-started/outlook.md
+- name: Creazione di schede
+  items:
+  - name: Attività iniziali
+    href: authoring-cards/getting-started.md
+  - name: Schema della scheda
+    href: authoring-cards/card-schema.md
+  - name: Comandi vocali
+    href: authoring-cards/speech.md
+  - name: Funzionalità per il testo
+    href: authoring-cards/text-features.md
+- name: Rendering delle schede
+  items:
+  - name: Attività iniziali
+    href: rendering-cards/getting-started.md
+  - name: Azioni
+    href: rendering-cards/actions.md
+  - name: Configurazione dell'host
+    href: rendering-cards/host-config.md
+  - name: Estendibilità
+    href: rendering-cards/extensibility.md
+  - name: Stato del renderer
+    href: rendering-cards/renderer-status.md
+  - name: Implementare un renderer
+    href: rendering-cards/implement-a-renderer.md
+- name: SDK
+  items:
+  - name: Creazione di schede
+    href: sdk/authoring-cards/toc.yml
+  - name: Rendering delle schede
+    href: sdk/rendering-cards/toc.yml
+- name: Risorse
+  items:
+  - name: Principi
+    href: resources/principles.md
+  - name: Partner
+    href: resources/partners.md
+  - name: Strumenti
+    href: resources/tools.md
+  - name: Roadmap
+    href: resources/future.md
+ms.openlocfilehash: 0d11154a56cef4b2814a28544ebf83b50081bfae
+ms.sourcegitcommit: 99c7b64d6fc66da336c454951406fb42cd2a7427
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59552343"
