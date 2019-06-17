@@ -4,12 +4,12 @@ author: matthidinger
 ms.author: mahiding
 ms.date: 06/26/2017
 ms.topic: article
-ms.openlocfilehash: 0a9507c56a8bae9f038c220cdf55e34b2c3b0829
-ms.sourcegitcommit: 99c7b64d6fc66da336c454951406fb42cd2a7427
+ms.openlocfilehash: 0a5f99268ce483fddd99f4493b386db796c3e9d2
+ms.sourcegitcommit: e002a988c570072d5bc24a1242eaaac0c9ce90df
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59552923"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67138094"
 ---
 # <a name="rendering-cards-inside-your-application"></a>Il rendering di schede all'interno dell'applicazione
 
@@ -21,11 +21,11 @@ ms.locfileid: "59552923"
 
 ## <a name="adaptive-cards-sdks"></a>Le schede adattive SDK
 
-|Piattaforma|Installazione|Build|Documentazione|Stato|
+|Piattaforma|Installazione|Build|Docs|Stato|
 |---|---|---|---|---|
 | JavaScript | [![installazione di npm](https://img.shields.io/npm/v/adaptivecards.svg)](https://www.npmjs.com/package/adaptivecards) | [Origine](https://github.com/Microsoft/AdaptiveCards/tree/master/source/nodejs)| [Docs](../sdk/rendering-cards/javascript/getting-started.md) | ![Lo stato della compilazione](https://img.shields.io/vso/build/Microsoft/56cf629e-8f3a-4412-acbc-bf69366c552c/20564.svg) |
-| .NET WPF | [![Installazione di NuGet](https://img.shields.io/nuget/vpre/AdaptiveCards.Rendering.Wpf.svg)](https://www.nuget.org/packages/AdaptiveCards.Rendering.Wpf) | [Origine](https://github.com/Microsoft/AdaptiveCards/tree/master/source/dotnet)| [Docs](../sdk/rendering-cards/net-wpf/getting-started.md) | ![Lo stato della compilazione](https://img.shields.io/vso/build/Microsoft/56cf629e-8f3a-4412-acbc-bf69366c552c/20596.svg) |
-| .NET HTML | [![Installazione di NuGet](https://img.shields.io/nuget/vpre/AdaptiveCards.Rendering.Html.svg)](https://www.nuget.org/packages/AdaptiveCards.Rendering.Html) | [Origine](https://github.com/Microsoft/AdaptiveCards/tree/master/source/dotnet) | [Docs](../sdk/rendering-cards/net-html/getting-started.md) | ![Lo stato della compilazione](https://img.shields.io/vso/build/Microsoft/56cf629e-8f3a-4412-acbc-bf69366c552c/20596.svg) |
+| WPF .NET | [![Installazione di NuGet](https://img.shields.io/nuget/vpre/AdaptiveCards.Rendering.Wpf.svg)](https://www.nuget.org/packages/AdaptiveCards.Rendering.Wpf) | [Origine](https://github.com/Microsoft/AdaptiveCards/tree/master/source/dotnet)| [Docs](../sdk/rendering-cards/net-wpf/getting-started.md) | ![Lo stato della compilazione](https://img.shields.io/vso/build/Microsoft/56cf629e-8f3a-4412-acbc-bf69366c552c/20596.svg) |
+| HTML .NET | [![Installazione di NuGet](https://img.shields.io/nuget/vpre/AdaptiveCards.Rendering.Html.svg)](https://www.nuget.org/packages/AdaptiveCards.Rendering.Html) | [Origine](https://github.com/Microsoft/AdaptiveCards/tree/master/source/dotnet) | [Docs](../sdk/rendering-cards/net-html/getting-started.md) | ![Lo stato della compilazione](https://img.shields.io/vso/build/Microsoft/56cf629e-8f3a-4412-acbc-bf69366c552c/20596.svg) |
 | Windows UWP | [![Installazione di NuGet](https://img.shields.io/nuget/vpre/AdaptiveCards.Rendering.Uwp.svg)](https://www.nuget.org/packages/AdaptiveCards.Rendering.Uwp) | [Origine](https://github.com/Microsoft/AdaptiveCards/tree/master/source/uwp) | [Docs](../sdk/rendering-cards/uwp/getting-started.md) | ![Lo stato della compilazione](https://img.shields.io/vso/build/Microsoft/56cf629e-8f3a-4412-acbc-bf69366c552c/20583.svg) |
 | Android | [![Centrale di Maven](https://img.shields.io/maven-central/v/io.adaptivecards/adaptivecards-android.svg)](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22adaptivecards-android%22) | [Origine](https://github.com/Microsoft/AdaptiveCards/tree/master/source/android) | [Docs](../sdk/rendering-cards/android/getting-started.md) | ![Lo stato della compilazione](https://img.shields.io/vso/build/Microsoft/8d47e068-03c8-4cdc-aa9b-fc6929290322/17651.svg)
 | iOS | [![CocoaPods](https://img.shields.io/cocoapods/v/AdaptiveCards.svg)](https://cocoapods.org/pods/AdaptiveCards) | [Origine](https://github.com/Microsoft/AdaptiveCards/tree/master/source/ios) | [Docs](../sdk/rendering-cards/ios/getting-started.md) |  ![Lo stato della compilazione](https://img.shields.io/vso/build/Microsoft/8d47e068-03c8-4cdc-aa9b-fc6929290322/16990.svg) |
@@ -60,7 +60,7 @@ La maggior parte dei framework dell'interfaccia utente consentono di definire lo
 
 ### <a name="customize-per-element-rendering"></a>Personalizzare il rendering per ogni elemento
 
-Ogni SDK consente l'override del rendering di qualsiasi elemento, o persino aggiungere supporto per gli elementi completamente nuovi che definiscono.  Ad esempio, è possibile modificare il `Input.Date` renderer per creare un controllo personalizzato, pur mantenendo il resto dell'output del renderer. Oppure è possibile aggiungere il supporto per un oggetto personalizzato `Rating` definire elemento all'utente.
+Ogni SDK consente l'override del rendering di qualsiasi elemento, o persino aggiungere supporto per gli elementi completamente nuovi che definiscono.  Ad esempio, è possibile modificare il `Input.Date` renderer per creare un controllo personalizzato, pur mantenendo il resto dell'output del renderer. Oppure è possibile aggiungere il supporto per un oggetto personalizzato `Rating` elemento definiti.
 
 
 

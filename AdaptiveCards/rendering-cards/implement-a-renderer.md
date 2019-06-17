@@ -4,12 +4,12 @@ author: matthidinger
 ms.author: mahiding
 ms.date: 09/15/2017
 ms.topic: article
-ms.openlocfilehash: 3c79d768d5c979626b66614a1856ad6c2e390805
-ms.sourcegitcommit: 99c7b64d6fc66da336c454951406fb42cd2a7427
+ms.openlocfilehash: b39493f82f3378e5a554abc6df890d6821869671
+ms.sourcegitcommit: e002a988c570072d5bc24a1242eaaac0c9ce90df
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59552553"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67138024"
 ---
 # <a name="adaptive-card-renderer-specification"></a>Specifica del Renderer scheda adattiva
 
@@ -89,12 +89,12 @@ Un' `AdaptiveCard` è costituito da un `body` e `actions`. Il `body` è una racc
 
 ### <a name="images"></a>Immagini
 
-1. Un renderer **SHOULD** consente l'hosting di App di sapere quando sono state scaricate tutte le immagini HTTP e la scheda è "completamente rendererd"
+1. Un renderer **SHOULD** consentire l'hosting di App di sapere quando sono state scaricate tutte le immagini HTTP e la scheda è "completamente il rendering di"
 1. Un renderer **devono** ispezionare la configurazione Host `maxImageSize` param durante il download delle immagini HTTP
 1. Un renderer **devono** supportano `.png` e `.jpeg`
 1. Un renderer **SHOULD** supportano `.gif` immagini
 
-### <a name="host-config"></a>Configurazione di host
+### <a name="host-config"></a>Configurazione dell'host
 
 * TODO: Quale dovrebbero essere i valori predefiniti? Dovrebbe condividono tutti lo? Dovremmo si incorpora un file hostConfig.json comune nei file binari?
 * TODO: Ritengo che HostConfig deve essere eseguito anche per l'analisi?
@@ -142,7 +142,7 @@ Azione | Comportamento
 
 L'azione di invio si comporta come un invio di form HTML, ad eccezione del fatto che in cui in genere HTML attiva una richiesta post HTTP, le schede adattive lasciandolo fino a ogni app host di determinare quali "Invia" significa che a loro. 
 
-1. Quando ciò **necessario** generare un evento, l'utente tocca invokved l'azione.  
+1. Quando ciò **necessario** generare un evento a cui l'utente tocca l'azione richiamata.  
 1. Il `data` proprietà **necessario** da includere nel payload del callback.
 1. Per la `Action.Submit`, un renderer **necessario** raccogliere tutti gli input della scheda e recuperare i valori. 
 
@@ -164,6 +164,6 @@ L'azione di invio si comporta come un invio di form HTML, ad eccezione del fatto
    È non apportare qualsiasi promesse di convalida dell'input nelle schede adattive, in modo che spetta alla parte ricevente per analizzare correttamente la risposta. Ad esempio, un Input.Number potrebbe restituire "hello" e devono essere preparati per che.
 
 
-## <a name="events"></a>Eventi
+## <a name="events"></a>Events
 
 1. Un renderer **SHOULD** generare un evento quando la visibilità di un elemento è stato modificato, consentendo all'app di host scorrere la scheda nella posizione desiderata.

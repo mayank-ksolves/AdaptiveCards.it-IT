@@ -4,12 +4,12 @@ author: matthidinger
 ms.author: mahiding
 ms.date: 05/16/2018
 ms.topic: article
-ms.openlocfilehash: 6c6e14108caefa8dd1ff854b29d4651fe9b2d15c
-ms.sourcegitcommit: 99c7b64d6fc66da336c454951406fb42cd2a7427
+ms.openlocfilehash: f879c164b3471347ba8fa058827b3d79b09be4cd
+ms.sourcegitcommit: e002a988c570072d5bc24a1242eaaac0c9ce90df
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59553483"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67138004"
 ---
 # <a name="future-work"></a>Lavoro futuro
 
@@ -17,7 +17,7 @@ Anche se sono stati apportati corso eccellente che definisce le schede adattive,
 
 ## <a name="roadmap"></a>Guida di orientamento
 
-È possibile visualizzare nostri [corrente (non finali) Guida di orientamento qui](https://github.com/Microsoft/AdaptiveCards/projects/8). Si noti che qualsiasi elemento in questa posizione è soggetta a modifiche e non è una garanzia di spedizione.
+È possibile visualizzare nostri [corrente (non finali) Guida di orientamento qui](https://portal.productboard.com/adaptivecards/1-adaptive-cards-portal/tabs/1-backlog). Si noti che qualsiasi elemento in questa posizione è soggetta a modifiche e non è una garanzia di spedizione.
 
 ## <a name="future-ideas"></a>Idee future
 
