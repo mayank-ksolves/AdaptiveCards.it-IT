@@ -38,10 +38,8 @@
       "titleSuffix": "Adaptive Cards",
       "searchScope": ["Adaptive Cards"],
       "feedback_system": "GitHub",
-      "feedback_github_repo": "MicrosoftDocs/AdaptiveCards"
-    },
-    "globalMetadata": {
-            disable_contribution_on_translation_quality": ["MT"]
+      "feedback_github_repo": "MicrosoftDocs/AdaptiveCards",
+      disable_contribution_on_translation_quality": ["MT"]
     },
     "fileMetadata": {},
     "template": [],
