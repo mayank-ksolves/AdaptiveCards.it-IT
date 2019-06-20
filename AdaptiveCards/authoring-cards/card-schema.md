@@ -10,7 +10,6 @@ ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/12/2019
 ms.locfileid: "59553723"
-open_to_public_contributors: true
 ---
 # <a name="card-schema"></a><span data-ttu-id="76595-102">Schema di smart card</span><span class="sxs-lookup"><span data-stu-id="76595-102">Card Schema</span></span>
 
