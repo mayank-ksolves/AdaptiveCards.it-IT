@@ -41,7 +41,12 @@
       "feedback_github_repo": "MicrosoftDocs/AdaptiveCards",
       "disable_contribution_on_translation_quality": ["MTE75","MT"]
     },
-    "fileMetadata": {},
+    "fileMetadata": {
+       "open_to_public_contributors": {
+          "getting-started/**.md": true,
+          "authoring-cards/**.md": true
+        }
+    },
     "template": [],
     "dest": "AdaptiveCards",
     "markdownEngineName": "markdig"
