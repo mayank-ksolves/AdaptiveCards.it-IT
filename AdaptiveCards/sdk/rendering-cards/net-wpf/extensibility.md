@@ -1,23 +1,23 @@
 ---
-title: Extensibility - WPF .NET SDK
+title: Estendibilità - .NET WPF SDK
 author: matthidinger
 ms.author: mahiding
 ms.date: 10/19/2017
 ms.topic: article
-ms.openlocfilehash: af301ec4d73b6791c1d132b9df7040d71cf70d7b
-ms.sourcegitcommit: 99c7b64d6fc66da336c454951406fb42cd2a7427
+ms.openlocfilehash: 4f89784f711727deb538b2ed2195007ca8e6aca1
+ms.sourcegitcommit: e002a988c570072d5bc24a1242eaaac0c9ce90df
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59552623"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67134317"
 ---
-# <a name="extensibility---net-wpf"></a><span data-ttu-id="f340a-102">Extensibility - WPF .NET</span><span class="sxs-lookup"><span data-stu-id="f340a-102">Extensibility - .NET WPF</span></span>
+# <a name="extensibility---net-wpf"></a><span data-ttu-id="69da6-102">Estendibilità - WPF .NET</span><span class="sxs-lookup"><span data-stu-id="69da6-102">Extensibility - .NET WPF</span></span>
 
-## <a name="custom-element-rendering"></a><span data-ttu-id="f340a-103">Rendering di elemento personalizzato</span><span class="sxs-lookup"><span data-stu-id="f340a-103">Custom Element Rendering</span></span>
+## <a name="custom-element-rendering"></a><span data-ttu-id="69da6-103">Rendering di elementi personalizzati</span><span class="sxs-lookup"><span data-stu-id="69da6-103">Custom Element Rendering</span></span>
 
-<span data-ttu-id="f340a-104">Per il controllo completo del renderer è possibile usare il `ElementRenderers` proprietà **aggiungere**, **rimuovere**, o **override** predefinito renderer.</span><span class="sxs-lookup"><span data-stu-id="f340a-104">For full control of the renderer you can use the `ElementRenderers` property to **add**, **remove**, or **override** default renderers.</span></span>
+<span data-ttu-id="69da6-104">Per un controllo completo del renderer, puoi usare la proprietà `ElementRenderers` per **aggiungere**, **rimuovere** o **eseguire l'override** del renderer predefinito.</span><span class="sxs-lookup"><span data-stu-id="69da6-104">For full control of the renderer you can use the `ElementRenderers` property to **add**, **remove**, or **override** default renderers.</span></span>
 
-<span data-ttu-id="f340a-105">L'esempio seguente mostra come è possibile definire una classe personalizzata `"type": "Rating"` elemento ed eseguirne il rendering.</span><span class="sxs-lookup"><span data-stu-id="f340a-105">The following example shows how you could define a custom `"type": "Rating"` element and render it.</span></span>
+<span data-ttu-id="69da6-105">L'esempio seguente mostra come definire un elemento `"type": "Rating"` personalizzato ed eseguirne il rendering.</span><span class="sxs-lookup"><span data-stu-id="69da6-105">The following example shows how you could define a custom `"type": "Rating"` element and render it.</span></span>
 
 ```csharp
 // Register the new type with the JSON parser
@@ -29,9 +29,9 @@ renderer.ElementRenderers.Set<MyCustomRating>(MyCustomRating.Render);
 // Define a custom Rating element type
 public class MyCustomRating : AdaptiveElement
 {
-    public override string Type => "Rating";
+    public MyCustomRating() { Type = "Rating"; }
 
-    public double Rating { get; set; }
+    public override string Type { get; set; }
 
     public AdaptiveTextSize Size { get; set; }
 

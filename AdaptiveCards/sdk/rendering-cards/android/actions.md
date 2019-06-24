@@ -4,16 +4,16 @@ author: bekao
 ms.author: bekao
 ms.date: 09/27/2017
 ms.topic: article
-ms.openlocfilehash: b823b139a706e5149ff1cabc672f57cede4bfa33
-ms.sourcegitcommit: 99c7b64d6fc66da336c454951406fb42cd2a7427
+ms.openlocfilehash: e21c03e069e7ab29dd7d2724d49a2d439c67e5a1
+ms.sourcegitcommit: e002a988c570072d5bc24a1242eaaac0c9ce90df
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59552543"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67134266"
 ---
-# <a name="actions---android"></a><span data-ttu-id="d3869-102">Azioni - Android</span><span class="sxs-lookup"><span data-stu-id="d3869-102">Actions - Android</span></span>
+# <a name="actions---android"></a><span data-ttu-id="d12f7-102">Azioni - Android</span><span class="sxs-lookup"><span data-stu-id="d12f7-102">Actions - Android</span></span>
 
-<span data-ttu-id="d3869-103">Quando viene eseguita un'azione di schede, la classe che è stata passata alla chiamata di rendering che implementa l'interfaccia ICardActionHandler viene richiamata.</span><span class="sxs-lookup"><span data-stu-id="d3869-103">When a cards action is executed, the class that was passed to the render call that implements the ICardActionHandler interface gets invoked.</span></span> <span data-ttu-id="d3869-104">Di seguito viene illustrato come definire il gestore azione:</span><span class="sxs-lookup"><span data-stu-id="d3869-104">Here is how to define your action handler:</span></span>
+<span data-ttu-id="d12f7-103">Quando viene eseguita un'azione della scheda, viene richiamata la classe che è stata passata alla chiamata di rendering che implementa l'interfaccia ICardActionHandler.</span><span class="sxs-lookup"><span data-stu-id="d12f7-103">When a cards action is executed, the class that was passed to the render call that implements the ICardActionHandler interface gets invoked.</span></span> <span data-ttu-id="d12f7-104">Ecco come definire il gestore dell'azione:</span><span class="sxs-lookup"><span data-stu-id="d12f7-104">Here is how to define your action handler:</span></span>
 
 ```java
 public class ActionHandler implements ICardActionHandler
@@ -109,3 +109,15 @@ public class ActionHandler implements ICardActionHandler
     }
 }
 ```
+
+> [!IMPORTANT]
+> <span data-ttu-id="d12f7-105">**Modifiche importanti per la versione 1.1**</span><span class="sxs-lookup"><span data-stu-id="d12f7-105">**Breaking changes for v1.1**</span></span>
+> 
+> 1. <span data-ttu-id="d12f7-106">L'elemento per i file multimediali incluso in questa versione richiede l'implementazione di due nuovi metodi nelle classi che implementano ICardActionHandler. Tali metodi sono</span><span class="sxs-lookup"><span data-stu-id="d12f7-106">The media element included in this version requires two new methods to be implemented by the classes that implement ICardActionHandler, these methods are</span></span>
+>
+> ```java
+> public void onMediaPlay(BaseCardElement mediaElement, RenderedAdaptiveCard renderedAdaptiveCard)
+> public void onMediaStop(BaseCardElement mediaElement, RenderedAdaptiveCard renderedAdaptiveCard)
+> ```
+>
+> <span data-ttu-id="d12f7-107">onMediaPlay viene richiamato quando il pulsante Play viene premuto per la prima volta in qualsiasi elemento per i file multimediali, mentre onMediaStop viene richiamato quando il file multimediale raggiunge la fine</span><span class="sxs-lookup"><span data-stu-id="d12f7-107">onMediaPlay is invoked when the play button is pressed for the first time in any media element, meanwhile onMediaStop is invoked when the media reaches it's end</span></span>
