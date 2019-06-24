@@ -1,26 +1,29 @@
 ---
-title: Eseguire il rendering di una scheda - SDK per iOS
+title: Eseguire il rendering di una scheda - iOS SDK
 author: matthidinger
 ms.author: mahiding
 ms.date: 06/26/2017
 ms.topic: article
-ms.openlocfilehash: 625701e38389cc1a54682b72ce2315c14180e576
-ms.sourcegitcommit: 99c7b64d6fc66da336c454951406fb42cd2a7427
+ms.openlocfilehash: 7d8d8410c030584dc5a518af7e6473d1d51f3991
+ms.sourcegitcommit: e002a988c570072d5bc24a1242eaaac0c9ce90df
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59552473"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67134321"
 ---
 # <a name="render-a-card---ios"></a>Eseguire il rendering di una scheda - iOS
 
-Di seguito viene illustrato come eseguire il rendering di una scheda usando il SDK per iOS.
+Ecco come eseguire il rendering di una scheda usando iOS SDK.
 
 ## <a name="create-a-card-from-a-json-string"></a>Creare una scheda da una stringa JSON
 
 AdaptiveCard viene generato dalla stringa JSON
 
 ```objective-c
-ACOParseResult *cardParseResult = [ACOAdaptiveCards FromJson:jsonStr];
+
+NSString *jsonStr = @"{ \"type\": \"AdaptiveCard\", \"version\": \"1.0\", \"body\": [ { \"type\": \"Image\", \"url\": \"http://adaptivecards.io/content/adaptive-card-50.png\", \"horizontalAlignment\":\"center\" }, { \"type\": \"TextBlock\", \"horizontalAlignment\":\"center\", \"text\": \"Hello **Adaptive Cards!**\" } ], \"actions\": [ { \"type\": \"Action.OpenUrl\", \"title\": \"Learn more\", \"url\": \"http://adaptivecards.io\" }, { \"type\": \"Action.OpenUrl\", \"title\": \"GitHub\", \"url\": \"http://github.com/Microsoft/AdaptiveCards\" } ] }";
+ACOAdaptiveCardParseResult *cardParseResult = [ACOAdaptiveCard fromJson:jsonStr];
+
 /// access for parse warnings and errors
 NSArray<NSError *> errors = cardParseResult.parseErrors;
 NSArray<ACRParseWarning *> warnings = cardPraseResult.parseWarnings;
@@ -28,73 +31,111 @@ NSArray<ACRParseWarning *> warnings = cardPraseResult.parseWarnings;
 
 ## <a name="render-a-card"></a>Eseguire il rendering di una scheda
 
-Rederer accetta scheda adattiva e configurazione di host. HostConfig può essere null e se null, verrà utilizzato il valore predefinito.
+Il renderer accetta la scheda adattiva e la configurazione dell'host. HostConfig può essere Null. In tal caso, verrà usato il valore predefinito.
+L'oggetto UIView restituito usa il layout automatico. La larghezza sarà vincolata al valore impostato da widthConstraint. Se viene usato il valore 0, non sarà associata.
+L'altezza non è associata e quando viene restituita equivale alla somma dell'altezza di tutto il contenuto di cui viene eseguito il rendering. Per associare la dimensione della visualizzazione, usa NSLayoutConstraint. La dimensione esatta è accessibile dal contesto di viewDidLayoutSubview del controller di visualizzazione della relativa superview o dal metodo con lo stesso nome, se viene usato ACRViewController.
 
 ```objective-c
 ACRRenderResult *renderResult;
-renderResult = [ACRRenderer render:cardParseResult.card
-                            config:nil
-                   widthConstraint:300.0];
+if(cardParseResult.isValid){
+    renderResult = [ACRRenderer render:cardParseResult.card config:nil widthConstraint:335];
+}
 ``` 
-
 ### <a name="example"></a>Esempio
 
 ```objective-c
-ACRRenderResult *renderResult;
-ACOHostConfigParseResult *hostconfigParseResult = [ACOHostConfig FromJson:self.hostconfig];
-ACOAdaptiveCardsParseResult *cardParseResult       = [ACOAdaptiveCards FromJson:jsonStr];
+--------------------------------------------------------------------------------
+ViewController.m
+--------------------------------------------------------------------------------
+#import "ViewController.h"
+#import <SafariServices/SafariServices.h>
 
-// checking parse result
-if(hostconfigParseResult.IsValid == YES && cardParseResult.IsValid == YES)
+@interface ViewController ()
+
+@end
+
+@implementation ViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    NSString *jsonStr = @"{ \"type\": \"AdaptiveCard\", \"version\": \"1.0\", \"body\": [ { \"type\": \"Image\", \"url\": \"http://adaptivecards.io/content/adaptive-card-50.png\", \"horizontalAlignment\":\"center\" }, { \"type\": \"TextBlock\", \"horizontalAlignment\":\"center\", \"text\": \"Hello **Adaptive Cards!**\" } ], \"actions\": [ { \"type\": \"Action.OpenUrl\", \"title\": \"Learn more\", \"url\": \"http://adaptivecards.io\" }, { \"type\": \"Action.OpenUrl\", \"title\": \"GitHub\", \"url\": \"http://github.com/Microsoft/AdaptiveCards\" } ] }";
+    ACRRenderResult *renderResult;
+    ACOAdaptiveCardParseResult *cardParseResult = [ACOAdaptiveCard fromJson:jsonStr];
+    if(cardParseResult.isValid){
+        renderResult = [ACRRenderer render:cardParseResult.card config:nil widthConstraint:335];
+    }
+
+    if(renderResult.succeeded)
+    {
+        ACRView *ad = renderResult.view;
+        ad.acrActionDelegate = self;
+        
+        UIView *view = self.view;
+        view.autoresizingMask |= UIViewAutoresizingFlexibleHeight;
+        [self.view addSubview:ad];
+        ad.translatesAutoresizingMaskIntoConstraints = NO;
+        
+        [NSLayoutConstraint constraintWithItem:ad attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:view attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0].active = YES;
+
+        [NSLayoutConstraint constraintWithItem:ad attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:view attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:3].active = YES;
+    }
+}
+
+- (void)didFetchUserResponses:(ACOAdaptiveCard *)card action:(ACOBaseActionElement *)action
 {
-    renderResult = [ACRRenderer render:cardParseResult.card
-                                config:hostconfigParseResult.config
-                       widthConstraint:300.0];
-}   
+    if(action.type == ACROpenUrl){
+        NSURL *url = [NSURL URLWithString:[action url]];
+        SFSafariViewController *svc = [[SFSafariViewController alloc] initWithURL:url];
+        [self presentViewController:svc animated:YES completion:nil];
+    }
+}
+
+@end
+
+```
+
+```swift
+--------------------------------------------------------------------------------
+ViewController.swft
+--------------------------------------------------------------------------------
+
+import UIKit
+import SafariServices
+
+class ViewController: UIViewController, ACRActionDelegate {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        let jsonStr = "{ \"type\": \"AdaptiveCard\", \"version\": \"1.0\", \"body\": [ { \"type\": \"Image\", \"url\": \"http://adaptivecards.io/content/adaptive-card-50.png\", \"horizontalAlignment\":\"center\" }, { \"type\": \"TextBlock\", \"horizontalAlignment\":\"center\", \"text\": \"Hello **Adaptive Cards!**\" } ], \"actions\": [ { \"type\": \"Action.OpenUrl\", \"title\": \"Learn more\", \"url\": \"http://adaptivecards.io\" }, { \"type\": \"Action.OpenUrl\", \"title\": \"GitHub\", \"url\": \"http://github.com/Microsoft/AdaptiveCards\" } ] }";
+
+        let cardParseResult = ACOAdaptiveCard.fromJson(jsonStr);
+        if((cardParseResult?.isValid)!){
+            let renderResult = ACRRenderer.render(cardParseResult!.card, config: nil, widthConstraint: 335);
+
+            if(renderResult?.succeeded ?? false)
+            {
+                let ad = renderResult?.view;
+                ad!.acrActionDelegate = (self as ACRActionDelegate);
+                self.view.autoresizingMask = [.flexibleHeight];
+                self.view.addSubview(ad!);
+                ad!.translatesAutoresizingMaskIntoConstraints = false;
     
-if(renderResult.Suceeded == YES)
-{
-    // access returned UIView object
-    ACRView *adaptiveView = renderResult.view;
-    [self.view addSubview:adcVc.view];
+                NSLayoutConstraint(item: ad!, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1.0, constant: 0).isActive = true;
+                NSLayoutConstraint(item: ad!, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1.0, constant: 3).isActive = true;
+            }
+        }
+    }
+
+    func didFetchUserResponses(_ card: ACOAdaptiveCard, action: ACOBaseActionElement)
+    {
+        if(action.type == ACRActionType.openUrl){
+            let url = URL.init(string:action.url());
+            let svc = SFSafariViewController.init(url: url!);
+            self.present(svc, animated: true, completion: nil);
+        }
+    }
+
 }
-```
-
-### <a name="render-a-card-as-uiviewcontroller"></a>Eseguire il rendering di una scheda come UIViewController
-
-Renderer AdaptiveCard può inoltre restituire UIViewController.
-
-```objective-c
-ACRRenderResult *renderResult = [ACRRenderer renderAsViewController:card config:config frame:frame delegate:acrActionDelegate];
-
-renderResult.viewif(renderResult.Suceeded == YES)
-{
-    ACRViewController *adaptiveViewController = renderResult.viewcontroller;
-    [self addChildViewController:adaptiveViewController];
-    [self.view addSubview:adaptiveViewController.view];
-    [adaptiveViewController didMoveToParentViewController:self];
-    ...
-}
-```
-
-Restituito che uiview Usa il layout automatico. Larghezza sarà vincolo per il valore impostato da widthConstraint. Se viene usato il valore 0, non verrà associato.
-Altezza non è associato e quando restituito avrà l'altezza di somme di tutto il contenuto sottoposto a rendering. Per associare la dimensione di visualizzazione, usare NSLayoutConstraint. La dimensione esatta è accessibile dal contesto di viewDidLayoutSubview di viewcontroller della visualizzazione sovrapposta o il relativo metodo con lo stesso nome se ACRViewController viene usato.
-
-
-### <a name="compact-style-inputchoiceset"></a>Stile Compact Input.ChoiceSet
-
-Rappresentazione dell'interfaccia utente del Input.ChoiceSet includa UINavigationController e deve essere presentato a una classe UIViewController attualmente attiva per la transizione allo UIView che consente la selezione di utenti.
-
-A tale scopo, implementare didFecthSecondaryView di ACRActionDelegate.
-
-```objective-c
-- (void)didFetchSecondaryView:(ACOAdaptiveCard *)card navigationController:(UINavigationController *)navigationController{
-    [self presentViewController:navigationController animated:YES completion:nil];
-}  
-```
-
-Se il delegato non è stato collegato, eseguire questa operazione.
-
-```objective-c
-adaptiveView.acrActionDelegate = self
 ```

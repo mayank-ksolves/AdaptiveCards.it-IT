@@ -1,23 +1,23 @@
 ---
-title: Extensibility - WPF .NET SDK
+title: Estendibilità - .NET WPF SDK
 author: matthidinger
 ms.author: mahiding
 ms.date: 10/19/2017
 ms.topic: article
-ms.openlocfilehash: af301ec4d73b6791c1d132b9df7040d71cf70d7b
-ms.sourcegitcommit: 99c7b64d6fc66da336c454951406fb42cd2a7427
+ms.openlocfilehash: 4f89784f711727deb538b2ed2195007ca8e6aca1
+ms.sourcegitcommit: e002a988c570072d5bc24a1242eaaac0c9ce90df
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59552623"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67134317"
 ---
-# <a name="extensibility---net-wpf"></a>Extensibility - WPF .NET
+# <a name="extensibility---net-wpf"></a>Estendibilità - WPF .NET
 
-## <a name="custom-element-rendering"></a>Rendering di elemento personalizzato
+## <a name="custom-element-rendering"></a>Rendering di elementi personalizzati
 
-Per il controllo completo del renderer è possibile usare il `ElementRenderers` proprietà **aggiungere**, **rimuovere**, o **override** predefinito renderer.
+Per un controllo completo del renderer, puoi usare la proprietà `ElementRenderers` per **aggiungere**, **rimuovere** o **eseguire l'override** del renderer predefinito.
 
-L'esempio seguente mostra come è possibile definire una classe personalizzata `"type": "Rating"` elemento ed eseguirne il rendering.
+L'esempio seguente mostra come definire un elemento `"type": "Rating"` personalizzato ed eseguirne il rendering.
 
 ```csharp
 // Register the new type with the JSON parser
@@ -29,9 +29,9 @@ renderer.ElementRenderers.Set<MyCustomRating>(MyCustomRating.Render);
 // Define a custom Rating element type
 public class MyCustomRating : AdaptiveElement
 {
-    public override string Type => "Rating";
+    public MyCustomRating() { Type = "Rating"; }
 
-    public double Rating { get; set; }
+    public override string Type { get; set; }
 
     public AdaptiveTextSize Size { get; set; }
 

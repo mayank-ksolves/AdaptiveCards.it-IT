@@ -1,19 +1,19 @@
 ---
-title: Eseguire il rendering di una scheda - HTML .NET SDK
+title: Eseguire il rendering di una scheda - .NET HTML SDK
 author: matthidinger
 ms.author: mahiding
 ms.date: 10/19/2017
 ms.topic: article
-ms.openlocfilehash: 8dc1baffb91f0755f1955ee02b8a3e820b0d34e4
-ms.sourcegitcommit: 99c7b64d6fc66da336c454951406fb42cd2a7427
+ms.openlocfilehash: 1bc1a225fc731aeb8e66bde1ef21a9443e74c8b1
+ms.sourcegitcommit: e002a988c570072d5bc24a1242eaaac0c9ce90df
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59553103"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67134173"
 ---
-# <a name="render-a-card---net-html"></a>Eseguire il rendering di una scheda - .NET HTML
+# <a name="render-a-card---net-html"></a>Eseguire il rendering di una scheda - HTML .NET
 
-Di seguito viene illustrato come eseguire il rendering di una scheda usando .NET SDK HTML.
+Ecco come eseguire il rendering di una scheda usando .NET HTML SDK.
 
 ## <a name="instantiate-a-renderer"></a>Creare un'istanza di un renderer
 
@@ -32,7 +32,7 @@ AdaptiveCardRenderer renderer = new AdaptiveCardRenderer();
 AdaptiveSchemaVersion schemaVersion = renderer.SupportedSchemaVersion; // 1.0
 ```
 
-## <a name="render-a-card-to-html"></a>Eseguire il rendering di una carta in formato HTML
+## <a name="render-a-card-to-html"></a>Eseguire il rendering di una scheda in HTML
 
 ```csharp
 // Build a simple card
@@ -52,7 +52,7 @@ try
 
     // (Optional) Check for any renderer warnings
     // This includes things like an unknown element type found in the card
-    // Or the card exceeded the maxmimum number of supported actions, etc
+    // Or the card exceeded the maximum number of supported actions, etc
     IList<AdaptiveWarning> warnings = renderedCard.Warnings;
 }
 catch(AdaptiveException ex)

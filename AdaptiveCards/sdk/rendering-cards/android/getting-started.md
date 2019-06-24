@@ -4,27 +4,44 @@ author: bekao
 ms.author: bekao
 ms.date: 09/27/2017
 ms.topic: article
-ms.openlocfilehash: 691ac9f2590fa52e36703890c14a6cfe1af1862c
-ms.sourcegitcommit: 99c7b64d6fc66da336c454951406fb42cd2a7427
+ms.openlocfilehash: b5f1279317e6b34d2e3bccee2625d972ac185e04
+ms.sourcegitcommit: e002a988c570072d5bc24a1242eaaac0c9ce90df
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59553493"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67134280"
 ---
 # <a name="getting-started---android"></a>Guida introduttiva - Android
 
-Si tratta di un renderer controlla quali nativa Android di destinazioni.
+Questo renderer è destinato ai controlli nativi di Android.
 
 ## <a name="install-maven-package"></a>Installare il pacchetto Maven
 
-**io.adaptivecards:adaptivecards-android:{version}**
+[![Maven Central](https://img.shields.io/maven-central/v/io.adaptivecards/adaptivecards-android.svg)](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22adaptivecards-android%22)
 
-[![Centrale di Maven](https://img.shields.io/maven-central/v/io.adaptivecards/adaptivecards-android.svg)](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22adaptivecards-android%22)
+Puoi trovare i pacchetti pubblicati ![qui](https://search.maven.org/search?q=g:io.adaptivecards)
 
-## <a name="namespaces"></a>Spazi dei nomi
+Per includere libreria nel progetto, devi includere questa riga nel progetto gradle.build, nella sezione dependencies
 
-*Presto disponibili*
+```build.gradle
+ implementation 'io.adaptivecards:adaptivecards-android:1.1.0'
+```
+È necessario modificare il numero di versione a seconda della versione da includere nel progetto
+
+## <a name="add-import"></a>Aggiungere l'importazione
+
+Per includere il modello a oggetti, aggiungi questa importazione
+
+```
+ import io.adaptivecards.objectmodel.*;
+```
+
+Per includere il renderer, aggiungi questa importazione
+
+```
+ import io.adaptivecards.renderer.*;
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Visualizzare [eseguire il rendering di una scheda](render-a-card.md) per i passaggi successivi.
+Per i passaggi successivi, vedi [Eseguire il rendering di una scheda](render-a-card.md).

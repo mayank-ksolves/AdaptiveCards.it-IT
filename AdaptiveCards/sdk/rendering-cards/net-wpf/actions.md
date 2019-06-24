@@ -1,31 +1,31 @@
 ---
-title: Azioni - WPF .NET SDK
+title: Azioni - .NET WPF SDK
 author: matthidinger
 ms.author: mahiding
 ms.date: 10/19/2017
 ms.topic: article
-ms.openlocfilehash: 9e96fd0ce6322e79f8717d8132857233f62f66f1
-ms.sourcegitcommit: 99c7b64d6fc66da336c454951406fb42cd2a7427
+ms.openlocfilehash: 39ddbc47fd123c5f25ba778925f0bf1bf1845f54
+ms.sourcegitcommit: e002a988c570072d5bc24a1242eaaac0c9ce90df
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59553133"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67134331"
 ---
 # <a name="actions---net-wpf"></a>Azioni - WPF .NET
 
-Eventuali `actions` all'interno della scheda verrà eseguito il rendering come WPF `Button`s, ma dell'all'App per gestire ciò che accade quando l'utente preme li. 
+Verrà eseguito il rendering di eventuali `actions` all'interno della scheda come `Button` WPF, ma dipende dall'app gestire ciò che accade quando l'utente preme tali pulsanti. 
 
-Il `RenderedAdaptiveCard` oggetto fornisce un `OnAction` eventi per questo scopo.
+A tale scopo, l'oggetto `RenderedAdaptiveCard` fornisce un evento `OnAction`.
 
 ```csharp
 // Event handler fires when a user clicks an action within the card
 renderedCard.OnAction += MyActionHandler;
 
-private void MyActionHandler(RenderedAdaptiveCard sender, ActionEventArgs e)
+private void MyActionHandler(RenderedAdaptiveCard sender, AdaptiveActionEventArgs e)
 {
     if (e.Action is AdaptiveOpenUrlAction openUrlAction)
     {
-        Process.Start(openUrlAction.Url);
+        Process.Start(openUrlAction.Url.AbsoluteUri);
     }
     else if (e.Action is AdaptiveShowCardAction showCardAction)
     {

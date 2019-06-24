@@ -4,16 +4,16 @@ author: bekao
 ms.author: bekao
 ms.date: 09/27/2017
 ms.topic: article
-ms.openlocfilehash: b823b139a706e5149ff1cabc672f57cede4bfa33
-ms.sourcegitcommit: 99c7b64d6fc66da336c454951406fb42cd2a7427
+ms.openlocfilehash: e21c03e069e7ab29dd7d2724d49a2d439c67e5a1
+ms.sourcegitcommit: e002a988c570072d5bc24a1242eaaac0c9ce90df
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59552543"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67134266"
 ---
 # <a name="actions---android"></a>Azioni - Android
 
-Quando viene eseguita un'azione di schede, la classe che è stata passata alla chiamata di rendering che implementa l'interfaccia ICardActionHandler viene richiamata. Di seguito viene illustrato come definire il gestore azione:
+Quando viene eseguita un'azione della scheda, viene richiamata la classe che è stata passata alla chiamata di rendering che implementa l'interfaccia ICardActionHandler. Ecco come definire il gestore dell'azione:
 
 ```java
 public class ActionHandler implements ICardActionHandler
@@ -109,3 +109,15 @@ public class ActionHandler implements ICardActionHandler
     }
 }
 ```
+
+> [!IMPORTANT]
+> **Modifiche importanti per la versione 1.1**
+> 
+> 1. L'elemento per i file multimediali incluso in questa versione richiede l'implementazione di due nuovi metodi nelle classi che implementano ICardActionHandler. Tali metodi sono
+>
+> ```java
+> public void onMediaPlay(BaseCardElement mediaElement, RenderedAdaptiveCard renderedAdaptiveCard)
+> public void onMediaStop(BaseCardElement mediaElement, RenderedAdaptiveCard renderedAdaptiveCard)
+> ```
+>
+> onMediaPlay viene richiamato quando il pulsante Play viene premuto per la prima volta in qualsiasi elemento per i file multimediali, mentre onMediaStop viene richiamato quando il file multimediale raggiunge la fine

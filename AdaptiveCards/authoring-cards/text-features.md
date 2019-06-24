@@ -1,24 +1,24 @@
 ---
-title: Funzioni di testo
+title: Funzionalità per il testo
 author: matthidinger
 ms.author: mahiding
 ms.date: 11/09/2017
 ms.topic: article
 ms.openlocfilehash: ac8ec0c48e06377ebd17f1b31abe463c48809fe3
-ms.sourcegitcommit: 99c7b64d6fc66da336c454951406fb42cd2a7427
-ms.translationtype: MT
+ms.sourcegitcommit: e002a988c570072d5bc24a1242eaaac0c9ce90df
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "59553613"
 ---
-# <a name="text-features"></a>Funzioni di testo
+# <a name="text-features"></a>Funzionalità per il testo
 
-`TextBlock` offre alcune funzionalità avanzate di formattazione e la localizzazione del testo.
+`TextBlock` offre alcune funzionalità avanzate per la formattazione e la localizzazione del testo.
 
 ## <a name="markdown"></a>Markdown
-Per supportare inline markup, supporta le schede adattive una **subset** della sintassi di Markdown.
+Per supportare il markup inline, le schede adattive supportano un **subset** della sintassi Markdown.
 
-_È supportato_
+_Supportato_
 
 | Stile del testo      | Markdown |
 |-----------------|-----|
@@ -28,18 +28,18 @@ _È supportato_
 | Elenco numerato   | ```1. Green\r2. Orange\r3. Blue``` |
 | Collegamenti ipertestuali      | ```[Title](url)``` |
 
-_Non è supportato_
+_Non supportato_
 
 * Intestazioni
 * Tabelle
 * Immagini
-* Qualsiasi elemento non nella tabella precedente
+* Qualsiasi elemento non presente nella tabella precedente
 
-### <a name="markdown-example"></a>Esempio di markdown
+### <a name="markdown-example"></a>Esempio di Markdown
 
-Il seguente payload visualizzerebbe simile al seguente:
+Il payload che segue determina un rendering simile al seguente:
 
-![schermata di markdown](media/text-features/markdown.png)
+![Screenshot di Markdown](media/text-features/markdown.png)
 
 ```json
 {
@@ -73,9 +73,9 @@ Il seguente payload visualizzerebbe simile al seguente:
 }
 ```
 
-## <a name="datetime-formatting-and-localization"></a>Formattazione di data/ora e la localizzazione
+## <a name="datetime-formatting-and-localization"></a>Formattazione e localizzazione di data/ora
 
-In alcuni casi non è possibile sapere il fuso orario dell'utente che ha ricevuto la scheda, in modo che le schede adattive offre `DATE()` e `TIME()` formattazione funzioni per localizzare automaticamente l'ora nel dispositivo di destinazione.
+In alcuni casi non è possibile conoscere il fuso orario dell'utente che riceve la scheda, pertanto le schede adattive offrono le funzioni di formattazione `DATE()` e `TIME()` per localizzare automaticamente l'ora nel dispositivo di destinazione.
 
 ### <a name="datetime-example"></a>Esempio di data/ora
 
@@ -94,18 +94,18 @@ In alcuni casi non è possibile sapere il fuso orario dell'utente che ha ricevut
 }
 ```
 
-Verrà visualizzata la scheda precedente: 
+La scheda precedente visualizza quanto segue: 
 
-> **I pacchetto arriveranno Mar, il 14 febbraio 2017 6:00**
+> **Il pacchetto arriverà Mar, 14 feb 2017 alle 6:00**
 
-### <a name="datetime-function-rules"></a>Data/ora delle regole (funzione)
+### <a name="datetime-function-rules"></a>Regole per le funzioni di data/ora
 
-Sono disponibili alcune regole consentono la corretta interpretazione di funzioni di data/ora in ogni piattaforma. Se le regole non vengono soddisfatti, verrà visualizzata all'utente la stringa non elaborata e nessuno vuole che.
+Alcune regole consentono la corretta interpretazione delle funzioni di data/ora in ogni piattaforma. Se le regole non vengono soddisfatte, verrà visualizzata all'utente la stringa non elaborata.
 
-1. **Distinzione maiuscole / MINUSCOLE** (devono essere tutte maiuscole)
-1. **SENZA spazi** tra il `{{`, `}}`, parentesi o parentesi
-1. **STRICT [RFC 3389](https://tools.ietf.org/html/rfc3339) formattazione** (vedere esempi riportati di seguito)
-1. **DEVE essere** valido data e ora
+1. **DISTINZIONE TRA MAIUSCOLE E MINUSCOLE** (tutte le lettere devono essere maiuscole)
+1. **NESSUNO SPAZIO** tra `{{`, `}}` o le parentesi
+1. **FORMATTAZIONE [RFC 3389](https://tools.ietf.org/html/rfc3339)**  (vedi gli esempi riportati di seguito)
+1. Data e ora **DEVONO** essere valide
 
 ### <a name="valid-formats"></a>Formati validi
 
@@ -113,14 +113,14 @@ Sono disponibili alcune regole consentono la corretta interpretazione di funzion
 * `2017-02-14T06:08:00-07:00`
 * `2017-02-14T06:08:00+07:00`
 
-### <a name="date-formatting-param"></a>Date (formattazione) param
+### <a name="date-formatting-param"></a>Parametro per la formattazione della data
 
-Per le date, un parametro facoltativo può essere specificata per formattare l'output.
+Per le date, è possibile specificare un parametro facoltativo per formattare l'output.
 
 
 |       Formato        |            Esempio            |
 |---------------------|-------------------------------|
-| `COMPACT` (Impostazione predefinita) |          "2/13/2017"          |
-|       `SHORT`       |     "Mon 13 febbraio 2017"     |
-|       `LONG`        | "Lunedì 13 febbraio 2017" |
+| `COMPACT` (impostazione predefinita) |          "13/2/2017"          |
+|       `SHORT`       |     "Lun, 13 feb 2017"     |
+|       `LONG`        | "Lunedì, 13 febbraio 2017" |
 

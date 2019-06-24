@@ -1,46 +1,46 @@
 ---
-title: Schede adattive per gli sviluppatori di Bot
+title: Schede adattive per gli sviluppatori di bot
 author: matthidinger
 ms.author: mahiding
 ms.date: 05/30/2018
 ms.topic: article
 ms.openlocfilehash: 1acc30c0347ea5527de2af1fe74e605c7589cbc6
-ms.sourcegitcommit: 99c7b64d6fc66da336c454951406fb42cd2a7427
-ms.translationtype: MT
+ms.sourcegitcommit: e002a988c570072d5bc24a1242eaaac0c9ce90df
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "59553283"
 ---
-# <a name="adaptive-cards-for-bot-developers"></a>Schede adattive per gli sviluppatori di Bot
+# <a name="adaptive-cards-for-bot-developers"></a>Schede adattive per gli sviluppatori di bot
 
-Le schede adattive sono un candidato ideale per i robot. Consentono di creare una scheda a una sola volta, che verrà eseguito il rendering incredibilmente più applicazioni, ad esempio Microsoft Teams, proprio sito Web e altro ancora.
+Le schede adattive sono ideali per i bot. Ti consentono di creare una scheda a una sola volta e di eseguirne perfettamente il rendering in più app, come Microsoft Teams, il tuo sito Web e altro ancora.
 
 > [!NOTE]
-> Skype non è supportata nell'anteprima corrente. Vedere le [Partner stato](../resources/partners.md) pagina per la versione più recente.
+> Skype non è supportato nell'anteprima corrente. Per le informazioni più recenti, vedi la pagina sullo [stato dei partner](../resources/partners.md).
 
 ## <a name="try-it-out"></a>Prova
 
-Fare clic sul collegamento seguente e [comunicare con l'apposito Bot immersioni](http://contososcubademo.azurewebsites.net/). Ad esempio `I'm looking for scuba` e ti permetterà di prenotare l'ottimizzazione dei viaggi di immersioni dei tuoi sogni.  
+Fai clic sul collegamento seguente e [parla il bot Scuba](http://contososcubademo.azurewebsites.net/). Prova a dire `I'm looking for scuba` e ti aiuterà a prenotare il viaggio per le immersioni dei tuoi sogni.  
 
-Tutte le risposte del bot vengono create con le schede adattive.
+Tutte le risposte del bot vengono create tramite schede adattive.
 
-[![Schermata di chat immersioni](media/bots/scuba-chat.png)](http://contososcubademo.azurewebsites.net/)
+[![Screenshot della chat Scuba](media/bots/scuba-chat.png)](http://contososcubademo.azurewebsites.net/)
 
-**Ottenere il codice**: l'intero [codice sorgente Contoso immersioni Bot](https://github.com/matthidinger/ContosoScubaBot
-) sono disponibili su GitHub.
+**Ottieni il codice**: l'intero [codice sorgente del bot Contoso Scuba](https://github.com/matthidinger/ContosoScubaBot
+) è disponibile in GitHub.
 
 
 ## <a name="bot-framework-integration"></a>Integrazione di Bot Framework
 
-Con il [Bot Framework](https://dev.botframework.com/) è possibile scrivere un bot singolo che è in grado di chat con utenti in più "canali", ad esempio Skype, Microsoft Teams, Facebook Messenger e così via.
+Con [Bot Framework](https://dev.botframework.com/) è possibile scrivere un singolo bot che è in grado di chattare con utenti in più "canali", ad esempio Skype, Microsoft Teams, Facebook Messenger e così via.
 
 ## <a name="walkthrough"></a>scenario
 
-È piuttosto semplice per aggiungere una scheda adattiva al tuo bot.
+È piuttosto semplice aggiungere una scheda adattiva al tuo bot.
 
-### <a name="step-0-start-with-a-basic-message"></a>Passaggio 0: Iniziare con un messaggio di base
+### <a name="step-0-start-with-a-basic-message"></a>Passaggio 0: inizia con un messaggio di base
 
-Di seguito è un standard di Bot Framework `message` payload che possono essere recapitate a tutti i canali e testo da visualizzare per l'utente.
+Ecco un payload `message` standard di Bot Framework che può essere recapitato a qualsiasi canale e visualizzare testo per l'utente.
 
 ```json
 {
@@ -49,13 +49,13 @@ Di seguito è un standard di Bot Framework `message` payload che possono essere 
 }
 ```
 
-### <a name="step-1-add-an-adaptive-card-attachment"></a>Passaggio 1: Aggiungere una scheda adattiva `attachment`
+### <a name="step-1-add-an-adaptive-card-attachment"></a>Passaggio 1: aggiungi un `attachment` di una scheda adattiva
 
-Per aggiungere alcuni ricchezza oltre solo con il testo, Bot Framework è un concetto di `attachments`. 
+Per aggiungere contenuti avanzati oltre al semplice testo, Bot Framework introduce il concetto di `attachments`. 
 
-È possibile collegare una scheda adattiva che visualizza testo personalizzato.
+Proviamo a collegare una scheda adattiva che visualizza testo personalizzato.
 
-![Scheda adattiva base](media/bots/hello-adaptivecards.png)
+![Scheda adattiva di base](media/bots/hello-adaptivecards.png)
 
 ```json
 {
@@ -96,39 +96,39 @@ Per aggiungere alcuni ricchezza oltre solo con il testo, Bot Framework è un con
 }
 ```
 
-### <a name="step-2-build-even-richer-cards"></a>Passaggio 2: Creare schede ancora più dettagliate 
+### <a name="step-2-build-even-richer-cards"></a>Passaggio 2: crea schede ancora più avanzate 
 
-Le schede adattive offrono testo personalizzabili molto più che sufficiente. 
+Le schede adattive offrono molto più che semplice testo personalizzabile. 
 
 È possibile: 
 
-* Aggiungere `Images` sulla carta di
+* Aggiungere `Images` alla scheda
 * Organizzare i contenuti con `Containers` e `Columns`
 * Aggiungere più tipi di `Actions`
-* Raccogliere `Input` da parte degli utenti
-* Dispone di una scheda `show another card`
-* [Estrazione schema completo explorer](http://adaptivecards.io/explorer/)! 
+* Raccogliere `Input` dagli utenti
+* Usare una scheda per `show another card`
+* [Consulta tutte le informazioni in Schema Explorer](http://adaptivecards.io/explorer/). 
 
-## <a name="platform-sdks"></a>SDK di piattaforma
+## <a name="platform-sdks"></a>SDK delle piattaforme
 
-Se il bot viene sviluppato usando .NET o NodeJS abbiamo librerie per semplificare la creazione le schede adattive ancora più semplice.
+Se il bot è stato sviluppato usando .NET o NodeJS, sono disponibili librerie per rendere ancora più semplice la creazione di schede adattive.
 
 Piattaforma|Installazione|Scopri di più
 --------|-------|----------
-.NET | `Install-Package AdaptiveCards -IncludePrerelease` | [Documentazione di .NET Framework di BOT](https://docs.microsoft.com/en-us/bot-framework/dotnet/bot-builder-dotnet-add-rich-card-attachments)
-NodeJS | `npm install adaptivecards` | [BOT Framework NodeJS Docs](https://docs.microsoft.com/en-us/bot-framework/nodejs/bot-builder-nodejs-send-rich-cards)
+.NET | `Install-Package AdaptiveCards -IncludePrerelease` | [Documentazione di Bot Framework per .NET](https://docs.microsoft.com/en-us/bot-framework/dotnet/bot-builder-dotnet-add-rich-card-attachments)
+NodeJS | `npm install adaptivecards` | [Documentazione di Bot Framework per NodeJS](https://docs.microsoft.com/en-us/bot-framework/nodejs/bot-builder-nodejs-send-rich-cards)
 
 
 ## <a name="channel-status"></a>Stato del canale
 
-Bot Framework consente di pubblicare il bot in più canali. Stiamo collaborando con vari canali per fornire il supporto completo per le schede adattive. Vedere le [Partner stato](../resources/partners.md) pagina per la versione più recente.
+Bot Framework consente di pubblicare i bot in più canali. Stiamo collaborando con vari canali per fornire un supporto completo per le schede adattive. Per le informazioni più recenti, vedi la pagina sullo [stato dei partner](../resources/partners.md).
 
 
-## <a name="dive-in"></a>Approfondimento!
+## <a name="dive-in"></a>Approfondimento
 
-È stato solo un assaggio in questa esercitazione, pertanto, consultare i collegamenti seguenti per esplorare altri modi, le schede adattive può migliorare il bot.
+In questa esercitazione è stata fornita solo una presentazione generale. Visita i collegamenti seguenti per altre informazioni su come usare le schede adattive per migliorare i bot.
 
-* [Individuare le schede di esempio](http://adaptivecards.io/samples/) per trovare l'ispirazione
-* Usare la [Schema Explorer](http://adaptivecards.io/explorer) apprendere gli elementi disponibili
-* Creare una scheda usando il [Visualizzatore interattivo](http://adaptivecards.io/visualizer/index.html?hostApp=Skype)
-* [Contattare il supporto](http://adaptivecards.io/connect) con eventuali commenti
+* [Esamina le schede di esempio](http://adaptivecards.io/samples/) per trovare l'ispirazione
+* Usa [Schema Explorer](http://adaptivecards.io/explorer) per informazioni sugli elementi disponibili
+* Crea una scheda usando il [visualizzatore interattivo](http://adaptivecards.io/visualizer/index.html?hostApp=Skype)
+* [Contattaci](http://adaptivecards.io/connect) per eventuali commenti
