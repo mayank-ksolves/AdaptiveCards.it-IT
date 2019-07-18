@@ -4,18 +4,25 @@ author: bekao
 ms.author: bekao
 ms.date: 09/27/2017
 ms.topic: article
-ms.openlocfilehash: 378171186599dd8d103111da183b7fc2e6e01c42
-ms.sourcegitcommit: e002a988c570072d5bc24a1242eaaac0c9ce90df
+ms.openlocfilehash: ca92f0a2b6ef8a36c5394e4dd9853df59fef22b2
+ms.sourcegitcommit: 8c8067206f283d97a5aa4ec65ba23d3fe18962f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67134250"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68299547"
 ---
-# <a name="extensibility---android"></a><span data-ttu-id="0f9e1-102">Estendibilità - Android</span><span class="sxs-lookup"><span data-stu-id="0f9e1-102">Extensibility - Android</span></span>
+# <a name="extensibility---android"></a><span data-ttu-id="dc4a1-102">Estendibilità - Android</span><span class="sxs-lookup"><span data-stu-id="dc4a1-102">Extensibility - Android</span></span>
 
-## <a name="custom-parsing-of-card-elements"></a><span data-ttu-id="0f9e1-103">Analisi personalizzata degli elementi della scheda</span><span class="sxs-lookup"><span data-stu-id="0f9e1-103">Custom Parsing of Card Elements</span></span>
+<span data-ttu-id="dc4a1-103">Il renderer Android può essere esteso per supportare più scenari, tra cui:</span><span class="sxs-lookup"><span data-stu-id="dc4a1-103">The Android renderer can be extended to support multiple scenarios including:</span></span>
+* [<span data-ttu-id="dc4a1-104">Analisi personalizzata degli elementi della scheda</span><span class="sxs-lookup"><span data-stu-id="dc4a1-104">Custom Parsing of Card Elements</span></span>](#custom-parsing-of-card-elements)
+* [<span data-ttu-id="dc4a1-105">Rendering personalizzato degli elementi della scheda</span><span class="sxs-lookup"><span data-stu-id="dc4a1-105">Custom Rendering of Card Elements</span></span>](#custom-rendering-of-card-elements)
+* <span data-ttu-id="dc4a1-106">[Rendering personalizzato delle azioni](#custom-rendering-of-actions) (A partire dalla versione 1.2)</span><span class="sxs-lookup"><span data-stu-id="dc4a1-106">[Custom Rendering of Actions](#custom-rendering-of-actions) (Since v1.2)</span></span>
+* <span data-ttu-id="dc4a1-107">[Caricamento di immagini personalizzate](#custom-image-loading) (A partire dalla versione 1.0.1)</span><span class="sxs-lookup"><span data-stu-id="dc4a1-107">[Custom Image Loading](#custom-image-loading) (Since v1.0.1)</span></span>
+* <span data-ttu-id="dc4a1-108">[Caricamento di file multimediali personalizzati](#custom-media-loading) (A partire dalla versione 1.1)</span><span class="sxs-lookup"><span data-stu-id="dc4a1-108">[Custom Media Loading](#custom-media-loading) (Since v1.1)</span></span>
 
-<span data-ttu-id="0f9e1-104">Puoi estendere il parser per supportare gli elementi della scheda che hai definito.</span><span class="sxs-lookup"><span data-stu-id="0f9e1-104">You may extend the parser to support card elements that you have defined.</span></span> <span data-ttu-id="0f9e1-105">Supponiamo ad esempio di avere un nuovo tipo di elemento che si presenta come segue:</span><span class="sxs-lookup"><span data-stu-id="0f9e1-105">For example, say we have a new element type that looks like this:</span></span>
+## <a name="custom-parsing-of-card-elements"></a><span data-ttu-id="dc4a1-109">Analisi personalizzata degli elementi della scheda</span><span class="sxs-lookup"><span data-stu-id="dc4a1-109">Custom Parsing of Card Elements</span></span>
+
+<span data-ttu-id="dc4a1-110">Puoi estendere il parser per supportare gli elementi della scheda che hai definito.</span><span class="sxs-lookup"><span data-stu-id="dc4a1-110">You may extend the parser to support card elements that you have defined.</span></span> <span data-ttu-id="dc4a1-111">Supponiamo ad esempio di avere un nuovo tipo di elemento che si presenta come segue:</span><span class="sxs-lookup"><span data-stu-id="dc4a1-111">For example, say we have a new element type that looks like this:</span></span>
 ```json
 {
     "type" : "MyType",
@@ -23,7 +30,7 @@ ms.locfileid: "67134250"
 }
 ```
 
-<span data-ttu-id="0f9e1-106">Le righe seguenti illustrano come analizzarlo in un CardElement esteso da BaseCardElement:</span><span class="sxs-lookup"><span data-stu-id="0f9e1-106">Then the following lines demonstrate how to parse it into a CardElement that extends from the BaseCardElement:</span></span>
+<span data-ttu-id="dc4a1-112">Le righe seguenti illustrano come analizzarlo in un CardElement esteso da BaseCardElement:</span><span class="sxs-lookup"><span data-stu-id="dc4a1-112">Then the following lines demonstrate how to parse it into a CardElement that extends from the BaseCardElement:</span></span>
 ```java
 public class MyCustomCardElement extends BaseCardElement
 {
@@ -65,7 +72,7 @@ public class MyCardElementParser extends BaseCardElementParser
 }
 ```
 
-<span data-ttu-id="0f9e1-107">Ecco come registrare il parser e ottenere un oggetto AdaptiveCard che contiene l'elemento personalizzato:</span><span class="sxs-lookup"><span data-stu-id="0f9e1-107">And this is how to register the parser and get an AdaptiveCard object that contains the custom element:</span></span>
+<span data-ttu-id="dc4a1-113">Ecco come registrare il parser e ottenere un oggetto AdaptiveCard che contiene l'elemento personalizzato:</span><span class="sxs-lookup"><span data-stu-id="dc4a1-113">And this is how to register the parser and get an AdaptiveCard object that contains the custom element:</span></span>
 ```java
 // Create an ElementParserRegistrationObject and add your parser to it
 ElementParserRegistration elementParserRegistration = new ElementParserRegistration();
@@ -74,11 +81,17 @@ elementParserRegistration.AddParser("MyType", new MyCardElementParser());
 AdaptiveCard adaptiveCard = AdaptiveCard.DeserializeFromString(jsonText, elementParserRegistration);
 ```
 
-<span data-ttu-id="0f9e1-108">Viene quindi eseguito il rendering dell'elemento personalizzato</span><span class="sxs-lookup"><span data-stu-id="0f9e1-108">Next comes rendering the custom element</span></span>
+<span data-ttu-id="dc4a1-114">Viene quindi eseguito il rendering dell'elemento personalizzato</span><span class="sxs-lookup"><span data-stu-id="dc4a1-114">Next comes rendering the custom element</span></span>
 
-## <a name="custom-rendering-of-card-elements"></a><span data-ttu-id="0f9e1-109">Rendering personalizzato degli elementi della scheda</span><span class="sxs-lookup"><span data-stu-id="0f9e1-109">Custom Rendering of Card Elements</span></span>
+## <a name="custom-rendering-of-card-elements"></a><span data-ttu-id="dc4a1-115">Rendering personalizzato degli elementi della scheda</span><span class="sxs-lookup"><span data-stu-id="dc4a1-115">Custom Rendering of Card Elements</span></span>
 
-<span data-ttu-id="0f9e1-110">Per definire un renderer personalizzato per il tipo, è innanzitutto necessario creare una classe estesa da BaseCardElementParser:</span><span class="sxs-lookup"><span data-stu-id="0f9e1-110">To define our own custom renderer for our type, we must first create a class that extends from BaseCardElementParser:</span></span>
+> [!IMPORTANT]
+>
+> <span data-ttu-id="dc4a1-116">**Elenco di modifiche di rilievo**</span><span class="sxs-lookup"><span data-stu-id="dc4a1-116">**List of Breaking Changes**</span></span>
+>
+> [<span data-ttu-id="dc4a1-117">Modifiche importanti per la versione 1.2</span><span class="sxs-lookup"><span data-stu-id="dc4a1-117">Breaking changes for v1.2</span></span>](#breaking-changes-for-v12)
+
+<span data-ttu-id="dc4a1-118">Per definire un renderer personalizzato per il tipo, è necessario innanzitutto creare una classe che si estende da ```BaseCardElementRenderer```:</span><span class="sxs-lookup"><span data-stu-id="dc4a1-118">To define our own custom renderer for our type, we must first create a class that extends from ```BaseCardElementRenderer```:</span></span>
 ```java
 public class MyCardElementRenderer extends BaseCardElementRenderer
 {
@@ -100,32 +113,165 @@ public class MyCardElementRenderer extends BaseCardElementRenderer
 }
 ```
 
-<span data-ttu-id="0f9e1-111">Possiamo quindi registrare il renderer come segue:</span><span class="sxs-lookup"><span data-stu-id="0f9e1-111">We then register this renderer like so:</span></span>
+<span data-ttu-id="dc4a1-119">Possiamo quindi registrare il renderer come segue:</span><span class="sxs-lookup"><span data-stu-id="dc4a1-119">We then register this renderer like so:</span></span>
 ```java
 CardRendererRegistration.getInstance().registerRenderer("MyType", new CustomBlahRenderer());
 
-RenderedAdaptiveCard renderedCard = AdaptiveCardRenderer.getInstance().render(context, getSupportFragmentManager(), adaptiveCard, cardActionHandler, new HostConfig());
+RenderedAdaptiveCard renderedCard = AdaptiveCardRenderer.getInstance().render(context, fragmentManager, adaptiveCard, cardActionHandler,  hostConfig);
 ```
 
-## <a name="custom-rendering-of-actions"></a><span data-ttu-id="0f9e1-112">Rendering personalizzato di azioni</span><span class="sxs-lookup"><span data-stu-id="0f9e1-112">Custom rendering of actions</span></span>
+### <a name="breaking-changes-for-v12"></a><span data-ttu-id="dc4a1-120">Modifiche di rilievo per v 1.2</span><span class="sxs-lookup"><span data-stu-id="dc4a1-120">Breaking changes for v1.2</span></span>
+
+<span data-ttu-id="dc4a1-121">Il ```render``` metodo è stato modificato in modo ```RenderedAdaptiveCard``` da includere ```ContainerStyle``` il parametro ed è stato modificato per un RenderArgs in cui ContainerStyle è ora contenuto, quindi una classe che estende BaseCardElementRenderer dovrebbe essere simile alla seguente</span><span class="sxs-lookup"><span data-stu-id="dc4a1-121">The ```render``` method was changed to include the ```RenderedAdaptiveCard``` parameter and ```ContainerStyle``` was changed for a RenderArgs where the ContainerStyle is now contained so a class that extends BaseCardElementRenderer should look like this</span></span>
+
+```
+public class MyCardElementRenderer extends BaseCardElementRenderer
+{
+    @Override
+    public View render(RenderedAdaptiveCard renderedAdaptiveCard, Context context, FragmentManager fragmentManager, ViewGroup viewGroup,
+                       BaseCardElement baseCardElement, ICardActionHandler cardActionHandler, HostConfig hostConfig, RenderArgs renderArgs)
+    { }
+}
+```
+
+## <a name="custom-parsing-of-card-actions"></a><span data-ttu-id="dc4a1-122">Analisi personalizzata delle azioni della scheda</span><span class="sxs-lookup"><span data-stu-id="dc4a1-122">Custom Parsing of Card Actions</span></span>
+
+<span data-ttu-id="dc4a1-123">Analogamente all'analisi degli elementi della scheda personalizzati nella versione 1.2, è stata introdotta la possibilità di analizzare le azioni personalizzate.</span><span class="sxs-lookup"><span data-stu-id="dc4a1-123">Similarly to parsing custom card elements in v1.2 the possibility to parse custom actions was introduced.</span></span> <span data-ttu-id="dc4a1-124">Ad esempio, supponiamo di avere un nuovo tipo di azione simile al seguente:</span><span class="sxs-lookup"><span data-stu-id="dc4a1-124">For example, say we have a new action type that looks like this:</span></span>
+```json
+{
+    "type" : "MyAction",
+    "ActionData" : "My data"
+}
+```
+
+<span data-ttu-id="dc4a1-125">Nelle righe seguenti viene illustrato come analizzarlo in un Actionelement che si estende da ```BaseActionElement```:</span><span class="sxs-lookup"><span data-stu-id="dc4a1-125">Then the following lines demonstrate how to parse it into a ActionElement that extends from the ```BaseActionElement```:</span></span>
+```java
+public class MyActionElement extends BaseActionElement
+{
+    public MyActionElement(ActionType type) 
+    {
+        super(type);
+    }
+
+    public String getActionData()
+    {
+        return mActionData;
+    }
+
+    public void setActionData(String s)
+    {
+        mActionData = s;
+    }
+
+    private String mActionData;
+    public static final String MyActionId = "myAction";
+}
+
+public class MyActionParser extends ActionElementParser
+{
+    @Override
+    public BaseActionElement Deserialize(ParseContext context, JsonValue value)
+    {
+        MyActionElement element = new MyActionElement(ActionType.Custom);
+        element.SetElementTypeString(MyActionElement.MyActionId);
+        String val = value.getString();
+        try {
+            JSONObject obj = new JSONObject(val);
+            element.setActionData(obj.getString("ActionData"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+            element.setActionData("Failure");
+        }
+        return element;
+    }
+
+    @Override
+    public BaseActionElement DeserializeFromString(ParseContext context, String jsonString)
+    {
+        MyActionElement element = new MyActionElement(ActionType.Custom);
+        element.SetElementTypeString(MyActionElement.MyActionId);
+        try {
+            JSONObject obj = new JSONObject(jsonString);
+            element.setBackwardString(obj.getString("ActionData"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+            element.setBackwardString("Failure");
+        }
+        return element;
+    }
+}
+```
+
+<span data-ttu-id="dc4a1-126">E le righe successive dimostrano come registrare il parser e ottenere un oggetto AdaptiveCard che contiene l'elemento azione personalizzata:</span><span class="sxs-lookup"><span data-stu-id="dc4a1-126">And the next lines demonstrate how to register the parser and get an AdaptiveCard object that contains the custom action element:</span></span>
+```java
+// Create an ActionParserRegistration and add your parser to it
+ActionParserRegistration actionParserRegistration = new ActionParserRegistration();
+actionParserRegistration.AddParser(MyActionElement.MyActionId, new MyActionParser());
+
+ParseContext context = new ParseContext(null, actionParserRegistration);
+ParseResult parseResult = AdaptiveCard.DeserializeFromString(jsonText, AdaptiveCardRenderer.VERSION, context);
+```
+
+<span data-ttu-id="dc4a1-127">Viene quindi eseguito il rendering dell'azione personalizzata</span><span class="sxs-lookup"><span data-stu-id="dc4a1-127">Next comes rendering the custom action</span></span>
+
+## <a name="custom-rendering-of-actions"></a><span data-ttu-id="dc4a1-128">Rendering personalizzato delle azioni</span><span class="sxs-lookup"><span data-stu-id="dc4a1-128">Custom Rendering of Actions</span></span>
+
+<span data-ttu-id="dc4a1-129">Per definire il renderer dell'azione personalizzata per il tipo, è necessario innanzitutto creare una classe che si estende ```BaseActionElementRenderer```da:</span><span class="sxs-lookup"><span data-stu-id="dc4a1-129">To define our own custom action renderer for our type, we must first create a class that extends from ```BaseActionElementRenderer```:</span></span>
+```java
+public class MyActionRenderer extends BaseActionElementRenderer
+{
+    @Override
+    public Button render(RenderedAdaptiveCard renderedCard,
+                         Context context,
+                         FragmentManager fragmentManager,
+                         ViewGroup viewGroup,
+                         BaseActionElement baseActionElement,
+                         ICardActionHandler cardActionHandler,
+                         HostConfig hostConfig,
+                         RenderArgs renderArgs)
+    {
+        Button myActionButton = new Button(context);
+
+        CustomActionElement customAction = (CustomActionElement) baseActionElement.findImplObj();
+
+        myActionButton.setBackgroundColor(getResources().getColor(R.color.greenActionColor));
+        myActionButton.setText(customAction.getMessage());
+        myActionButton.setAllCaps(false);
+        myActionButton.setOnClickListener(new BaseActionElementRenderer.ActionOnClickListener(renderedCard, baseActionElement, cardActionHandler));
+
+        viewGroup.addView(myActionButton);
+
+        return myActionButton;
+    }
+}
+```
+
+<span data-ttu-id="dc4a1-130">Possiamo quindi registrare il renderer come segue:</span><span class="sxs-lookup"><span data-stu-id="dc4a1-130">We then register this renderer like so:</span></span>
+```java
+CardRendererRegistration.getInstance().registerActionRenderer("myAction", new CustomActionRenderer());
+
+RenderedAdaptiveCard renderedCard = AdaptiveCardRenderer.getInstance().render(context, fragmentManager, adaptiveCard, cardActionHandler, hostConfig);
+```
+
+## <a name="custom-rendering-of-actions"></a><span data-ttu-id="dc4a1-131">Rendering personalizzato di azioni</span><span class="sxs-lookup"><span data-stu-id="dc4a1-131">Custom rendering of actions</span></span>
 
 [!IMPORTANT]
-> <span data-ttu-id="0f9e1-113">Per la versione 1.2 sono previste modifiche del rendering personalizzato delle azioni, che tuttavia non sono state ancora completate</span><span class="sxs-lookup"><span data-stu-id="0f9e1-113">Changes to the custom rendering of actions are planned for v1.2 but are not completed yet</span></span>
+> <span data-ttu-id="dc4a1-132">Per la versione 1.2 sono previste modifiche del rendering personalizzato delle azioni, che tuttavia non sono state ancora completate</span><span class="sxs-lookup"><span data-stu-id="dc4a1-132">Changes to the custom rendering of actions are planned for v1.2 but are not completed yet</span></span>
 
-## <a name="custom-image-loading"></a><span data-ttu-id="0f9e1-114">Caricamento di immagini personalizzate</span><span class="sxs-lookup"><span data-stu-id="0f9e1-114">Custom image loading</span></span>
+## <a name="custom-image-loading"></a><span data-ttu-id="dc4a1-133">Caricamento di immagini personalizzate</span><span class="sxs-lookup"><span data-stu-id="dc4a1-133">Custom image loading</span></span>
 
-### <a name="ionlineimageloader"></a><span data-ttu-id="0f9e1-115">IOnlineImageLoader</span><span class="sxs-lookup"><span data-stu-id="0f9e1-115">IOnlineImageLoader</span></span>
+### <a name="ionlineimageloader"></a><span data-ttu-id="dc4a1-134">IOnlineImageLoader</span><span class="sxs-lookup"><span data-stu-id="dc4a1-134">IOnlineImageLoader</span></span>
 
 > [!IMPORTANT]
-> <span data-ttu-id="0f9e1-116">**È possibile registrare un solo IOnlineImageLoader, che ha la precedenza rispetto alla modalità predefinita di recupero delle immagini**</span><span class="sxs-lookup"><span data-stu-id="0f9e1-116">**Only one IOnlineImageLoader can be registered and it takes precedence against the default way of retrieving images**</span></span>
+> <span data-ttu-id="dc4a1-135">**È possibile registrare un solo IOnlineImageLoader, che ha la precedenza rispetto alla modalità predefinita di recupero delle immagini**</span><span class="sxs-lookup"><span data-stu-id="dc4a1-135">**Only one IOnlineImageLoader can be registered and it takes precedence against the default way of retrieving images**</span></span>
 
-<span data-ttu-id="0f9e1-117">IOnlineImageLoader è stato aggiunto per consentire agli sviluppatori di ottenere immagini che non è semplicemente possibile scaricare o recuperare da un'origine online o che richiedono passaggi precedenti prima del recupero.</span><span class="sxs-lookup"><span data-stu-id="0f9e1-117">In order to allow developers to get images that could not just be downloaded or retrieved from an online source or required previous steps before they could be retrieved, the IOnlineImageLoader was added to solve this kind of situations.</span></span> <span data-ttu-id="0f9e1-118">Per implementare OnlineImageLoader, è sufficiente implementare il metodo</span><span class="sxs-lookup"><span data-stu-id="0f9e1-118">To implement an OnlineImageLoader you must only implement the method</span></span> 
+<span data-ttu-id="dc4a1-136">IOnlineImageLoader è stato aggiunto per consentire agli sviluppatori di ottenere immagini che non è semplicemente possibile scaricare o recuperare da un'origine online o che richiedono passaggi precedenti prima del recupero.</span><span class="sxs-lookup"><span data-stu-id="dc4a1-136">In order to allow developers to get images that could not just be downloaded or retrieved from an online source or required previous steps before they could be retrieved, the IOnlineImageLoader was added to solve this kind of situations.</span></span> <span data-ttu-id="dc4a1-137">Per implementare OnlineImageLoader, è sufficiente implementare il metodo</span><span class="sxs-lookup"><span data-stu-id="dc4a1-137">To implement an OnlineImageLoader you must only implement the method</span></span> 
 
 ```java
 public HttpRequestResult<Bitmap> loadOnlineImage(String url, GenericImageLoaderAsync loader) throws IOException, URISyntaxException
 ```
 
-<span data-ttu-id="0f9e1-119">Di seguito è riportato un esempio di un elemento OnlineImageLoader che cambia tutte le immagini nell'immagine di un gatto</span><span class="sxs-lookup"><span data-stu-id="0f9e1-119">Here's an example of an OnlineImageLoader which changes all images for a cat image</span></span>
+<span data-ttu-id="dc4a1-138">Di seguito è riportato un esempio di un elemento OnlineImageLoader che cambia tutte le immagini nell'immagine di un gatto</span><span class="sxs-lookup"><span data-stu-id="dc4a1-138">Here's an example of an OnlineImageLoader which changes all images for a cat image</span></span>
 
 ```java
 public class OnlineImageLoader implements IOnlineImageLoader
@@ -154,17 +300,17 @@ public class OnlineImageLoader implements IOnlineImageLoader
 }
 ```
 
-<span data-ttu-id="0f9e1-120">Infine, per registrare il caricatore di immagini, basta aggiungere questa riga nel codice.</span><span class="sxs-lookup"><span data-stu-id="0f9e1-120">Finally, to register this image loader, you must only add this line to your code.</span></span>
+<span data-ttu-id="dc4a1-139">Infine, per registrare il caricatore di immagini, basta aggiungere questa riga nel codice.</span><span class="sxs-lookup"><span data-stu-id="dc4a1-139">Finally, to register this image loader, you must only add this line to your code.</span></span>
 
 ```java
 CardRendererRegistration.getInstance().registerOnlineImageLoader(new OnlineImageLoader());
 ```
 
-### <a name="iresourceresolver-deprecates-ionlineimageloader"></a><span data-ttu-id="0f9e1-121">IResourceResolver (rende deprecato IOnlineImageLoader)</span><span class="sxs-lookup"><span data-stu-id="0f9e1-121">IResourceResolver (deprecates IOnlineImageLoader)</span></span>
+### <a name="iresourceresolver-deprecates-ionlineimageloader"></a><span data-ttu-id="dc4a1-140">IResourceResolver (rende deprecato IOnlineImageLoader)</span><span class="sxs-lookup"><span data-stu-id="dc4a1-140">IResourceResolver (deprecates IOnlineImageLoader)</span></span>
 
-<span data-ttu-id="0f9e1-122">Per la versione 1.2, al renderer di Android è stato aggiunto il supporto completo per i ResourceResolver.</span><span class="sxs-lookup"><span data-stu-id="0f9e1-122">For v1.2, the support for full ResourceResolvers was added to the android renderer.</span></span> <span data-ttu-id="0f9e1-123">L'implementazione di un resolver di risorse è molto simile a quella di un IOnlineImageLoader, ma l'uso dei ResourceResolver consente agli sviluppatori di aggiungere diversi modi per recuperare le immagini da qualsiasi tipo di origine in una sola scheda. Questa operazione viene eseguita mediante il collegamento di ogni ResourceResolver a un prefisso univoco, a cui verrà inviata una query durante il tentativo di recuperare un'immagine.</span><span class="sxs-lookup"><span data-stu-id="0f9e1-123">The implementation of a resource resolver is really similar to that of a IOnlineImageLoader but having ResourceResolvers allows a developer to add multiple ways to retrieve images from any kind of source in a single card, this is done by linking each ResourceResolver to a unique prefix which will be queried when trying to retrieve an image.</span></span> 
+<span data-ttu-id="dc4a1-141">Per la versione 1.2, al renderer di Android è stato aggiunto il supporto completo per i ResourceResolver.</span><span class="sxs-lookup"><span data-stu-id="dc4a1-141">For v1.2, the support for full ResourceResolvers was added to the android renderer.</span></span> <span data-ttu-id="dc4a1-142">L'implementazione di un resolver di risorse è molto simile a quella di un IOnlineImageLoader, ma l'uso dei ResourceResolver consente agli sviluppatori di aggiungere diversi modi per recuperare le immagini da qualsiasi tipo di origine in una sola scheda. Questa operazione viene eseguita mediante il collegamento di ogni ResourceResolver a un prefisso univoco, a cui verrà inviata una query durante il tentativo di recuperare un'immagine.</span><span class="sxs-lookup"><span data-stu-id="dc4a1-142">The implementation of a resource resolver is really similar to that of a IOnlineImageLoader but having ResourceResolvers allows a developer to add multiple ways to retrieve images from any kind of source in a single card, this is done by linking each ResourceResolver to a unique prefix which will be queried when trying to retrieve an image.</span></span> 
 
-<span data-ttu-id="0f9e1-124">È possibile implementare un ResourceResolver simile al seguente</span><span class="sxs-lookup"><span data-stu-id="0f9e1-124">You can implement a ResourceResolver similar to this</span></span>
+<span data-ttu-id="dc4a1-143">È possibile implementare un ResourceResolver simile al seguente</span><span class="sxs-lookup"><span data-stu-id="dc4a1-143">You can implement a ResourceResolver similar to this</span></span>
 
 ```java
 public class ResourceResolver implements IResourceResolver
@@ -212,16 +358,16 @@ public class ResourceResolver implements IResourceResolver
 }
 ```
 
-<span data-ttu-id="0f9e1-125">Come accennato in precedenza, è possibile registrare più ResourceResolver. Per registrare un ResourceResolver, puoi procedere come segue</span><span class="sxs-lookup"><span data-stu-id="0f9e1-125">As mentioned previously, you can register multiple ResourceResolvers, to register a ResourceResolver you can do this</span></span>
+<span data-ttu-id="dc4a1-144">Come accennato in precedenza, è possibile registrare più ResourceResolver. Per registrare un ResourceResolver, puoi procedere come segue</span><span class="sxs-lookup"><span data-stu-id="dc4a1-144">As mentioned previously, you can register multiple ResourceResolvers, to register a ResourceResolver you can do this</span></span>
 
 ```java
  CardRendererRegistration.getInstance().registerResourceResolver("data", new ResourceResolver());
  CardRendererRegistration.getInstance().registerResourceResolver("anotherPrefix", new AnotherResourceResolver());
 ```
 
-#### <a name="transforming-an-ionlineimageloader-to-an-iresourceresolver"></a><span data-ttu-id="0f9e1-126">Trasformazione di un IOnlineImageLoader in un IResourceResolver</span><span class="sxs-lookup"><span data-stu-id="0f9e1-126">Transforming an IOnlineImageLoader to an IResourceResolver</span></span> 
+#### <a name="transforming-an-ionlineimageloader-to-an-iresourceresolver"></a><span data-ttu-id="dc4a1-145">Trasformazione di un IOnlineImageLoader in un IResourceResolver</span><span class="sxs-lookup"><span data-stu-id="dc4a1-145">Transforming an IOnlineImageLoader to an IResourceResolver</span></span> 
 
-<span data-ttu-id="0f9e1-127">Trasformare un IOnlineImageLoader in un IResourceResolver è un'attività piuttosto semplice, perché i metodi di quest'ultimo sono stati mantenuti quanto più simili possibile a quelli di IOnlineImageLoader</span><span class="sxs-lookup"><span data-stu-id="0f9e1-127">Transforming an IOnlineImageLoader to an IResourceResolver is a fairly easy task as the methods for the latter were tried to keep as similar as the IOnlineImageLoader as possible</span></span>
+<span data-ttu-id="dc4a1-146">Trasformare un IOnlineImageLoader in un IResourceResolver è un'attività piuttosto semplice, perché i metodi di quest'ultimo sono stati mantenuti quanto più simili possibile a quelli di IOnlineImageLoader</span><span class="sxs-lookup"><span data-stu-id="dc4a1-146">Transforming an IOnlineImageLoader to an IResourceResolver is a fairly easy task as the methods for the latter were tried to keep as similar as the IOnlineImageLoader as possible</span></span>
 
 ```java
  // IOnlineImageLoader
@@ -232,18 +378,19 @@ public class ResourceResolver implements IResourceResolver
  public HttpRequestResult<Bitmap> resolveImageResource(String uri, GenericImageLoaderAsync genericImageLoaderAsync, int maxWidth) throws IOException, URISyntaxException
 ```
 
-<span data-ttu-id="0f9e1-128">Come puoi notare, le modifiche principali sono</span><span class="sxs-lookup"><span data-stu-id="0f9e1-128">As you can see, the biggest changes are</span></span>
-* <span data-ttu-id="0f9e1-129">loadOnlineImage (String, GenericImageLoaderAsync) è stato rinominato resolveImageResource(String, GenericImageLoaderAsync)</span><span class="sxs-lookup"><span data-stu-id="0f9e1-129">loadOnlineImage(String, GenericImageLoaderAsync) was renamed to resolveImageResource(String, GenericImageLoaderAsync)</span></span>
-* <span data-ttu-id="0f9e1-130">è stato aggiunto un overload per resolveImageResource(String, GenericImageLoaderAsync) come resolveImageResource(String, GenericImageLoaderAsync, int) per supportare gli scenari in cui è necessaria la larghezza massima</span><span class="sxs-lookup"><span data-stu-id="0f9e1-130">an overload for resolveImageResource(String, GenericImageLoaderAsync) was added as resolveImageResource(String, GenericImageLoaderAsync, int) in order to support scenarios where the max width is required</span></span>
+<span data-ttu-id="dc4a1-147">Come puoi notare, le modifiche principali sono</span><span class="sxs-lookup"><span data-stu-id="dc4a1-147">As you can see, the biggest changes are</span></span>
 
-## <a name="custom-media-loading"></a><span data-ttu-id="0f9e1-131">Caricamento di file multimediali personalizzati</span><span class="sxs-lookup"><span data-stu-id="0f9e1-131">Custom media loading</span></span>
+* <span data-ttu-id="dc4a1-148">```loadOnlineImage(String, GenericImageLoaderAsync)```è stato rinominato in```resolveImageResource(String, GenericImageLoaderAsync)```</span><span class="sxs-lookup"><span data-stu-id="dc4a1-148">```loadOnlineImage(String, GenericImageLoaderAsync)``` was renamed to ```resolveImageResource(String, GenericImageLoaderAsync)```</span></span>
+* <span data-ttu-id="dc4a1-149">un overload per ```resolveImageResource(String, GenericImageLoaderAsync)``` è stato aggiunto ```resolveImageResource(String, GenericImageLoaderAsync, int)``` come per supportare scenari in cui è richiesta la larghezza massima</span><span class="sxs-lookup"><span data-stu-id="dc4a1-149">an overload for ```resolveImageResource(String, GenericImageLoaderAsync)``` was added as ```resolveImageResource(String, GenericImageLoaderAsync, int)``` in order to support scenarios where the max width is required</span></span>
+
+## <a name="custom-media-loading"></a><span data-ttu-id="dc4a1-150">Caricamento di file multimediali personalizzati</span><span class="sxs-lookup"><span data-stu-id="dc4a1-150">Custom Media Loading</span></span>
 
 > [!IMPORTANT]
-> <span data-ttu-id="0f9e1-132">**Ricorda che IOnlineMediaLoader richiede l'aggiunta di MediaDataSource nel livello API 23 o in Android M**</span><span class="sxs-lookup"><span data-stu-id="0f9e1-132">**Remember IOnlineMediaLoader requires MediaDataSource was added in API level 23 or Android M**</span></span>
+> <span data-ttu-id="dc4a1-151">**È ```IOnlineMediaLoader``` necessario```MediaDataSource``` ricordare che è stato aggiunto a livello API 23 o Android M**</span><span class="sxs-lookup"><span data-stu-id="dc4a1-151">**Remember ```IOnlineMediaLoader``` requires ```MediaDataSource``` which was added in API level 23 or Android M**</span></span>
 
-<span data-ttu-id="0f9e1-133">Oltre all'inclusione dell'elemento per i file multimediali, è stata anche inclusa l'interfaccia IOnlineMediaLoader, che consente agli sviluppatori di eseguire l'override dell'oggetto [MediaDataSource](https://developer.android.com/reference/android/media/MediaDataSource) usato per l'elemento mediaPlayer sottostante.</span><span class="sxs-lookup"><span data-stu-id="0f9e1-133">Along with the inclusion of the media element, also was the inclusion of the IOnlineMediaLoader interface which allows developers to override the [MediaDataSource](https://developer.android.com/reference/android/media/MediaDataSource) used for the underlying mediaPlayer element.</span></span> <span data-ttu-id="0f9e1-134">**(Richiede Android M)**</span><span class="sxs-lookup"><span data-stu-id="0f9e1-134">**(Requires android M)**</span></span>
+<span data-ttu-id="dc4a1-152">Oltre all'inclusione dell'elemento per i file multimediali, è stata anche inclusa l'interfaccia IOnlineMediaLoader, che consente agli sviluppatori di eseguire l'override dell'oggetto [MediaDataSource](https://developer.android.com/reference/android/media/MediaDataSource) usato per l'elemento mediaPlayer sottostante.</span><span class="sxs-lookup"><span data-stu-id="dc4a1-152">Along with the inclusion of the media element, also was the inclusion of the IOnlineMediaLoader interface which allows developers to override the [MediaDataSource](https://developer.android.com/reference/android/media/MediaDataSource) used for the underlying mediaPlayer element.</span></span> <span data-ttu-id="dc4a1-153">**(Richiede Android M)**</span><span class="sxs-lookup"><span data-stu-id="dc4a1-153">**(Requires android M)**</span></span>
 
-<span data-ttu-id="0f9e1-135">La prima operazione che è necessario eseguire è creare una classe che implementa IOnlineImageLoader</span><span class="sxs-lookup"><span data-stu-id="0f9e1-135">The first needed thing to do is creating a class that implements IOnlineImageLoader</span></span>
+<span data-ttu-id="dc4a1-154">La prima operazione che è necessario eseguire è creare una classe che implementa IOnlineImageLoader</span><span class="sxs-lookup"><span data-stu-id="dc4a1-154">The first needed thing to do is creating a class that implements IOnlineImageLoader</span></span>
 
 ```java
 @RequiresApi(api = Build.VERSION_CODES.M)
@@ -302,7 +449,7 @@ public class OnlineMediaLoader implements IOnlineMediaLoader
 }
 ```
 
-<span data-ttu-id="0f9e1-136">Una volta implementata questa classe, puoi registrare la classe OnlineMediaLoader aggiungendo</span><span class="sxs-lookup"><span data-stu-id="0f9e1-136">Once this class has been implemented, you can register your OnlineMediaLoader class by adding</span></span> 
+<span data-ttu-id="dc4a1-155">Una volta implementata questa classe, puoi registrare la classe OnlineMediaLoader aggiungendo</span><span class="sxs-lookup"><span data-stu-id="dc4a1-155">Once this class has been implemented, you can register your OnlineMediaLoader class by adding</span></span> 
 ```java
   CardRendererRegistration.getInstance().registerOnlineMediaLoader(new OnlineMediaLoader());
 ```
