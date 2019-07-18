@@ -4,12 +4,12 @@ author: matthidinger
 ms.author: mahiding
 ms.date: 06/26/2017
 ms.topic: article
-ms.openlocfilehash: 8d9e30d4e188a1f0a9d10a9a4821f78b9b3b2f57
-ms.sourcegitcommit: e002a988c570072d5bc24a1242eaaac0c9ce90df
+ms.openlocfilehash: 487acab86d80d563210abe07968520ea7669498a
+ms.sourcegitcommit: 8c8067206f283d97a5aa4ec65ba23d3fe18962f1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67134201"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68299546"
 ---
 # <a name="adaptive-cards-overview"></a>Panoramica delle schede adattive 
 
@@ -29,7 +29,7 @@ Per gli utenti il vantaggio è che questi elementi hanno un aspetto familiare. I
 
 ## <a name="goals"></a>Obiettivi 
 
-Le schede adattive sono:
+Le schede adattive devono essere:
 
 * **Portabili** - Per qualsiasi app, dispositivo e framework dell'interfaccia utente
 * **Aperte** - Librerie e schema sono open source e condivisi
