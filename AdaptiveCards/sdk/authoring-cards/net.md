@@ -1,31 +1,31 @@
 ---
-title: .NET SDK per le schede adattive
+title: .NET SDK per schede adattive
 author: matthidinger
 ms.author: mahiding
 ms.date: 10/01/2017
 ms.topic: article
-ms.openlocfilehash: 37dec7651a574194eb00d46014431dfb5764f9b7
-ms.sourcegitcommit: 99c7b64d6fc66da336c454951406fb42cd2a7427
+ms.openlocfilehash: fa86d83a8f20490ec286b69653099ac8cd81b8ef
+ms.sourcegitcommit: 4d80c553ab574befa8c84706fd85d22077915745
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59553743"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68387353"
 ---
 # <a name="net-sdk-for-authoring-cards"></a>.NET SDK per la creazione di schede
 
-Come illustrato nel [introduttiva](../../authoring-cards/getting-started.md) pagina, una scheda adattiva è un modello a oggetti JSON. La libreria .NET semplifica molto più semplice l'uso con tale codice JSON.
+Come descritto nella pagina [Introduzione](../../authoring-cards/getting-started.md) , una scheda adattiva è un modello a oggetti JSON. La libreria .NET rende molto più semplice l'uso di tale JSON.
 
 > [!IMPORTANT]
-> **Modifiche di rilievo rispetto versione 0.5**
+> **Modifiche di rilievo da v 0,5**
 > 
-> 1. Pacchetto rinominato da `Microsoft.AdaptiveCards` a `AdaptiveCards`
-> 1. A causa di conflitti di nomi di frequente con i tipi di framework, tutte le classi modello sono state precedute "Adaptive". Ad esempio, `TextBlock` è ora `AdaptiveTextBlock`
-> 1. Tutte le proprietà "uri" sono state modificate da tipo `string` a `Uri`
-> 1. Sono state apportate anche alcune modifiche dello schema dalla versione di anteprima versione 0.5, ovvero [descritti qui](https://github.com/Microsoft/AdaptiveCards/pull/633)
+> 1. Il pacchetto è stato rinominato da `Microsoft.AdaptiveCards` a`AdaptiveCards`
+> 1. A causa di conflitti di nomi frequenti con i tipi di Framework, tutte le classi modello sono state precedute dal prefisso "Adaptive". Ad esempio, `TextBlock` è ora`AdaptiveTextBlock`
+> 1. Tutte le proprietà "URI" sono state modificate `string` dal tipo in`Uri`
+> 1. Sono state apportate anche alcune modifiche dello schema rispetto alla versione 0.5 Preview, [descritte qui](https://github.com/Microsoft/AdaptiveCards/pull/633)
 
 
 ## <a name="nuget-install"></a>Installazione di NuGet
-Il `AdaptiveCards` pacchetto NuGet fornisce tipi per lavorare con le schede adattive in .NET
+Il `AdaptiveCards` pacchetto NuGet fornisce tipi per l'uso di schede adattive in .NET
 
 [![Installazione di NuGet](https://img.shields.io/nuget/vpre/AdaptiveCards.svg)](https://www.nuget.org/packages/AdaptiveCards)
 
@@ -33,9 +33,9 @@ Il `AdaptiveCards` pacchetto NuGet fornisce tipi per lavorare con le schede adat
 Install-Package AdaptiveCards -IncludePrerelease
 ```
 
-## <a name="example-create-an-adaptivecard-and-serialize-to-json"></a>Esempio: Creare un AdaptiveCard e serializzare in JSON
+## <a name="example-create-an-adaptivecard-and-serialize-to-json"></a>Esempio: Creare una AdaptiveCard e serializzarla in JSON
 
-In questo esempio viene illustrato come creare una scheda adattiva usando standard di C# degli oggetti e quindi eseguirne la serializzazione in JSON per il trasporto in rete.
+Questo esempio illustra come compilare una scheda adattiva usando oggetti standard C# e quindi serializzarla in JSON per il trasporto in transito.
 
 ```csharp
 using AdaptiveCards;
@@ -60,15 +60,15 @@ string json = card.ToJson();
 
 ## <a name="example-parse-an-adaptivecard-from-json"></a>Esempio: Analizzare un AdaptiveCard da JSON
 
-In questo esempio viene illustrato come analizzare un payload JSON in una scheda adattiva. Questo rende facile modificare il modello a oggetti o anche eseguire il rendering le schede adattive all'interno dell'app tramite il [renderer SDK](../../rendering-cards/getting-started.md).
+Questo esempio illustra come analizzare un payload JSON in una scheda adattiva. Questo semplifica la manipolazione del modello a oggetti o persino il rendering di schede adattive all'interno dell'app usando gli [SDK renderer](../../rendering-cards/getting-started.md).
 
 ```csharp
 try
 {
     // Get a JSON-serialized payload
     // Your app will probably get cards from somewhere else :)
-    var client = new HttpClient("http://adaptivecards.io/payloads/ActivityUpdate.json");
-    var response = await client.GetAsync(cardUrl);
+    var client = new HttpClient();
+    var response = await client.GetAsync("http://adaptivecards.io/payloads/ActivityUpdate.json");
     var json = await response.Content.ReadAsStringAsync();
 
     // Parse the JSON 
