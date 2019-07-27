@@ -1,64 +1,44 @@
 ---
-title: JavaScript SDK per le schede adattive
+title: JavaScript SDK per schede adattive
 author: matthidinger
 ms.author: mahiding
-ms.date: 06/26/2017
+ms.date: 07/26/2019
 ms.topic: article
-ms.openlocfilehash: 6372f2f23a817ecc4d07d950d6513d14357547b7
-ms.sourcegitcommit: 99c7b64d6fc66da336c454951406fb42cd2a7427
+ms.openlocfilehash: 039171d895fac0975bf9eff4fe84fdf8b6f7e4af
+ms.sourcegitcommit: f8de9c02b92cd8927a18e59e5650c92b2b78db06
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59552663"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68523840"
 ---
-# <a name="javascript-sdk-for-creating-cards"></a><span data-ttu-id="8b695-102">JavaScript SDK per la creazione di schede</span><span class="sxs-lookup"><span data-stu-id="8b695-102">JavaScript SDK for creating cards</span></span>
+# <a name="javascript-sdk-for-creating-cards"></a><span data-ttu-id="230aa-102">JavaScript SDK per la creazione di schede</span><span class="sxs-lookup"><span data-stu-id="230aa-102">JavaScript SDK for creating cards</span></span>
 
 > [!IMPORTANT]
-> <span data-ttu-id="8b695-103">La libreria per la serializzazione JSON è ancora in fase di sviluppo e il milage può variare.</span><span class="sxs-lookup"><span data-stu-id="8b695-103">The library for serializing JSON is still in development and your milage may vary.</span></span>
+> <span data-ttu-id="230aa-103">La libreria per la serializzazione di JSON è ancora in fase di sviluppo e i chilometraggio possono variare.</span><span class="sxs-lookup"><span data-stu-id="230aa-103">The library for serializing JSON is still in development and your milage may vary.</span></span>
 
-<span data-ttu-id="8b695-104">Come illustrato nelle operazioni preliminari sezione, una scheda adattiva è nient'altro, un oggetto json serializzato di un modello di oggetto di biglietto.</span><span class="sxs-lookup"><span data-stu-id="8b695-104">As we described in the getting started section, an adaptive card is nothing more then a serialized json object of a card object model.</span></span>  <span data-ttu-id="8b695-105">Per renderlo semplice modificare il modello a oggetti è stato definito alcune librerie che consentono di definire una gerarchia di classi fortemente tipizzate che è facile da serializzare o deserializzare json.</span><span class="sxs-lookup"><span data-stu-id="8b695-105">To make it easy to manipulate the object model we have defined some libraries which define a strongly typed class hierarchy that is easy to serialize/deserialize json.</span></span>
+<span data-ttu-id="230aa-104">Come descritto in [Introduzione](../../authoring-cards/getting-started.md), una scheda adattiva non è nient'altro che un oggetto JSON serializzato di un modello a oggetti della scheda.</span><span class="sxs-lookup"><span data-stu-id="230aa-104">As we described in the [Getting Started](../../authoring-cards/getting-started.md), an Adaptive Card is nothing more than a serialized JSON object of a card object model.</span></span>  <span data-ttu-id="230aa-105">Per semplificare la manipolazione del modello a oggetti sono state definite alcune librerie che definiscono una gerarchia di classi fortemente tipizzata che è facile da serializzare/deserializzare JSON.</span><span class="sxs-lookup"><span data-stu-id="230aa-105">To make it easy to manipulate the object model we have defined some libraries which define a strongly typed class hierarchy that is easy to serialize/deserialize json.</span></span>
 
-<span data-ttu-id="8b695-106">È possibile usare qualsiasi strumento che si desidera creare il codice json scheda adattiva.</span><span class="sxs-lookup"><span data-stu-id="8b695-106">You can use any tooling that you want to create the adaptive card json.</span></span>
+<span data-ttu-id="230aa-106">È possibile usare qualsiasi strumento per creare il file JSON della scheda adattiva.</span><span class="sxs-lookup"><span data-stu-id="230aa-106">You can use any tooling that you want to create the adaptive card json.</span></span>
 
-<span data-ttu-id="8b695-107">Il `adaptivecards` pacchetto npm definisce una libreria per l'utilizzo con le schede adattive in javascript</span><span class="sxs-lookup"><span data-stu-id="8b695-107">The `adaptivecards` npm package defines a library for working with adaptive cards in javascript</span></span>
+<span data-ttu-id="230aa-107">Il `adaptivecards` pacchetto NPM definisce una libreria per l'uso di schede adattive in JavaScript</span><span class="sxs-lookup"><span data-stu-id="230aa-107">The `adaptivecards` npm package defines a library for working with adaptive cards in javascript</span></span>
 
-## <a name="to-install"></a><span data-ttu-id="8b695-108">Per installare</span><span class="sxs-lookup"><span data-stu-id="8b695-108">To install</span></span>
+## <a name="to-install"></a><span data-ttu-id="230aa-108">Per installare</span><span class="sxs-lookup"><span data-stu-id="230aa-108">To install</span></span>
 ```console
 npm install adaptivecards
 ```
 
-## <a name="example-creating"></a><span data-ttu-id="8b695-109">Creazione di esempio</span><span class="sxs-lookup"><span data-stu-id="8b695-109">Example creating</span></span> 
-<span data-ttu-id="8b695-110">Sono disponibili le definizioni di interfaccia in `schema.d.ts` che descrivono la forma dello schema</span><span class="sxs-lookup"><span data-stu-id="8b695-110">There are interface definitions in `schema.d.ts` which describe the shape of the schema</span></span>
+## <a name="example"></a><span data-ttu-id="230aa-109">Esempio</span><span class="sxs-lookup"><span data-stu-id="230aa-109">Example</span></span>
+
+<span data-ttu-id="230aa-110">L'API seguente mostra come costruire una scheda adattiva usando il modello a oggetti e come serializzarla in JSON.</span><span class="sxs-lookup"><span data-stu-id="230aa-110">The following API shows how to construct an Adaptive Card using the object model and serialize it to JSON.</span></span>
 
 ```typescript
-let card = {
-    "type": "AdaptiveCard",
-    "version": "1.0",
-    "body": [
-        {
-            "type": "Container",
-            "items": [
-                {
-                    "type": "TextBlock",
-                    "text": "Meow!"
-                },
-                {
-                    "type": "Image",
-                    "url": "http://adaptivecards.io/content/cats/1.png"
-                }
-            ]
-        }
-    ]
-};
-```
+let card = new Adaptive.AdaptiveCard();
+card.version = new Adaptive.Version(1, 0);
 
-<span data-ttu-id="8b695-111">È inoltre disponibile un modello a oggetti per la creazione di schede.</span><span class="sxs-lookup"><span data-stu-id="8b695-111">There is also an object model for creating cards.</span></span>
+let textBlock = new Adaptive.TextBlock();
+textBlock.text = "Hello World";
 
+card.addItem(textBlock);
 
-```typescript
-let card :IAdaptiveCard =  new AdaptiveCard();
-card.body.add(new TextBlock() 
-{
-    text = "hello world"
-});
+let json = card.toJSON();
 ```
