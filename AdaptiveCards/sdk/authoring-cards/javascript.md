@@ -1,64 +1,44 @@
 ---
-title: JavaScript SDK per le schede adattive
+title: JavaScript SDK per schede adattive
 author: matthidinger
 ms.author: mahiding
-ms.date: 06/26/2017
+ms.date: 07/26/2019
 ms.topic: article
-ms.openlocfilehash: 6372f2f23a817ecc4d07d950d6513d14357547b7
-ms.sourcegitcommit: 99c7b64d6fc66da336c454951406fb42cd2a7427
+ms.openlocfilehash: 039171d895fac0975bf9eff4fe84fdf8b6f7e4af
+ms.sourcegitcommit: f8de9c02b92cd8927a18e59e5650c92b2b78db06
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59552663"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68523840"
 ---
 # <a name="javascript-sdk-for-creating-cards"></a>JavaScript SDK per la creazione di schede
 
 > [!IMPORTANT]
-> La libreria per la serializzazione JSON è ancora in fase di sviluppo e il milage può variare.
+> La libreria per la serializzazione di JSON è ancora in fase di sviluppo e i chilometraggio possono variare.
 
-Come illustrato nelle operazioni preliminari sezione, una scheda adattiva è nient'altro, un oggetto json serializzato di un modello di oggetto di biglietto.  Per renderlo semplice modificare il modello a oggetti è stato definito alcune librerie che consentono di definire una gerarchia di classi fortemente tipizzate che è facile da serializzare o deserializzare json.
+Come descritto in [Introduzione](../../authoring-cards/getting-started.md), una scheda adattiva non è nient'altro che un oggetto JSON serializzato di un modello a oggetti della scheda.  Per semplificare la manipolazione del modello a oggetti sono state definite alcune librerie che definiscono una gerarchia di classi fortemente tipizzata che è facile da serializzare/deserializzare JSON.
 
-È possibile usare qualsiasi strumento che si desidera creare il codice json scheda adattiva.
+È possibile usare qualsiasi strumento per creare il file JSON della scheda adattiva.
 
-Il `adaptivecards` pacchetto npm definisce una libreria per l'utilizzo con le schede adattive in javascript
+Il `adaptivecards` pacchetto NPM definisce una libreria per l'uso di schede adattive in JavaScript
 
 ## <a name="to-install"></a>Per installare
 ```console
 npm install adaptivecards
 ```
 
-## <a name="example-creating"></a>Creazione di esempio 
-Sono disponibili le definizioni di interfaccia in `schema.d.ts` che descrivono la forma dello schema
+## <a name="example"></a>Esempio
+
+L'API seguente mostra come costruire una scheda adattiva usando il modello a oggetti e come serializzarla in JSON.
 
 ```typescript
-let card = {
-    "type": "AdaptiveCard",
-    "version": "1.0",
-    "body": [
-        {
-            "type": "Container",
-            "items": [
-                {
-                    "type": "TextBlock",
-                    "text": "Meow!"
-                },
-                {
-                    "type": "Image",
-                    "url": "http://adaptivecards.io/content/cats/1.png"
-                }
-            ]
-        }
-    ]
-};
-```
+let card = new Adaptive.AdaptiveCard();
+card.version = new Adaptive.Version(1, 0);
 
-È inoltre disponibile un modello a oggetti per la creazione di schede.
+let textBlock = new Adaptive.TextBlock();
+textBlock.text = "Hello World";
 
+card.addItem(textBlock);
 
-```typescript
-let card :IAdaptiveCard =  new AdaptiveCard();
-card.body.add(new TextBlock() 
-{
-    text = "hello world"
-});
+let json = card.toJSON();
 ```
