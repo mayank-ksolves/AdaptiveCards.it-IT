@@ -38,6 +38,16 @@
       href: sdk/authoring-cards/toc.yml
     - name: Rendering delle schede
       href: sdk/rendering-cards/toc.yml
+- name: Creazione di modelli (anteprima)
+  items:
+    - name: Panoramica
+      href: templating/index.md
+    - name: Linguaggio del modello
+      href: templating/language.md
+    - name: SDK
+      href: templating/sdk.md
+    - name: Servizio modelli
+      href: templating/service.md
 - name: Risorse
   items:
     - name: Principi
