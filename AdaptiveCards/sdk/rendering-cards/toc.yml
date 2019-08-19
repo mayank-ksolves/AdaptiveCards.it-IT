@@ -1,105 +1,104 @@
-items:
 - name: Android
   items:
-  - name: Attività iniziali
-    href: android/getting-started.md
-  - name: Eseguire il rendering di una scheda
-    href: android/render-a-card.md
-  - name: Azioni
-    href: android/actions.md
-  - name: Configurazione dell'host
-    href: android/host-config.md
-  - name: Stile nativo
-    href: android/native-styling.md
-  - name: Estendibilità
-    href: android/extensibility.md
+    - name: Attività iniziali
+      href: android/getting-started.md
+    - name: Eseguire il rendering di una scheda
+      href: android/render-a-card.md
+    - name: Azioni
+      href: android/actions.md
+    - name: Configurazione dell'host
+      href: android/host-config.md
+    - name: Stile nativo
+      href: android/native-styling.md
+    - name: Estendibilità
+      href: android/extensibility.md
 - name: iOS
   items:
-  - name: Attività iniziali
-    href: ios/getting-started.md
-  - name: Eseguire il rendering di una scheda
-    href: ios/render-a-card.md
-  - name: Azioni
-    href: ios/actions.md
-  - name: Configurazione dell'host
-    href: ios/host-config.md
-  - name: Stile nativo
-    href: ios/native-styling.md
-  - name: Estendibilità
-    href: ios/extensibility.md
+    - name: Attività iniziali
+      href: ios/getting-started.md
+    - name: Eseguire il rendering di una scheda
+      href: ios/render-a-card.md
+    - name: Azioni
+      href: ios/actions.md
+    - name: Configurazione dell'host
+      href: ios/host-config.md
+    - name: Stile nativo
+      href: ios/native-styling.md
+    - name: Estendibilità
+      href: ios/extensibility.md
 - name: JavaScript
   items:
-  - name: Attività iniziali
-    href: javascript/getting-started.md
-  - name: Eseguire il rendering di una scheda
-    href: javascript/render-a-card.md
-  - name: Azioni
-    href: javascript/actions.md
-  - name: Configurazione dell'host
-    href: javascript/host-config.md
-  - name: Stile nativo
-    href: javascript/native-styling.md
-  - name: Estendibilità
-    href: javascript/extensibility.md
+    - name: Attività iniziali
+      href: javascript/getting-started.md
+    - name: Eseguire il rendering di una scheda
+      href: javascript/render-a-card.md
+    - name: Azioni
+      href: javascript/actions.md
+    - name: Configurazione dell'host
+      href: javascript/host-config.md
+    - name: Stile nativo
+      href: javascript/native-styling.md
+    - name: Estendibilità
+      href: javascript/extensibility.md
+    - name: Integrazione dell'interfaccia utente dell'infrastruttura
+      href: javascript/fabric.md
 - name: HTML .NET
   items:
-  - name: Attività iniziali
-    href: net-html/getting-started.md
-  - name: Eseguire il rendering di una scheda
-    href: net-html/render-a-card.md
-  - name: Azioni
-    href: net-html/actions.md
-  - name: Configurazione dell'host
-    href: net-html/host-config.md
-  - name: Stile nativo
-    href: net-html/native-styling.md
-  - name: Estendibilità
-    href: net-html/extensibility.md
+    - name: Attività iniziali
+      href: net-html/getting-started.md
+    - name: Eseguire il rendering di una scheda
+      href: net-html/render-a-card.md
+    - name: Azioni
+      href: net-html/actions.md
+    - name: Configurazione dell'host
+      href: net-html/host-config.md
+    - name: Stile nativo
+      href: net-html/native-styling.md
+    - name: Estendibilità
+      href: net-html/extensibility.md
 - name: WPF .NET
   items:
-  - name: Attività iniziali
-    href: net-wpf/getting-started.md
-  - name: Eseguire il rendering di una scheda
-    href: net-wpf/render-a-card.md
-  - name: Azioni
-    href: net-wpf/actions.md
-  - name: Configurazione dell'host
-    href: net-wpf/host-config.md
-  - name: Stile nativo
-    href: net-wpf/native-styling.md
-  - name: Estendibilità
-    href: net-wpf/extensibility.md
+    - name: Attività iniziali
+      href: net-wpf/getting-started.md
+    - name: Eseguire il rendering di una scheda
+      href: net-wpf/render-a-card.md
+    - name: Azioni
+      href: net-wpf/actions.md
+    - name: Configurazione dell'host
+      href: net-wpf/host-config.md
+    - name: Stile nativo
+      href: net-wpf/native-styling.md
+    - name: Estendibilità
+      href: net-wpf/extensibility.md
 - name: Immagine .NET
   items:
-  - name: Attività iniziali
-    href: net-image/getting-started.md
-  - name: Eseguire il rendering di una scheda
-    href: net-image/render-a-card.md
-  - name: Azioni
-    href: net-image/actions.md
-  - name: Configurazione dell'host
-    href: net-image/host-config.md
-  - name: Stile nativo
-    href: net-image/native-styling.md
-  - name: Estendibilità
-    href: net-image/extensibility.md
+    - name: Attività iniziali
+      href: net-image/getting-started.md
+    - name: Eseguire il rendering di una scheda
+      href: net-image/render-a-card.md
+    - name: Azioni
+      href: net-image/actions.md
+    - name: Configurazione dell'host
+      href: net-image/host-config.md
+    - name: Stile nativo
+      href: net-image/native-styling.md
+    - name: Estendibilità
+      href: net-image/extensibility.md
 - name: Piattaforma UWP
   items:
-  - name: Attività iniziali
-    href: uwp/getting-started.md
-  - name: Eseguire il rendering di una scheda
-    href: uwp/render-a-card.md
-  - name: Azioni
-    href: uwp/actions.md
-  - name: Configurazione dell'host
-    href: uwp/host-config.md
-  - name: Stile nativo
-    href: uwp/native-styling.md
-  - name: Estendibilità
-    href: uwp/extensibility.md
-ms.openlocfilehash: 2576fb7239292897dcec3f44411d356731c5ab3c
-ms.sourcegitcommit: 99c7b64d6fc66da336c454951406fb42cd2a7427
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59552283"
+    - name: Attività iniziali
+      href: uwp/getting-started.md
+    - name: Eseguire il rendering di una scheda
+      href: uwp/render-a-card.md
+    - name: Azioni
+      href: uwp/actions.md
+    - name: Configurazione dell'host
+      href: uwp/host-config.md
+    - name: Stile nativo
+      href: uwp/native-styling.md
+    - name: Estendibilità
+      href: uwp/extensibility.md
+- name: ReactNative
+  items:
+    - name: Attività iniziali
+      href: react-native/getting-started.md
