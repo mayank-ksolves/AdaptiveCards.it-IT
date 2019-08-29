@@ -1,5 +1,5 @@
 ---
-title: Azioni - SDK per iOS
+title: Azioni-iOS SDK
 author: matthidinger
 ms.author: mahiding
 ms.date: 06/26/2017
@@ -11,9 +11,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/12/2019
 ms.locfileid: "59553583"
 ---
-# <a name="actions---ios"></a><span data-ttu-id="cb177-102">Azioni - iOS</span><span class="sxs-lookup"><span data-stu-id="cb177-102">Actions - iOS</span></span>
+# <a name="actions---ios"></a><span data-ttu-id="e3eef-102">Azioni-iOS</span><span class="sxs-lookup"><span data-stu-id="e3eef-102">Actions - iOS</span></span>
 
-<span data-ttu-id="cb177-103">Gli sviluppatori possono ricevere azioni quali SubmitAction e OpenUrl implementando ACRActionDelegate e impostarlo su istanza AdaptiveCard.</span><span class="sxs-lookup"><span data-stu-id="cb177-103">Developers can receive actions such SubmitAction and OpenUrl by implementing ACRActionDelegate, and set it to instance of AdaptiveCard.</span></span>
+<span data-ttu-id="e3eef-103">Gli sviluppatori possono ricevere azioni quali SubmitAction e OpenUrl implementando ACRActionDelegate e impostarlo sull'istanza di AdaptiveCard.</span><span class="sxs-lookup"><span data-stu-id="e3eef-103">Developers can receive actions such SubmitAction and OpenUrl by implementing ACRActionDelegate, and set it to instance of AdaptiveCard.</span></span>
 
 ```objective-c
 //// delegate implementation

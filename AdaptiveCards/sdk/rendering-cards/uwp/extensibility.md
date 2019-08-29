@@ -1,5 +1,5 @@
 ---
-title: Extensibility - UWP SDK
+title: Estendibilità-UWP SDK
 author: matthidinger
 ms.author: mahiding
 ms.date: 06/26/2017
@@ -11,11 +11,11 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/12/2019
 ms.locfileid: "59553043"
 ---
-# <a name="extensibility---uwp"></a><span data-ttu-id="88ff7-102">Extensibility - UWP</span><span class="sxs-lookup"><span data-stu-id="88ff7-102">Extensibility - UWP</span></span>
+# <a name="extensibility---uwp"></a><span data-ttu-id="85808-102">Estensibilità-UWP</span><span class="sxs-lookup"><span data-stu-id="85808-102">Extensibility - UWP</span></span>
 
-## <a name="changing-per-element-rendering"></a><span data-ttu-id="88ff7-103">La modifica per il rendering di elemento</span><span class="sxs-lookup"><span data-stu-id="88ff7-103">Changing per element rendering</span></span>
+## <a name="changing-per-element-rendering"></a><span data-ttu-id="85808-103">Modifica del rendering per elemento</span><span class="sxs-lookup"><span data-stu-id="85808-103">Changing per element rendering</span></span>
 
-<span data-ttu-id="88ff7-104">Implementare una classe di rendering e impostarla nel programma di rendering</span><span class="sxs-lookup"><span data-stu-id="88ff7-104">Implement a renderer class and set it in the renderer</span></span>
+<span data-ttu-id="85808-104">Implementare una classe renderer e impostarla nel renderer</span><span class="sxs-lookup"><span data-stu-id="85808-104">Implement a renderer class and set it in the renderer</span></span>
 
 ```csharp
 // My custom renderer is going to replace how textblocks should render!

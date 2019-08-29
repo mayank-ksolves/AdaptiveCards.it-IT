@@ -1,5 +1,5 @@
 ---
-title: Eseguire il rendering di una scheda - .NET SDK per il Rendering Image
+title: 'Eseguire il rendering di una scheda: SDK per il rendering di immagini .NET'
 author: matthidinger
 ms.author: mahiding
 ms.date: 10/19/2017
@@ -11,9 +11,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/12/2019
 ms.locfileid: "59552493"
 ---
-# <a name="render-a-card---net-image"></a><span data-ttu-id="4f5ed-102">Eseguire il rendering di una scheda - immagine di .NET</span><span class="sxs-lookup"><span data-stu-id="4f5ed-102">Render a card - .NET Image</span></span>
+# <a name="render-a-card---net-image"></a><span data-ttu-id="763c8-102">Eseguire il rendering di una scheda-immagine .NET</span><span class="sxs-lookup"><span data-stu-id="763c8-102">Render a card - .NET Image</span></span>
 
-<span data-ttu-id="4f5ed-103">Di seguito viene illustrato come eseguire il rendering di una scheda usando l'immagine di .NET SDK.</span><span class="sxs-lookup"><span data-stu-id="4f5ed-103">Here's how to render a card using the .NET Image SDK.</span></span>
+<span data-ttu-id="763c8-103">Di seguito viene illustrato come eseguire il rendering di una scheda utilizzando .NET Image SDK.</span><span class="sxs-lookup"><span data-stu-id="763c8-103">Here's how to render a card using the .NET Image SDK.</span></span>
 
 ```csharp
 try

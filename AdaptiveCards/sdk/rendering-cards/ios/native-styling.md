@@ -1,5 +1,5 @@
 ---
-title: Stile nativo - SDK per iOS
+title: Stile nativo-iOS SDK
 author: matthidinger
 ms.author: mahiding
 ms.date: 06/26/2017
@@ -11,6 +11,6 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/12/2019
 ms.locfileid: "59553303"
 ---
-# <a name="native-styling---ios"></a><span data-ttu-id="a4595-102">Stile nativo - iOS</span><span class="sxs-lookup"><span data-stu-id="a4595-102">Native styling - iOS</span></span>
+# <a name="native-styling---ios"></a><span data-ttu-id="2cd3e-102">Stile nativo-iOS</span><span class="sxs-lookup"><span data-stu-id="2cd3e-102">Native styling - iOS</span></span>
 
-<span data-ttu-id="a4595-103">Non supportato.</span><span class="sxs-lookup"><span data-stu-id="a4595-103">Not supported.</span></span>
+<span data-ttu-id="2cd3e-103">Non supportati.</span><span class="sxs-lookup"><span data-stu-id="2cd3e-103">Not supported.</span></span>

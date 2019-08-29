@@ -1,5 +1,5 @@
 ---
-title: Eseguire il rendering di una scheda - UWP SDK
+title: Eseguire il rendering di una scheda-UWP SDK
 author: matthidinger
 ms.author: mahiding
 ms.date: 06/26/2017
@@ -11,13 +11,13 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/12/2019
 ms.locfileid: "59552433"
 ---
-# <a name="render-a-card---uwp"></a><span data-ttu-id="a83b2-102">Eseguire il rendering di una scheda - UWP</span><span class="sxs-lookup"><span data-stu-id="a83b2-102">Render a card - UWP</span></span>
+# <a name="render-a-card---uwp"></a><span data-ttu-id="3aa90-102">Eseguire il rendering di una scheda-UWP</span><span class="sxs-lookup"><span data-stu-id="3aa90-102">Render a card - UWP</span></span>
 
-<span data-ttu-id="a83b2-103">Di seguito viene illustrato come eseguire il rendering di una scheda tramite il SDK di piattaforma UWP.</span><span class="sxs-lookup"><span data-stu-id="a83b2-103">Here's how to render a card using the UWP SDK.</span></span>
+<span data-ttu-id="3aa90-103">Di seguito viene illustrato come eseguire il rendering di una scheda utilizzando UWP SDK.</span><span class="sxs-lookup"><span data-stu-id="3aa90-103">Here's how to render a card using the UWP SDK.</span></span>
 
-## <a name="create-an-instance-of-your-renderer"></a><span data-ttu-id="a83b2-104">Creare un'istanza del renderer</span><span class="sxs-lookup"><span data-stu-id="a83b2-104">Create an instance of your renderer</span></span>
+## <a name="create-an-instance-of-your-renderer"></a><span data-ttu-id="3aa90-104">Creare un'istanza del renderer</span><span class="sxs-lookup"><span data-stu-id="3aa90-104">Create an instance of your renderer</span></span>
 
-<span data-ttu-id="a83b2-105">Creare un'istanza della libreria di renderer.</span><span class="sxs-lookup"><span data-stu-id="a83b2-105">Create an instance of the renderer library.</span></span> 
+<span data-ttu-id="3aa90-105">Crea un'istanza della libreria del renderer.</span><span class="sxs-lookup"><span data-stu-id="3aa90-105">Create an instance of the renderer library.</span></span> 
 
 ```csharp
 using AdaptiveCards.Rendering.Uwp;
@@ -26,21 +26,21 @@ using AdaptiveCards.Rendering.Uwp;
 var renderer = new AdaptiveCardRenderer();
 ```
 
-## <a name="create-a-card-from-a-json-string"></a><span data-ttu-id="a83b2-106">Creare una scheda da una stringa JSON</span><span class="sxs-lookup"><span data-stu-id="a83b2-106">Create a card from a JSON string</span></span>
+## <a name="create-a-card-from-a-json-string"></a><span data-ttu-id="3aa90-106">Creare una scheda da una stringa JSON</span><span class="sxs-lookup"><span data-stu-id="3aa90-106">Create a card from a JSON string</span></span>
 
 ```csharp
 var card = AdaptiveCard.FromJsonString(jsonString);
 ```
 
-## <a name="create-a-card-from-a-json-object"></a><span data-ttu-id="a83b2-107">Creare una scheda da un oggetto JSON</span><span class="sxs-lookup"><span data-stu-id="a83b2-107">Create a card from a JSON object</span></span>
+## <a name="create-a-card-from-a-json-object"></a><span data-ttu-id="3aa90-107">Creare una scheda da un oggetto JSON</span><span class="sxs-lookup"><span data-stu-id="3aa90-107">Create a card from a JSON object</span></span>
 
 ```csharp
 var card = AdaptiveCard.FromJson(jsonObject);
 ```
 
-## <a name="render-a-card"></a><span data-ttu-id="a83b2-108">Eseguire il rendering di una scheda</span><span class="sxs-lookup"><span data-stu-id="a83b2-108">Render a card</span></span>
+## <a name="render-a-card"></a><span data-ttu-id="3aa90-108">Eseguire il rendering di una scheda</span><span class="sxs-lookup"><span data-stu-id="3aa90-108">Render a card</span></span>
 
-<span data-ttu-id="a83b2-109">Acquisire una carta da un'origine ed eseguirne il rendering.</span><span class="sxs-lookup"><span data-stu-id="a83b2-109">Acquire a card from a source and render it.</span></span>
+<span data-ttu-id="3aa90-109">Acquisire una scheda da un'origine ed eseguirne il rendering.</span><span class="sxs-lookup"><span data-stu-id="3aa90-109">Acquire a card from a source and render it.</span></span>
 
 ```csharp
 RenderedAdaptiveCard renderedAdaptiveCard =  renderer.RenderAdaptiveCard(card);
@@ -56,9 +56,9 @@ if (renderedAdaptiveCard.FrameworkElement != null)
 }
 ```
 
-## <a name="example"></a><span data-ttu-id="a83b2-110">Esempio</span><span class="sxs-lookup"><span data-stu-id="a83b2-110">Example</span></span>
+## <a name="example"></a><span data-ttu-id="3aa90-110">Esempio</span><span class="sxs-lookup"><span data-stu-id="3aa90-110">Example</span></span>
 
-<span data-ttu-id="a83b2-111">Ecco un esempio tratto dal renderer UWP.</span><span class="sxs-lookup"><span data-stu-id="a83b2-111">Here is an example from the UWP renderer.</span></span>
+<span data-ttu-id="3aa90-111">Di seguito è riportato un esempio dal renderer UWP.</span><span class="sxs-lookup"><span data-stu-id="3aa90-111">Here is an example from the UWP renderer.</span></span>
 
 ```csharp
 var renderer = new AdaptiveCardRenderer();

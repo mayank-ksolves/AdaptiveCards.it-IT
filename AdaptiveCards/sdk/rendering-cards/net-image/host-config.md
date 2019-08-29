@@ -1,5 +1,5 @@
 ---
-title: Configurazione di host - .NET SDK per il Rendering Image
+title: Configurazione host-SDK per il rendering di immagini .NET
 author: matthidinger
 ms.author: mahiding
 ms.date: 10/19/2017
@@ -11,6 +11,6 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/12/2019
 ms.locfileid: "59553443"
 ---
-# <a name="host-config---net-image"></a><span data-ttu-id="3e2d5-102">Configurazione - immagine .NET host</span><span class="sxs-lookup"><span data-stu-id="3e2d5-102">Host config - .NET Image</span></span>
+# <a name="host-config---net-image"></a><span data-ttu-id="ce82e-102">Configurazione host-immagine .NET</span><span class="sxs-lookup"><span data-stu-id="ce82e-102">Host config - .NET Image</span></span>
 
-<span data-ttu-id="3e2d5-103">Vedere le [documentazione WPF](../net-wpf/getting-started.md) per un elenco completo delle opzioni seguenti.</span><span class="sxs-lookup"><span data-stu-id="3e2d5-103">See the [WPF docs](../net-wpf/getting-started.md) for a full run-down of these options.</span></span>
+<span data-ttu-id="ce82e-103">Per un'esecuzione completa di queste opzioni, vedere la [documentazione di WPF](../net-wpf/getting-started.md) .</span><span class="sxs-lookup"><span data-stu-id="ce82e-103">See the [WPF docs](../net-wpf/getting-started.md) for a full run-down of these options.</span></span>
