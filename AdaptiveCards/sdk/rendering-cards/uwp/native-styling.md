@@ -1,5 +1,5 @@
 ---
-title: Stile nativo - UWP SDK
+title: Stile nativo-UWP SDK
 author: matthidinger
 ms.author: mahiding
 ms.date: 08/15/2018
@@ -11,33 +11,33 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/12/2019
 ms.locfileid: "59552523"
 ---
-# <a name="native-styling---uwp"></a>Stile nativo - UWP
+# <a name="native-styling---uwp"></a>Stile nativo-UWP
 
-Mentre Host Config consente di iniziare la maggior parte dei casi in ogni piattaforma, è probabile che si dovrà eseguire alcune stile nativo in ogni piattaforma. 
+Sebbene la configurazione host consentirà di ottenere la maggior parte delle piattaforme in ogni piattaforma, è probabile che sarà necessario eseguire alcuni stili nativi su ogni piattaforma. 
 
-Piattaforma UWP è semplice in quanto consente di passare un oggetto ResourceDictionary per lo stile con granularità fine, il comportamento, animazioni e così via.
+UWP semplifica questa operazione consentendo di passare un oggetto ResourceDictionary per lo stile, il comportamento, le animazioni e così via.
 
-| Elemento | Nomi degli stili |
+| Elemento | Nomi di stile |
 |---|---|
-| AdaptiveCard | Adaptive.Card| 
+| AdaptiveCard | Adaptive. Card| 
 | Action.OpenUrl  | Adaptive.Action.OpenUrl  |
 | Action.ShowCard | Adaptive.Action.ShowCard |
-| Action.Submit  | Adaptive.Action.Submit  |
-| Column | Adaptive.Column, Adaptive.Action.Tap |
-| ColumnSet | Adaptive.ColumnSet, Adaptive.VerticalSeparator |
-| Contenitore | Adaptive.Container|
+| Azione. Invia  | Adattivo. azione. Invia  |
+| Colonna | Adaptive. Column, Adaptive. Action. Tap |
+| ColumnSet | Adaptive. ColumnStore, Adaptive. VerticalSeparator |
+| Contenitore | Adaptive. container|
 | Input.ChoiceSet | Adaptive.Input.ChoiceSet,  Adaptive.Input.ChoiceSet.ComboBox, Adaptive.Input.ChoiceSet.CheckBox,  Adaptive.Input.ChoiceSet.Radio,  Adaptive.Input.ChoiceSet.ComboBoxItem |
-| Input.Date | Adaptive.Input.Text.Date
-| Input.Number | Adaptive.Input.Text.Number |
+| Input. Data | Adaptive.Input.Text.Date
+| Input. Number | Adaptive.Input.Text.Number |
 | Input.Text | Adaptive.Input.Text |
 | Input.Time | Adaptive.Input.Text.Time |
-| Input.Toggle| Adaptive.Input.Toggle|
-| Image  | Adaptive.Image |
+| Input.Toggle| Adaptive. input. Attiva/Nascondi|
+| Image  | Adaptive. image |
 | ImageSet  | Adaptive.ImageSet |
 | FactSet | Adaptive.FactSet, Adaptive.Fact.Title, Adaptive.Fact.Value |
 | TextBlock  | Adaptive.TextBlock |
 
-Questo dizionario risorse XAML di esempio che imposta lo sfondo del TextBlock tutte su azzurro. Probabilmente si desidererà che qualcosa di più avanzate rispetto a questo 😁
+Questo dizionario risorse XAML di esempio che imposta lo sfondo di tutti i TextBlock su Aqua. È probabile che si desideri qualcosa di più avanzato😁
 
 ```xml
 <ResourceDictionary

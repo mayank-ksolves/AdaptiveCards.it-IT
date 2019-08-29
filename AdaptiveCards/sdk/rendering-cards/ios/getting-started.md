@@ -11,13 +11,13 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/12/2019
 ms.locfileid: "59552643"
 ---
-# <a name="getting-started---ios"></a>Getting started - iOS
+# <a name="getting-started---ios"></a>Introduzione-iOS
 
-Questo renderer fa riferimento a controlli nativi di iOS.
+Questo renderer che è destinato ai controlli nativi iOS.
 
-## <a name="install-pod"></a>Installare i pod
+## <a name="install-pod"></a>Installare Pod
 
-È disponibile come un pod.
+Questa operazione è disponibile come Pod.
 
 [![CocoaPods](https://img.shields.io/cocoapods/v/AdaptiveCards.svg)](https://cocoapods.org/pods/AdaptiveCards)
 
@@ -33,4 +33,4 @@ Questo renderer fa riferimento a controlli nativi di iOS.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Visualizzare [eseguire il rendering di una scheda](render-a-card.md) per i passaggi successivi.
+Per i passaggi successivi, vedi [Eseguire il rendering di una scheda](render-a-card.md).

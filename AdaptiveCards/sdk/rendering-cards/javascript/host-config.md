@@ -1,5 +1,5 @@
 ---
-title: Host config - JavaScript SDK
+title: Configurazione host-JavaScript SDK
 author: matthidinger
 ms.author: mahiding
 ms.date: 11/28/2017
@@ -11,7 +11,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/12/2019
 ms.locfileid: "59553603"
 ---
-# <a name="host-config---javascript"></a>Configurazione di host - JavaScript
+# <a name="host-config---javascript"></a>Configurazione host-JavaScript
 
 ```js
 // Create an AdaptiveCard instance
@@ -30,16 +30,16 @@ var renderedCard = adaptiveCard.render();
 
 ## <a name="customization"></a>Personalizzazione
 
-Esistono 3 modi per personalizzare il rendering di scheda adattiva: 
-1. Configurazione di host
+Sono disponibili tre modi per personalizzare il rendering adattivo della scheda: 
+1. Configurazione dell'host
 2. Stile CSS
-3. Rendering di elemento personalizzato
+3. Rendering di elementi personalizzati
 
 ### <a name="hostconfig"></a>HostConfig 
 
-Oggetto [Host Config](../../../rendering-cards/host-config.md) è un oggetto di configurazione condivisa che comprendere tutti i renderer. In questo modo è possibile definire stili comuni (ad esempio, famiglia di caratteri, le dimensioni dei caratteri, spaziatura predefinita) e i comportamenti (ad esempio, numero massimo di azioni) che verranno interpretati automaticamente dal renderer ogni piattaforma. 
+Una [configurazione dell'host](../../../rendering-cards/host-config.md) è un oggetto di configurazione condiviso che può essere interpretato da tutti i renderer. Questo consente di definire stili comuni (ad esempio, famiglia di caratteri, dimensioni dei caratteri, spaziatura predefinita) e comportamenti (ad esempio, numero massimo di azioni) che verranno interpretati automaticamente dal renderer di ogni piattaforma. 
 
-L'obiettivo è che l'interfaccia utente nativa generato da ogni renderer piattaforma avrà un aspetto molto simile con un intervento minimo da parte dell'utente.
+L'obiettivo è che l'interfaccia utente nativa generata dal renderer di ogni piattaforma abbia un aspetto molto simile, con un intervento minimo da parte dello sviluppatore.
 
 ```javascript
 var renderOptions = {

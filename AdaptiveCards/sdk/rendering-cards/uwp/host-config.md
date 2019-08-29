@@ -1,5 +1,5 @@
 ---
-title: Host config - UWP SDK
+title: Configurazione host-UWP SDK
 author: matthidinger
 ms.author: mahiding
 ms.date: 06/26/2017
@@ -11,11 +11,11 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/12/2019
 ms.locfileid: "59553673"
 ---
-# <a name="host-config---uwp"></a>Configurazione di host - UWP
+# <a name="host-config---uwp"></a>Configurazione host-UWP
 
-Per personalizzare il renderer è fornire un'istanza dell'oggetto HostConfig. (Vedere [Schema di configurazione Host](../../../rendering-cards/host-config.md) per la descrizione completa.)
+Per personalizzare il renderer, fornire un'istanza dell'oggetto HostConfig. Per la descrizione completa, vedere [schema di configurazione host](../../../rendering-cards/host-config.md) .
 
-> Verrà creata un'istanza di oggetto HostConfig con valori predefiniti, pertanto è possibile impostare solo le proprietà che si desidera modificare.
+> Verrà creata un'istanza dell'oggetto HostConfig con le impostazioni predefinite, quindi è possibile impostare solo le proprietà che si desidera modificare.
 
 Esempio:
 
@@ -33,7 +33,7 @@ var hostConfig = new AdaptiveHostConfig()
 renderer.HostConfig = hostConfig;
 ```
 
-> In alternativa, è possibile caricare il HostConfig da una stringa JSON.
+> In alternativa, è possibile caricare HostConfig da una stringa JSON.
 
 Esempio:
 
@@ -43,4 +43,4 @@ var hostConfig = AdaptiveHostConfig.FromJsonString(jsonString);
 renderer.HostConfig = hostConfig;
 ```
 
-Quando si passa al UWPRenderer si imposta il valore predefinito HostConfig da usare per ogni scheda che è eseguire il rendering.
+Quando si passa a UWPRenderer, si imposta il valore predefinito di HostConfig da usare per ogni scheda sottoposta a rendering.

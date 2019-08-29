@@ -1,5 +1,5 @@
 ---
-title: .NET WPF SDK
+title: SDK WPF .NET
 author: matthidinger
 ms.author: mahiding
 ms.date: 10/19/2017
@@ -11,9 +11,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/12/2019
 ms.locfileid: "59553623"
 ---
-# <a name="getting-started---net-wpf"></a>Getting started - WPF .NET
+# <a name="getting-started---net-wpf"></a>Introduzione-WPF .NET
 
-Come descritto [introduttiva](../../../authoring-cards/getting-started.md) pagina, una scheda adattiva è un modello a oggetti serializzati con JSON smart card. Questa libreria semplifica eseguire il rendering di tale codice JSON nella UI WPF che è possibile usare all'interno dell'app.
+Come descritto in [Introduzione](../../../authoring-cards/getting-started.md) pagina, una scheda adattiva è un modello a oggetti della scheda serializzato JSON. Questa libreria semplifica il rendering di tale JSON nell'interfaccia utente WPF che è possibile usare all'interno dell'app.
 
 ## <a name="nuget-install"></a>Installazione di NuGet
 
@@ -23,9 +23,9 @@ Come descritto [introduttiva](../../../authoring-cards/getting-started.md) pagin
 Install-Package AdaptiveCards.Rendering.Wpf
 ```
 
-### <a name="xceed-enhanced-input-package"></a>Pacchetto di input migliorato di Xceed
+### <a name="xceed-enhanced-input-package"></a>Pacchetto di input migliorato Xceed
 
-Questo pacchetto facoltativo consente di migliorare i controlli adattivi scheda Input oltre offerte da WPF predefiniti. E presenta una dipendenza `Extended.Wpf.Toolkit`
+Questo pacchetto facoltativo consente di migliorare i controlli di input della scheda adattivo oltre a quelli forniti da WPF. Ha una dipendenza da`Extended.Wpf.Toolkit`
 
 [![Installazione di NuGet](https://img.shields.io/nuget/vpre/AdaptiveCards.Rendering.Wpf.Xceed.svg)](https://www.nuget.org/packages/AdaptiveCards.Rendering.Wpf.Xceed)
 
@@ -33,12 +33,12 @@ Questo pacchetto facoltativo consente di migliorare i controlli adattivi scheda 
 Install-Package AdaptiveCards.Rendering.Wpf.Xceed
 ```
 
-## <a name="wpf-visualizer-sample"></a>Esempio di Visualizzatore WPF
+## <a name="wpf-visualizer-sample"></a>Esempio di visualizzatore WPF
 
-![Schermata di Visualizzatore](../../../resources/media/tools/wpfvisualizer.png)
+![Screenshot del Visualizzatore](../../../resources/media/tools/wpfvisualizer.png)
 
-Il [esempio di Visualizzatore WPF](https://github.com/Microsoft/AdaptiveCards/tree/master/source/dotnet/Samples/WPFVisualizer) consente di visualizzare le schede con WPF.  Oggetto `Host Config` editor è disponibile per la modifica e la visualizzazione delle impostazioni di configurazione host. Salvare queste impostazioni in un formato JSON per utilizzarle nel rendering nell'applicazione.
+L' [esempio visualizzatore WPF](https://github.com/Microsoft/AdaptiveCards/tree/master/source/dotnet/Samples/WPFVisualizer) consente di visualizzare le schede utilizzando WPF.  Un `Host Config` Editor è integrato per la modifica e la visualizzazione delle impostazioni di configurazione host. Salvare queste impostazioni come JSON per usarle nel rendering nell'applicazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Visualizzare [eseguire il rendering di una scheda](render-a-card.md) per i passaggi successivi.
+Per i passaggi successivi, vedi [Eseguire il rendering di una scheda](render-a-card.md).

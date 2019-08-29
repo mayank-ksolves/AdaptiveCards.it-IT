@@ -1,5 +1,5 @@
 ---
-title: Extensibility - JavaScript SDK
+title: Estendibilità-JavaScript SDK
 author: matthidinger
 ms.author: mahiding
 ms.date: 11/28/2017
@@ -11,16 +11,16 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/12/2019
 ms.locfileid: "59552633"
 ---
-# <a name="extensibility---javascript"></a>Extensibility - JavaScript
+# <a name="extensibility---javascript"></a>Estendibilità-JavaScript
 
 ## <a name="implement-and-register-a-custom-element"></a>Implementare e registrare un elemento personalizzato
 
-I passaggi per la creazione di un tipo di elemento di scheda adattiva personalizzato sono:
-- Creare una nuova classe da indicazioni `CardElement`
-- Implementare il `getJsonTypeName`, `parse`, `toJSON`, `internalRender` e `renderSpeech` metodi
-- Registrarla, aggiungerlo al Registro di sistema elemento del renderer
+I passaggi per la creazione di un tipo di elemento della scheda Adaptive personalizzato sono:
+- Crea una nuova classe che conduce da`CardElement`
+- Implementare i `getJsonTypeName`relativi `parse`metodi `toJSON` ,`internalRender` , e`renderSpeech`
+- Registrarlo aggiungendolo al registro elementi del renderer
 
-Verrà esaminato un esempio e implementare un semplice elemento indicatore di stato:
+Di seguito è riportato un esempio che consente di implementare un semplice elemento indicatore di stato:
 
 ```typescript
 import * as Adaptive from "adaptivecards";
@@ -136,7 +136,7 @@ export class ProgressBar extends Adaptive.CardElement {
 }
 ```
 
-È tutto! A questo punto sufficiente registrare la classe di indicatore di stato con il renderer:
+È tutto. A questo punto, registrare la classe indicatore di stato con il renderer:
 
 ```typescript
 Adaptive.AdaptiveCard.elementTypeRegistry.registerType("ProgressBar", () => { return new ProgressBar(); });
@@ -144,7 +144,7 @@ Adaptive.AdaptiveCard.elementTypeRegistry.registerType("ProgressBar", () => { re
 
 ## <a name="implement-and-register-a-custom-action"></a>Implementare e registrare un'azione personalizzata
 
-I passaggi per la creazione di un'azione personalizzata scheda adattiva sono essenzialmente identici a quelli per gli elementi personalizzati. Ecco un esempio semplice di un'azione di avviso che visualizza semplicemente una finestra di messaggio con il testo configurabile:
+La procedura per la creazione di un'azione personalizzata per le schede adattive è essenzialmente identica a quella per gli elementi personalizzati. Ecco un semplice esempio di azione di avviso che visualizza semplicemente una finestra di messaggio con testo configurabile:
 
 ```typescript
 import * as Adaptive from "adaptivecards";
@@ -176,7 +176,7 @@ export class AlertAction extends Adaptive.Action {
 }
 ```
 
-Ora registrare il nuovo elemento action:
+Registrare ora la nuova azione:
 
 ```
 Adaptive.AdaptiveCard.actionTypeRegistry.registerType("Action.Alert", () => { return new AlertAction(); });
@@ -184,7 +184,7 @@ Adaptive.AdaptiveCard.actionTypeRegistry.registerType("Action.Alert", () => { re
 
 ## <a name="example"></a>Esempio
 
-Ecco una smart card di esempio che usa sia l'elemento ProgressBar AlertAction azione:
+Ecco una scheda di esempio che usa sia l'elemento ProgressBar che l'azione AlertAction:
 ```
 {
     "type": "AdaptiveCard",
@@ -212,4 +212,4 @@ Ecco una smart card di esempio che usa sia l'elemento ProgressBar AlertAction az
 }
 ```
 
-Ed ecco come viene eseguito il rendering: ![immagine](https://user-images.githubusercontent.com/1334689/52665466-8155e780-2ec0-11e9-841a-7d272ad1d103.png)
+Ecco come viene eseguito il rendering: ![image](https://user-images.githubusercontent.com/1334689/52665466-8155e780-2ec0-11e9-841a-7d272ad1d103.png)

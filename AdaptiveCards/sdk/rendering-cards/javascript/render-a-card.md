@@ -1,5 +1,5 @@
 ---
-title: Eseguire il rendering di una scheda - JavaScript SDK
+title: Eseguire il rendering di una scheda-JavaScript SDK
 author: matthidinger
 ms.author: mahiding
 ms.date: 11/28/2017
@@ -11,11 +11,11 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/12/2019
 ms.locfileid: "59553123"
 ---
-# <a name="render-a-card---javascript"></a>Eseguire il rendering di una scheda - JavaScript
+# <a name="render-a-card---javascript"></a>Eseguire il rendering di una scheda-JavaScript
 
-Di seguito viene illustrato come eseguire il rendering di una scheda tramite JavaScript SDK.
+Di seguito viene illustrato come eseguire il rendering di una scheda utilizzando JavaScript SDK.
 
-## <a name="usage"></a>Uso
+## <a name="usage"></a>Utilizzo
 
 ### <a name="import-the-module"></a>Importare il modulo
 

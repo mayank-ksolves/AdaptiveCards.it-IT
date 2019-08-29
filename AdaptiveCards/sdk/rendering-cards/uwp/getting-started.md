@@ -11,9 +11,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/12/2019
 ms.locfileid: "59552903"
 ---
-# <a name="getting-started---uwp"></a>Getting started - UWP
+# <a name="getting-started---uwp"></a>Introduzione-UWP
 
-Si tratta di un renderer delle destinazioni UWP controlli nativi.
+Si tratta di un renderer che è destinato a controlli nativi UWP.
 
 ## <a name="install-nuget-package"></a>Installare il pacchetto NuGet
 
@@ -27,7 +27,7 @@ Install-Package AdaptiveCards.Rendering.Uwp
 
 ## <a name="namespace"></a>Spazio dei nomi
 
-Dichiarare lo spazio dei nomi del renderer.
+Dichiarare lo spazio dei nomi renderer.
 
 ```csharp
 using AdaptiveCards.Rendering.Uwp;
@@ -35,4 +35,4 @@ using AdaptiveCards.Rendering.Uwp;
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Visualizzare [eseguire il rendering di una scheda](render-a-card.md) per i passaggi successivi.
+Per i passaggi successivi, vedi [Eseguire il rendering di una scheda](render-a-card.md).

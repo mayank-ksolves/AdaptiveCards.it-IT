@@ -1,5 +1,5 @@
 ---
-title: Immagine di .NET SDK di Rendering
+title: SDK per il rendering di immagini .NET
 author: matthidinger
 ms.author: mahiding
 ms.date: 10/19/2017
@@ -11,11 +11,11 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/12/2019
 ms.locfileid: "59552863"
 ---
-# <a name="getting-started---net-image"></a>Getting started - immagine di .NET
+# <a name="getting-started---net-image"></a>Guida introduttiva-immagine .NET
 
-Come descritto [introduttiva](../../../authoring-cards/getting-started.md) pagina, una scheda adattiva è un modello a oggetti serializzati con JSON smart card. Questa libreria semplifica eseguire il rendering di tale codice JSON in un'immagine PNG.
+Come descritto in [Introduzione](../../../authoring-cards/getting-started.md) pagina, una scheda adattiva è un modello a oggetti della scheda serializzato JSON. Questa libreria semplifica il rendering di tale JSON in un'immagine PNG.
 
-Questo pacchetto può anche essere utilizzato in un server per generare immagini e implementa tutti i citato "thread STA magic" per l'utente. 
+Questo pacchetto può essere usato anche in un server per generare immagini e implementa tutto il "thread STA Magic" per l'utente. 
 
 ## <a name="nuget-install"></a>Installazione di NuGet
 
@@ -27,4 +27,4 @@ Install-Package AdaptiveCards.Rendering.Wpf -IncludePrerelease
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Visualizzare [eseguire il rendering di una scheda](render-a-card.md) per i passaggi successivi.
+Per i passaggi successivi, vedi [Eseguire il rendering di una scheda](render-a-card.md).

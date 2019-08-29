@@ -1,5 +1,5 @@
 ---
-title: Eseguire il rendering di una scheda - UWP SDK
+title: Eseguire il rendering di una scheda-UWP SDK
 author: matthidinger
 ms.author: mahiding
 ms.date: 06/26/2017
@@ -11,13 +11,13 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/12/2019
 ms.locfileid: "59552433"
 ---
-# <a name="render-a-card---uwp"></a>Eseguire il rendering di una scheda - UWP
+# <a name="render-a-card---uwp"></a>Eseguire il rendering di una scheda-UWP
 
-Di seguito viene illustrato come eseguire il rendering di una scheda tramite il SDK di piattaforma UWP.
+Di seguito viene illustrato come eseguire il rendering di una scheda utilizzando UWP SDK.
 
 ## <a name="create-an-instance-of-your-renderer"></a>Creare un'istanza del renderer
 
-Creare un'istanza della libreria di renderer. 
+Crea un'istanza della libreria del renderer. 
 
 ```csharp
 using AdaptiveCards.Rendering.Uwp;
@@ -40,7 +40,7 @@ var card = AdaptiveCard.FromJson(jsonObject);
 
 ## <a name="render-a-card"></a>Eseguire il rendering di una scheda
 
-Acquisire una carta da un'origine ed eseguirne il rendering.
+Acquisire una scheda da un'origine ed eseguirne il rendering.
 
 ```csharp
 RenderedAdaptiveCard renderedAdaptiveCard =  renderer.RenderAdaptiveCard(card);
@@ -58,7 +58,7 @@ if (renderedAdaptiveCard.FrameworkElement != null)
 
 ## <a name="example"></a>Esempio
 
-Ecco un esempio tratto dal renderer UWP.
+Di seguito è riportato un esempio dal renderer UWP.
 
 ```csharp
 var renderer = new AdaptiveCardRenderer();

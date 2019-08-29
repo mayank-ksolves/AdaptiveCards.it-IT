@@ -1,5 +1,5 @@
 ---
-title: .NET HTML SDK
+title: SDK PER .NET HTML
 author: matthidinger
 ms.author: mahiding
 ms.date: 10/19/2017
@@ -11,9 +11,9 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/12/2019
 ms.locfileid: "59552603"
 ---
-# <a name="getting-started---net-html"></a>Getting started - .NET HTML
+# <a name="getting-started---net-html"></a>Introduzione-HTML .NET
 
-Come descritto [introduttiva](../../../authoring-cards/getting-started.md) pagina, una scheda adattiva è un modello a oggetti serializzati con JSON smart card. Si tratta di una libreria .NET per generare il markup HTML, in genere da un server.
+Come descritto in [Introduzione](../../../authoring-cards/getting-started.md) pagina, una scheda adattiva è un modello a oggetti della scheda serializzato JSON. Si tratta di una libreria .NET per la generazione di markup HTML, in genere da un server.
 
 ## <a name="nuget-install"></a>Installazione di NuGet
 
@@ -25,4 +25,4 @@ Install-Package AdaptiveCards.Rendering.Html -IncludePrerelease
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Visualizzare [eseguire il rendering di una scheda](render-a-card.md) per i passaggi successivi.
+Per i passaggi successivi, vedi [Eseguire il rendering di una scheda](render-a-card.md).

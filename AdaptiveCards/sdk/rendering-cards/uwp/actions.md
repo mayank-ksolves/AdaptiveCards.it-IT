@@ -1,5 +1,5 @@
 ---
-title: Actions - UWP SDK
+title: Azioni-UWP SDK
 author: matthidinger
 ms.author: mahiding
 ms.date: 06/26/2017
@@ -11,11 +11,11 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/12/2019
 ms.locfileid: "59552973"
 ---
-# <a name="actions---uwp"></a>Azioni - UWP
+# <a name="actions---uwp"></a>Azioni-UWP
 
-Eventuali **azioni** all'interno della scheda verrà eseguito il rendering come UWP **pulsante**del, ma spetta all'App per gestire ciò che accade quando l'utente preme li (tranne che per azioni ShowCard... frammento di codice per altre informazioni vedere).
+Tutte le **azioni** all'interno della scheda verranno sottoposte a rendering come **pulsante**di UWP, ma spetta all'app gestire cosa accade quando un utente le preme (ad eccezione delle azioni ShowCard... per altre informazioni, vedere il frammento di codice.
 
-Il `RenderedAdaptiveCard` oggetto fornisce un `Action` eventi per questo scopo.
+A tale scopo, l'oggetto `RenderedAdaptiveCard` fornisce un evento `Action`.
 
 ```csharp
 // Render a card (as previously shown)

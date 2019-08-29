@@ -1,5 +1,5 @@
 ---
-title: Azioni - HTML .NET SDK
+title: Azioni-.NET HTML SDK
 author: matthidinger
 ms.author: mahiding
 ms.date: 10/19/2017
@@ -11,14 +11,14 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/12/2019
 ms.locfileid: "59553313"
 ---
-# <a name="actions---net-html"></a>Azioni - .NET HTML
+# <a name="actions---net-html"></a>Azioni-HTML .NET
 
-Scheda di livello superiore `actions` verrà eseguito il rendering come HTML `<button>`. Poiché si tratta di una libreria lato server spetta all'utente per collegare i gestori eventi lato client quando vengono premuti i pulsanti. Ogni `<button>` nel codice HTML avrà attributi che è possibile usare consente di associare il comportamento corretto.
+Il rendering della scheda `actions` di primo livello verrà eseguito `<button>`come HTML. Poiché si tratta di una libreria sul lato server, è possibile collegare i gestori eventi sul lato client quando vengono premuti i pulsanti. Ogni `<button>` nel codice HTML avrà attributi che è possibile usare per collegare il comportamento appropriato.
 
-Alcuni elementi hanno un `selectAction` proprietà (immagine del contenitore, le colonne) che li rende richiamabili. Se un elemento contiene un `selectAction` il renderer verrà aggiunta una classe CSS di `ac-selectable`, insieme a di seguito gli attributi.
+Alcuni elementi hanno una `selectAction` proprietà (container, Columns, image) che li rende richiamabili. Se un elemento dispone di `selectAction` un oggetto, il renderer aggiungerà una `ac-selectable`classe CSS di, insieme agli attributi seguenti.
 
 Tipo di azione | Classe CSS | Attributi aggiuntivi
 ---|---|---
-`Action.OpenUrl` | `ac-action-openUrl` | `data-ac-url` (il `url` proprietà dalla smart card)
-`Action.Submit` | `ac-action-submit` | `data-ac-data` (il `data` proprietà dalla smart card)
-`Action.ShowCard` | `ac-action-showCard` | `data-ac-showcardid` (il `id` del `<div>` contenente la scheda interna)
+`Action.OpenUrl` | `ac-action-openUrl` | `data-ac-url``url` (proprietà dalla scheda)
+`Action.Submit` | `ac-action-submit` | `data-ac-data``data` (proprietà dalla scheda)
+`Action.ShowCard` | `ac-action-showCard` | `data-ac-showcardid`(dell'oggetto che contiene la scheda interna). `<div>` `id`

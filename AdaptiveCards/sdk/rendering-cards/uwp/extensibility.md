@@ -1,5 +1,5 @@
 ---
-title: Extensibility - UWP SDK
+title: Estendibilità-UWP SDK
 author: matthidinger
 ms.author: mahiding
 ms.date: 06/26/2017
@@ -11,11 +11,11 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/12/2019
 ms.locfileid: "59553043"
 ---
-# <a name="extensibility---uwp"></a>Extensibility - UWP
+# <a name="extensibility---uwp"></a>Estensibilità-UWP
 
-## <a name="changing-per-element-rendering"></a>La modifica per il rendering di elemento
+## <a name="changing-per-element-rendering"></a>Modifica del rendering per elemento
 
-Implementare una classe di rendering e impostarla nel programma di rendering
+Implementare una classe renderer e impostarla nel renderer
 
 ```csharp
 // My custom renderer is going to replace how textblocks should render!

@@ -1,5 +1,5 @@
 ---
-title: Azioni - SDK nel Rendering delle immagini .NET
+title: Azioni-SDK per il rendering di immagini .NET
 author: matthidinger
 ms.author: mahiding
 ms.date: 10/19/2017
@@ -11,6 +11,6 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/12/2019
 ms.locfileid: "59552403"
 ---
-# <a name="actions---net-image"></a>Azioni - immagine di .NET
+# <a name="actions---net-image"></a>Azioni-immagine .NET
 
-Le azioni non sono supportate, prendere in considerazione che questo esegue il rendering di un'immagine.
+Le azioni non sono supportate. in questo modo viene eseguito il rendering di un'immagine.

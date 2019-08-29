@@ -1,5 +1,5 @@
 ---
-title: Extensibility - HTML .NET SDK
+title: Estendibilità-.NET HTML SDK
 author: matthidinger
 ms.author: mahiding
 ms.date: 10/19/2017
@@ -11,13 +11,13 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/12/2019
 ms.locfileid: "59552533"
 ---
-# <a name="extensibility---net-html"></a>Extensibility - .NET HTML
+# <a name="extensibility---net-html"></a>Estendibilità-HTML .NET
 
-## <a name="custom-element-rendering"></a>Rendering di elemento personalizzato
+## <a name="custom-element-rendering"></a>Rendering di elementi personalizzati
 
-Per il controllo completo del renderer è possibile usare il `ElementRenderers` proprietà **aggiungere**, **rimuovere**, o **override** predefinito renderer.
+Per un controllo completo del renderer, puoi usare la proprietà `ElementRenderers` per **aggiungere**, **rimuovere** o **eseguire l'override** del renderer predefinito.
 
-L'esempio seguente mostra come è possibile definire una classe personalizzata `"type": "Rating"` elemento ed eseguirne il rendering.
+L'esempio seguente mostra come definire un elemento `"type": "Rating"` personalizzato ed eseguirne il rendering.
 
 ```csharp
 // Register the new type with the JSON parser

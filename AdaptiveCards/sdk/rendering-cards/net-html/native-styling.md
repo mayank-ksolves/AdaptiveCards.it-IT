@@ -1,5 +1,5 @@
 ---
-title: Stile nativo - HTML .NET SDK
+title: Stile nativo-.NET HTML SDK
 author: matthidinger
 ms.author: mahiding
 ms.date: 10/19/2017
@@ -11,32 +11,32 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/12/2019
 ms.locfileid: "59552563"
 ---
-# <a name="native-styling---net-html"></a>Stile nativo - .NET HTML
+# <a name="native-styling---net-html"></a>Stile nativo-HTML .NET
 
-Mentre Host Config consente di iniziare la maggior parte dei casi in ogni piattaforma, è probabile che si dovrà eseguire alcune stile nativo in ogni piattaforma. 
+Sebbene la configurazione host consentirà di ottenere la maggior parte delle piattaforme in ogni piattaforma, è probabile che sarà necessario eseguire alcuni stili nativi su ogni piattaforma. 
 
-HTML semplifica questa attività mediante l'aggiunta di classi CSS a ogni elemento.
+HTML semplifica questa operazione aggiungendo classi CSS a ogni elemento.
 
 | Elemento | Classe CSS |
 |---|---|
-| AdaptiveCard | ac-adaptivecard |
+| AdaptiveCard | AC-adaptivecard |
 | Tutte le azioni | ac-pushButton | 
-| Selezionare le azioni | AC-selezionabili |
-| Action.OpenUrl  | ac-action-openUrl |
-| Action.ShowCard | ac-action-showCard |
-| Action.Submit  | ac-action-submit  |
-| ActionSet | ac-actionset |
-| Column | AC-colonna |
-| ColumnSet | AC-columnset |
-| Contenitore | AC-container |
-| Tutti gli input | ac-input |
-| Input.ChoiceSet | ac-multichoiceInput  |
-| Input.Date | ac-dateInput |
-| Input.Number | ac-numberInput |
+| Seleziona azioni | AC-selezionabile |
+| Action.OpenUrl  | AC-Action-openUrl |
+| Action.ShowCard | AC-Action-showCard |
+| Azione. Invia  | CA-azione-Invia  |
+| ActionSet | AC-actiont |
+| Colonna | colonna AC |
+| ColumnSet | AC-columnstore |
+| Contenitore | contenitore AC |
+| Tutti gli input | input AC |
+| Input.ChoiceSet | AC-multichoiceInput  |
+| Input. Data | AC-dateInput |
+| Input. Number | AC-numberInput |
 | Input.Text | ac-textInput |
-| Input.Time | ac-timeInput |
+| Input.Time | AC-timeInput |
 | Input.Toggle| - |
 | Image  | AC-image |
-| ImageSet  | AC-imageset |
-| FactSet | ac-factset |
-| TextBlock  | ac-textblock |
+| ImageSet  | AC-imaget |
+| FactSet | CA-fact |
+| TextBlock  | AC-TextBlock |

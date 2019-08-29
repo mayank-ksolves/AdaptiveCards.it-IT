@@ -1,5 +1,5 @@
 ---
-title: Configurazione di host - HTML .NET SDK
+title: Configurazione host-.NET HTML SDK
 author: matthidinger
 ms.author: mahiding
 ms.date: 10/19/2017
@@ -11,11 +11,11 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/12/2019
 ms.locfileid: "59552413"
 ---
-# <a name="host-config---net-html"></a>Configurazione - .NET HTML host
+# <a name="host-config---net-html"></a>Configurazione host-HTML .NET
 
-Oggetto [Host Config](../../../rendering-cards/host-config.md) è un oggetto di configurazione condivisa che comprendere tutti i renderer. In questo modo è possibile definire stili comuni (ad esempio, famiglia di caratteri, le dimensioni dei caratteri, spaziatura predefinita) e i comportamenti (ad esempio, numero massimo di azioni) che verranno interpretati automaticamente dal renderer ogni piattaforma. 
+Una [configurazione dell'host](../../../rendering-cards/host-config.md) è un oggetto di configurazione condiviso che può essere interpretato da tutti i renderer. Questo consente di definire stili comuni (ad esempio, famiglia di caratteri, dimensioni dei caratteri, spaziatura predefinita) e comportamenti (ad esempio, numero massimo di azioni) che verranno interpretati automaticamente dal renderer di ogni piattaforma. 
 
-L'obiettivo è che l'interfaccia utente nativa generato da ogni renderer piattaforma avrà un aspetto molto simile con un intervento minimo da parte dell'utente.
+L'obiettivo è che l'interfaccia utente nativa generata dal renderer di ogni piattaforma abbia un aspetto molto simile, con un intervento minimo da parte dello sviluppatore.
 
 ```csharp
 // Construct programmatically

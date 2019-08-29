@@ -1,5 +1,5 @@
 ---
-title: Actions - JavaScript SDK
+title: Azioni-JavaScript SDK
 author: matthidinger
 ms.author: mahiding
 ms.date: 11/28/2017
@@ -11,7 +11,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 04/12/2019
 ms.locfileid: "59553113"
 ---
-# <a name="actions---javascript"></a>Azioni - JavaScript
+# <a name="actions---javascript"></a>Azioni-JavaScript
 
 ```js
 // Set the adaptive card's event handlers. onExecuteAction is invoked
