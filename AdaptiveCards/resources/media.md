@@ -1,17 +1,17 @@
 ---
-title: Supporti per schede adattive
+title: Elementi multimediali delle schede adattive
 author: matthidinger
 ms.author: mahiding
 ms.date: 5/14/2018
 ms.topic: article
 ms.openlocfilehash: d4c9e784fec66d2f3449e5780dda23d72ab2edf2
 ms.sourcegitcommit: f8de9c02b92cd8927a18e59e5650c92b2b78db06
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/26/2019
 ms.locfileid: "68523867"
 ---
-# <a name="adaptive-cards-media"></a>Supporti per schede adattive
+# <a name="adaptive-cards-media"></a>Elementi multimediali delle schede adattive
 
 
 ## <a name="introduction-video"></a>Video introduttivo

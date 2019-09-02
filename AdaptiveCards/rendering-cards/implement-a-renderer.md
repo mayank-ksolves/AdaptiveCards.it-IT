@@ -1,169 +1,169 @@
 ---
-title: Implementazione di un Renderer
+title: Implementazione di un renderer
 author: matthidinger
 ms.author: mahiding
 ms.date: 09/15/2017
 ms.topic: article
 ms.openlocfilehash: b39493f82f3378e5a554abc6df890d6821869671
 ms.sourcegitcommit: e002a988c570072d5bc24a1242eaaac0c9ce90df
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 06/14/2019
 ms.locfileid: "67138024"
 ---
-# <a name="adaptive-card-renderer-specification"></a>Specifica del Renderer scheda adattiva
+# <a name="adaptive-card-renderer-specification"></a>Specifica relativa al renderer di schede adattive
 
-La specifica seguente viene descritto come implementare un renderer scheda adattiva in qualsiasi piattaforma dell'interfaccia utente.
+La specifica seguente illustra come implementare un renderer di schede adattive in qualsiasi piattaforma di interfaccia utente.
 
 > [!IMPORTANT]
 > 
-> Questo contenuto non è ancora stato completato. Ricontrollare a breve.
+> Questo contenuto non è ancora definitivo. Torna a breve.
 
-## <a name="sdk-versioning"></a>Controllo delle versioni SDK
+## <a name="sdk-versioning"></a>Controllo delle versioni dell'SDK
 
-1. La versione del SDK major e minor **SHOULD** corrispondere il `schema` versione. 
-1. Patch/build **SHOULD** essere usato per gli aggiornamenti di renderer che non hanno le modifiche dello schema.
+1. La versione principale e quella secondaria dell'SDK **DOVREBBERO** corrispondere alla versione di `schema`. 
+1. La patch/build **DOVREBBE** essere usata per gli aggiornamenti del renderer che non prevedono modifiche relative allo schema.
 
-## <a name="parsing-json"></a>L'analisi JSON
+## <a name="parsing-json"></a>Analisi del contenuto JSON
 
 ### <a name="error-conditions"></a>Condizioni di errore
-1. Un parser **necessario** che sia contenuto JSON valido
-1. Un parser **necessario** convalidare a fronte dello schema (proprietà obbligatorie e così via)
-1. Gli errori citati **necessario** segnalati per l'app host (un'eccezione o equivalente)
+1. Un parser **DEVE** verificare che si tratti di contenuto JSON valido
+1. Un parser **DEVE** eseguire la convalida a fronte dello schema (proprietà obbligatorie e così via)
+1. Gli errori sopra riportati **DEVONO** essere segnalati all'app host (eccezione o equivalente)
 
 ### <a name="unknown-types"></a>Tipi sconosciuti
-1. Se vengono rilevati sconosciuti "tipi" essi **devono essere eliminati** dal risultato
-1. Modifiche del payload (come sopra) **SHOULD** siano segnalati come avvisi per l'applicazione host
+1. Se vengono rilevati "tipi" sconosciuti, questi **DEVONO ESSERE ELIMINATI** dal risultato
+1. Eventuali modifiche del payload (come nei casi sopra indicati) **DOVREBBERO** essere segnalate come avvisi all'app host
 
 ### <a name="unknown-properties"></a>Proprietà sconosciute
-1. Un parser **devono** includono **aggiuntive** sulle proprietà degli elementi
+1. Un parser **DEVE** includere proprietà **aggiuntive** per gli elementi
 
 ### <a name="additional-considerations"></a>Considerazioni aggiuntive
-1. Il `speak` proprietà contenga il markup SSML e **necessario** restituito all'app host come specificata
+1. La proprietà `speak` può contenere markup SSML e **DEVE** essere restituita all'app host come specificato
 
-## <a name="parsing-host-config"></a>L'analisi di configurazione di Host
+## <a name="parsing-host-config"></a>Analisi della configurazione host
 1. TODO
 
 ## <a name="versioning"></a>Controllo delle versioni
 
-1. Un renderer **necessario** implementare una particolare versione dello schema. 
-1. Il `AdaptiveCard` costruttore **necessario** assegnare il `version` proprietà valore predefinito è basato sulla versione corrente dello schema 
-1. Se viene rilevato un renderer di un `version` proprietà nel `AdaptiveCard` che è superiore alla versione supportata, viene **deve** restituiscono il `fallbackText` invece.
+1. Un renderer **DEVE** implementare una determinata versione dello schema. 
+1. Il costruttore `AdaptiveCard` **DEVE** assegnare alla proprietà `version` un valore predefinito in base alla versione corrente dello schema. 
+1. Se un renderer rileva una proprietà `version` nell'oggetto `AdaptiveCard` con un valore superiore alla versione supportata, **DEVE** invece restituire l'oggetto `fallbackText`.
 
-## <a name="rendering"></a>Per il rendering
+## <a name="rendering"></a>Rendering
 
-Un' `AdaptiveCard` è costituito da un `body` e `actions`. Il `body` è una raccolta di `CardElement`che un renderer enumererà ed eseguire il rendering in ordine. 
+Un oggetto `AdaptiveCard` è costituito da un oggetto `body` e da `actions`. L'oggetto `body` è una raccolta di `CardElement` di cui un renderer eseguirà l'enumerazione e il rendering nell'ordine. 
 
-1. Ogni elemento **devono** stretch per la larghezza dell'elemento padre (pensare `display: block` in formato HTML).
-1. Un renderer **necessario** ignorano i tipi di elemento sconosciuto e continuare il resto del payload di rendering.
+1. Ogni elemento **DEVE** estendersi per la larghezza del relativo elemento padre (pensa a `display: block` in HTML).
+1. Un renderer **DEVE** ignorare i tipi di elemento sconosciuti e continuare a eseguire il rendering del resto del payload.
 
 ### <a name="spacing-and-separators"></a>Spaziatura e separatori
 
-1. Il `spacing` proprietà su ogni elemento influisce sulla quantità di spazio tra il **corrente** elemento e quello **BEFORE** è.
-1. Spaziatura **devono solo** applicare se si è effettivamente un elemento che la precede. (Ad esempio, non verranno applicati al primo elemento in una matrice)
-1. Un renderer **devono** cercare la quantità di spazio da utilizzare dal `hostConfig` spaziatura per il valore di enumerazione applicato all'elemento corrente.
-1. Se l'elemento ha un `separator` pari a `true`, quindi una riga visibile **necessario** separazione tra l'elemento corrente e quella prima di esso.
-1. La linea di separazione **devono** essere disegnata usando il `container.style.default.foregroundColor`.
-1. Un separatore **devono solo** da disegnare se l'elemento **non è** il primo elemento nella matrice.
+1. La proprietà `spacing` di ogni elemento influisce sulla quantità di spazio tra l'elemento **CORRENTE** e quello **PRECEDENTE**.
+1. La spaziatura **DEVE ESSERE APPLICATA SOLO** quando esiste effettivamente un elemento precedente. Ad esempio, non si applica al primo elemento di una matrice.
+1. Un renderer **DEVE** cercare la quantità di spazio da usare dalla spaziatura di `hostConfig` per il valore di enumerazione applicato all'elemento corrente.
+1. Se l'elemento ha un valore `separator` impostato su `true`, **DEVE** essere tracciata una linea visibile tra l'elemento corrente e quello che lo precede.
+1. La linea di separazione **DEVE** essere tracciata con `container.style.default.foregroundColor`.
+1. Un separatore **DEVE ESSERE TRACCIATO SOLO** se l'elemento **NON È** il primo della matrice.
 
 ### <a name="columns"></a>Colonne
 
-1. `Column` `width` **È necessario** essere interpretata dalle "auto", "stretch" o un rapporto ponderato.
+1. `Column` `width` **DEVE** essere interpretata in base all'impostazione "auto" o "stretch" oppure a un rapporto ponderato.
 
 ### <a name="textblock"></a>TextBlock
 
-1. Un elemento TextBlock **devono** occupano una singola riga, a meno che il `wrap` è di proprietà `true`. 
-1. Il blocco di testo **SHOULD** tagliare il testo in eccesso con i puntini di sospensione (...)
+1. Un oggetto TextBlock **DEVE** occupare un'unica riga, tranne quando la proprietà `wrap` è impostata su `true`. 
+1. Il blocco di testo **DOVREBBE** tagliare l'eventuale testo in eccesso con i puntini di sospensione (...)
 
 #### <a name="markdown"></a>Markdown
 
-1. Le schede adattive consentono un sottoinsieme di Markdown e **SHOULD** supportata in `TextBlock`. 
-1. Vedere completi [requisiti markdown](../authoring-cards/text-features.md)
+1. Le schede adattive consentono l'uso di un sottoinsieme del markdown e **DOVREBBE** essere fornito il supporto in `TextBlock`. 
+1. Vedi i [requisiti di markdown](../authoring-cards/text-features.md) completi.
 
-#### <a name="formatting-functions"></a>Le funzioni di formattazione
+#### <a name="formatting-functions"></a>Funzioni di formattazione
 
-1. `TextBlock` Consente [funzioni di formattazione di data/ora](../authoring-cards/text-features.md) che **necessario** siano supportate in ogni renderer.
-1. **TUTTI gli errori devono** visualizzare la stringa non elaborata nella scheda. Nessun messaggio descrittivo tentato. (L'obiettivo a rendere lo sviluppatore consapevole immediatamente si è verificato un problema)
+1. `TextBlock` consente l'uso di [funzioni di formattazione DATE/TIME](../authoring-cards/text-features.md) che **DEVONO** essere supportate in ogni renderer.
+1. **TUTTI GLI ERRORI DEVONO** visualizzare la stringa non elaborata nella scheda. Non vengono usati messaggi descrittivi perché l'obiettivo è quello di far comprendere immediatamente il problema allo sviluppatore.
 
-1. TODO: Includere espressioni regolari
+1. TODO: includi regex.
 
 ### <a name="images"></a>Immagini
 
-1. Un renderer **SHOULD** consentire l'hosting di App di sapere quando sono state scaricate tutte le immagini HTTP e la scheda è "completamente il rendering di"
-1. Un renderer **devono** ispezionare la configurazione Host `maxImageSize` param durante il download delle immagini HTTP
-1. Un renderer **devono** supportano `.png` e `.jpeg`
-1. Un renderer **SHOULD** supportano `.gif` immagini
+1. Un renderer **DOVREBBE** consentire alle app host di rilevare quando tutte le immagini HTTP sono state scaricate ed è stato "eseguito il rendering completo" della scheda
+1. Un renderer **DEVE** controllare il parametro `maxImageSize` della configurazione host durante il download delle immagini HTTP
+1. Un renderer **DEVE** supportare `.png` e `.jpeg`
+1. Un renderer **DOVREBBE** supportare le immagini `.gif`
 
 ### <a name="host-config"></a>Configurazione dell'host
 
-* TODO: Quale dovrebbero essere i valori predefiniti? Dovrebbe condividono tutti lo? Dovremmo si incorpora un file hostConfig.json comune nei file binari?
-* TODO: Ritengo che HostConfig deve essere eseguito anche per l'analisi?
+* TODO: quali dovrebbero essere le impostazioni predefinite? La condivisione dovrebbe essere totale? È necessario incorporare un file hostConfig.json comune nei dati binari?
+* TODO: è necessario applicare il controllo delle versioni anche di HostConfig per l'analisi?
 
-[`HostConfig`](host-config.md) è un oggetto di configurazione condivisa che specifica la modalità di generazione dell'interfaccia utente in un Renderer scheda adattiva.  
+[`HostConfig`](host-config.md) è un oggetto di configurazione condivisa che specifica il modo in cui un renderer di schede adattive genera l'interfaccia utente.  
 
-In questo modo le proprietà che sono indipendenti dalla piattaforma per la condivisione tra i renderer su diverse piattaforme e dispositivi. Consente inoltre gli strumenti da creare che ti offre un'idea dell'aspetto che scheda sarebbe necessario per un determinato ambiente.
+Ciò consente di condividere le proprietà indipendenti dalla piattaforma tra i renderer in piattaforme e dispositivi diversi. Consente inoltre di creare strumenti che danno un'idea dell'aspetto che avrebbe la scheda per un determinato ambiente.
 
-1. I renderer **devono** esporre una **Host Config** parametro per ospitare App
-1. Tutti gli elementi **necessario** applicare stili in base a delle rispettive impostazioni di configurazione di Host
+1. I renderer **DEVONO** esporre un parametro di **configurazione host** alle app host
+1. Tutti gli elementi **DEVONO** avere uno stile in base alle rispettive impostazioni di configurazione host
 
-### <a name="native-platform-styling"></a>Stile di piattaforma nativa
+### <a name="native-platform-styling"></a>Applicazione di stili della piattaforma nativa
 
-1. Ogni tipo di elemento **SHOULD** allegare uno stile di piattaforma nativa con l'elemento dell'interfaccia utente generato. Ad esempio, in formato HTML è stata aggiunta una classe CSS per i tipi di elemento e in XAML è assegnare uno stile specifico.
+1. Ogni tipo di elemento **DOVREBBE** associare uno stile della piattaforma nativa all'elemento generato dell'interfaccia utente. Ad esempio, in HTML è stata aggiunta una classe CSS ai tipi di elemento e in XAML viene assegnato uno stile specifico.
 
 ## <a name="extensibility"></a>Estendibilità 
 
-1. Un renderer **necessario** consentire l'hosting delle App eseguire l'override di renderer di elemento predefinito. Ad esempio, sostituire `TextBlock` esegue il rendering con la propria logica.
-1. Un renderer **necessario** consentire l'hosting delle App registrare i tipi di elemento personalizzati. Ad esempio, aggiungere il supporto per un oggetto personalizzato `Rating` elemento
-1. Un renderer **necessario** consentire alle App host di rimuovere il supporto per un elemento predefinito. Ad esempio, rimuovere `Action.Submit` se si preferisce non supportata.
+1. Un renderer **DEVE** consentire alle app host di eseguire l'override dei renderer di elementi predefiniti, ad esempio sostituire il rendering di `TextBlock` con la propria logica.
+1. Un renderer **DEVE** consentire alle app host di registrare tipi di elementi personalizzati, ad esempio aggiungere il supporto per un elemento `Rating` personalizzato.
+1. Un renderer **DEVE** consentire alle app host di rimuovere il supporto per un elemento predefinito, ad esempio rimuovere `Action.Submit` se non vogliono che sia supportato.
 
 ## <a name="actions"></a>Azioni
 
-1. Se HostConfig `supportsInteractivity` viene `false`, un renderer **non deve** eseguire il rendering di eventuali azioni.
-1. Il `actions` proprietà **necessario** sottoposta a rendering come pulsanti nello stesso tipo di barra delle azioni, in genere nella parte inferiore della scheda. 
-1. Quando si tocca un pulsante viene **necessario** consentire all'app di host gestire l'evento. 
-1. L'evento **necessario** pass lungo tutte le relative proprietà con l'azione
-1. L'evento **devono** passano il `AdaptiveCard` quale è stato eseguito
+1. Se la proprietà `supportsInteractivity` di HostConfig è `false`, un renderer **NON DEVE** eseguire il rendering di alcuna azione.
+1. La proprietà `actions` **DEVE** essere sottoposta a rendering come pulsanti in una specie di barra delle azioni, in genere nella parte inferiore della scheda. 
+1. Quando un pulsante viene toccato, **DEVE** consentire all'app host di gestire l'evento. 
+1. L'evento **DEVE** passare tutte le proprietà associate con l'azione.
+1. L'evento **DEVE** passare l'oggetto `AdaptiveCard` che è stato eseguito.
 
 Azione | Comportamento
 --- | ---
-**Action.OpenUrl** | Aprire un URL esterno per la visualizzazione
-**Action.ShowCard** | Richiede una carta secondari da visualizzare all'utente.
-**Action.Submit** | Porre per tutti gli elementi di input di raccogliere in un oggetto che viene quindi inviato all'utente tramite un metodo definito dall'applicazione host.
+**Action.OpenUrl** | Apre un URL esterno per la visualizzazione
+**Action.ShowCard** | Richiede che una scheda secondaria venga visualizzata all'utente.
+**Action.Submit** | Richiede la raccolta di tutti gli elementi di input in un oggetto che ti viene quindi inviato tramite un metodo definito dall'applicazione host.
 
 ### <a name="actionopenurl"></a>Action.OpenUrl
-1. `Action.OpenUrl` **DOVREBBE** aprire un URL usando il meccanismo di piattaforma nativa
-1. Se questo non è possibile **necessario** generare un evento per l'applicazione host per gestire aprendo l'URL. Questo evento **necessario** consentire all'app di host eseguire l'override del comportamento predefinito. Ad esempio, consentendogli di aprire l'URL interno le proprie app.
+1. `Action.OpenUrl` **DOVREBBE** aprire un URL usando il meccanismo della piattaforma nativa.
+1. Se questo non è possibile, **DEVE** generare un evento nell'app host per gestire l'apertura dell'URL. Questo evento **DEVE** consentire all'app host di eseguire l'override del comportamento predefinito, ad esempio consentire l'apertura dell'URL all'interno della rispettiva app.
 
 ### <a name="actionshowcard"></a>Action.ShowCard
 
-1. `Action.ShowCard` **È necessario** supportato in qualche modo, in base all'impostazione hostConfig. Sono disponibili due modalità: inline e finestra popup. Le schede inline **SHOULD** attivare/disattivare la visibilità di smart card automaticamente. In modalità finestra popup, un evento **SHOULD** generato per l'app host venga visualizzata la scheda in qualche modo.
+1. `Action.ShowCard` **DEVE** essere supportata in qualche modo, in base all'impostazione di hostConfig. Sono disponibili due modalità: inline e popup. Le schede inline **DOVREBBERO** attivare/disattivare la visibilità della scheda automaticamente. In modalità popup **DOVREBBE** essere generato un evento nell'app host per mostrare la scheda in qualche modo.
 
 ### <a name="actionsubmit"></a>Action.Submit
 
-L'azione di invio si comporta come un invio di form HTML, ad eccezione del fatto che in cui in genere HTML attiva una richiesta post HTTP, le schede adattive lasciandolo fino a ogni app host di determinare quali "Invia" significa che a loro. 
+L'azione di invio si comporta come l'invio di un modulo HTML, ad eccezione del fatto che, quando il codice HTML in genere attiva un post HTTP, le schede adattive lasciano a ogni app host la possibilità di determinare il significato di "inviare". 
 
-1. Quando ciò **necessario** generare un evento a cui l'utente tocca l'azione richiamata.  
-1. Il `data` proprietà **necessario** da includere nel payload del callback.
-1. Per la `Action.Submit`, un renderer **necessario** raccogliere tutti gli input della scheda e recuperare i valori. 
+1. Quando **DEVE** essere generato un evento, l'utente tocca l'azione richiamata.  
+1. La proprietà `data` **DEVE** essere inclusa nel payload di callback.
+1. Per `Action.Submit`, un renderer **DEVE** raccogliere tutti gli input nella scheda e recuperare i relativi valori. 
 
 ### <a name="selectaction"></a>selectAction
 
-1. Se Host Config `supportedInteractivity` viene `false` un' `selectAction` **non deve** sottoposti a rendering come una destinazione di tocco.
-1. `Image`, `ColumnSet`, e `Column` offrono una `selectAction` proprietà, quali **SHOULD** da eseguire quando l'utente richiama, ad esempio, toccare l'elemento.
+1. Se `supportedInteractivity` della configurazione host è `false`, una proprietà `selectAction` **NON DEVE** essere sottoposta a rendering come destinazione del tocco.
+1. `Image`, `ColumnSet` e `Column` offrono una proprietà `selectAction` che **DOVREBBE** essere eseguita quando l'utente la richiama, ad esempio toccando l'elemento.
 
 ## <a name="inputs"></a>Input
 
-1. Se HostConfig `supportsInteractivity` viene `false` un renderer **non deve** eseguire il rendering di alcun input.
-2. Gli input **SHOULD** rendering con la massima fedeltà possibili. Ad esempio, un' `Input.Date` offrirebbe idealmente un controllo selezione data a un utente, ma se questo non è possibile lo stack di interfaccia utente, quindi il renderer **necessario** il fallback al rendering di una casella di testo standard.
-3. Un renderer **SHOULD** visualizzare il `placeholderText` se possibile
-4. Un renderer **non implica** disporre implementare la convalida dell'input. Gli utenti delle schede adattive devono pianificare convalidare tutti i dati ricevuti estremità.
-5. Associazione del valore di input **necessario** utilizzare correttamente caratteri di escape
+1. Se la proprietà `supportsInteractivity` di HostConfig è `false`, un renderer **NON DEVE** eseguire il rendering di alcun input.
+2. Gli input **DOVREBBERO** essere sottoposti a rendering con la massima fedeltà possibile. Ad esempio, un oggetto `Input.Date` idealmente offre una selezione data a un utente, ma se questo non è possibile nello stack dell'interfaccia utente, il renderer **DEVE** eseguire il fallback al rendering di una casella di testo standard.
+3. Un renderer **DOVREBBE** visualizzare l'oggetto `placeholderText`, se possibile.
+4. **NON** è necessario che un renderer implementi la convalida dell'input. Gli utenti di schede adattive devono pianificare la convalida dei dati ricevuti sul loro lato.
+5. L'associazione del valore di input **DEVE** essere preceduta adeguatamente da caratteri di escape.
 
-6. L'oggetto **necessario** da restituire per l'applicazione host come segue:
+6. L'oggetto **DEVE** essere restituito all'app host come segue:
 
-   È non apportare qualsiasi promesse di convalida dell'input nelle schede adattive, in modo che spetta alla parte ricevente per analizzare correttamente la risposta. Ad esempio, un Input.Number potrebbe restituire "hello" e devono essere preparati per che.
+   Non viene eseguita alcuna promessa di convalida dell'input nelle schede adattive, pertanto spetta alla parte ricevente analizzare correttamente la risposta. Ad esempio, Input.Number potrebbe restituire "hello" ed è necessario essere preparati in tal senso.
 
 
-## <a name="events"></a>Events
+## <a name="events"></a>Eventi
 
-1. Un renderer **SHOULD** generare un evento quando la visibilità di un elemento è stato modificato, consentendo all'app di host scorrere la scheda nella posizione desiderata.
+1. Un renderer **DOVREBBE** generare un evento quando la visibilità di un elemento è cambiata, consentendo all'app host di scorrere la scheda in posizione.
