@@ -13,14 +13,14 @@ ms.locfileid: "59553283"
 ---
 # <a name="adaptive-cards-for-bot-developers"></a>Schede adattive per gli sviluppatori di bot
 
-Le schede adattive sono ideali per i bot. Ti consentono di creare una scheda a una sola volta e di eseguirne perfettamente il rendering in più app, come Microsoft Teams, il tuo sito Web e altro ancora.
+Le schede adattive sono ideali per i bot. Ti consentono di creare una scheda una sola volta e di eseguirne perfettamente il rendering in più app, come Microsoft Teams, il tuo sito Web e altro ancora.
 
 > [!NOTE]
 > Skype non è supportato nell'anteprima corrente. Per le informazioni più recenti, vedi la pagina sullo [stato dei partner](../resources/partners.md).
 
 ## <a name="try-it-out"></a>Prova
 
-Fai clic sul collegamento seguente e [parla il bot Scuba](http://contososcubademo.azurewebsites.net/). Prova a dire `I'm looking for scuba` e ti aiuterà a prenotare il viaggio per le immersioni dei tuoi sogni.  
+Fai clic sul collegamento seguente e [parla con il bot Scuba](http://contososcubademo.azurewebsites.net/). Prova a dire `I'm looking for scuba` e ti aiuterà a prenotare il viaggio per le immersioni dei tuoi sogni.  
 
 Tutte le risposte del bot vengono create tramite schede adattive.
 
