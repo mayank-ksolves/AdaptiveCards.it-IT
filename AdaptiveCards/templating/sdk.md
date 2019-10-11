@@ -1,15 +1,15 @@
 ---
-title: SDK per modelli
+title: SDK di creazione di modelli
 author: matthidinger
 ms.author: mahiding
 ms.date: 08/01/2019
 ms.topic: article
-ms.openlocfilehash: 5f60a458af99f1b88e8ee428a8f29f1849be9b62
-ms.sourcegitcommit: a16f53ba10a8607deacde5c8cc78927cac58657c
+ms.openlocfilehash: 3a9bfcd1bf8f87959a747997e04f5c5ad2a79980
+ms.sourcegitcommit: 90afb3729931b0e4cae19b17ef9e49453c2d2bf6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878878"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72163617"
 ---
 # <a name="adaptive-card-templating-sdks"></a>SDK per modelli di schede adattive
 
@@ -19,7 +19,7 @@ Gli SDK per modelli di schede adattive semplificano la compilazione di un [model
 
 > [!IMPORTANT] 
 > 
-> Queste funzionalità sono **in anteprima e sono soggette a modifiche**. Il feedback non è solo Benvenuto, ma è fondamentale per garantire la fornitura delle funzionalità necessarie.
+> Queste funzionalità sono disponibili **in anteprima e sono soggette a modifiche**. Il tuo feedback non solo è apprezzato, ma è anche fondamentale per aiutarci a offrire le funzionalità di cui **tu** hai bisogno.
 > 
 > Durante l'anteprima iniziale è disponibile solo JavaScript SDK, ma a breve arriverà un SDK .NET.
 
@@ -33,17 +33,17 @@ La libreria [adaptivecards-template](https://www.npmjs.com/package/adaptivecards
 npm install adaptivecards-templating
 ```
 
-### <a name="cdn"></a>RETE CDN
+### <a name="cdn"></a>CDN
 
 ```html
 <script src="https://unpkg.com/adaptivecards-templating/dist/adaptivecards-templating.min.js"></script>
 ``` 
 
-### <a name="usage"></a>Uso
+### <a name="usage"></a>Utilizzo
 
 Nell'esempio seguente si presuppone che sia stata installata anche la libreria [adaptivecards](https://www.npmjs.com/package/adaptivecards) per eseguire il rendering della scheda. 
 
-Se non si prevede di eseguire il rendering della scheda, è possibile `parse` rimuovere `render` il codice e. 
+Se non si prevede di eseguire il rendering della scheda, è possibile rimuovere il codice `parse` e `render`. 
 
 ```js
 import * as ACData from "adaptivecards-templating";
@@ -82,10 +82,42 @@ adaptiveCard.parse(card);
 var htmlElement = adaptiveCard.render();
 ```
 
-## <a name="net-coming-soon"></a>.NET (*presto disponibile*)
-
-NON FUNZIONA ANCORA: 
+## <a name="net"></a>.NET 
 
 ```console
-nuget install AdaptiveCards.Templating
+dotnet add package AdaptiveCards.Templating --version 0.1.0-alpha1
+```
+
+> [!NOTE]
+>
+> Provare a modificare la versione precedente alla versione pubblicata più recente
+
+Importa la libreria 
+
+```cs
+using AdaptiveCards.Templating
+```
+
+Usare il motore di creazione del modello passando il modello JSON e i dati JSON.
+
+```cs
+var templateJson = @"
+{
+    ""type"": ""AdaptiveCard"",
+    ""version"": ""1.0"",
+    ""body"": [
+        {
+            ""type"": ""TextBlock"",
+            ""text"": ""Hello {name}""
+        }
+    ]
+}";
+
+var dataJson = @"
+{
+    ""name"": ""Mickey Mouse""
+}";
+
+var transformer = new AdaptiveTransformer();
+var cardJson = transformer.Transform(templateJson, dataJson);
 ```

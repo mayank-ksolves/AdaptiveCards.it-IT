@@ -4,12 +4,12 @@ author: matthidinger
 ms.author: mahiding
 ms.date: 07/29/2019
 ms.topic: article
-ms.openlocfilehash: ca21c70abc4638db8f96f3564d9e006aea39f926
-ms.sourcegitcommit: a16f53ba10a8607deacde5c8cc78927cac58657c
+ms.openlocfilehash: fdfe7b46614f046155ab84a5a487105d55afd7cb
+ms.sourcegitcommit: ef03c0eff3272a36cfa88daf99c4d57e4bae9599
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878948"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72042543"
 ---
 # <a name="adaptive-cards-templating-preview"></a>Creazione di modelli di Schede adattive (anteprima)
 
@@ -180,7 +180,7 @@ Gli SDK di creazione modelli rendono possibile popolare un modello con dati real
 Piattaforma | Installazione | Documentazione
 --- | --- | ---
 JavaScript | `npm install adaptivecards-templating` | [Documentazione](https://www.npmjs.com/package/adaptivecards-templating)
-.NET | *prossimamente* | *prossimamente*
+.NET | `nuget install AdaptiveCards.Templating` | [Documentazione](https://docs.microsoft.com/en-us/adaptive-cards/templating/sdk#net)
 
 ### <a name="javascript-example"></a>Esempio di JavaScript
 

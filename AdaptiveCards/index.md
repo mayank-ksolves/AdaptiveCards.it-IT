@@ -4,12 +4,12 @@ author: matthidinger
 ms.author: mahiding
 ms.date: 06/26/2017
 ms.topic: article
-ms.openlocfilehash: 487acab86d80d563210abe07968520ea7669498a
-ms.sourcegitcommit: 8c8067206f283d97a5aa4ec65ba23d3fe18962f1
+ms.openlocfilehash: 27c7d5ac7da3ae182667cbf8efa90d29f110d1d3
+ms.sourcegitcommit: ef03c0eff3272a36cfa88daf99c4d57e4bae9599
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68299546"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72042526"
 ---
 # <a name="adaptive-cards-overview"></a>Panoramica delle schede adattive 
 
@@ -76,8 +76,8 @@ Focalizzando l'attenzione su semplicità ed espressività, con Markdown si è ri
 È più semplice aggiungere in un secondo momento che convivere con una scelta infelice. Se ci si ritrova a discutere se aggiungere o meno un elemento, è consigliabile decidere di ometterlo.  È sempre più semplice aggiungere una proprietà piuttosto che convivere con una proprietà legacy che sarebbe stato preferibile non dover supportare.
 
 
-## <a name="build-2018-session"></a>Sessione dell'evento Build 2018
+## <a name="build-2019-session"></a>Sessione dell'evento Build 2019
 
-La sessione seguente di Build 2018 presenta le schede adattive nei bot e in Cortana, Outlook e Windows. 
+La sessione seguente che si è svolta alla conferenza Microsoft Build presenta le schede adattive in diversi casi d'uso. 
 
-<iframe src="https://medius.studios.ms/Embed/Video/BRK2401?SFYT=true" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wT1yFr_j6IM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
