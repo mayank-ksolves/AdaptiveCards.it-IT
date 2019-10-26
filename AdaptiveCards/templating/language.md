@@ -4,12 +4,12 @@ author: matthidinger
 ms.author: mahiding
 ms.date: 08/01/2019
 ms.topic: article
-ms.openlocfilehash: 993618ed94eaea1a004c7893a5a3927c0d818cd6
-ms.sourcegitcommit: a16f53ba10a8607deacde5c8cc78927cac58657c
+ms.openlocfilehash: b99a2905fb000653b7ee75204221b832a2b5a907
+ms.sourcegitcommit: ce044dc969d9b9c47a52bd361bfe2b746071913b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878898"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72917131"
 ---
 # <a name="adaptive-cards-template-language"></a>Lingua del modello di schede adattive
 
@@ -19,19 +19,19 @@ Il modello consente la separazione dei **dati** dal **layout** nella scheda adat
 
 > [!IMPORTANT] 
 > 
-> Queste funzionalità sono **in anteprima e sono soggette a modifiche**. Il feedback non è solo Benvenuto, ma è fondamentale per garantire la fornitura delle funzionalità necessarie.
+> Queste funzionalità sono disponibili **in anteprima e sono soggette a modifiche**. Il tuo feedback non solo è apprezzato, ma è anche fondamentale per aiutarci a offrire le funzionalità di cui **tu** hai bisogno.
 
-Quando si crea un modello, è possibile specificare i dati inline con `AdaptiveCard` il payload oppure in fase di esecuzione usando gli SDK per i [modelli](sdk.md).
+Quando si crea un modello, è possibile specificare i dati inline con il payload del `AdaptiveCard` o in fase di esecuzione usando gli SDK per i [modelli](sdk.md).
 
 ## <a name="specify-data-within-the-card"></a>Specificare i dati all'interno della scheda
 
-Per fornire i dati direttamente all'interno del payload della scheda, `$data` è sufficiente aggiungere `AdaptiveCard` un attributo a (come illustrato di seguito).
+Per fornire i dati direttamente all'interno del payload della scheda, è sufficiente aggiungere un `$data` attributo al `AdaptiveCard` (illustrato di seguito).
 
 ## <a name="binding-to-the-data"></a>Associazione ai dati
 
-È possibile eseguire l'associazione ai dati all' `body` interno `actions` di o della scheda.
+È possibile associare i dati all'interno del `body` o `actions` della scheda.
 
-* La sintassi di associazione `{` inizia con e `}`termina con. Ad esempio,`{myProperty}`
+* La sintassi di associazione inizia con `{` e termina con `}`. Ad esempio, `{myProperty}`
 * Notazione del punto per accedere agli oggetti secondari
 * Sintassi dell'indicizzatore per recuperare le proprietà in base alla chiave o agli elementi di una matrice
 * Gestione dei valori null normale per le gerarchie complete
@@ -76,7 +76,7 @@ Per fornire i dati direttamente all'interno del payload della scheda, `$data` è
 
 In alternativa, è possibile creare una scheda riutilizzabile "template" senza includere i dati. Questo modello può essere archiviato come file e aggiunto al controllo del codice sorgente.
 
-**EmployeeCardTemplate. JSON**
+**EmployeeCardTemplate.json**
 
 ```json
 {
@@ -135,9 +135,9 @@ var card = template.expand(dataContext);
 
 La finestra di progettazione della scheda Adaptive è stata aggiornata per supportare i modelli. 
 
-> Provare un'anteprima di "vNext" all'indirizzo: **[https://vnext.adaptivecards.io/designer](https://vnext.adaptivecards.io/designer)**
+> Prova un'anteprima di "vNext" all'indirizzo:  **[https://vnext.adaptivecards.io/designer](https://vnext.adaptivecards.io/designer)**
 
-[![immagine](https://user-images.githubusercontent.com/1432195/53214462-88d46980-3601-11e9-908d-253a1bb940a8.png)](http://vnext.adaptivecards.io/designer)
+[immagine di![](https://user-images.githubusercontent.com/1432195/53214462-88d46980-3601-11e9-908d-253a1bb940a8.png)](http://vnext.adaptivecards.io/designer)
 
  
 Questo URL "vNext" avrà bug e verrà distribuito di frequente. **Cancellare la cache** per assicurarsi di disporre della versione più recente. Se si trovano bug, è possibile segnalarlo.
@@ -167,7 +167,7 @@ Sono disponibili alcune parole chiave riservate per accedere a diversi ambiti di
 
 ### <a name="assigning-a-data-context-to-elements"></a>Assegnazione di un contesto dati agli elementi
 
-Per assegnare un "contesto dati" a qualsiasi elemento, aggiungere `$data` un attributo all'elemento.
+Per assegnare un "contesto dati" a qualsiasi elemento, aggiungere un attributo `$data` all'elemento.
 
 ```json
 {
@@ -190,10 +190,10 @@ Per assegnare un "contesto dati" a qualsiasi elemento, aggiungere `$data` un att
 
 Questa parte è un po' di "magia scura". Commenti e suggerimenti introduttivi.
 
-* Se la `$data` proprietà Objects è impostata su una **matrice**, l' **oggetto stesso verrà ripetuto per ogni elemento nella matrice.** 
-* In fase di ripetizione, `$data` l'utilizzo nei binding di proprietà è limitato al **singolo elemento** all'interno della matrice.
+* Se la proprietà `$data` degli oggetti è impostata su una **matrice**, l' **oggetto stesso verrà ripetuto per ogni elemento nella matrice.** 
+* Quando viene ripetuto, `$data` usato nei binding di proprietà è limitato al **singolo elemento** all'interno della matrice.
 
-Ad esempio, il `TextBlock` valore seguente verrà ripetuto 3 volte poiché `$data` è una matrice. Si noti come `text` la proprietà è associata `name` alla proprietà di un singolo oggetto all'interno della matrice. 
+Ad esempio, la `TextBlock` seguente verrà ripetuta 3 volte poiché è `$data` è una matrice. Si noti che la proprietà `text` è associata alla proprietà `name` di un singolo oggetto all'interno della matrice. 
 
 ```json
 {
@@ -260,12 +260,12 @@ La sintassi qui è ancora in aria, quindi riprovare a breve, ma ecco un inizio d
 
 * if (*Expression*, *TrueValue*, *FalseValue*)
 
-**`if`esempio**
+**esempio di`if`**
 
 ```json
 {
     "type": "TextBlock",
-    "color": "if(priceChange >= 0, 'good', 'attention')"
+    "color": "{if(priceChange >= 0, 'good', 'attention')}"
 }
 ```
 
@@ -273,9 +273,9 @@ La sintassi qui è ancora in aria, quindi riprovare a breve, ma ecco un inizio d
 
 * JSON. Parse-possibilità di analizzare una stringa JSON 
 
-**`JSON.parse`esempio**
+**esempio di`JSON.parse`**
 
-Si tratta di una risposta DevOps di Azure `message` in cui la proprietà è una stringa serializzata in JSON. Per accedere ai valori all'interno della stringa, è necessario usare la `JSON.parse` funzione nel modello.
+Si tratta di una risposta DevOps di Azure in cui la proprietà `message` è una stringa serializzata in JSON. Per accedere ai valori all'interno della stringa, è necessario usare la funzione `JSON.parse` nel modello.
 
 **Dati** 
 
@@ -314,7 +314,7 @@ Si tratta di una risposta DevOps di Azure `message` in cui la proprietà è una 
 
 ## <a name="conditional-layout"></a>Layout condizionale
 
-Per eliminare un intero elemento se viene soddisfatta una condizione, utilizzare `$when` la proprietà. Se `$when` restituisce`false` l'elemento non verrà visualizzato all'utente.
+Per eliminare un intero elemento se viene soddisfatta una condizione, utilizzare la proprietà `$when`. Se `$when` restituisce `false` l'elemento non verrà visualizzato all'utente.
 
 ```json
 {
@@ -349,4 +349,4 @@ Attualmente non è disponibile alcun supporto per la composizione di "parti" del
 Abbiamo solo una quantità limitata di esempi creati finora, ma diamo un'occhiata qui per iniziare.
 
 * Caricare gli esempi all'interno della [finestra di progettazione](http://vnext.adaptivecards.io/designer) facendo clic su **Apri esempio**
-* In alternativa, è sufficiente sfogliare direttamente [una directory](https://github.com/Microsoft/AdaptiveCards/tree/js/template-engine/samples/v2.0/Scenarios)
+* In alternativa, è sufficiente [sfogliare direttamente una directory](https://github.com/Microsoft/AdaptiveCards/tree/js/template-engine/samples/v2.0/Scenarios)

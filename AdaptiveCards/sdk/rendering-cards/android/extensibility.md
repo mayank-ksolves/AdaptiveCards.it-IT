@@ -4,21 +4,21 @@ author: bekao
 ms.author: bekao
 ms.date: 09/27/2017
 ms.topic: article
-ms.openlocfilehash: ca92f0a2b6ef8a36c5394e4dd9853df59fef22b2
-ms.sourcegitcommit: 8c8067206f283d97a5aa4ec65ba23d3fe18962f1
+ms.openlocfilehash: 9e13ebad04c780db83d25129a9f5829a9d43ef69
+ms.sourcegitcommit: ce044dc969d9b9c47a52bd361bfe2b746071913b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68299547"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72917113"
 ---
 # <a name="extensibility---android"></a>Estendibilità - Android
 
 Il renderer Android può essere esteso per supportare più scenari, tra cui:
 * [Analisi personalizzata degli elementi della scheda](#custom-parsing-of-card-elements)
 * [Rendering personalizzato degli elementi della scheda](#custom-rendering-of-card-elements)
-* [Rendering personalizzato delle azioni](#custom-rendering-of-actions) (A partire dalla versione 1.2)
-* [Caricamento di immagini personalizzate](#custom-image-loading) (A partire dalla versione 1.0.1)
-* [Caricamento di file multimediali personalizzati](#custom-media-loading) (A partire dalla versione 1.1)
+* [Rendering personalizzato delle azioni (a](#custom-rendering-of-actions) partire dalla versione 1.2)
+* [Caricamento di immagini personalizzate](#custom-image-loading) (a partire dalla versione 1.0.1)
+* [Caricamento di supporti personalizzati](#custom-media-loading) (a partire dalla versione 1.1)
 
 ## <a name="custom-parsing-of-card-elements"></a>Analisi personalizzata degli elementi della scheda
 
@@ -122,7 +122,7 @@ RenderedAdaptiveCard renderedCard = AdaptiveCardRenderer.getInstance().render(co
 
 ### <a name="breaking-changes-for-v12"></a>Modifiche di rilievo per v 1.2
 
-Il ```render``` metodo è stato modificato in modo ```RenderedAdaptiveCard``` da includere ```ContainerStyle``` il parametro ed è stato modificato per un RenderArgs in cui ContainerStyle è ora contenuto, quindi una classe che estende BaseCardElementRenderer dovrebbe essere simile alla seguente
+Il metodo ```render``` è stato modificato in modo da includere il parametro ```RenderedAdaptiveCard``` e ```ContainerStyle``` è stato modificato per un RenderArgs in cui ContainerStyle è ora contenuto, quindi una classe che estende BaseCardElementRenderer dovrebbe essere simile alla seguente
 
 ```
 public class MyCardElementRenderer extends BaseCardElementRenderer
@@ -144,7 +144,7 @@ Analogamente all'analisi degli elementi della scheda personalizzati nella versio
 }
 ```
 
-Nelle righe seguenti viene illustrato come analizzarlo in un Actionelement che si estende da ```BaseActionElement```:
+Nelle righe seguenti viene illustrato come analizzarlo in un Actionelement che si estende dal ```BaseActionElement```:
 ```java
 public class MyActionElement extends BaseActionElement
 {
@@ -216,7 +216,7 @@ Viene quindi eseguito il rendering dell'azione personalizzata
 
 ## <a name="custom-rendering-of-actions"></a>Rendering personalizzato delle azioni
 
-Per definire il renderer dell'azione personalizzata per il tipo, è necessario innanzitutto creare una classe che si estende ```BaseActionElementRenderer```da:
+Per definire il renderer dell'azione personalizzata per il tipo, è necessario innanzitutto creare una classe che si estende da ```BaseActionElementRenderer```:
 ```java
 public class MyActionRenderer extends BaseActionElementRenderer
 {
@@ -255,7 +255,7 @@ RenderedAdaptiveCard renderedCard = AdaptiveCardRenderer.getInstance().render(co
 
 ## <a name="custom-rendering-of-actions"></a>Rendering personalizzato di azioni
 
-[!IMPORTANT]
+> [!IMPORTANT]
 > Per la versione 1.2 sono previste modifiche del rendering personalizzato delle azioni, che tuttavia non sono state ancora completate
 
 ## <a name="custom-image-loading"></a>Caricamento di immagini personalizzate
@@ -380,13 +380,13 @@ Trasformare un IOnlineImageLoader in un IResourceResolver è un'attività piutto
 
 Come puoi notare, le modifiche principali sono
 
-* ```loadOnlineImage(String, GenericImageLoaderAsync)```è stato rinominato in```resolveImageResource(String, GenericImageLoaderAsync)```
-* un overload per ```resolveImageResource(String, GenericImageLoaderAsync)``` è stato aggiunto ```resolveImageResource(String, GenericImageLoaderAsync, int)``` come per supportare scenari in cui è richiesta la larghezza massima
+* ```loadOnlineImage(String, GenericImageLoaderAsync)``` stato rinominato ```resolveImageResource(String, GenericImageLoaderAsync)```
+* un overload per ```resolveImageResource(String, GenericImageLoaderAsync)``` è stato aggiunto come ```resolveImageResource(String, GenericImageLoaderAsync, int)``` per supportare scenari in cui è richiesta la larghezza massima
 
 ## <a name="custom-media-loading"></a>Caricamento di file multimediali personalizzati
 
 > [!IMPORTANT]
-> **È ```IOnlineMediaLoader``` necessario```MediaDataSource``` ricordare che è stato aggiunto a livello API 23 o Android M**
+> **Ricordare ```IOnlineMediaLoader``` richiede ```MediaDataSource``` che è stato aggiunto a livello API 23 o Android M**
 
 Oltre all'inclusione dell'elemento per i file multimediali, è stata anche inclusa l'interfaccia IOnlineMediaLoader, che consente agli sviluppatori di eseguire l'override dell'oggetto [MediaDataSource](https://developer.android.com/reference/android/media/MediaDataSource) usato per l'elemento mediaPlayer sottostante. **(Richiede Android M)**
 
