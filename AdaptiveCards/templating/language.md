@@ -4,12 +4,12 @@ author: matthidinger
 ms.author: mahiding
 ms.date: 08/01/2019
 ms.topic: article
-ms.openlocfilehash: b99a2905fb000653b7ee75204221b832a2b5a907
-ms.sourcegitcommit: ce044dc969d9b9c47a52bd361bfe2b746071913b
+ms.openlocfilehash: 42a1f43fbcfe1416820637af750acc960b9effde
+ms.sourcegitcommit: 16a274ce5596001a1c5ab252d9d2a3db6a5a9a0d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72917131"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73750406"
 ---
 # <a name="adaptive-cards-template-language"></a>Lingua del modello di schede adattive
 
@@ -135,12 +135,9 @@ var card = template.expand(dataContext);
 
 La finestra di progettazione della scheda Adaptive è stata aggiornata per supportare i modelli. 
 
-> Prova un'anteprima di "vNext" all'indirizzo:  **[https://vnext.adaptivecards.io/designer](https://vnext.adaptivecards.io/designer)**
+> Per provarlo, vedere:  **[https://adaptivecards.io/designer](https://adaptivecards.io/designer)**
 
-[immagine di![](https://user-images.githubusercontent.com/1432195/53214462-88d46980-3601-11e9-908d-253a1bb940a8.png)](http://vnext.adaptivecards.io/designer)
-
- 
-Questo URL "vNext" avrà bug e verrà distribuito di frequente. **Cancellare la cache** per assicurarsi di disporre della versione più recente. Se si trovano bug, è possibile segnalarlo.
+[immagine di ![](https://user-images.githubusercontent.com/1432195/53214462-88d46980-3601-11e9-908d-253a1bb940a8.png)](https://adaptivecards.io/designer)
 
 * **Editor dati di esempio** : specificare qui i dati di esempio per visualizzare la scheda con associazione a dati in "modalità di anteprima". In questo riquadro è disponibile un piccolo pulsante per popolare la struttura dei dati dai dati di esempio esistenti.
 * **Struttura dei dati** : questa è la struttura dei dati di esempio. I campi possono essere trascinati nell'area di progettazione per creare un'associazione 
@@ -346,7 +343,4 @@ Attualmente non è disponibile alcun supporto per la composizione di "parti" del
 
 ## <a name="examples"></a>Esempi
 
-Abbiamo solo una quantità limitata di esempi creati finora, ma diamo un'occhiata qui per iniziare.
-
-* Caricare gli esempi all'interno della [finestra di progettazione](http://vnext.adaptivecards.io/designer) facendo clic su **Apri esempio**
-* In alternativa, è sufficiente [sfogliare direttamente una directory](https://github.com/Microsoft/AdaptiveCards/tree/js/template-engine/samples/v2.0/Scenarios)
+Esplorare la [pagina Samples](https://adaptivecards.io/samples) aggiornata per esplorare tutti i tipi di nuove schede basate su modelli.
