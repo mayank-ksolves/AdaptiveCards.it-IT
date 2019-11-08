@@ -4,12 +4,12 @@ author: matthidinger
 ms.author: mahiding
 ms.date: 07/29/2019
 ms.topic: article
-ms.openlocfilehash: fdfe7b46614f046155ab84a5a487105d55afd7cb
-ms.sourcegitcommit: ef03c0eff3272a36cfa88daf99c4d57e4bae9599
+ms.openlocfilehash: 11ade4c2a41111f372873ea9a0677fe823c5b0ab
+ms.sourcegitcommit: 16a274ce5596001a1c5ab252d9d2a3db6a5a9a0d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72042543"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73750418"
 ---
 # <a name="adaptive-cards-templating-preview"></a>Creazione di modelli di Schede adattive (anteprima)
 
@@ -57,13 +57,13 @@ Il linguaggio del modello è la sintassi usata per creare un modello di scheda a
 > 
 > Segui l'esempio riportato di seguito aprendo una nuova scheda all'indirizzo
 >
-> **https://vnext.adaptivecards.io/designer**
+> **https://adaptivecards.io/designer**
 > 
 > Fai clic sul pulsante **Preview Mode** (Modalità di anteprima) per alternare tra la modalità di progettazione e la modalità di anteprima.
 
 ![Screenshot di Designer](content/2019-08-01-13-58-27.png)
 
-Il componente ["vNext Designer"](https://vnext.adaptivecards.io/designer) aggiunge il supporto per la creazione di modelli e fornisce i **dati di esempio** per visualizzare l'anteprima della scheda in fase di progettazione.
+Il componente Designer appena aggiornato aggiunge il supporto per la creazione di modelli e fornisce **dati di esempio** per visualizzare l'anteprima della scheda in fase di progettazione.
 
 Incolla l'esempio seguente nel riquadro **Card Payload Editor** (Editor payload scheda): 
 
