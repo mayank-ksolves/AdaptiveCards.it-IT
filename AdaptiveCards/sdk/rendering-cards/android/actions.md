@@ -1,25 +1,25 @@
 ---
 title: Azioni - Android SDK
-author: bekao
-ms.author: bekao
+author: almedina-ms
+ms.author: almedina
 ms.date: 09/27/2017
 ms.topic: article
-ms.openlocfilehash: 49b0b45abeb54381bd7b4b548219a09ad5da10c1
-ms.sourcegitcommit: 8c8067206f283d97a5aa4ec65ba23d3fe18962f1
+ms.openlocfilehash: 680aab595123ce35654d760f0e1dbbe406c8f29d
+ms.sourcegitcommit: 9a9973129c36a41f5e4af30d95ffc146820ad173
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68299519"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76145521"
 ---
-# <a name="actions---android"></a><span data-ttu-id="1400b-102">Azioni - Android</span><span class="sxs-lookup"><span data-stu-id="1400b-102">Actions - Android</span></span>
+# <a name="actions---android"></a><span data-ttu-id="6298e-102">Azioni - Android</span><span class="sxs-lookup"><span data-stu-id="6298e-102">Actions - Android</span></span>
 
 > [!IMPORTANT]
-> <span data-ttu-id="1400b-103">**Elenco di modifiche di rilievo**</span><span class="sxs-lookup"><span data-stu-id="1400b-103">**List of Breaking changes**</span></span>
+> <span data-ttu-id="6298e-103">**Elenco di modifiche di rilievo**</span><span class="sxs-lookup"><span data-stu-id="6298e-103">**List of Breaking changes**</span></span>
 > 
-> [<span data-ttu-id="1400b-104">Modifiche di rilievo nella versione 1.1</span><span class="sxs-lookup"><span data-stu-id="1400b-104">Breaking changes in v1.1</span></span>](#breaking-changes-in-v11)
+> [<span data-ttu-id="6298e-104">Modifiche di rilievo nella versione 1.1</span><span class="sxs-lookup"><span data-stu-id="6298e-104">Breaking changes in v1.1</span></span>](#breaking-changes-in-v11)
 > 
 
-<span data-ttu-id="1400b-105">Quando viene eseguita un'azione per le schede, viene richiamata la classe passata alla chiamata di rendering ```ICardActionHandler``` che implementa l'interfaccia.</span><span class="sxs-lookup"><span data-stu-id="1400b-105">When a cards action is executed, the class that was passed to the render call that implements the ```ICardActionHandler``` interface gets invoked.</span></span> <span data-ttu-id="1400b-106">Ecco come definire il gestore dell'azione:</span><span class="sxs-lookup"><span data-stu-id="1400b-106">Here is how to define your action handler:</span></span>
+<span data-ttu-id="6298e-105">Quando viene eseguita un'azione Cards, viene richiamata la classe passata alla chiamata di rendering che implementa l'interfaccia ```ICardActionHandler```.</span><span class="sxs-lookup"><span data-stu-id="6298e-105">When a cards action is executed, the class that was passed to the render call that implements the ```ICardActionHandler``` interface gets invoked.</span></span> <span data-ttu-id="6298e-106">Ecco come definire il gestore dell'azione:</span><span class="sxs-lookup"><span data-stu-id="6298e-106">Here is how to define your action handler:</span></span>
 
 ```java
 public class ActionHandler implements ICardActionHandler
@@ -116,21 +116,21 @@ public class ActionHandler implements ICardActionHandler
 }
 ```
 
-## <a name="breaking-changes-in-v11"></a><span data-ttu-id="1400b-107">Modifiche di rilievo nella versione 1.1</span><span class="sxs-lookup"><span data-stu-id="1400b-107">Breaking changes in v1.1</span></span>
+## <a name="breaking-changes-in-v11"></a><span data-ttu-id="6298e-107">Modifiche di rilievo nella versione 1.1</span><span class="sxs-lookup"><span data-stu-id="6298e-107">Breaking changes in v1.1</span></span>
 
-<span data-ttu-id="1400b-108">Per l'elemento multimediale incluso in questa versione sono necessari due nuovi metodi implementati dalle classi che implementano ```ICardActionHandler```, questi metodi sono:</span><span class="sxs-lookup"><span data-stu-id="1400b-108">The media element included in this version requires two new methods to be implemented by the classes that implement ```ICardActionHandler```, these methods are:</span></span>
+<span data-ttu-id="6298e-108">Per l'elemento multimediale incluso in questa versione sono necessari due nuovi metodi implementati dalle classi che implementano ```ICardActionHandler```, questi metodi sono:</span><span class="sxs-lookup"><span data-stu-id="6298e-108">The media element included in this version requires two new methods to be implemented by the classes that implement ```ICardActionHandler```, these methods are:</span></span>
 
-* <span data-ttu-id="1400b-109">```onMediaPlay```viene richiamato quando il pulsante Riproduci viene premuto per la prima volta in un elemento multimediale</span><span class="sxs-lookup"><span data-stu-id="1400b-109">```onMediaPlay``` is invoked when the play button is pressed for the first time in any media element</span></span>
-* <span data-ttu-id="1400b-110">```onMediaStop```viene richiamato quando il supporto raggiunge la fine</span><span class="sxs-lookup"><span data-stu-id="1400b-110">```onMediaStop``` is invoked when the media reaches it's end</span></span>
+* <span data-ttu-id="6298e-109">```onMediaPlay``` viene richiamato quando il pulsante Riproduci viene premuto per la prima volta in un elemento multimediale</span><span class="sxs-lookup"><span data-stu-id="6298e-109">```onMediaPlay``` is invoked when the play button is pressed for the first time in any media element</span></span>
+* <span data-ttu-id="6298e-110">```onMediaStop``` viene richiamato quando il supporto raggiunge la fine</span><span class="sxs-lookup"><span data-stu-id="6298e-110">```onMediaStop``` is invoked when the media reaches it's end</span></span>
 
-<span data-ttu-id="1400b-111">Le firme per questi metodi sono:</span><span class="sxs-lookup"><span data-stu-id="1400b-111">The signatures for these methods are:</span></span>
+<span data-ttu-id="6298e-111">Le firme per questi metodi sono:</span><span class="sxs-lookup"><span data-stu-id="6298e-111">The signatures for these methods are:</span></span>
 
 ```java
 public void onMediaPlay(BaseCardElement mediaElement, RenderedAdaptiveCard renderedAdaptiveCard)
 public void onMediaStop(BaseCardElement mediaElement, RenderedAdaptiveCard renderedAdaptiveCard)
 ```
 
-<span data-ttu-id="1400b-112">E l'implementazione per oggetto ActionHandler dell'esempio precedente è ora simile alla seguente:</span><span class="sxs-lookup"><span data-stu-id="1400b-112">And the implementation for the ActionHandler from the previous example would now look similar to this:</span></span>
+<span data-ttu-id="6298e-112">E l'implementazione per oggetto ActionHandler dell'esempio precedente è ora simile alla seguente:</span><span class="sxs-lookup"><span data-stu-id="6298e-112">And the implementation for the ActionHandler from the previous example would now look similar to this:</span></span>
 
 ```java
 public class ActionHandler implements ICardActionHandler
