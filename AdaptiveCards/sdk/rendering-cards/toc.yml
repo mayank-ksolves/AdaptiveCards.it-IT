@@ -1,6 +1,6 @@
 - name: Android
   items:
-    - name: Attività iniziali
+    - name: Guida introduttiva
       href: android/getting-started.md
     - name: Eseguire il rendering di una scheda
       href: android/render-a-card.md
@@ -14,7 +14,7 @@
       href: android/extensibility.md
 - name: iOS
   items:
-    - name: Attività iniziali
+    - name: Guida introduttiva
       href: ios/getting-started.md
     - name: Eseguire il rendering di una scheda
       href: ios/render-a-card.md
@@ -28,7 +28,7 @@
       href: ios/extensibility.md
 - name: JavaScript
   items:
-    - name: Attività iniziali
+    - name: Guida introduttiva
       href: javascript/getting-started.md
     - name: Eseguire il rendering di una scheda
       href: javascript/render-a-card.md
@@ -44,7 +44,7 @@
       href: javascript/fabric.md
 - name: HTML .NET
   items:
-    - name: Attività iniziali
+    - name: Guida introduttiva
       href: net-html/getting-started.md
     - name: Eseguire il rendering di una scheda
       href: net-html/render-a-card.md
@@ -58,7 +58,7 @@
       href: net-html/extensibility.md
 - name: WPF .NET
   items:
-    - name: Attività iniziali
+    - name: Guida introduttiva
       href: net-wpf/getting-started.md
     - name: Eseguire il rendering di una scheda
       href: net-wpf/render-a-card.md
@@ -72,7 +72,7 @@
       href: net-wpf/extensibility.md
 - name: Immagine .NET
   items:
-    - name: Attività iniziali
+    - name: Guida introduttiva
       href: net-image/getting-started.md
     - name: Eseguire il rendering di una scheda
       href: net-image/render-a-card.md
@@ -86,7 +86,7 @@
       href: net-image/extensibility.md
 - name: Piattaforma UWP
   items:
-    - name: Attività iniziali
+    - name: Guida introduttiva
       href: uwp/getting-started.md
     - name: Eseguire il rendering di una scheda
       href: uwp/render-a-card.md
@@ -100,5 +100,17 @@
       href: uwp/extensibility.md
 - name: ReactNative
   items:
-    - name: Attività iniziali
+    - name: Guida introduttiva
       href: react-native/getting-started.md
+- name: Xamarin.Android
+  items:
+    - name: Guida introduttiva
+      href: xamarin/android/getting-started.md
+    - name: Eseguire il rendering di una scheda
+      href: xamarin/android/render-a-card.md
+    - name: Azioni
+      href: xamarin/android/actions.md
+    - name: Configurazione dell'host
+      href: xamarin/android/host-config.md
+    - name: Stile nativo
+      href: xamarin/android/native-styling.md
