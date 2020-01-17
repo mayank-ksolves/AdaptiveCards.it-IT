@@ -1,15 +1,15 @@
 ---
 title: Azioni - Android SDK
-author: bekao
-ms.author: bekao
+author: almedina-ms
+ms.author: almedina
 ms.date: 09/27/2017
 ms.topic: article
-ms.openlocfilehash: 49b0b45abeb54381bd7b4b548219a09ad5da10c1
-ms.sourcegitcommit: 8c8067206f283d97a5aa4ec65ba23d3fe18962f1
+ms.openlocfilehash: 680aab595123ce35654d760f0e1dbbe406c8f29d
+ms.sourcegitcommit: 9a9973129c36a41f5e4af30d95ffc146820ad173
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68299519"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76145521"
 ---
 # <a name="actions---android"></a>Azioni - Android
 
@@ -19,7 +19,7 @@ ms.locfileid: "68299519"
 > [Modifiche di rilievo nella versione 1.1](#breaking-changes-in-v11)
 > 
 
-Quando viene eseguita un'azione per le schede, viene richiamata la classe passata alla chiamata di rendering ```ICardActionHandler``` che implementa l'interfaccia. Ecco come definire il gestore dell'azione:
+Quando viene eseguita un'azione Cards, viene richiamata la classe passata alla chiamata di rendering che implementa l'interfaccia ```ICardActionHandler```. Ecco come definire il gestore dell'azione:
 
 ```java
 public class ActionHandler implements ICardActionHandler
@@ -120,8 +120,8 @@ public class ActionHandler implements ICardActionHandler
 
 Per l'elemento multimediale incluso in questa versione sono necessari due nuovi metodi implementati dalle classi che implementano ```ICardActionHandler```, questi metodi sono:
 
-* ```onMediaPlay```viene richiamato quando il pulsante Riproduci viene premuto per la prima volta in un elemento multimediale
-* ```onMediaStop```viene richiamato quando il supporto raggiunge la fine
+* ```onMediaPlay``` viene richiamato quando il pulsante Riproduci viene premuto per la prima volta in un elemento multimediale
+* ```onMediaStop``` viene richiamato quando il supporto raggiunge la fine
 
 Le firme per questi metodi sono:
 

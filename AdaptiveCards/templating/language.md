@@ -4,12 +4,12 @@ author: matthidinger
 ms.author: mahiding
 ms.date: 08/01/2019
 ms.topic: article
-ms.openlocfilehash: 42a1f43fbcfe1416820637af750acc960b9effde
-ms.sourcegitcommit: 16a274ce5596001a1c5ab252d9d2a3db6a5a9a0d
+ms.openlocfilehash: 2c583f774451e60f825cd8fd2c38f2ea34c2f8de
+ms.sourcegitcommit: 9a9973129c36a41f5e4af30d95ffc146820ad173
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750406"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76145401"
 ---
 # <a name="adaptive-cards-template-language"></a>Lingua del modello di schede adattive
 
@@ -187,8 +187,9 @@ Per assegnare un "contesto dati" a qualsiasi elemento, aggiungere un attributo `
 
 Questa parte è un po' di "magia scura". Commenti e suggerimenti introduttivi.
 
-* Se la proprietà `$data` degli oggetti è impostata su una **matrice**, l' **oggetto stesso verrà ripetuto per ogni elemento nella matrice.** 
-* Quando viene ripetuto, `$data` usato nei binding di proprietà è limitato al **singolo elemento** all'interno della matrice.
+* Se la proprietà `$data` di un elemento della scheda adattivo è associata a una **matrice**, l' **elemento stesso verrà ripetuto per ogni elemento nella matrice.** 
+* Tutte le espressioni di associazione (`{myProperty}`) utilizzate nei valori delle proprietà verranno limitate a un **singolo elemento** all'interno della matrice.
+* Se si associa a una matrice di stringhe, usare `{$data}` per accedere al singolo elemento stringa. Ad esempio, `"text": "{$data}"`
 
 Ad esempio, la `TextBlock` seguente verrà ripetuta 3 volte poiché è `$data` è una matrice. Si noti che la proprietà `text` è associata alla proprietà `name` di un singolo oggetto all'interno della matrice. 
 
@@ -237,7 +238,7 @@ Nessun linguaggio del modello è completo senza alcune funzioni helper. Si forni
 
 La sintassi qui è ancora in aria, quindi riprovare a breve, ma ecco un inizio di ciò che stiamo pianificando:
 
-### <a name="string-functions"></a>Funzioni stringa
+### <a name="string-functions"></a>Funzioni per i valori stringa
 
 * substr
 * indexOf *(non funzionante)*
@@ -257,7 +258,7 @@ La sintassi qui è ancora in aria, quindi riprovare a breve, ma ecco un inizio d
 
 * if (*Expression*, *TrueValue*, *FalseValue*)
 
-**esempio di`if`**
+**esempio di `if`**
 
 ```json
 {
@@ -270,7 +271,7 @@ La sintassi qui è ancora in aria, quindi riprovare a breve, ma ecco un inizio d
 
 * JSON. Parse-possibilità di analizzare una stringa JSON 
 
-**esempio di`JSON.parse`**
+**esempio di `JSON.parse`**
 
 Si tratta di una risposta DevOps di Azure in cui la proprietà `message` è una stringa serializzata in JSON. Per accedere ai valori all'interno della stringa, è necessario usare la funzione `JSON.parse` nel modello.
 
@@ -287,7 +288,7 @@ Si tratta di una risposta DevOps di Azure in cui la proprietà `message` è una 
 }
 ```
 
-**Utilizzo**
+**Uso**
 
 ```json
 {
