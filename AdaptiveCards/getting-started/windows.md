@@ -4,12 +4,12 @@ author: matthidinger
 ms.author: mahiding
 ms.date: 06/26/2017
 ms.topic: article
-ms.openlocfilehash: 65494ed437303d26a202c9a5b95f88255147cbd0
-ms.sourcegitcommit: 48838a50b5f0316e15b48d740a7dd0a5f96ebae4
+ms.openlocfilehash: 39bdc64ed3244aca68d36c886a9562d964ded217
+ms.sourcegitcommit: 9a9973129c36a41f5e4af30d95ffc146820ad173
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70923080"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76145391"
 ---
 # <a name="adaptive-cards-for-windows-developers"></a>Schede adattive per gli sviluppatori Windows
 
@@ -21,7 +21,7 @@ La prima esperienza Windows a supportare le schede adattive è la sequenza tempo
 
 ### <a name="useractivity-api"></a>API UserActivity
 
-L'API [`Windows.ApplicationModel.UserActivities.UserActivity`](https://docs.microsoft.com/en-us/uwp/api/windows.applicationmodel.useractivities.useractivity) è ciò che inserisce un'attività nella sequenza temporale.
+L'API [`Windows.ApplicationModel.UserActivities.UserActivity`](https://docs.microsoft.com/uwp/api/windows.applicationmodel.useractivities.useractivity) è ciò che inserisce un'attività nella sequenza temporale.
 
 La scheda adattiva verrà fornita tramite la proprietà `Content` di `VisualElement`, come illustrato di seguito:
 
@@ -37,9 +37,9 @@ await userActivity.SaveAsync();
 
 È disponibile un modulo di apprendimento dalla durata di 45 minuti che illustra tutti i passaggi.
 
-[Integrare le schede adattive nella sequenza temporale di Windows 10](https://docs.microsoft.com/en-us/learn/modules/integrate-app-into-windows-10-timeline/)
+[Integrare le schede adattive nella sequenza temporale di Windows 10](https://docs.microsoft.com/learn/modules/integrate-app-into-windows-10-timeline/)
 
-### <a name="learn-more"></a>Scopri di più
+### <a name="learn-more"></a>Altre informazioni
 
 Questa sessione della conferenza Build 2017 illustra in dettaglio le attività utente.
 

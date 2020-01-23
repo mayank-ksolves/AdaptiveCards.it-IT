@@ -4,12 +4,12 @@ author: matthidinger
 ms.author: mahiding
 ms.date: 06/26/2017
 ms.topic: article
-ms.openlocfilehash: 19e77b86da9d163f5fcf6a6074071a4638a8d793
-ms.sourcegitcommit: e002a988c570072d5bc24a1242eaaac0c9ce90df
+ms.openlocfilehash: 1dfd9b0c45a280905223e3286998b333b0a6ec6a
+ms.sourcegitcommit: 9a9973129c36a41f5e4af30d95ffc146820ad173
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "59552613"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76145342"
 ---
 # <a name="speech-and-advanced-customization"></a>Funzionalità vocali e personalizzazione avanzata
 Viviamo nell'epoca dell'interazione vocale tramite servizi come Cortana.  Le schede adattive sono completamente progettate per supportare le funzionalità vocali, consentendo di realizzare scenari innovativi.
@@ -17,7 +17,7 @@ Viviamo nell'epoca dell'interazione vocale tramite servizi come Cortana.  Le sch
 Il tag `speak` consente di recapitare la scheda adattiva in un ambiente in cui la rappresentazione visiva non costituisce l'esperienza primaria, ad esempio il cruscotto di un'auto durante la guida. 
 
 ## <a name="speak-property"></a>Proprietà Speak
-Per supportare le funzionalità vocali, è disponibile una proprietà `speak` che contiene il testo da pronunciare all'utente. Il testo può essere annotato tramite [SSML](https://msdn.microsoft.com/en-us/library/office/hh361578) (Speech Synthesis Markup Language). SSML consente di controllare la velocità, il tono e l'inflessione della voce.  Consente perfino di trasmettere audio in streaming o di eseguire il rendering di flusso audio di sintesi vocale da un tuo servizio, offrendoti una notevole flessibilità per la personalizzazione.
+Per supportare le funzionalità vocali, è disponibile una proprietà `speak` che contiene il testo da pronunciare all'utente. Il testo può essere annotato tramite [SSML](https://msdn.microsoft.com/library/office/hh361578) (Speech Synthesis Markup Language). SSML consente di controllare la velocità, il tono e l'inflessione della voce.  Consente perfino di trasmettere audio in streaming o di eseguire il rendering di flusso audio di sintesi vocale da un tuo servizio, offrendoti una notevole flessibilità per la personalizzazione.
 
 Esistono due modelli per l'uso della proprietà Speak da parte di un'applicazione host:
 
