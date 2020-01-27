@@ -4,12 +4,12 @@ author: matthidinger
 ms.author: mahiding
 ms.date: 06/26/2017
 ms.topic: article
-ms.openlocfilehash: b788ecc5c2371d2575e0165296365238535dd7c5
-ms.sourcegitcommit: 99c7b64d6fc66da336c454951406fb42cd2a7427
+ms.openlocfilehash: fa420c0a6e9e9b7e5713b6cc528de39335f0b56c
+ms.sourcegitcommit: 1e18c5dc0cf85d26f66335e312348bbfb903d95a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59553703"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76727480"
 ---
 # <a name="host-config---ios"></a>Configurazione host-iOS
 
@@ -27,7 +27,7 @@ ACOHostConfig *defaultConfig = [[ACHostConfig alloc] init];
 
 ## <a name="render-a-card-using-host-config"></a>Eseguire il rendering di una scheda usando la configurazione host
 
-Il renderer accetta la scheda adattiva e la configurazione dell'host. HostConfig può essere Null. In tal caso, verrà usato il valore predefinito.
+Rederer accetta la configurazione dell'host e della scheda adattiva. HostConfig può essere null e, se Nil, verrà usato il valore predefinito.
 
 ```objective-c
 ACRRenderResult *renderResult;
@@ -35,3 +35,11 @@ renderResult = [ACRRenderer render:cardParseResult.card
                             config:hostconfigParseResult.config
                    widthConstraint:300.0];
 ```
+
+## <a name="customization"></a>Personalizzazione
+
+Sono disponibili tre modi per personalizzare il rendering adattivo della scheda:
+
+1. Configurazione dell'host
+2. XIB
+3. Rendering di elementi personalizzati
