@@ -17,7 +17,7 @@ Usare XIB per lo stile con granularità fine.
 
 Esistono i XIB seguenti
 
-| XIB | Usage |
+| XIB | Utilizzo |
 |---|---|
 | ACRButton. xib | pulsanti |
 | ACRCellForCompactMode. xib   | Modalità compatta di opzioni|
