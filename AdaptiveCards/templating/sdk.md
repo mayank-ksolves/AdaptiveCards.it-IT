@@ -6,28 +6,28 @@ ms.date: 08/01/2019
 ms.topic: article
 ms.openlocfilehash: 3a9bfcd1bf8f87959a747997e04f5c5ad2a79980
 ms.sourcegitcommit: 90afb3729931b0e4cae19b17ef9e49453c2d2bf6
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72163617"
 ---
-# <a name="adaptive-card-templating-sdks"></a>SDK per modelli di schede adattive
+# <a name="adaptive-card-templating-sdks"></a>SDK per la creazione di modelli di schede adattive
 
-Gli SDK per modelli di schede adattive semplificano la compilazione di un [modello di scheda](language.md) con dati reali su qualsiasi piattaforma supportata.
+Gli SDK per la creazione di modelli di schede adattive consentono di popolare con facilità un [modello di scheda](language.md) con dati reali su qualsiasi piattaforma supportata.
 
-> Per una [Panoramica del modello di scheda adattivo](index.md) , vedere.
+> Per una [panoramica della creazione di modelli di schede adattive](index.md), leggi l'argomento specifico.
 
 > [!IMPORTANT] 
 > 
 > Queste funzionalità sono disponibili **in anteprima e sono soggette a modifiche**. Il tuo feedback non solo è apprezzato, ma è anche fondamentale per aiutarci a offrire le funzionalità di cui **tu** hai bisogno.
 > 
-> Durante l'anteprima iniziale è disponibile solo JavaScript SDK, ma a breve arriverà un SDK .NET.
+> Durante l'anteprima iniziale è disponibile solo JavaScript SDK, ma a breve dovrebbe arrivare anche .NET SKD.
 
 ## <a name="javascript"></a>JavaScript
 
-La libreria [adaptivecards-template](https://www.npmjs.com/package/adaptivecards-templating) è disponibile in NPM e tramite la rete CDN. Per la documentazione completa, vedere il collegamento al pacchetto.
+La libreria [adaptivecards-templating](https://www.npmjs.com/package/adaptivecards-templating) è disponibile in npm e tramite CDN. Per la documentazione completa, vedi il collegamento al pacchetto.
 
-### <a name="npm"></a>NPM
+### <a name="npm"></a>npm
 
 ```console
 npm install adaptivecards-templating
@@ -41,9 +41,9 @@ npm install adaptivecards-templating
 
 ### <a name="usage"></a>Utilizzo
 
-Nell'esempio seguente si presuppone che sia stata installata anche la libreria [adaptivecards](https://www.npmjs.com/package/adaptivecards) per eseguire il rendering della scheda. 
+Nell'esempio seguente si presuppone che tu abbia installato anche la libreria [adaptivecards](https://www.npmjs.com/package/adaptivecards) per eseguire il rendering della scheda. 
 
-Se non si prevede di eseguire il rendering della scheda, è possibile rimuovere il codice `parse` e `render`. 
+Se non prevedi di eseguire il rendering della scheda, puoi rimuovere il codice relativo a `parse` e `render`. 
 
 ```js
 import * as ACData from "adaptivecards-templating";
@@ -90,15 +90,15 @@ dotnet add package AdaptiveCards.Templating --version 0.1.0-alpha1
 
 > [!NOTE]
 >
-> Provare a modificare la versione precedente alla versione pubblicata più recente
+> Prova a sostituire la versione indicata in precedenza con l'ultima versione pubblicata.
 
-Importa la libreria 
+Importa la libreria. 
 
 ```cs
 using AdaptiveCards.Templating
 ```
 
-Usare il motore di creazione del modello passando il modello JSON e i dati JSON.
+Usa il motore per la creazione di modelli passando il codice JSON del modello e dei dati.
 
 ```cs
 var templateJson = @"
