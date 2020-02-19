@@ -4,21 +4,21 @@ author: matthidinger
 ms.author: mahiding
 ms.date: 10/19/2017
 ms.topic: article
-ms.openlocfilehash: 99bf6121489391c207a71b45264dc68aa2c6116e
-ms.sourcegitcommit: 99c7b64d6fc66da336c454951406fb42cd2a7427
+ms.openlocfilehash: f577c0bab73e2bd1f75bb22dd7a41a7dbfd63307
+ms.sourcegitcommit: 1e18c5dc0cf85d26f66335e312348bbfb903d95a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59553313"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77454574"
 ---
 # <a name="actions---net-html"></a>Azioni-HTML .NET
 
-Il rendering della scheda `actions` di primo livello verrà eseguito `<button>`come HTML. Poiché si tratta di una libreria sul lato server, è possibile collegare i gestori eventi sul lato client quando vengono premuti i pulsanti. Ogni `<button>` nel codice HTML avrà attributi che è possibile usare per collegare il comportamento appropriato.
+`actions` della scheda di primo livello verrà eseguito il rendering come `<button>`HTML. Poiché si tratta di una libreria sul lato server, è possibile collegare i gestori eventi sul lato client quando vengono premuti i pulsanti. Ogni `<button>` nel codice HTML avrà attributi che è possibile usare per collegare il comportamento appropriato.
 
-Alcuni elementi hanno una `selectAction` proprietà (container, Columns, image) che li rende richiamabili. Se un elemento dispone di `selectAction` un oggetto, il renderer aggiungerà una `ac-selectable`classe CSS di, insieme agli attributi seguenti.
+Alcuni elementi hanno una proprietà `selectAction` (contenitore, colonne, immagine) che li rende richiamabili. Se un elemento dispone di un `selectAction` il renderer aggiungerà una classe CSS di `ac-selectable`, insieme agli attributi seguenti.
 
 Tipo di azione | Classe CSS | Attributi aggiuntivi
 ---|---|---
-`Action.OpenUrl` | `ac-action-openUrl` | `data-ac-url``url` (proprietà dalla scheda)
-`Action.Submit` | `ac-action-submit` | `data-ac-data``data` (proprietà dalla scheda)
-`Action.ShowCard` | `ac-action-showCard` | `data-ac-showcardid`(dell'oggetto che contiene la scheda interna). `<div>` `id`
+`Action.OpenUrl` | `ac-action-openUrl` | `data-ac-url` (la proprietà `url` dalla scheda)
+`Action.Submit` | `ac-action-submit` | `data-ac-data` (la proprietà `data` dalla scheda)
+`Action.ShowCard` | `ac-action-showCard` | `data-ac-showcardid` (il `id` del `<div>` contenente la scheda interna)

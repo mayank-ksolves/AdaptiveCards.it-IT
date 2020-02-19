@@ -4,12 +4,12 @@ author: matthidinger
 ms.author: mahiding
 ms.date: 10/19/2017
 ms.topic: article
-ms.openlocfilehash: ee5bec1a11f39ad69d40e57410c105b50ba45981
-ms.sourcegitcommit: 99c7b64d6fc66da336c454951406fb42cd2a7427
+ms.openlocfilehash: 204845f942be4e7d04e20e9cd64d826daef26e93
+ms.sourcegitcommit: 1e18c5dc0cf85d26f66335e312348bbfb903d95a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59552723"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77454024"
 ---
 # <a name="native-styling---net-wpf"></a>Stile nativo-WPF .NET
 
@@ -22,8 +22,8 @@ WPF semplifica questa operazione consentendo di passare un oggetto ResourceDicti
 | AdaptiveCard | Adaptive. Card| 
 | Action.OpenUrl  | Adaptive.Action.OpenUrl  |
 | Action.ShowCard | Adaptive.Action.ShowCard |
-| Azione. Invia  | Adattivo. azione. Invia  |
-| Colonna | Adaptive. Column, Adaptive. Action. Tap |
+| Action.Submit  | Adattivo. azione. Invia  |
+| Column | Adaptive. Column, Adaptive. Action. Tap |
 | ColumnSet | Adaptive. ColumnStore, Adaptive. VerticalSeparator |
 | Contenitore | Adaptive. container|
 | Input.ChoiceSet | Adaptive.Input.ChoiceSet,  Adaptive.Input.ChoiceSet.ComboBox, Adaptive.Input.ChoiceSet.CheckBox,  Adaptive.Input.ChoiceSet.Radio,  Adaptive.Input.ChoiceSet.ComboBoxItem |
@@ -32,12 +32,12 @@ WPF semplifica questa operazione consentendo di passare un oggetto ResourceDicti
 | Input.Text | Adaptive.Input.Text |
 | Input.Time | Adaptive.Input.Text.Time |
 | Input.Toggle| Adaptive. input. Attiva/Nascondi|
-| Image  | Adaptive. image |
+| Immagine  | Adaptive. image |
 | ImageSet  | Adaptive.ImageSet |
 | FactSet | Adaptive.FactSet, Adaptive.Fact.Title, Adaptive.Fact.Value |
 | TextBlock  | Adaptive.TextBlock |
 
-Questo dizionario risorse XAML di esempio che imposta lo sfondo di tutti i TextBlock su Aqua. È probabile che si desideri qualcosa di più avanzato😁
+Questo dizionario risorse XAML di esempio che imposta lo sfondo di tutti i TextBlock su Aqua. È probabile che si desideri una soluzione più avanzata rispetto a questa 😁
 
 ```xml
 <ResourceDictionary
@@ -59,4 +59,4 @@ renderer.ResourcesPath = <path-to-my-resource-dictionary.xaml>;
 ```
 
 > [!IMPORTANT]
-> **Nota sulla generazione di immagini lato server** Il renderer WPF fornisce un `RenderCardToImageAsync` metodo che può essere utilizzato per la generazione di immagini sul lato server. È necessario utilizzare la `ResourcesPath` proprietà solo se utilizzata in questo ambiente. Per ulteriori informazioni, vedere la documentazione per il [rendering delle immagini](../net-image/getting-started.md)
+> **Nota sulla generazione di immagini lato server** Il renderer WPF fornisce un metodo di `RenderCardToImageAsync` che può essere utilizzato per la generazione di immagini lato server. È necessario utilizzare la proprietà `ResourcesPath` solo se utilizzata in questo ambiente. Per ulteriori informazioni, vedere la documentazione per il [rendering delle immagini](../net-image/getting-started.md)

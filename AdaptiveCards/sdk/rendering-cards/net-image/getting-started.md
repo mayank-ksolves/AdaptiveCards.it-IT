@@ -4,12 +4,12 @@ author: matthidinger
 ms.author: mahiding
 ms.date: 10/19/2017
 ms.topic: article
-ms.openlocfilehash: abf837d0aa941da5936887db11989f6ee1df8a0d
-ms.sourcegitcommit: 99c7b64d6fc66da336c454951406fb42cd2a7427
+ms.openlocfilehash: bf97d851b954b861b01b1f7ff8ce79dc9ec6413b
+ms.sourcegitcommit: 1e18c5dc0cf85d26f66335e312348bbfb903d95a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59552863"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77454394"
 ---
 # <a name="getting-started---net-image"></a>Guida introduttiva-immagine .NET
 
@@ -19,7 +19,7 @@ Questo pacchetto può essere usato anche in un server per generare immagini e im
 
 ## <a name="nuget-install"></a>Installazione di NuGet
 
-[![Installazione di NuGet](https://img.shields.io/nuget/vpre/AdaptiveCards.Rendering.Wpf.svg)](https://www.nuget.org/packages/AdaptiveCards.Rendering.Wpf)
+[![Installazione di Nuget](https://img.shields.io/nuget/vpre/AdaptiveCards.Rendering.Wpf.svg)](https://www.nuget.org/packages/AdaptiveCards.Rendering.Wpf)
 
 ```console
 Install-Package AdaptiveCards.Rendering.Wpf -IncludePrerelease

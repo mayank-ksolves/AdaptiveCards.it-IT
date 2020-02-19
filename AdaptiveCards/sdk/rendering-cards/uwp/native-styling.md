@@ -4,12 +4,12 @@ author: matthidinger
 ms.author: mahiding
 ms.date: 08/15/2018
 ms.topic: article
-ms.openlocfilehash: da3b95dc53c55c81fbbbbed6ee7605f86eb427a9
-ms.sourcegitcommit: 99c7b64d6fc66da336c454951406fb42cd2a7427
+ms.openlocfilehash: 565c61535adc5b316cb8b1f3ad77e511012e7612
+ms.sourcegitcommit: 1e18c5dc0cf85d26f66335e312348bbfb903d95a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59552523"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77454044"
 ---
 # <a name="native-styling---uwp"></a>Stile nativo-UWP
 
@@ -22,8 +22,8 @@ UWP semplifica questa operazione consentendo di passare un oggetto ResourceDicti
 | AdaptiveCard | Adaptive. Card| 
 | Action.OpenUrl  | Adaptive.Action.OpenUrl  |
 | Action.ShowCard | Adaptive.Action.ShowCard |
-| Azione. Invia  | Adattivo. azione. Invia  |
-| Colonna | Adaptive. Column, Adaptive. Action. Tap |
+| Action.Submit  | Adattivo. azione. Invia  |
+| Column | Adaptive. Column, Adaptive. Action. Tap |
 | ColumnSet | Adaptive. ColumnStore, Adaptive. VerticalSeparator |
 | Contenitore | Adaptive. container|
 | Input.ChoiceSet | Adaptive.Input.ChoiceSet,  Adaptive.Input.ChoiceSet.ComboBox, Adaptive.Input.ChoiceSet.CheckBox,  Adaptive.Input.ChoiceSet.Radio,  Adaptive.Input.ChoiceSet.ComboBoxItem |
@@ -32,12 +32,12 @@ UWP semplifica questa operazione consentendo di passare un oggetto ResourceDicti
 | Input.Text | Adaptive.Input.Text |
 | Input.Time | Adaptive.Input.Text.Time |
 | Input.Toggle| Adaptive. input. Attiva/Nascondi|
-| Image  | Adaptive. image |
+| Immagine  | Adaptive. image |
 | ImageSet  | Adaptive.ImageSet |
 | FactSet | Adaptive.FactSet, Adaptive.Fact.Title, Adaptive.Fact.Value |
 | TextBlock  | Adaptive.TextBlock |
 
-Questo dizionario risorse XAML di esempio che imposta lo sfondo di tutti i TextBlock su Aqua. È probabile che si desideri qualcosa di più avanzato😁
+Questo dizionario risorse XAML di esempio che imposta lo sfondo di tutti i TextBlock su Aqua. È probabile che si desideri una soluzione più avanzata rispetto a questa 😁
 
 ```xml
 <ResourceDictionary

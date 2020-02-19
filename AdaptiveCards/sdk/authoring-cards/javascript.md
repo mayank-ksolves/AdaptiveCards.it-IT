@@ -4,12 +4,12 @@ author: matthidinger
 ms.author: mahiding
 ms.date: 07/26/2019
 ms.topic: article
-ms.openlocfilehash: 039171d895fac0975bf9eff4fe84fdf8b6f7e4af
-ms.sourcegitcommit: f8de9c02b92cd8927a18e59e5650c92b2b78db06
+ms.openlocfilehash: 4ddff841ec073c60a8aa6184f309e94052cb002d
+ms.sourcegitcommit: 1e18c5dc0cf85d26f66335e312348bbfb903d95a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68523840"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77454804"
 ---
 # <a name="javascript-sdk-for-creating-cards"></a>JavaScript SDK per la creazione di schede
 
@@ -20,7 +20,7 @@ Come descritto in [Introduzione](../../authoring-cards/getting-started.md), una 
 
 È possibile usare qualsiasi strumento per creare il file JSON della scheda adattiva.
 
-Il `adaptivecards` pacchetto NPM definisce una libreria per l'uso di schede adattive in JavaScript
+Il pacchetto NPM `adaptivecards` definisce una libreria per l'uso di schede adattive in JavaScript
 
 ## <a name="to-install"></a>Per installare
 ```console
