@@ -1,6 +1,6 @@
 - name: Panoramica
   href: index.md
-- name: Attività iniziali
+- name: Guida introduttiva
   items:
     - name: Sviluppatori di bot
       href: getting-started/bots.md
@@ -10,17 +10,17 @@
       href: getting-started/outlook.md
 - name: Creazione di schede
   items:
-    - name: Attività iniziali
+    - name: Guida introduttiva
       href: authoring-cards/getting-started.md
     - name: Schema della scheda
       href: 'https://adaptivecards.io/explorer'
-    - name: Comandi vocali
+    - name: Riconoscimento vocale
       href: authoring-cards/speech.md
     - name: Funzionalità per il testo
       href: authoring-cards/text-features.md
 - name: Rendering delle schede
   items:
-    - name: Attività iniziali
+    - name: Guida introduttiva
       href: rendering-cards/getting-started.md
     - name: Azioni
       href: rendering-cards/actions.md
