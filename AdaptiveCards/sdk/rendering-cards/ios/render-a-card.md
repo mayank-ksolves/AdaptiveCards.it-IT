@@ -4,12 +4,12 @@ author: matthidinger
 ms.author: mahiding
 ms.date: 06/26/2017
 ms.topic: article
-ms.openlocfilehash: 7d8d8410c030584dc5a518af7e6473d1d51f3991
-ms.sourcegitcommit: e002a988c570072d5bc24a1242eaaac0c9ce90df
+ms.openlocfilehash: d47b94595c22afa51a0d4cf9666771203cd79c7e
+ms.sourcegitcommit: 1e18c5dc0cf85d26f66335e312348bbfb903d95a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67134321"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77454744"
 ---
 # <a name="render-a-card---ios"></a>Eseguire il rendering di una scheda - iOS
 
@@ -31,7 +31,7 @@ NSArray<ACRParseWarning *> warnings = cardPraseResult.parseWarnings;
 
 ## <a name="render-a-card"></a>Eseguire il rendering di una scheda
 
-Il renderer accetta la scheda adattiva e la configurazione dell'host. HostConfig può essere Null. In tal caso, verrà usato il valore predefinito.
+Rederer accetta la configurazione dell'host e della scheda adattiva. HostConfig può essere null e, se Nil, verrà usato il valore predefinito.
 L'oggetto UIView restituito usa il layout automatico. La larghezza sarà vincolata al valore impostato da widthConstraint. Se viene usato il valore 0, non sarà associata.
 L'altezza non è associata e quando viene restituita equivale alla somma dell'altezza di tutto il contenuto di cui viene eseguito il rendering. Per associare la dimensione della visualizzazione, usa NSLayoutConstraint. La dimensione esatta è accessibile dal contesto di viewDidLayoutSubview del controller di visualizzazione della relativa superview o dal metodo con lo stesso nome, se viene usato ACRViewController.
 

@@ -4,20 +4,20 @@ author: matthidinger
 ms.author: mahiding
 ms.date: 11/28/2017
 ms.topic: article
-ms.openlocfilehash: 464fda8c83f9943d316f43fec811511ab9696916
-ms.sourcegitcommit: 99c7b64d6fc66da336c454951406fb42cd2a7427
+ms.openlocfilehash: 4c43637d81bcf43251638133c66d1c77b92ace56
+ms.sourcegitcommit: 1e18c5dc0cf85d26f66335e312348bbfb903d95a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59552633"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77454674"
 ---
 # <a name="extensibility---javascript"></a>Estendibilità-JavaScript
 
 ## <a name="implement-and-register-a-custom-element"></a>Implementare e registrare un elemento personalizzato
 
 I passaggi per la creazione di un tipo di elemento della scheda Adaptive personalizzato sono:
-- Crea una nuova classe che conduce da`CardElement`
-- Implementare i `getJsonTypeName`relativi `parse`metodi `toJSON` ,`internalRender` , e`renderSpeech`
+- Crea una nuova classe che conduce da `CardElement`
+- Implementare i metodi `getJsonTypeName`, `parse`, `toJSON`, `internalRender` e `renderSpeech`
 - Registrarlo aggiungendolo al registro elementi del renderer
 
 Di seguito è riportato un esempio che consente di implementare un semplice elemento indicatore di stato:
@@ -136,7 +136,7 @@ export class ProgressBar extends Adaptive.CardElement {
 }
 ```
 
-È tutto. A questo punto, registrare la classe indicatore di stato con il renderer:
+È tutto! A questo punto, registrare la classe indicatore di stato con il renderer:
 
 ```typescript
 Adaptive.AdaptiveCard.elementTypeRegistry.registerType("ProgressBar", () => { return new ProgressBar(); });
@@ -212,4 +212,4 @@ Ecco una scheda di esempio che usa sia l'elemento ProgressBar che l'azione Alert
 }
 ```
 
-Ecco come viene eseguito il rendering: ![image](https://user-images.githubusercontent.com/1334689/52665466-8155e780-2ec0-11e9-841a-7d272ad1d103.png)
+Ecco come viene eseguito il rendering: ![immagine](https://user-images.githubusercontent.com/1334689/52665466-8155e780-2ec0-11e9-841a-7d272ad1d103.png)
