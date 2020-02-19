@@ -4,14 +4,14 @@ author: matthidinger
 ms.author: mahiding
 ms.date: 11/28/2017
 ms.topic: article
-ms.openlocfilehash: 1809a022481e4fb28d2db454cfe90e07d09279ff
-ms.sourcegitcommit: 99c7b64d6fc66da336c454951406fb42cd2a7427
+ms.openlocfilehash: a011ffc43c2990cd8eb568b9f1c449cf541f9a70
+ms.sourcegitcommit: 1e18c5dc0cf85d26f66335e312348bbfb903d95a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59553603"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77454615"
 ---
-# <a name="host-config---javascript"></a><span data-ttu-id="5822f-102">Configurazione host-JavaScript</span><span class="sxs-lookup"><span data-stu-id="5822f-102">Host config - JavaScript</span></span>
+# <a name="host-config---javascript"></a><span data-ttu-id="368e0-102">Configurazione host-JavaScript</span><span class="sxs-lookup"><span data-stu-id="368e0-102">Host config - JavaScript</span></span>
 
 ```js
 // Create an AdaptiveCard instance
@@ -28,18 +28,18 @@ adaptiveCard.hostConfig = new AdaptiveCards.HostConfig({
 var renderedCard = adaptiveCard.render();
 ```
 
-## <a name="customization"></a><span data-ttu-id="5822f-103">Personalizzazione</span><span class="sxs-lookup"><span data-stu-id="5822f-103">Customization</span></span>
+## <a name="customization"></a><span data-ttu-id="368e0-103">Personalizzazione</span><span class="sxs-lookup"><span data-stu-id="368e0-103">Customization</span></span>
 
-<span data-ttu-id="5822f-104">Sono disponibili tre modi per personalizzare il rendering adattivo della scheda:</span><span class="sxs-lookup"><span data-stu-id="5822f-104">There are 3 ways to customize the adaptive card rendering:</span></span> 
-1. <span data-ttu-id="5822f-105">Configurazione dell'host</span><span class="sxs-lookup"><span data-stu-id="5822f-105">Host Config</span></span>
-2. <span data-ttu-id="5822f-106">Stile CSS</span><span class="sxs-lookup"><span data-stu-id="5822f-106">CSS styling</span></span>
-3. <span data-ttu-id="5822f-107">Rendering di elementi personalizzati</span><span class="sxs-lookup"><span data-stu-id="5822f-107">Custom element rendering</span></span>
+<span data-ttu-id="368e0-104">Sono disponibili tre modi per personalizzare il rendering adattivo della scheda:</span><span class="sxs-lookup"><span data-stu-id="368e0-104">There are 3 ways to customize the adaptive card rendering:</span></span> 
+1. <span data-ttu-id="368e0-105">Configurazione dell'host</span><span class="sxs-lookup"><span data-stu-id="368e0-105">Host Config</span></span>
+2. <span data-ttu-id="368e0-106">Stile CSS</span><span class="sxs-lookup"><span data-stu-id="368e0-106">CSS styling</span></span>
+3. <span data-ttu-id="368e0-107">Rendering di elementi personalizzati</span><span class="sxs-lookup"><span data-stu-id="368e0-107">Custom element rendering</span></span>
 
-### <a name="hostconfig"></a><span data-ttu-id="5822f-108">HostConfig</span><span class="sxs-lookup"><span data-stu-id="5822f-108">HostConfig</span></span> 
+### <a name="hostconfig"></a><span data-ttu-id="368e0-108">HostConfig</span><span class="sxs-lookup"><span data-stu-id="368e0-108">HostConfig</span></span> 
 
-<span data-ttu-id="5822f-109">Una [configurazione dell'host](../../../rendering-cards/host-config.md) è un oggetto di configurazione condiviso che può essere interpretato da tutti i renderer.</span><span class="sxs-lookup"><span data-stu-id="5822f-109">A [Host Config](../../../rendering-cards/host-config.md) is a shared configuration object that all renderers understand.</span></span> <span data-ttu-id="5822f-110">Questo consente di definire stili comuni (ad esempio, famiglia di caratteri, dimensioni dei caratteri, spaziatura predefinita) e comportamenti (ad esempio, numero massimo di azioni) che verranno interpretati automaticamente dal renderer di ogni piattaforma.</span><span class="sxs-lookup"><span data-stu-id="5822f-110">This allows you to define common styles (e.g., font family, font sizes, default spacing) and behaviors (e.g., max number of actions) that will be automatically interpreted by each platform renderer.</span></span> 
+<span data-ttu-id="368e0-109">Una [configurazione dell'host](../../../rendering-cards/host-config.md) è un oggetto di configurazione condiviso che può essere interpretato da tutti i renderer.</span><span class="sxs-lookup"><span data-stu-id="368e0-109">A [Host Config](../../../rendering-cards/host-config.md) is a shared configuration object that all renderers understand.</span></span> <span data-ttu-id="368e0-110">Questo consente di definire stili comuni (ad esempio, famiglia di caratteri, dimensioni dei caratteri, spaziatura predefinita) e comportamenti (ad esempio, numero massimo di azioni) che verranno interpretati automaticamente dal renderer di ogni piattaforma.</span><span class="sxs-lookup"><span data-stu-id="368e0-110">This allows you to define common styles (e.g., font family, font sizes, default spacing) and behaviors (e.g., max number of actions) that will be automatically interpreted by each platform renderer.</span></span> 
 
-<span data-ttu-id="5822f-111">L'obiettivo è che l'interfaccia utente nativa generata dal renderer di ogni piattaforma abbia un aspetto molto simile, con un intervento minimo da parte dello sviluppatore.</span><span class="sxs-lookup"><span data-stu-id="5822f-111">The goal is that the native UI generated by each platform renderer will look very similar with minimal work on your part.</span></span>
+<span data-ttu-id="368e0-111">L'obiettivo è che l'interfaccia utente nativa generata dal renderer di ogni piattaforma abbia un aspetto molto simile, con un intervento minimo da parte dello sviluppatore.</span><span class="sxs-lookup"><span data-stu-id="368e0-111">The goal is that the native UI generated by each platform renderer will look very similar with minimal work on your part.</span></span>
 
 ```javascript
 var renderOptions = {
