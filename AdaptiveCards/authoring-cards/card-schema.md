@@ -4,13 +4,13 @@ author: paulcam206
 ms.author: paulcam
 ms.date: 09/18/2018
 ms.topic: reference
-ms.openlocfilehash: 6fee0c3f2be07ca1c48dab8fb9e37944aabe377e
-ms.sourcegitcommit: e002a988c570072d5bc24a1242eaaac0c9ce90df
+ms.openlocfilehash: 508dbf7100a1346271ba7d9cd5420925a43788bb
+ms.sourcegitcommit: 1e18c5dc0cf85d26f66335e312348bbfb903d95a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67137964"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77454824"
 ---
-# <a name="card-schema"></a><span data-ttu-id="f2145-102">Schema della scheda</span><span class="sxs-lookup"><span data-stu-id="f2145-102">Card Schema</span></span>
+# <a name="card-schema"></a><span data-ttu-id="af63e-102">Schema della scheda</span><span class="sxs-lookup"><span data-stu-id="af63e-102">Card Schema</span></span>
 
-<span data-ttu-id="f2145-103">Per informazioni sullo schema per le schede, vedi [Schema Explorer in adaptivecards.io](https://adaptivecards.io/explorer/).</span><span class="sxs-lookup"><span data-stu-id="f2145-103">Please see the [Schema Explorer on adaptivecards.io](https://adaptivecards.io/explorer/) to learn about the card schema!</span></span>
+<span data-ttu-id="af63e-103">Per informazioni sullo schema per le schede, vedi [Schema Explorer in adaptivecards.io](https://adaptivecards.io/explorer/).</span><span class="sxs-lookup"><span data-stu-id="af63e-103">Please see the [Schema Explorer on adaptivecards.io](https://adaptivecards.io/explorer/) to learn about the card schema!</span></span>
