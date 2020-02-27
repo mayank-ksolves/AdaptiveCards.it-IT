@@ -1,17 +1,17 @@
 ---
-title: Attività iniziali
+title: Guida introduttiva
 author: matthidinger
 ms.author: mahiding
 ms.date: 11/9/2017
 ms.topic: article
-ms.openlocfilehash: 9d363da0c10b242e23d2594984292fcc1f31382f
-ms.sourcegitcommit: e002a988c570072d5bc24a1242eaaac0c9ce90df
+ms.openlocfilehash: c9a0ad07ba5fefbcdc35239591c02fe0720b5b66
+ms.sourcegitcommit: 1e18c5dc0cf85d26f66335e312348bbfb903d95a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "59552683"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77454844"
 ---
-# <a name="getting-started"></a>Attività iniziali 
+# <a name="getting-started"></a>Guida introduttiva 
 
 Una scheda adattiva è un modello a oggetti per le schede con serializzazione JSON.
 

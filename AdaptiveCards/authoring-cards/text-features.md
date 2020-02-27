@@ -4,12 +4,12 @@ author: matthidinger
 ms.author: mahiding
 ms.date: 11/09/2017
 ms.topic: article
-ms.openlocfilehash: ac8ec0c48e06377ebd17f1b31abe463c48809fe3
-ms.sourcegitcommit: e002a988c570072d5bc24a1242eaaac0c9ce90df
+ms.openlocfilehash: f7ea40b80df4d976c0a8a86b15254018fdf2fac6
+ms.sourcegitcommit: 1e18c5dc0cf85d26f66335e312348bbfb903d95a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "59553613"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77454874"
 ---
 # <a name="text-features"></a>Funzionalità per il testo
 
@@ -104,7 +104,7 @@ Alcune regole consentono la corretta interpretazione delle funzioni di data/ora 
 
 1. **DISTINZIONE TRA MAIUSCOLE E MINUSCOLE** (tutte le lettere devono essere maiuscole)
 1. **NESSUNO SPAZIO** tra `{{`, `}}` o le parentesi
-1. **FORMATTAZIONE [RFC 3389](https://tools.ietf.org/html/rfc3339)**  (vedi gli esempi riportati di seguito)
+1. **FORMATTAZIONE [RFC 3389](https://tools.ietf.org/html/rfc3339)** (vedi gli esempi riportati di seguito)
 1. Data e ora **DEVONO** essere valide
 
 ### <a name="valid-formats"></a>Formati validi

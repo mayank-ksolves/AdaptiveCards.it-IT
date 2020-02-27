@@ -4,12 +4,12 @@ author: matthidinger
 ms.author: mahiding
 ms.date: 06/26/2017
 ms.topic: article
-ms.openlocfilehash: 0a5f99268ce483fddd99f4493b386db796c3e9d2
-ms.sourcegitcommit: e002a988c570072d5bc24a1242eaaac0c9ce90df
+ms.openlocfilehash: a562a05a91676dc5e6d8b51690acc4788802fb99
+ms.sourcegitcommit: 1e18c5dc0cf85d26f66335e312348bbfb903d95a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67138094"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77454934"
 ---
 # <a name="rendering-cards-inside-your-application"></a>Rendering delle schede in un'applicazione
 
@@ -21,7 +21,7 @@ ms.locfileid: "67138094"
 
 ## <a name="adaptive-cards-sdks"></a>SDK di schede adattive
 
-|Piattaforma|Installazione|Build|Documentazione|Stato|
+|Piattaforma|Installa|Creare|Docs|Stato|
 |---|---|---|---|---|
 | JavaScript | [![Installazione di NPM](https://img.shields.io/npm/v/adaptivecards.svg)](https://www.npmjs.com/package/adaptivecards) | [Origine](https://github.com/Microsoft/AdaptiveCards/tree/master/source/nodejs)| [Docs](../sdk/rendering-cards/javascript/getting-started.md) | ![Stato della compilazione](https://img.shields.io/vso/build/Microsoft/56cf629e-8f3a-4412-acbc-bf69366c552c/20564.svg) |
 | WPF .NET | [![Installazione di Nuget](https://img.shields.io/nuget/vpre/AdaptiveCards.Rendering.Wpf.svg)](https://www.nuget.org/packages/AdaptiveCards.Rendering.Wpf) | [Origine](https://github.com/Microsoft/AdaptiveCards/tree/master/source/dotnet)| [Docs](../sdk/rendering-cards/net-wpf/getting-started.md) | ![Stato della compilazione](https://img.shields.io/vso/build/Microsoft/56cf629e-8f3a-4412-acbc-bf69366c552c/20596.svg) |
@@ -38,9 +38,9 @@ Il passaggio successivo consiste nel creare un'istanza di un oggetto `AdaptiveCa
 
 Per impostazione predefinita, le azioni verranno sottoposte a rendering come pulsanti nella scheda, ma spetta all'app fare in modo che si comportino come previsto. Ogni SDK dispone dell'equivalente di un evento `OnAction` da gestire.
 
-* **Action.OpenURL**: apre l'oggetto `url`specificato.  
-* **Action.Submit**: invia il risultato dell'invio all'origine. Spetta a te scegliere come inviarlo all'origine della scheda.
-* **Action.ShowCard**: richiama una finestra di dialogo ed esegue il rendering della sottoscheda in tale finestra. Considera che devi gestire questa operazione solo se l'impostazione di `ShowCardActionMode` è `popup`.
+* **Action.OpenURL**: apre l'oggetto `url` specificato.  
+* **Action.Submit**: invia all'origine il risultato dell'invio. Spetta a te scegliere come inviarlo all'origine della scheda.
+* **Action.ShowCard**: richiama una finestra di dialogo ed esegue il rendering della scheda secondaria in tale finestra. Considera che devi gestire questa operazione solo se l'impostazione di `ShowCardActionMode` è `popup`.
 
 ## <a name="render-a-card"></a>Eseguire il rendering di una scheda
 
@@ -54,7 +54,7 @@ Esistono diversi modi per personalizzare gli elementi di cui viene eseguito il r
 
 [Hostconfig](host-config.md) è un oggetto di configurazione multipiattaforma condiviso che controlla lo stile di base e il comportamento delle schede all'interno dell'app. Definisce elementi come le dimensioni dei caratteri, la spaziatura tra elementi, i colori, il numero di azioni supportate e così via. 
 
-### <a name="native-platform-styling"></a>Applicazione di stili della piattaforma nativa
+### <a name="native-platform-styling"></a>Applicazione dello stile della piattaforma nativa
 
 La maggior parte dei framework dell'interfaccia utente consente di applicare uno stile alla scheda sottoposta a rendering usando lo stile del framework dell'interfaccia utente nativa. In HTML ad esempio puoi specificare le classi CSS per il codice HTML oppure in XAML puoi passare un oggetto ResourceDictionary personalizzato per un controllo granulare dell'output.
 

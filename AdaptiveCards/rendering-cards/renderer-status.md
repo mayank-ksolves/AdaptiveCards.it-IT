@@ -4,12 +4,12 @@ author: matthidinger
 ms.author: mahiding
 ms.date: 10/12/2018
 ms.topic: article
-ms.openlocfilehash: bffa49012a8ebe686fc033f98b2438d2e9e959cc
-ms.sourcegitcommit: e002a988c570072d5bc24a1242eaaac0c9ce90df
+ms.openlocfilehash: 63426b2250407cc40af8c46975c10f57d1028a40
+ms.sourcegitcommit: 1e18c5dc0cf85d26f66335e312348bbfb903d95a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67138034"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77454904"
 ---
 # <a name="renderer-status"></a>Stato del renderer
 Le tabelle seguenti mostrano lo stato corrente di ogni renderer in base alle rispettive versioni pubbliche che sono pubblicate.

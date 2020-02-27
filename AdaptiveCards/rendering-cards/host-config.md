@@ -4,12 +4,12 @@ author: paulcam206
 ms.author: paulcam
 ms.date: 09/18/2018
 ms.topic: reference
-ms.openlocfilehash: 46ba9987cf162e95ab86dcdafa55e10df29b1121
-ms.sourcegitcommit: 99c7b64d6fc66da336c454951406fb42cd2a7427
+ms.openlocfilehash: 848ce3dd2ccca1f975dfd330c1c88292c753641d
+ms.sourcegitcommit: 1e18c5dc0cf85d26f66335e312348bbfb903d95a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59552593"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77454924"
 ---
 # <a name="what-is-hostconfig"></a>Che cos'è HostConfig?
 `HostConfig` è un **oggetto di configurazione tra piattaforme** che specifica il modo in cui un renderer di schede adattive genera l'interfaccia utente.
@@ -42,7 +42,7 @@ Vedi un file [HostConfig.json](https://github.com/Microsoft/AdaptiveCards/blob/m
 
 Opzioni di livello principale per `AdaptiveCards`
 
-|Proprietà|Tipo|Obbligatorio|Descrizione|Versione|
+|Proprietà|Type|Obbligatoria|Description|Version|
 |--------|----|--------|-----------|-------|
 |**allowCustomStyle**|`boolean`| No, impostazione predefinita: `true`|Controlla se è consentito lo stile personalizzato|1.0
 |**supportsInteractivity**|`boolean`| No, impostazione predefinita: `true`|Controlla se è consentito richiamare gli elementi `Action` interattivi|1.0
@@ -66,7 +66,7 @@ Opzioni di livello principale per `AdaptiveCards`
 
 Opzioni per gli elementi `Action`
 
-|Proprietà|Tipo|Obbligatorio|Descrizione|Versione|
+|Proprietà|Type|Obbligatoria|Description|Version|
 |--------|----|--------|-----------|-------|
 |**actionsOrientation**|`string`| No, impostazione predefinita: `"horizontal"`|Controlla la disposizione dei pulsanti|1.0
 |**actionAlignment**|`string`| No, impostazione predefinita: `"stretch"`|Controlla il layout dei pulsanti|1.0
@@ -83,7 +83,7 @@ Opzioni per gli elementi `Action`
 
 Controlla l'applicazione dello stile per i contenitori predefiniti e di enfasi
 
-|Proprietà|Tipo|Obbligatorio|Descrizione|Versione|
+|Proprietà|Type|Obbligatoria|Description|Version|
 |--------|----|--------|-----------|-------|
 |**default**|`object`| No|Stile contenitore predefinito|1.0
 |**emphasis**|`object`| No|Stile contenitore da usare per l'enfasi|1.0
@@ -94,7 +94,7 @@ Controlla l'applicazione dello stile per i contenitori predefiniti e di enfasi
 
 Controlla la visualizzazione degli elementi `FactSet`
 
-|Proprietà|Tipo|Obbligatorio|Descrizione|Versione|
+|Proprietà|Type|Obbligatoria|Description|Version|
 |--------|----|--------|-----------|-------|
 |**title**|`object`| No, impostazione predefinita: `{"weight":"bolder","size":"default","color":"default","isSubtle":false,"wrap":true,"maxWidth":150}`|Parametri che controllano la visualizzazione del testo|1.0
 |**value**|`object`| No, impostazione predefinita: `{"weight":"default","size":"default","color":"default","isSubtle":false,"wrap":true,"maxWidth":0}`|Parametri che controllano la visualizzazione del testo|1.0
@@ -106,7 +106,7 @@ Controlla la visualizzazione degli elementi `FactSet`
 
 Controlla la metrica relativa alle dimensioni del carattere per i diversi stili di testo
 
-|Proprietà|Tipo|Obbligatorio|Descrizione|Versione|
+|Proprietà|Type|Obbligatoria|Description|Version|
 |--------|----|--------|-----------|-------|
 |**small**|`integer`| No, impostazione predefinita: `10`|Dimensione piccola dei caratteri|1.0
 |**default**|`integer`| No, impostazione predefinita: `12`|Dimensione predefinita dei caratteri|1.0
@@ -120,7 +120,7 @@ Controlla la metrica relativa alle dimensioni del carattere per i diversi stili 
 
 Controlla la metrica relativa allo spessore del carattere
 
-|Proprietà|Tipo|Obbligatorio|Descrizione|Versione|
+|Proprietà|Type|Obbligatoria|Description|Version|
 |--------|----|--------|-----------|-------|
 |**lighter**|`integer`| No, impostazione predefinita: `200`|&nbsp;|1.0
 |**default**|`integer`| No, impostazione predefinita: `400`|&nbsp;|1.0
@@ -132,7 +132,7 @@ Controlla la metrica relativa allo spessore del carattere
 
 Controlla i vari colori del carattere
 
-|Proprietà|Tipo|Obbligatorio|Descrizione|Versione|
+|Proprietà|Type|Obbligatoria|Description|Version|
 |--------|----|--------|-----------|-------|
 |**default**|`object`| No, impostazione predefinita: `{"default":"#FF000000","subtle":"#B2000000"}`|&nbsp;|1.0
 |**accent**|`object`| No, impostazione predefinita: `{"default":"#FF0000FF","subtle":"#B20000FF"}`|&nbsp;|1.0
@@ -148,7 +148,7 @@ Controlla i vari colori del carattere
 
 Controlla la modalità di visualizzazione degli elementi `ImageSet`
 
-|Proprietà|Tipo|Obbligatorio|Descrizione|Versione|
+|Proprietà|Type|Obbligatoria|Description|Version|
 |--------|----|--------|-----------|-------|
 |**imageSize**|`string`| No, impostazione predefinita: `"auto"`|Controlla le dimensioni delle singole immagini|1.0
 |**maxImageHeight**|`integer`| No, impostazione predefinita: `100`|Vincola l'altezza dell'immagine a questo valore|1.0
@@ -159,7 +159,7 @@ Controlla la modalità di visualizzazione degli elementi `ImageSet`
 
 Controlla le dimensioni degli elementi `Image`
 
-|Proprietà|Tipo|Obbligatorio|Descrizione|Versione|
+|Proprietà|Type|Obbligatoria|Description|Version|
 |--------|----|--------|-----------|-------|
 |**small**|`integer`| No, impostazione predefinita: `80`|Valore relativo alle dimensioni immagine piccole|1.0
 |**medium**|`integer`| No, impostazione predefinita: `120`|Valore relativo alle dimensioni immagine medie|1.0
@@ -173,7 +173,7 @@ Controlla la visualizzazione e il comportamento degli elementi `Media`
 
 #### <a name="introduced-in-version-11"></a>Introdotta nella versione 1.1
 
-|Proprietà|Tipo|Obbligatorio|Descrizione|Versione|
+|Proprietà|Type|Obbligatoria|Description|Version|
 |--------|----|--------|-----------|-------|
 |**defaultPoster**|`string`| No|URI dell'immagine da visualizzare quando il pulsante Riproduci non è stato richiamato|1.1
 |**playButton**|`string`| No|Immagine da visualizzare come pulsante Riproduci|1.1
@@ -185,7 +185,7 @@ Controlla la visualizzazione e il comportamento degli elementi `Media`
 
 Controlla la modalità di visualizzazione dei separatori
 
-|Proprietà|Tipo|Obbligatorio|Descrizione|Versione|
+|Proprietà|Type|Obbligatoria|Description|Version|
 |--------|----|--------|-----------|-------|
 |**lineThickness**|`integer`| No, impostazione predefinita: `1`|Spessore della linea di separazione|1.0
 |**lineColor**|`string,null`| No, impostazione predefinita: `#B2000000`|Colore da usare per tracciare la linea di separazione|1.0
@@ -196,7 +196,7 @@ Controlla la modalità di visualizzazione dei separatori
 
 Controlla il comportamento e lo stile di `Action.ShowCard`
 
-|Proprietà|Tipo|Obbligatorio|Descrizione|Versione|
+|Proprietà|Type|Obbligatoria|Description|Version|
 |--------|----|--------|-----------|-------|
 |**actionMode**|`string`| No, impostazione predefinita: `"inline"`|Controlla la modalità di visualizzazione della scheda|1.0
 |**style**|`object`| No, impostazione predefinita: `emphasis`|Controlla lo stile di un contenitore|1.0
@@ -208,7 +208,7 @@ Controlla il comportamento e lo stile di `Action.ShowCard`
 
 Controlla la disposizione degli elementi
 
-|Proprietà|Tipo|Obbligatorio|Descrizione|Versione|
+|Proprietà|Type|Obbligatoria|Description|Version|
 |--------|----|--------|-----------|-------|
 |**small**|`integer`| No, impostazione predefinita: `3`|Valore relativo alla spaziatura piccola|1.0
 |**default**|`integer`| No, impostazione predefinita: `8`|Valore relativo alla spaziatura predefinita|1.0
@@ -223,7 +223,7 @@ Controlla la disposizione degli elementi
 
 Parametri che controllano la visualizzazione del testo
 
-|Proprietà|Tipo|Obbligatorio|Descrizione|Versione|
+|Proprietà|Type|Obbligatoria|Description|Version|
 |--------|----|--------|-----------|-------|
 |**size**|`string`| No, impostazione predefinita: `"default"`|Dimensioni del carattere da usare quando non è presente la specifica di una scheda|1.0
 |**weight**|`string`| No, impostazione predefinita: `"normal"`|Spessore del carattere da usare quando non è presente la specifica di una scheda|1.0
