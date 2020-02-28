@@ -4,12 +4,12 @@ author: matthidinger
 ms.author: mahiding
 ms.date: 09/15/2017
 ms.topic: article
-ms.openlocfilehash: b39493f82f3378e5a554abc6df890d6821869671
-ms.sourcegitcommit: e002a988c570072d5bc24a1242eaaac0c9ce90df
+ms.openlocfilehash: 607ce40e70e0e54e61a572853a521d2dd70a5c23
+ms.sourcegitcommit: 1e18c5dc0cf85d26f66335e312348bbfb903d95a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67138024"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77454914"
 ---
 # <a name="adaptive-card-renderer-specification"></a>Specifica relativa al renderer di schede adattive
 
@@ -38,16 +38,16 @@ La specifica seguente illustra come implementare un renderer di schede adattive 
 ### <a name="unknown-properties"></a>Proprietà sconosciute
 1. Un parser **DEVE** includere proprietà **aggiuntive** per gli elementi
 
-### <a name="additional-considerations"></a>Considerazioni aggiuntive
+### <a name="additional-considerations"></a>Altre considerazioni
 1. La proprietà `speak` può contenere markup SSML e **DEVE** essere restituita all'app host come specificato
 
 ## <a name="parsing-host-config"></a>Analisi della configurazione host
 1. TODO
 
-## <a name="versioning"></a>Controllo delle versioni
+## <a name="versioning"></a>Controllo versioni
 
 1. Un renderer **DEVE** implementare una determinata versione dello schema. 
-1. Il costruttore `AdaptiveCard` **DEVE** assegnare alla proprietà `version` un valore predefinito in base alla versione corrente dello schema. 
+1. Il costruttore `AdaptiveCard`**DEVE** assegnare alla proprietà `version` un valore predefinito in base alla versione corrente dello schema. 
 1. Se un renderer rileva una proprietà `version` nell'oggetto `AdaptiveCard` con un valore superiore alla versione supportata, **DEVE** invece restituire l'oggetto `fallbackText`.
 
 ## <a name="rendering"></a>Rendering
@@ -68,7 +68,7 @@ Un oggetto `AdaptiveCard` è costituito da un oggetto `body` e da `actions`. L'o
 
 ### <a name="columns"></a>Colonne
 
-1. `Column` `width` **DEVE** essere interpretata in base all'impostazione "auto" o "stretch" oppure a un rapporto ponderato.
+1. La proprietà `width` di un elemento `Column` **DEVE** essere interpretata da "auto", "stretch" o un rapporto ponderato.
 
 ### <a name="textblock"></a>TextBlock
 
@@ -119,7 +119,7 @@ Ciò consente di condividere le proprietà indipendenti dalla piattaforma tra i 
 ## <a name="actions"></a>Azioni
 
 1. Se la proprietà `supportsInteractivity` di HostConfig è `false`, un renderer **NON DEVE** eseguire il rendering di alcuna azione.
-1. La proprietà `actions` **DEVE** essere sottoposta a rendering come pulsanti in una specie di barra delle azioni, in genere nella parte inferiore della scheda. 
+1. La proprietà `actions`**DEVE** essere sottoposta a rendering come pulsanti in una specie di barra delle azioni, in genere nella parte inferiore della scheda. 
 1. Quando un pulsante viene toccato, **DEVE** consentire all'app host di gestire l'evento. 
 1. L'evento **DEVE** passare tutte le proprietà associate con l'azione.
 1. L'evento **DEVE** passare l'oggetto `AdaptiveCard` che è stato eseguito.
@@ -136,19 +136,19 @@ Azione | Comportamento
 
 ### <a name="actionshowcard"></a>Action.ShowCard
 
-1. `Action.ShowCard` **DEVE** essere supportata in qualche modo, in base all'impostazione di hostConfig. Sono disponibili due modalità: inline e popup. Le schede inline **DOVREBBERO** attivare/disattivare la visibilità della scheda automaticamente. In modalità popup **DOVREBBE** essere generato un evento nell'app host per mostrare la scheda in qualche modo.
+1. L'azione `Action.ShowCard` **DEVE** essere supportata in qualche modo, in base all'impostazione di hostConfig. Sono disponibili due modalità: inline e popup. Le schede inline **DOVREBBERO** attivare/disattivare la visibilità della scheda automaticamente. In modalità popup **DOVREBBE** essere generato un evento nell'app host per mostrare la scheda in qualche modo.
 
 ### <a name="actionsubmit"></a>Action.Submit
 
 L'azione di invio si comporta come l'invio di un modulo HTML, ad eccezione del fatto che, quando il codice HTML in genere attiva un post HTTP, le schede adattive lasciano a ogni app host la possibilità di determinare il significato di "inviare". 
 
 1. Quando **DEVE** essere generato un evento, l'utente tocca l'azione richiamata.  
-1. La proprietà `data` **DEVE** essere inclusa nel payload di callback.
+1. La proprietà `data`**DEVE** essere inclusa nel payload di callback.
 1. Per `Action.Submit`, un renderer **DEVE** raccogliere tutti gli input nella scheda e recuperare i relativi valori. 
 
 ### <a name="selectaction"></a>selectAction
 
-1. Se `supportedInteractivity` della configurazione host è `false`, una proprietà `selectAction` **NON DEVE** essere sottoposta a rendering come destinazione del tocco.
+1. Se la proprietà `supportedInteractivity` di Host Config è `false`, `selectAction` **NON DEVE** soggetta a rendering come destinazione del tocco.
 1. `Image`, `ColumnSet` e `Column` offrono una proprietà `selectAction` che **DOVREBBE** essere eseguita quando l'utente la richiama, ad esempio toccando l'elemento.
 
 ## <a name="inputs"></a>Input
