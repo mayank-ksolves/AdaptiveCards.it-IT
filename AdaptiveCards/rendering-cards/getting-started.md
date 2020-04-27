@@ -5,10 +5,10 @@ ms.author: mahiding
 ms.date: 06/26/2017
 ms.topic: article
 ms.openlocfilehash: a562a05a91676dc5e6d8b51690acc4788802fb99
-ms.sourcegitcommit: 1e18c5dc0cf85d26f66335e312348bbfb903d95a
+ms.sourcegitcommit: e6418d692296e06be7412c95c689843f9db5240d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 04/24/2020
 ms.locfileid: "77454934"
 ---
 # <a name="rendering-cards-inside-your-application"></a>Rendering delle schede in un'applicazione
@@ -54,13 +54,13 @@ Esistono diversi modi per personalizzare gli elementi di cui viene eseguito il r
 
 [Hostconfig](host-config.md) è un oggetto di configurazione multipiattaforma condiviso che controlla lo stile di base e il comportamento delle schede all'interno dell'app. Definisce elementi come le dimensioni dei caratteri, la spaziatura tra elementi, i colori, il numero di azioni supportate e così via. 
 
-### <a name="native-platform-styling"></a>Applicazione dello stile della piattaforma nativa
+### <a name="native-platform-styling"></a>Applicazione di stili della piattaforma nativa
 
 La maggior parte dei framework dell'interfaccia utente consente di applicare uno stile alla scheda sottoposta a rendering usando lo stile del framework dell'interfaccia utente nativa. In HTML ad esempio puoi specificare le classi CSS per il codice HTML oppure in XAML puoi passare un oggetto ResourceDictionary personalizzato per un controllo granulare dell'output.
 
 ### <a name="customize-per-element-rendering"></a>Personalizzare il rendering per elemento
 
-Ogni SDK consente di eseguire l'override del rendering di un elemento o persino di aggiungere il supporto per elementi completamente nuovi che hai definito.  Puoi ad esempio modificare il renderer `Input.Date` in modo da restituire un controllo personalizzato mantenendo comunque il resto dell'output del renderer. In alternativa, puoi aggiungere il supporto di un elemento personalizzato `Rating` che hai definito.
+Ogni SDK ti consente di eseguire l'override del rendering di qualsiasi elemento o persino di aggiungere il supporto per elementi completamente nuovi che definisci.  Puoi ad esempio modificare il renderer `Input.Date` in modo da restituire un controllo personalizzato mantenendo comunque il resto dell'output del renderer. In alternativa, puoi aggiungere il supporto di un elemento personalizzato `Rating` che hai definito.
 
 
 
