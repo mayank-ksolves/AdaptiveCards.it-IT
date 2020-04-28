@@ -4,12 +4,12 @@ author: matthidinger
 ms.author: mahiding
 ms.date: 07/29/2019
 ms.topic: article
-ms.openlocfilehash: 6a818e5009a0ec65e7e17fe47cc0172d2e34ae31
-ms.sourcegitcommit: 9a9973129c36a41f5e4af30d95ffc146820ad173
+ms.openlocfilehash: ab3a3f335b52a06dbb2219159e15e5033e715ba1
+ms.sourcegitcommit: e6418d692296e06be7412c95c689843f9db5240d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76145551"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82136167"
 ---
 # <a name="adaptive-cards-templating-preview"></a>Creazione di modelli di Schede adattive (anteprima)
 
@@ -27,7 +27,7 @@ La creazione di modelli consente di separare i **dati** dal **layout** in una sc
 
 Oggi non è possibile creare una scheda tramite [Designer di Schede adattive](https://adaptivecards.io/designer) e usare questo codice JSON per popolare il payload con **contenuto dinamico**. Per ottenere questo risultato, è necessario scrivere codice personalizzato per compilare una stringa JSON oppure usare gli SDK del modello a oggetti per creare un modello a oggetti che rappresenta la scheda, quindi serializzarlo in JSON. In entrambi i casi, Designer offre un'operazione unidirezionale da eseguire una sola volta e non semplifica la modifica della progettazione della scheda in un secondo momento dopo la conversione in codice.
 
-### <a name="it-makes-tranmissions-over-the-wire-smaller"></a>Riduce le dimensioni delle trasmissioni in rete
+### <a name="it-makes-transmissions-over-the-wire-smaller"></a>Riduce le dimensioni delle trasmissioni in rete
 
 Immagina un mondo in cui sia possibile combinare un modello e i dati **direttamente nel client**. Significa che se usi lo stesso modello più volte, oppure vuoi aggiornarlo con nuovi dati, è sufficiente inviare i nuovi dati al dispositivo e quindi riutilizzare lo stesso modello più volte.
 
