@@ -4,12 +4,12 @@ author: matthidinger
 ms.author: mahiding
 ms.date: 08/01/2019
 ms.topic: article
-ms.openlocfilehash: 8ccccd3c3e67324acf123e03b947372e1517faab
-ms.sourcegitcommit: 1e18c5dc0cf85d26f66335e312348bbfb903d95a
+ms.openlocfilehash: db211fc3bac27dc980ae87983a918a35730f8e5e
+ms.sourcegitcommit: e6418d692296e06be7412c95c689843f9db5240d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77454984"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82136187"
 ---
 # <a name="adaptive-cards-template-service"></a>Servizio modelli di Schede adattive
 
@@ -85,7 +85,7 @@ Questo endpoint cerca di trovare un modello analizzando la struttura dei dati.
 
 #### <a name="example"></a>Esempio
 
-Supponiamo di aver appena eseguito l'accesso a un endpoint di [Microsoft Graph](https://graph.microsoft.com) per ottenere i dati dell'organizzazione che ci riguardano.
+Supponiamo di aver eseguito l'accesso a un endpoint di [Microsoft Graph](https://graph.microsoft.com) per ottenere i dati dell'organizzazione che ci riguardano.
 
 > `HTTP GET https://graph.microsoft.com/v1.0/me/`
 
@@ -222,7 +222,7 @@ Si noti come la risposta ha sostituito il testo del primo `TextBlock` con `"Mega
 
 ## <a name="contributing-templates"></a>Aggiunta di contributi ai modelli
 
-Il servizio modelli è supportato da un repository GitHub che attualmente è **privato**, ma che diventerà open source una volta risolte alcune questioni rimaste in sospeso.
+I modelli sono ospitati in GitHub nel repository [adaptivecards-templates](https://github.com/microsoft/adaptivecards-templates).
 
 Usando GitHub come archivio di backup per i modelli, ci auguriamo di poter "democratizzare" il processo di creazione, miglioramento e condivisione dei modelli. Chiunque può inviare una richiesta pull con un modello completamente nuovo o apportare miglioramenti ai modelli esistenti, tutto all'interno dell'esperienza di GitHub adatta per gli sviluppatori.
 
@@ -230,6 +230,6 @@ Usando GitHub come archivio di backup per i modelli, ci auguriamo di poter "demo
 
 Non tutti i tipi di dati sono adatti per il servizio modelli "centrale" di Schede adattive ospitato all'indirizzo `https://templates.adaptivecards.io`. 
 
-Vogliamo assicurarci che chiunque possa ospitare il servizio modelli all'interno di un'organizzazione. Verrà pertanto reso disponibile il codice sorgente e faremo in modo che possa essere distribuito con estrema facilità in Azure o in un sistema back-end.
+Vogliamo assicurarci che chiunque possa ospitare il servizio modelli all'interno di un'organizzazione. Il codice sorgente è quindi disponibile su GitHub e può essere distribuito con estrema facilità nella Funzione di Azure personale. 
 
-Saranno presto disponibili altre informazioni su questo argomento.
+Per iniziare ➡ [adaptivecards-templates](https://github.com/microsoft/adaptivecards-templates)
