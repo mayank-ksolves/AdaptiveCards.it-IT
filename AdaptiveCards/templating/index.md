@@ -2,24 +2,34 @@
 title: Panoramica della creazione di modelli
 author: matthidinger
 ms.author: mahiding
-ms.date: 07/29/2019
+ms.date: 05/18/2020
 ms.topic: article
-ms.openlocfilehash: ab3a3f335b52a06dbb2219159e15e5033e715ba1
-ms.sourcegitcommit: e6418d692296e06be7412c95c689843f9db5240d
+ms.openlocfilehash: db1f44c4465db88d375dec728bcb32d5933ef702
+ms.sourcegitcommit: c921a7bb15a95c0ceb803ad375501ee3b8bef028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82136167"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83631375"
 ---
-# <a name="adaptive-cards-templating-preview"></a>Creazione di modelli di Schede adattive (anteprima)
+# <a name="adaptive-cards-templating"></a>Creazione di modelli di Schede adattive
 
 Siamo lieti di condividere un'anteprima dei nuovi strumenti che ti aiuteranno a **creare**, **,riutilizzare** e **condividere** Schede adattive. 
 
 > [!IMPORTANT] 
 > 
-> Queste funzionalità sono disponibili **in anteprima e sono soggette a modifiche**. Il tuo feedback non solo è apprezzato, ma è anche fondamentale per aiutarci a offrire le funzionalità di cui **tu** hai bisogno.
+> **Modifiche importanti** apportate alla **versione finale candidata di maggio 2020**
+>
+> La versione finale candidata della creazione di modelli include alcune importanti modifiche che devi conoscere se stai usando i pacchetti meno recenti. Per informazioni dettagliate, vedi di seguito.
 
-## <a name="how-can-templating-help-you"></a>Quali sono i vantaggi della creazione di modelli?
+
+## <a name="breaking-changes-as-of-may-2020"></a>Modifiche importanti della versione di maggio 2020
+
+1. La sintassi di binding è cambiata da `{...}` a `${...}`. 
+    * Ad esempio, `"text": "Hello {name}"` diventa `"text": "Hello ${name}"`
+2. L'API JavaScript non contiene più un oggetto `EvaluationContext`. Passa semplicemente i dati alla funzione `expand`. Per informazioni dettagliate, vedi la [pagina dell'SDK](sdk.md).
+3. L'API .NET è stata riprogettata in modo da corrispondere più strettamente all'API JavaScript. Per informazioni dettagliate, vedi la [pagina dell'SDK](sdk.md).
+
+## <a name="how-can-templating-help-you"></a>Vantaggi della creazione di modelli
 
 La creazione di modelli consente di separare i **dati** dal **layout** in una scheda adattiva. 
 
@@ -85,7 +95,7 @@ Incolla l'esempio seguente nel riquadro **Card Payload Editor** (Editor payload 
                     "items": [
                         {
                             "type": "Image",
-                            "url": "{photo}",
+                            "url": "${photo}",
                             "altText": "Profile picture",
                             "size": "Small",
                             "style": "Person"
@@ -98,7 +108,7 @@ Incolla l'esempio seguente nel riquadro **Card Payload Editor** (Editor payload 
                     "items": [
                         {
                             "type": "TextBlock",
-                            "text": "Hi {name}!",
+                            "text": "Hi ${name}!",
                             "size": "Medium"
                         },
                         {
@@ -112,7 +122,7 @@ Incolla l'esempio seguente nel riquadro **Card Payload Editor** (Editor payload 
         },
         {
             "type": "TextBlock",
-            "text": "Your manager is: **{manager.name}**"
+            "text": "Your manager is: **${manager.name}**"
         },
         {
             "type": "TextBlock",
@@ -122,9 +132,9 @@ Incolla l'esempio seguente nel riquadro **Card Payload Editor** (Editor payload 
             "type": "FactSet",
             "facts": [
                 {
-                    "$data": "{peers}",
-                    "title": "{name}",
-                    "value": "{title}"
+                    "$data": "${peers}",
+                    "title": "${name}",
+                    "value": "${title}"
                 }
             ]
         }
@@ -175,12 +185,12 @@ Gli SDK di creazione modelli rendono possibile popolare un modello con dati real
 
 > [!NOTE]
 >
-> Durante l'anteprima iniziale è disponibile solo un set limitato di SDK. Al momento del rilascio, ci saranno librerie di modelli per ogni piattaforma di Schede adattive supportate.
+> Al momento, gli SDK per la creazione di modelli sono disponibili per .NET e NodeJS. Nel tempo gli SDK per la creazione di modelli verranno rilasciati per tutte le rimanenti piattaforme di Schede adattive, ad esempio iOS, Android, UWP e così via.
 
-Piattaforma | Installa | Documentazione
---- | --- | ---
-JavaScript | `npm install adaptivecards-templating` | [Documentazione](https://www.npmjs.com/package/adaptivecards-templating)
-.NET | `nuget install AdaptiveCards.Templating` | [Documentazione](https://docs.microsoft.com/adaptive-cards/templating/sdk#net)
+Piattaforma | Pacchetto | Installa | Documentazione
+--- | --- | --- | ---
+JavaScript | [![Installazione di NPM](https://img.shields.io/npm/v/adaptivecards-templating.svg)](https://www.npmjs.com/package/adaptivecards-templating) | `npm install adaptivecards-templating` | [Documentazione](https://www.npmjs.com/package/adaptivecards-templating)
+.NET | [![Installazione di Nuget](https://img.shields.io/nuget/vpre/AdaptiveCards.Templating.svg)](https://www.nuget.org/packages/AdaptiveCards.Templating) | `dotnet add package AdaptiveCards.Templating` | [Documentazione](https://docs.microsoft.com/adaptive-cards/templating/sdk#net)
 
 ### <a name="javascript-example"></a>Esempio di JavaScript
 
@@ -191,12 +201,11 @@ var template = new ACData.Template({
     // EmployeeCardTemplate goes here
 });
 
-var dataContext = new ACData.EvaluationContext();
-dataContext.$root = {
-    // Data goes here
-};
-
-var card = template.expand(dataContext);
+var card = template.expand({
+    $root: {
+        // Your data goes here
+    }
+});
 // Now you have an AdaptiveCard ready to render!
 ```
 
@@ -218,6 +227,4 @@ Tutti i modelli sono file JSON flat archiviati in un repository di GitHub in mod
 
 ## <a name="whats-next-and-sending-feedback"></a>Passaggi successivi e invio di feedback
 
-La creazione di modelli e la separazione della presentazione dai dati ci avvicinano di molto alla nostra mission: "un ecosistema per lo scambio di contenuti di schede in modo comune e coerente".
-
-Condivideremo altre informazioni non appena possibile. Nel frattempo, invia il tuo feedback qui, [GitHub](https://github.com/microsoft/AdaptiveCards) o Twitter **[@MattHidinger](https://twitter.com/matthidinger)** / **#AdaptiveCards**. 
+La creazione di modelli e la separazione della presentazione dai dati ci avvicinano di molto alla nostra mission: "un ecosistema standardizzato per lo scambio di contenuti tra app e servizi". In quest'area sono disponibili molte informazioni, quindi continua a seguire la pagina e condividi con noi la tua esperienza con [GitHub](https://github.com/Microsoft/AdaptiveCards/issues).

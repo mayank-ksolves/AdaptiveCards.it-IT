@@ -4,12 +4,12 @@ author: matthidinger
 ms.author: mahiding
 ms.date: 06/26/2017
 ms.topic: article
-ms.openlocfilehash: 27c7d5ac7da3ae182667cbf8efa90d29f110d1d3
-ms.sourcegitcommit: e6418d692296e06be7412c95c689843f9db5240d
+ms.openlocfilehash: 272a7dc7c31fc3da8e5b27ff7479b249c4ef4226
+ms.sourcegitcommit: c921a7bb15a95c0ceb803ad375501ee3b8bef028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "72042526"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83631289"
 ---
 # <a name="adaptive-cards-overview"></a>Panoramica delle schede adattive 
 
@@ -73,7 +73,7 @@ Le schede adattive devono essere espressive e generiche, ma l'intenzione non è 
 Focalizzando l'attenzione su semplicità ed espressività, con Markdown si è riusciti a creare una descrizione coerente e semplice del contenuto del documento.  Nello stesso modo, Microsoft ritiene che le schede adattive possano diventare uno strumento semplice ed espressivo per descrivere il contenuto della scheda.
 
 ### <a name="when-in-doubt-keep-it-out"></a>In caso di dubbi, tralasciare
-È più semplice aggiungere in un secondo momento che convivere con una scelta infelice. Se ci si ritrova a discutere se aggiungere o meno un elemento, è consigliabile decidere di ometterlo.  È sempre più semplice aggiungere una proprietà piuttosto che convivere con una proprietà legacy che sarebbe stato preferibile non dover supportare.
+È più semplice aggiungere un elemento in un secondo momento piuttosto che dover convivere con un errore. Se ci si ritrova a discutere se aggiungere o meno un elemento, è consigliabile decidere di ometterlo.  È sempre più semplice aggiungere una proprietà piuttosto che convivere con una proprietà legacy che sarebbe stato preferibile non dover supportare.
 
 
 ## <a name="build-2019-session"></a>Sessione dell'evento Build 2019
