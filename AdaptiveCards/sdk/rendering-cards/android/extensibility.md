@@ -1,15 +1,15 @@
 ---
-title: Android SDK
+title: Estensibilità Android SDK
 author: almedina-ms
 ms.author: almedina
 ms.date: 09/27/2017
 ms.topic: article
-ms.openlocfilehash: ae5c1b2addf6fc5bcdda3defebb6de5925b58507
-ms.sourcegitcommit: 9a9973129c36a41f5e4af30d95ffc146820ad173
+ms.openlocfilehash: 1281a31c333474c1899831acab28c962ce8e4514
+ms.sourcegitcommit: c921a7bb15a95c0ceb803ad375501ee3b8bef028
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76145511"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83631313"
 ---
 # <a name="extensibility---android"></a>Estendibilità - Android
 
@@ -91,7 +91,7 @@ Viene quindi eseguito il rendering dell'elemento personalizzato
 >
 > [Modifiche importanti per la versione 1.2](#breaking-changes-for-v12)
 
-Per definire un renderer personalizzato per il tipo, è necessario innanzitutto creare una classe che si estende da ```BaseCardElementRenderer```:
+Per definire un renderer personalizzato per il tipo, è necessario innanzitutto creare una classe che si estende da ```BaseCardElementRenderer``` :
 ```java
 public class MyCardElementRenderer extends BaseCardElementRenderer
 {
@@ -120,9 +120,9 @@ CardRendererRegistration.getInstance().registerRenderer("MyType", new CustomBlah
 RenderedAdaptiveCard renderedCard = AdaptiveCardRenderer.getInstance().render(context, fragmentManager, adaptiveCard, cardActionHandler,  hostConfig);
 ```
 
-### <a name="breaking-changes-for-v12"></a>Modifiche di rilievo per v 1.2
+### <a name="breaking-changes-for-v12"></a>Modifiche importanti per la versione 1.2
 
-Il metodo ```render``` è stato modificato in modo da includere il parametro ```RenderedAdaptiveCard``` e ```ContainerStyle``` è stato modificato per un RenderArgs in cui ContainerStyle è ora contenuto, quindi una classe che estende BaseCardElementRenderer dovrebbe essere simile alla seguente
+Il ```render``` metodo è stato modificato in modo da includere il ```RenderedAdaptiveCard``` parametro ed ```ContainerStyle``` è stato modificato per un RenderArgs in cui ContainerStyle è ora contenuto, quindi una classe che estende BaseCardElementRenderer dovrebbe essere simile alla seguente
 
 ```
 public class MyCardElementRenderer extends BaseCardElementRenderer
@@ -144,7 +144,7 @@ Analogamente all'analisi degli elementi della scheda personalizzati nella versio
 }
 ```
 
-Nelle righe seguenti viene illustrato come analizzarlo in un Actionelement che si estende dal ```BaseActionElement```:
+Nelle righe seguenti viene illustrato come analizzarlo in un Actionelement che si estende da ```BaseActionElement``` :
 ```java
 public class MyActionElement extends BaseActionElement
 {
@@ -216,7 +216,7 @@ Viene quindi eseguito il rendering dell'azione personalizzata
 
 ## <a name="custom-rendering-of-actions"></a>Rendering personalizzato delle azioni
 
-Per definire il renderer dell'azione personalizzata per il tipo, è necessario innanzitutto creare una classe che si estende da ```BaseActionElementRenderer```:
+Per definire il renderer dell'azione personalizzata per il tipo, è necessario innanzitutto creare una classe che si estende da ```BaseActionElementRenderer``` :
 ```java
 public class MyActionRenderer extends BaseActionElementRenderer
 {
@@ -281,11 +281,11 @@ public class OnlineImageLoader implements IOnlineImageLoader
     @Override
     public HttpRequestResult<Bitmap> loadOnlineImage(String url, GenericImageLoaderAsync loader) throws IOException, URISyntaxException
     {
-        String catImnageUri = "http://adaptivecards.io/content/cats/1.png";
-        byte[] bytes = HttpRequestHelper.get(catImnageUri);
+        String catImageUri = "http://adaptivecards.io/content/cats/1.png";
+        byte[] bytes = HttpRequestHelper.get(catImageUri);
         if (bytes == null)
         {
-            throw new IOException("Failed to retrieve content from " + catImnageUri);
+            throw new IOException("Failed to retrieve content from " + catImageUri);
         }
 
         Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
@@ -381,12 +381,12 @@ Trasformare un IOnlineImageLoader in un IResourceResolver è un'attività piutto
 Come puoi notare, le modifiche principali sono
 
 * ```loadOnlineImage(String, GenericImageLoaderAsync)``` è stato rinominato ```resolveImageResource(String, GenericImageLoaderAsync)```
-* un overload per ```resolveImageResource(String, GenericImageLoaderAsync)``` è stato aggiunto come ```resolveImageResource(String, GenericImageLoaderAsync, int)``` per supportare scenari in cui è richiesta la larghezza massima
+* un overload per ```resolveImageResource(String, GenericImageLoaderAsync)``` è stato aggiunto come per ```resolveImageResource(String, GenericImageLoaderAsync, int)``` supportare scenari in cui è richiesta la larghezza massima
 
 ## <a name="custom-media-loading"></a>Caricamento di file multimediali personalizzati
 
 > [!IMPORTANT]
-> **Ricordare ```IOnlineMediaLoader``` richiede ```MediaDataSource``` che è stato aggiunto a livello API 23 o Android M**
+> **```IOnlineMediaLoader```È necessario ricordare ```MediaDataSource``` che è stato aggiunto a livello API 23 o Android M**
 
 Oltre all'inclusione dell'elemento per i file multimediali, è stata anche inclusa l'interfaccia IOnlineMediaLoader, che consente agli sviluppatori di eseguire l'override dell'oggetto [MediaDataSource](https://developer.android.com/reference/android/media/MediaDataSource) usato per l'elemento mediaPlayer sottostante. **(Richiede Android M)**
 
