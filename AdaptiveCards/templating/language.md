@@ -2,40 +2,68 @@
 title: Linguaggio del modello di Schede adattive
 author: matthidinger
 ms.author: mahiding
-ms.date: 08/01/2019
+ms.date: 05/18/2020
 ms.topic: article
-ms.openlocfilehash: ffd2ec065550f483bf602483eebf622565f7f47a
-ms.sourcegitcommit: e6418d692296e06be7412c95c689843f9db5240d
+ms.openlocfilehash: 1b5a7df25eedb96ec6edfe02912d328ab59d2801
+ms.sourcegitcommit: c921a7bb15a95c0ceb803ad375501ee3b8bef028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82136177"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83631342"
 ---
-# <a name="adaptive-cards-template-language"></a><span data-ttu-id="3ef83-102">Linguaggio del modello di Schede adattive</span><span class="sxs-lookup"><span data-stu-id="3ef83-102">Adaptive Cards Template Language</span></span>
+# <a name="adaptive-cards-template-language"></a><span data-ttu-id="e6f00-102">Linguaggio del modello di Schede adattive</span><span class="sxs-lookup"><span data-stu-id="e6f00-102">Adaptive Cards Template Language</span></span>
 
-<span data-ttu-id="3ef83-103">La creazione di modelli consente di separare i **dati** dal **layout** nella scheda adattiva.</span><span class="sxs-lookup"><span data-stu-id="3ef83-103">Templating enables the separation of **data** from **layout** in your Adaptive Card.</span></span> <span data-ttu-id="3ef83-104">Il linguaggio del modello è la sintassi usata per creare un modello.</span><span class="sxs-lookup"><span data-stu-id="3ef83-104">The template langauge is the syntax used to author a template.</span></span> 
+<span data-ttu-id="e6f00-103">La creazione di modelli consente di separare i **dati** dal **layout** nella scheda adattiva.</span><span class="sxs-lookup"><span data-stu-id="e6f00-103">Templating enables the separation of **data** from **layout** in your Adaptive Card.</span></span> <span data-ttu-id="e6f00-104">Il linguaggio del modello è la sintassi usata per creare un modello.</span><span class="sxs-lookup"><span data-stu-id="e6f00-104">The template langauge is the syntax used to author a template.</span></span> 
 
-> <span data-ttu-id="3ef83-105">Per una [panoramica della creazione di modelli di schede adattive](index.md), leggi l'argomento specifico.</span><span class="sxs-lookup"><span data-stu-id="3ef83-105">Please read this for an [overview of Adaptive Card Templating](index.md)</span></span>
+> <span data-ttu-id="e6f00-105">Per una [panoramica della creazione di modelli di schede adattive](index.md), leggi l'argomento specifico.</span><span class="sxs-lookup"><span data-stu-id="e6f00-105">Please read this for an [overview of Adaptive Card Templating](index.md)</span></span>
 
 > [!IMPORTANT] 
 > 
-> <span data-ttu-id="3ef83-106">Queste funzionalità sono disponibili **in anteprima e sono soggette a modifiche**.</span><span class="sxs-lookup"><span data-stu-id="3ef83-106">These features are **in preview and subject to change**.</span></span> <span data-ttu-id="3ef83-107">Il tuo feedback non solo è apprezzato, ma è anche fondamentale per aiutarci a offrire le funzionalità di cui **tu** hai bisogno.</span><span class="sxs-lookup"><span data-stu-id="3ef83-107">Your feedback is not only welcome, but  critical to ensure we deliver the features **you** need.</span></span>
+> <span data-ttu-id="e6f00-106">**Modifiche importanti** apportate alla **versione finale candidata di maggio 2020**</span><span class="sxs-lookup"><span data-stu-id="e6f00-106">**Breaking changes** in the **May 2020 Release Candidate**</span></span>
+>
+> <span data-ttu-id="e6f00-107">Abbiamo lavorato intensamente per il rilascio della creazione di modelli e abbiamo finalmente raggiunto l'obiettivo.</span><span class="sxs-lookup"><span data-stu-id="e6f00-107">We've been hard at work getting templating released, and we're finally in the home stretch!</span></span> <span data-ttu-id="e6f00-108">Abbiamo dovuto apportare alcune piccole modifiche importanti, man mano che ci avvicinavamo alla data del rilascio.</span><span class="sxs-lookup"><span data-stu-id="e6f00-108">We had to make some minor breaking changes as we close on the release.</span></span>
 
-<span data-ttu-id="3ef83-108">Quando crei un modello, puoi specificare i dati inline con il payload di `AdaptiveCard` oppure in fase di esecuzione usando gli [SDK per la creazione di modelli](sdk.md).</span><span class="sxs-lookup"><span data-stu-id="3ef83-108">When authoring a template you can specify the data inline with the `AdaptiveCard` payload, or at runtime using the [Templating SDKs](sdk.md).</span></span>
+## <a name="breaking-changes-as-of-may-2020"></a><span data-ttu-id="e6f00-109">Modifiche importanti della versione di maggio 2020</span><span class="sxs-lookup"><span data-stu-id="e6f00-109">Breaking changes as of May 2020</span></span>
 
-## <a name="specify-data-within-the-card"></a><span data-ttu-id="3ef83-109">Specificare dati all'interno della scheda</span><span class="sxs-lookup"><span data-stu-id="3ef83-109">Specify data within the card</span></span>
+1. <span data-ttu-id="e6f00-110">La sintassi di binding è cambiata da `{...}` a `${...}`.</span><span class="sxs-lookup"><span data-stu-id="e6f00-110">The binding syntax changed from `{...}` to `${...}`</span></span>
+    * <span data-ttu-id="e6f00-111">Ad esempio, `"text": "Hello {name}"` diventa `"text": "Hello ${name}"`</span><span class="sxs-lookup"><span data-stu-id="e6f00-111">For Example: `"text": "Hello {name}"` becomes `"text": "Hello ${name}"`</span></span>
+    
+## <a name="binding-to-data"></a><span data-ttu-id="e6f00-112">Binding ai dati</span><span class="sxs-lookup"><span data-stu-id="e6f00-112">Binding to data</span></span>
 
-<span data-ttu-id="3ef83-110">Per fornire i dati direttamente all'interno del payload della scheda, aggiungi semplicemente un attributo `$data` ad `AdaptiveCard` (vedi più avanti).</span><span class="sxs-lookup"><span data-stu-id="3ef83-110">To provide data directly within the card payload, simply add a `$data` attribute to your `AdaptiveCard` (seen below).</span></span>
+<span data-ttu-id="e6f00-113">La scrittura di un modello è semplice quanto la sostituzione del contenuto "non statico" della scheda con "espressioni di binding".</span><span class="sxs-lookup"><span data-stu-id="e6f00-113">Writing a template is as simple as replacing the "non-static" content of your card with "binding expressions".</span></span>
 
-## <a name="binding-to-the-data"></a><span data-ttu-id="3ef83-111">Binding ai dati</span><span class="sxs-lookup"><span data-stu-id="3ef83-111">Binding to the data</span></span>
+### <a name="static-card-payload"></a><span data-ttu-id="e6f00-114">Payload scheda statica</span><span class="sxs-lookup"><span data-stu-id="e6f00-114">Static card payload</span></span>
 
-<span data-ttu-id="3ef83-112">Puoi eseguire il binding ai dati all'interno di `body` o `actions` della scheda.</span><span class="sxs-lookup"><span data-stu-id="3ef83-112">You can bind to the data within the `body` or `actions` of the card.</span></span>
+```json
+{
+   "type": "TextBlock",
+   "text": "Matt"
+}
+```
 
-* <span data-ttu-id="3ef83-113">La sintassi di binding inizia con `{` e termina con `}`,</span><span class="sxs-lookup"><span data-stu-id="3ef83-113">Binding syntax starts with `{` and ends with `}`.</span></span> <span data-ttu-id="3ef83-114">ad esempio `{myProperty}`</span><span class="sxs-lookup"><span data-stu-id="3ef83-114">E.g., `{myProperty}`</span></span>
-* <span data-ttu-id="3ef83-115">Notazione Dot per accedere ai sotto-oggetti</span><span class="sxs-lookup"><span data-stu-id="3ef83-115">Dot-notation to access sub-objects</span></span>
-* <span data-ttu-id="3ef83-116">Sintassi dell'indicizzatore per recuperare le proprietà in base alla chiave o agli elementi di una matrice</span><span class="sxs-lookup"><span data-stu-id="3ef83-116">Indexer syntax to retrieve properties by key or items in an array</span></span>
-* <span data-ttu-id="3ef83-117">Gestione automatica dei valori null per le gerarchie profonde</span><span class="sxs-lookup"><span data-stu-id="3ef83-117">Graceful null handling for deep hierarchies</span></span>
-* <span data-ttu-id="3ef83-118">*Documentazione relativa alla sintassi di escape presto disponibile*</span><span class="sxs-lookup"><span data-stu-id="3ef83-118">*Escape syntax documentation to come soon*</span></span>
+### <a name="template-payload"></a><span data-ttu-id="e6f00-115">Payload modello</span><span class="sxs-lookup"><span data-stu-id="e6f00-115">Template payload</span></span>
+
+```json
+{
+   "type": "TextBlock",
+   "text": "${firstName}"
+}
+```
+
+* <span data-ttu-id="e6f00-116">Le espressioni di binding possono essere posizionate in qualsiasi punto in cui è presente contenuto statico</span><span class="sxs-lookup"><span data-stu-id="e6f00-116">Binding expressions can be placed just about anywhere that static content can be</span></span>
+* <span data-ttu-id="e6f00-117">La sintassi di binding inizia con `${` e termina con `}`,</span><span class="sxs-lookup"><span data-stu-id="e6f00-117">The binding syntax starts with `${` and ends with `}`.</span></span> <span data-ttu-id="e6f00-118">ad esempio `${myProperty}`</span><span class="sxs-lookup"><span data-stu-id="e6f00-118">E.g., `${myProperty}`</span></span>
+* <span data-ttu-id="e6f00-119">Usa *Notazione Dot* per accedere agli oggetti secondari di una gerarchia di oggetti,</span><span class="sxs-lookup"><span data-stu-id="e6f00-119">Use *Dot-notation* to access sub-objects of an object hierarchy.</span></span> <span data-ttu-id="e6f00-120">ad esempio `${myParent.myChild}`</span><span class="sxs-lookup"><span data-stu-id="e6f00-120">E.g., `${myParent.myChild}`</span></span>
+* <span data-ttu-id="e6f00-121">Una gestione regolare dei valori null garantisce che non vengano generate eccezioni se accedi a una proprietà null in un oggetto grafico</span><span class="sxs-lookup"><span data-stu-id="e6f00-121">Graceful null handling ensures you won't get exceptions if you access a null property in an object graph</span></span>
+* <span data-ttu-id="e6f00-122">Usa la *sintassi dell'indicizzatore* per recuperare le proprietà in base alla chiave o agli elementi di una matrice,</span><span class="sxs-lookup"><span data-stu-id="e6f00-122">Use *Indexer syntax* to retrieve properties by key or items in an array.</span></span> <span data-ttu-id="e6f00-123">ad esempio `${myArray[0]}`</span><span class="sxs-lookup"><span data-stu-id="e6f00-123">E.g., `${myArray[0]}`</span></span>
+
+## <a name="providing-the-data"></a><span data-ttu-id="e6f00-124">Specificare i dati</span><span class="sxs-lookup"><span data-stu-id="e6f00-124">Providing the data</span></span>
+
+<span data-ttu-id="e6f00-125">Ora che disponi di un modello, devi specificare i dati che lo rendono completo.</span><span class="sxs-lookup"><span data-stu-id="e6f00-125">Now that you have a template, you'll want to provide the data that makes it complete.</span></span> <span data-ttu-id="e6f00-126">A questo scopo, sono disponibili due opzioni:</span><span class="sxs-lookup"><span data-stu-id="e6f00-126">You have two options to do this:</span></span>
+
+1. <span data-ttu-id="e6f00-127">**Opzione A: inline all'interno del payload del modello**.</span><span class="sxs-lookup"><span data-stu-id="e6f00-127">**Option A: Inline within the template payload**.</span></span> <span data-ttu-id="e6f00-128">Puoi specificare i dati inline all'interno del payload del modello `AdaptiveCard`.</span><span class="sxs-lookup"><span data-stu-id="e6f00-128">You can provide the data inline within the `AdaptiveCard` template payload.</span></span> <span data-ttu-id="e6f00-129">Per eseguire questa operazione, aggiungi semplicemente un attributo `$data` all'oggetto radice `AdaptiveCard`.</span><span class="sxs-lookup"><span data-stu-id="e6f00-129">To do so, simply add a `$data` attribute to the root `AdaptiveCard` object.</span></span>
+2. <span data-ttu-id="e6f00-130">**Opzione B: come oggetto dati separato**.</span><span class="sxs-lookup"><span data-stu-id="e6f00-130">**Option B: As a separate data object**.</span></span> <span data-ttu-id="e6f00-131">Con questa opzione, puoi specificare due oggetti separati nell'[SDK per la creazione di modelli](sdk.md) in fase di esecuzione: `template` e `data`.</span><span class="sxs-lookup"><span data-stu-id="e6f00-131">With this option you provide two separate objects to the [Templating SDK](sdk.md) at runtime: the `template` and the `data`.</span></span> <span data-ttu-id="e6f00-132">Si tratta dell'approccio più comune, dal momento che, in genere, si crea innanzitutto un modello e i dati dinamici vengono specificati in un secondo momento.</span><span class="sxs-lookup"><span data-stu-id="e6f00-132">This will be the more common approach, since typically you will create a template and want to provide dynamic data later.</span></span>
+
+### <a name="option-a-inline-data"></a><span data-ttu-id="e6f00-133">Opzione A: Dati inline</span><span class="sxs-lookup"><span data-stu-id="e6f00-133">Option A: Inline data</span></span>
 
 ```json
 {
@@ -58,25 +86,25 @@ ms.locfileid: "82136177"
     "body": [
         {
             "type": "TextBlock",
-            "text": "Hi {employee.name}! Here's a bit about your org..."
+            "text": "Hi ${employee.name}! Here's a bit about your org..."
         },
         {
             "type": "TextBlock",
-            "text": "Your manager is: {employee.manager.name}"
+            "text": "Your manager is: ${employee.manager.name}"
         },
         {
             "type": "TextBlock",
-            "text": "3 of your peers are: {employee.peers[0].name}, {employee.peers[1].name}, {employee.peers[2].name}"
+            "text": "3 of your peers are: ${employee.peers[0].name}, ${employee.peers[1].name}, ${employee.peers[2].name}"
         }
     ]
 }
 ```
 
-## <a name="separating-the-template-from-the-data"></a><span data-ttu-id="3ef83-119">Separazione del modello dai dati</span><span class="sxs-lookup"><span data-stu-id="3ef83-119">Separating the template from the data</span></span>
+### <a name="option-b-separating-the-template-from-the-data"></a><span data-ttu-id="e6f00-134">Opzione B: Separazione del modello dai dati</span><span class="sxs-lookup"><span data-stu-id="e6f00-134">Option B: Separating the template from the data</span></span>
 
-<span data-ttu-id="3ef83-120">In alternativa (e con maggiore probabilità), creerai un modello di scheda riutilizzabile senza includere i dati.</span><span class="sxs-lookup"><span data-stu-id="3ef83-120">Alternatively (and more likely), you will create a re-usable card "template" without including the data.</span></span> <span data-ttu-id="3ef83-121">Questo modello può essere archiviato come file e aggiunto al controllo del codice sorgente.</span><span class="sxs-lookup"><span data-stu-id="3ef83-121">This template could be stored as a file and added to source control.</span></span>
+<span data-ttu-id="e6f00-135">In alternativa (e con maggiore probabilità), creerai un modello di scheda riutilizzabile senza includere i dati.</span><span class="sxs-lookup"><span data-stu-id="e6f00-135">Alternatively (and more likely), you'll create a re-usable card template without including the data.</span></span> <span data-ttu-id="e6f00-136">Questo modello può essere archiviato come file e aggiunto al controllo del codice sorgente.</span><span class="sxs-lookup"><span data-stu-id="e6f00-136">This template could be stored as a file and added to source control.</span></span>
 
-<span data-ttu-id="3ef83-122">**EmployeeCardTemplate.json**</span><span class="sxs-lookup"><span data-stu-id="3ef83-122">**EmployeeCardTemplate.json**</span></span>
+<span data-ttu-id="e6f00-137">**EmployeeCardTemplate.json**</span><span class="sxs-lookup"><span data-stu-id="e6f00-137">**EmployeeCardTemplate.json**</span></span>
 
 ```json
 {
@@ -84,25 +112,25 @@ ms.locfileid: "82136177"
     "body": [
         {
             "type": "TextBlock",
-            "text": "Hi {employee.name}! Here's a bit about your org..."
+            "text": "Hi ${employee.name}! Here's a bit about your org..."
         },
         {
             "type": "TextBlock",
-            "text": "Your manager is: {employee.manager.name}"
+            "text": "Your manager is: ${employee.manager.name}"
         },
         {
             "type": "TextBlock",
-            "text": "3 of your peers are: {employee.peers[0].name}, {employee.peers[1].name}, {employee.peers[2].name}"
+            "text": "3 of your peers are: ${employee.peers[0].name}, ${employee.peers[1].name}, ${employee.peers[2].name}"
         }
     ]
 }
 ```
 
-<span data-ttu-id="3ef83-123">Puoi quindi caricarlo e fornire i dati in fase di esecuzione tramite gli [SDK per la creazione di modelli](sdk.md).</span><span class="sxs-lookup"><span data-stu-id="3ef83-123">Then load it up and provide the data at runtime using the [Templating SDKs](sdk.md).</span></span>
+<span data-ttu-id="e6f00-138">Puoi quindi caricarlo e fornire i dati in fase di esecuzione tramite gli [SDK per la creazione di modelli](sdk.md).</span><span class="sxs-lookup"><span data-stu-id="e6f00-138">Then load it up and provide the data at runtime using the [Templating SDKs](sdk.md).</span></span>
 
-<span data-ttu-id="3ef83-124">**Esempio di JavaScript**</span><span class="sxs-lookup"><span data-stu-id="3ef83-124">**JavaScript example**</span></span>
+<span data-ttu-id="e6f00-139">**Esempio di JavaScript**</span><span class="sxs-lookup"><span data-stu-id="e6f00-139">**JavaScript example**</span></span>
 
-<span data-ttu-id="3ef83-125">Uso del pacchetto [adaptivecards-templating](https://npmjs.com/package/adaptivecards-templating).</span><span class="sxs-lookup"><span data-stu-id="3ef83-125">Using the [adaptivecards-templating](https://npmjs.com/package/adaptivecards-templating) package.</span></span>
+<span data-ttu-id="e6f00-140">Uso del pacchetto [adaptivecards-templating](https://npmjs.com/package/adaptivecards-templating).</span><span class="sxs-lookup"><span data-stu-id="e6f00-140">Using the [adaptivecards-templating](https://npmjs.com/package/adaptivecards-templating) package.</span></span>
 
 ```js
 var template = new ACData.Template({ 
@@ -110,88 +138,82 @@ var template = new ACData.Template({
 });
 
 // Specify data at runtime
-var dataContext = new ACData.EvaluationContext();
-dataContext.$root = {
-    "employee": {
-        "name": "Matt",
-        "manager": { "name": "Thomas" },
-        "peers": [{
-            "name": "Andrew" 
-        }, { 
-            "name": "Lei"
-        }, { 
-            "name": "Mary Anne"
-        }, { 
-            "name": "Adam"
-        }]
+var card = template.expand({
+    $root: {
+        "employee": {
+            "name": "Matt",
+            "manager": { "name": "Thomas" },
+            "peers": [{
+                "name": "Andrew" 
+            }, { 
+                "name": "Lei"
+            }, { 
+                "name": "Mary Anne"
+            }, { 
+                "name": "Adam"
+            }]
+        }
     }
-};
+});
 
-var card = template.expand(dataContext);
 // Now you have an AdaptiveCard ready to render!
 ```
 
-## <a name="designer-support"></a><span data-ttu-id="3ef83-126">Supporto per Designer</span><span class="sxs-lookup"><span data-stu-id="3ef83-126">Designer Support</span></span>
+## <a name="designer-support"></a><span data-ttu-id="e6f00-141">Supporto per Designer</span><span class="sxs-lookup"><span data-stu-id="e6f00-141">Designer Support</span></span>
 
-<span data-ttu-id="3ef83-127">Adaptive Cards Designer è stato aggiornato per supportare la creazione di modelli.</span><span class="sxs-lookup"><span data-stu-id="3ef83-127">The Adaptive Card Designer has been updated to support templating.</span></span> 
+<span data-ttu-id="e6f00-142">Adaptive Cards Designer è stato aggiornato per supportare la creazione di modelli.</span><span class="sxs-lookup"><span data-stu-id="e6f00-142">The Adaptive Card Designer has been updated to support templating.</span></span> 
 
-> <span data-ttu-id="3ef83-128">Provala all'indirizzo: **[https://adaptivecards.io/designer](https://adaptivecards.io/designer)** .</span><span class="sxs-lookup"><span data-stu-id="3ef83-128">Try it out at: **[https://adaptivecards.io/designer](https://adaptivecards.io/designer)**</span></span>
+> <span data-ttu-id="e6f00-143">Provala all'indirizzo: **[https://adaptivecards.io/designer](https://adaptivecards.io/designer)** .</span><span class="sxs-lookup"><span data-stu-id="e6f00-143">Try it out at: **[https://adaptivecards.io/designer](https://adaptivecards.io/designer)**</span></span>
 
-<span data-ttu-id="3ef83-129">[![Immagine](https://user-images.githubusercontent.com/1432195/53214462-88d46980-3601-11e9-908d-253a1bb940a8.png)](https://adaptivecards.io/designer)</span><span class="sxs-lookup"><span data-stu-id="3ef83-129">[![image](https://user-images.githubusercontent.com/1432195/53214462-88d46980-3601-11e9-908d-253a1bb940a8.png)](https://adaptivecards.io/designer)</span></span>
+<span data-ttu-id="e6f00-144">[![Immagine](https://user-images.githubusercontent.com/1432195/53214462-88d46980-3601-11e9-908d-253a1bb940a8.png)](https://adaptivecards.io/designer)</span><span class="sxs-lookup"><span data-stu-id="e6f00-144">[![image](https://user-images.githubusercontent.com/1432195/53214462-88d46980-3601-11e9-908d-253a1bb940a8.png)](https://adaptivecards.io/designer)</span></span>
 
-* <span data-ttu-id="3ef83-130">**Sample Data Editor**: specifica qui i dati di esempio per visualizzare la scheda associata ai dati quando si trova in modalità di anteprima.</span><span class="sxs-lookup"><span data-stu-id="3ef83-130">**Sample Data Editor** - Specify sample data here to view the data-bound card when in "Preview Mode."</span></span> <span data-ttu-id="3ef83-131">Il piccolo pulsante presente in questo riquadro consente di popolare la struttura dati dai dati di esempio esistenti.</span><span class="sxs-lookup"><span data-stu-id="3ef83-131">There is a small button in this pane to populate the Data Structure from the existing sample data.</span></span>
-* <span data-ttu-id="3ef83-132">**Data Structure**: è la struttura dei dati di esempio.</span><span class="sxs-lookup"><span data-stu-id="3ef83-132">**Data Structure** - This is the structure of your sample data.</span></span> <span data-ttu-id="3ef83-133">I campi possono essere trascinati nell'area di progettazione per creare un binding.</span><span class="sxs-lookup"><span data-stu-id="3ef83-133">Fields can be dragged onto the design surface to create a binding to them</span></span> 
-* <span data-ttu-id="3ef83-134">**Preview Mode**: premi il pulsante della barra degli strumenti per passare dall'esperienza di modifica a quella di anteprima dei dati di esempio e viceversa.</span><span class="sxs-lookup"><span data-stu-id="3ef83-134">**Preview Mode** - Press the toolbar button to toggle between the edit-experience and the sample-data-preview experience</span></span>
-* <span data-ttu-id="3ef83-135">**Open Sample**: fai clic su questo pulsante per aprire vari payload di esempio.</span><span class="sxs-lookup"><span data-stu-id="3ef83-135">**Open Sample** - click this button to open various sample payloads</span></span>
+* <span data-ttu-id="e6f00-145">**Sample Data Editor**: specifica qui i dati di esempio per visualizzare la scheda associata ai dati quando si trova in modalità di anteprima.</span><span class="sxs-lookup"><span data-stu-id="e6f00-145">**Sample Data Editor** - Specify sample data here to view the data-bound card when in "Preview Mode."</span></span> <span data-ttu-id="e6f00-146">Il piccolo pulsante presente in questo riquadro consente di popolare la struttura dati dai dati di esempio esistenti.</span><span class="sxs-lookup"><span data-stu-id="e6f00-146">There is a small button in this pane to populate the Data Structure from the existing sample data.</span></span>
+* <span data-ttu-id="e6f00-147">**Preview Mode**: premi il pulsante della barra degli strumenti per passare dall'esperienza di modifica a quella di anteprima dei dati di esempio e viceversa.</span><span class="sxs-lookup"><span data-stu-id="e6f00-147">**Preview Mode** - Press the toolbar button to toggle between the edit-experience and the sample-data-preview experience</span></span>
+* <span data-ttu-id="e6f00-148">**Open Sample**: fai clic su questo pulsante per aprire vari payload di esempio.</span><span class="sxs-lookup"><span data-stu-id="e6f00-148">**Open Sample** - click this button to open various sample payloads</span></span>
 
-## <a name="advanced-binding"></a><span data-ttu-id="3ef83-136">Binding avanzato</span><span class="sxs-lookup"><span data-stu-id="3ef83-136">Advanced binding</span></span>
+## <a name="advanced-binding"></a><span data-ttu-id="e6f00-149">Binding avanzato</span><span class="sxs-lookup"><span data-stu-id="e6f00-149">Advanced binding</span></span>
 
-### <a name="binding-scopes"></a><span data-ttu-id="3ef83-137">Ambiti di binding</span><span class="sxs-lookup"><span data-stu-id="3ef83-137">Binding scopes</span></span>
+### <a name="binding-scopes"></a><span data-ttu-id="e6f00-150">Ambiti di binding</span><span class="sxs-lookup"><span data-stu-id="e6f00-150">Binding scopes</span></span>
 
-<span data-ttu-id="3ef83-138">Esistono alcune parole chiave riservate per accedere a diversi ambiti di binding.</span><span class="sxs-lookup"><span data-stu-id="3ef83-138">There are a few reserved keywords to access various binding scopes.</span></span> 
-
-<span data-ttu-id="3ef83-139">*Nota:* non tutti sono implementati nella versione di anteprima.</span><span class="sxs-lookup"><span data-stu-id="3ef83-139">*Note:* not all of these are implemented in the preview.</span></span>
+<span data-ttu-id="e6f00-151">Esistono alcune parole chiave riservate per accedere a diversi ambiti di binding.</span><span class="sxs-lookup"><span data-stu-id="e6f00-151">There are a few reserved keywords to access various binding scopes.</span></span> 
 
 ```json
 {
-    "{<property>}": "Implicitly binds to `$data.<property>`",
+    "${<property>}": "Implicitly binds to `$data.<property>`",
     "$data": "The current data object",
     "$root": "The root data object. Useful when iterating to escape to parent object",
-    "$index": "The current index when iterating",
-    "$host": "Access properties of the host *(not working yet)*"
+    "$index": "The current index when iterating"
 }
 ```
 
-### <a name="assigning-a-data-context-to-elements"></a><span data-ttu-id="3ef83-140">Assegnazione di un contesto dati agli elementi</span><span class="sxs-lookup"><span data-stu-id="3ef83-140">Assigning a data context to elements</span></span>
+### <a name="assigning-a-data-context-to-elements"></a><span data-ttu-id="e6f00-152">Assegnazione di un contesto dati agli elementi</span><span class="sxs-lookup"><span data-stu-id="e6f00-152">Assigning a data context to elements</span></span>
 
-<span data-ttu-id="3ef83-141">Per assegnare un contesto dati a qualsiasi elemento, aggiungi all'elemento un attributo `$data`.</span><span class="sxs-lookup"><span data-stu-id="3ef83-141">To assign a "data context" to any element add a `$data` attribute to the element.</span></span>
+<span data-ttu-id="e6f00-153">Per assegnare un contesto dati a qualsiasi elemento, aggiungi all'elemento un attributo `$data`.</span><span class="sxs-lookup"><span data-stu-id="e6f00-153">To assign a "data context" to any element add a `$data` attribute to the element.</span></span>
 
 ```json
 {
     "type": "Container",
-    "$data": "{mySubObject}",
+    "$data": "${mySubObject}",
     "items": [
         {
             "type": "TextBlock",
-            "text": "This TextBlock is now scoped directly to 'mySubObject': {mySubObjectProperty}"
+            "text": "This TextBlock is now scoped directly to 'mySubObject': ${mySubObjectProperty}"
         },
         {
             "type": "TextBlock",
-            "text": "To break-out and access the root data, use: {$root}"
+            "text": "To break-out and access the root data, use: ${$root}"
         }
     ]
 }
 ```
 
-## <a name="repeating-items-in-an-array"></a><span data-ttu-id="3ef83-142">Ripetizione di elementi in una matrice</span><span class="sxs-lookup"><span data-stu-id="3ef83-142">Repeating items in an array</span></span>
+## <a name="repeating-items-in-an-array"></a><span data-ttu-id="e6f00-154">Ripetizione di elementi in una matrice</span><span class="sxs-lookup"><span data-stu-id="e6f00-154">Repeating items in an array</span></span>
 
-<span data-ttu-id="3ef83-143">Questa parte presenta numerosi aspetti da chiarire.</span><span class="sxs-lookup"><span data-stu-id="3ef83-143">This part is a bit of "dark magic".</span></span> <span data-ttu-id="3ef83-144">Ringraziamo in anticipo per il feedback che vorrete fornirci.</span><span class="sxs-lookup"><span data-stu-id="3ef83-144">Feedback welcome.</span></span>
+* <span data-ttu-id="e6f00-155">Se la proprietà `$data` di un elemento Adaptive Card è associata a una **matrice**, l'**elemento Adaptive Card verrà ripetuto per ciascun elemento della matrice**.</span><span class="sxs-lookup"><span data-stu-id="e6f00-155">If an Adaptive Card element's `$data` property is bound to an **array**, then the **element itself will be repeated for each item in the array.**</span></span> 
+* <span data-ttu-id="e6f00-156">Tutte le espressioni di binding (`${myProperty}`) usate nei valori delle proprietà saranno limitate all'ambito del **singolo elemento** all'interno della matrice.</span><span class="sxs-lookup"><span data-stu-id="e6f00-156">Any binding expressions (`${myProperty}`) used in property values will be scoped to the **individual item** within the array.</span></span>
+* <span data-ttu-id="e6f00-157">Se è stato eseguito il binding a una matrice di stringhe, usa `${$data}` per accedere al singolo elemento stringa,</span><span class="sxs-lookup"><span data-stu-id="e6f00-157">If binding to an array of strings, use `${$data}` to access the individual string element.</span></span> <span data-ttu-id="e6f00-158">ad esempio `"text": "${$data}"`</span><span class="sxs-lookup"><span data-stu-id="e6f00-158">E.g., `"text": "${$data}"`</span></span>
 
-* <span data-ttu-id="3ef83-145">Se la proprietà `$data` di un elemento Adaptive Card è associata a una **matrice**, l'**elemento Adaptive Card verrà ripetuto per ciascun elemento della matrice**.</span><span class="sxs-lookup"><span data-stu-id="3ef83-145">If an Adaptive Card element's `$data` property is bound to an **array**, then the **element itself will be repeated for each item in the array.**</span></span> 
-* <span data-ttu-id="3ef83-146">Tutte le espressioni di binding (`{myProperty}`) usate nei valori delle proprietà saranno limitate all'ambito del **singolo elemento** all'interno della matrice.</span><span class="sxs-lookup"><span data-stu-id="3ef83-146">Any binding expressions (`{myProperty}`) used in property values will be scoped to the **individual item** within the array.</span></span>
-* <span data-ttu-id="3ef83-147">Se è stato eseguito il binding a una matrice di stringhe, usa `{$data}` per accedere al singolo elemento stringa,</span><span class="sxs-lookup"><span data-stu-id="3ef83-147">If binding to an array of strings, use `{$data}` to access the individual string element.</span></span> <span data-ttu-id="3ef83-148">ad esempio `"text": "{$data}"`</span><span class="sxs-lookup"><span data-stu-id="3ef83-148">E.g., `"text": "{$data}"`</span></span>
-
-<span data-ttu-id="3ef83-149">Ad esempio, l'elemento `TextBlock` seguente sarà ripetuto tre volte poiché il relativo `$data` è una matrice.</span><span class="sxs-lookup"><span data-stu-id="3ef83-149">For example, the `TextBlock` below will be repeated 3 times since it's `$data` is an array.</span></span> <span data-ttu-id="3ef83-150">Si noti che la proprietà `text` è associata alla proprietà `name` di un singolo oggetto all'interno della matrice.</span><span class="sxs-lookup"><span data-stu-id="3ef83-150">Notice how the `text` property is bound to the `name` property of an individual object within the array.</span></span> 
+<span data-ttu-id="e6f00-159">Ad esempio, l'elemento `TextBlock` seguente sarà ripetuto tre volte poiché il relativo `$data` è una matrice.</span><span class="sxs-lookup"><span data-stu-id="e6f00-159">For example, the `TextBlock` below will be repeated 3 times since it's `$data` is an array.</span></span> <span data-ttu-id="e6f00-160">Si noti che la proprietà `text` è associata alla proprietà `name` di un singolo oggetto all'interno della matrice.</span><span class="sxs-lookup"><span data-stu-id="e6f00-160">Notice how the `text` property is bound to the `name` property of an individual object within the array.</span></span> 
 
 ```json
 {
@@ -204,13 +226,13 @@ var card = template.expand(dataContext);
                 { "name": "David" }, 
                 { "name": "Thomas" }
             ],
-            "text": "{name}"
+            "text": "${name}"
         }
     ]
 }
 ```
 
-<span data-ttu-id="3ef83-151">**Risultato:**</span><span class="sxs-lookup"><span data-stu-id="3ef83-151">**Resulting in:**</span></span>
+<span data-ttu-id="e6f00-161">**Risultato:**</span><span class="sxs-lookup"><span data-stu-id="e6f00-161">**Resulting in:**</span></span>
 
 ```json
 {
@@ -232,50 +254,36 @@ var card = template.expand(dataContext);
 }
 ```
 
-## <a name="functions"></a><span data-ttu-id="3ef83-152">Funzioni</span><span class="sxs-lookup"><span data-stu-id="3ef83-152">Functions</span></span>
+## <a name="built-in-functions"></a><span data-ttu-id="e6f00-162">Funzioni integrate</span><span class="sxs-lookup"><span data-stu-id="e6f00-162">Built-in functions</span></span>
 
-<span data-ttu-id="3ef83-153">Nessun linguaggio per la creazione di modelli è completo senza alcune funzioni helper.</span><span class="sxs-lookup"><span data-stu-id="3ef83-153">No templating language is complete without some helper functions.</span></span> <span data-ttu-id="3ef83-154">Forniremo un set di funzioni standard utili per ogni SDK.</span><span class="sxs-lookup"><span data-stu-id="3ef83-154">We will provide a standard set of functions that work on every SDK.</span></span> 
+<span data-ttu-id="e6f00-163">Nessun linguaggio per la creazione di modelli è completo senza una suite completa di funzioni helper.</span><span class="sxs-lookup"><span data-stu-id="e6f00-163">No templating language is complete without a rich suite of helper functions.</span></span> <span data-ttu-id="e6f00-164">La creazione di modelli di schede adattive si basa sul [linguaggio di espressioni adattive](https://aka.ms/adaptive-expressions), uno standard aperto per la dichiarazione di espressioni che possono essere valutate su molte piattaforme diverse.</span><span class="sxs-lookup"><span data-stu-id="e6f00-164">Adaptive Card Templating is built on top of the [Adaptive Expression Language](https://aka.ms/adaptive-expressions) (AEL), which is an open standard for declaring expressions that can be evaluated on many different platforms.</span></span> <span data-ttu-id="e6f00-165">Si tratta di un superset appropriato di "app per la logica", quindi puoi usare una sintassi simile a quella di Power Automate e così via.</span><span class="sxs-lookup"><span data-stu-id="e6f00-165">And it's a proper superset of "Logic Apps", so you can use similar syntax as Power Automate, etc.</span></span>
 
-<span data-ttu-id="3ef83-155">La sintassi non è stata ancora definita, pertanto ricontrolla a breve. Ecco uno schema preliminare delle funzioni pianificate:</span><span class="sxs-lookup"><span data-stu-id="3ef83-155">The syntax here is still up in the air so please check back soon, but here's a start of what we're planning:</span></span>
+<span data-ttu-id="e6f00-166">**Ecco un piccolo campionamento delle funzioni predefinite.**</span><span class="sxs-lookup"><span data-stu-id="e6f00-166">**This is just a small sampling of the built-in functions.**</span></span>
 
-### <a name="string-functions"></a><span data-ttu-id="3ef83-156">Funzioni stringa</span><span class="sxs-lookup"><span data-stu-id="3ef83-156">String functions</span></span>
+<span data-ttu-id="e6f00-167">Vedi l'elenco completo delle [funzioni predefinite del linguaggio delle espressioni adattive](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-concept-adaptive-expressions?view=azure-bot-service-4.0).</span><span class="sxs-lookup"><span data-stu-id="e6f00-167">Check out the full list of [Adaptive Expression Language Pre-built functions](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-concept-adaptive-expressions?view=azure-bot-service-4.0).</span></span>
 
-* <span data-ttu-id="3ef83-157">substr</span><span class="sxs-lookup"><span data-stu-id="3ef83-157">substr</span></span>
-* <span data-ttu-id="3ef83-158">indexOf *(non ancora funzionante)*</span><span class="sxs-lookup"><span data-stu-id="3ef83-158">indexOf *(not working yet)*</span></span>
-* <span data-ttu-id="3ef83-159">toUpper *(non ancora funzionante)*</span><span class="sxs-lookup"><span data-stu-id="3ef83-159">toUpper *(not working yet)*</span></span>
-* <span data-ttu-id="3ef83-160">toLower *(non ancora funzionante)*</span><span class="sxs-lookup"><span data-stu-id="3ef83-160">toLower *(not working yet)*</span></span>
+### <a name="conditional-evaluation"></a><span data-ttu-id="e6f00-168">Valutazione condizionale</span><span class="sxs-lookup"><span data-stu-id="e6f00-168">Conditional evaluation</span></span>
 
-### <a name="number-functions"></a><span data-ttu-id="3ef83-161">Funzioni numero</span><span class="sxs-lookup"><span data-stu-id="3ef83-161">Number functions</span></span>
+* <span data-ttu-id="e6f00-169">if(*expression*, *trueValue*, *falseValue*)</span><span class="sxs-lookup"><span data-stu-id="e6f00-169">if(*expression*, *trueValue*, *falseValue*)</span></span>
 
-* <span data-ttu-id="3ef83-162">Formattazione (valuta, decimale e così via) *(non ancora funzionante)*</span><span class="sxs-lookup"><span data-stu-id="3ef83-162">Formatting (currency, decimal, etc) *(not working yet)*</span></span>
-
-### <a name="date-functions"></a><span data-ttu-id="3ef83-163">Funzioni data</span><span class="sxs-lookup"><span data-stu-id="3ef83-163">Date functions</span></span>
-
-* <span data-ttu-id="3ef83-164">Analisi dei formati di stringa di data noti *(non ancora funzionante)*</span><span class="sxs-lookup"><span data-stu-id="3ef83-164">Parsing well-known date string formats *(not working yet)*</span></span>
-* <span data-ttu-id="3ef83-165">Formattazione delle rappresentazioni di data/ora note *(non ancora funzionante)*</span><span class="sxs-lookup"><span data-stu-id="3ef83-165">Formatting for well-known date/time representations *(not working yet)*</span></span>
-
-### <a name="conditional-functions"></a><span data-ttu-id="3ef83-166">Funzioni condizionali</span><span class="sxs-lookup"><span data-stu-id="3ef83-166">Conditional functions</span></span>
-
-* <span data-ttu-id="3ef83-167">if(*expression*, *trueValue*, *falseValue*)</span><span class="sxs-lookup"><span data-stu-id="3ef83-167">if(*expression*, *trueValue*, *falseValue*)</span></span>
-
-<span data-ttu-id="3ef83-168">**Esempio di `if`**</span><span class="sxs-lookup"><span data-stu-id="3ef83-168">**`if` example**</span></span>
+<span data-ttu-id="e6f00-170">**Esempio di `if`**</span><span class="sxs-lookup"><span data-stu-id="e6f00-170">**`if` example**</span></span>
 
 ```json
 {
     "type": "TextBlock",
-    "color": "{if(priceChange >= 0, 'good', 'attention')}"
+    "color": "${if(priceChange >= 0, 'good', 'attention')}"
 }
 ```
 
-### <a name="data-manipulation"></a><span data-ttu-id="3ef83-169">Manipolazione dei dati</span><span class="sxs-lookup"><span data-stu-id="3ef83-169">Data manipulation</span></span>
+### <a name="parsing-json"></a><span data-ttu-id="e6f00-171">Analisi del contenuto JSON</span><span class="sxs-lookup"><span data-stu-id="e6f00-171">Parsing JSON</span></span>
 
-* <span data-ttu-id="3ef83-170">JSON.parse: capacità di analizzare una stringa JSON</span><span class="sxs-lookup"><span data-stu-id="3ef83-170">JSON.parse - ability to parse a JSON string</span></span> 
+* <span data-ttu-id="e6f00-172">json(*jsonString*) - Analizza una stringa JSON</span><span class="sxs-lookup"><span data-stu-id="e6f00-172">json(*jsonString*) - Parse a JSON string</span></span>
 
-<span data-ttu-id="3ef83-171">**Esempio di `JSON.parse`**</span><span class="sxs-lookup"><span data-stu-id="3ef83-171">**`JSON.parse` example**</span></span>
+<span data-ttu-id="e6f00-173">**Esempio di `json`**</span><span class="sxs-lookup"><span data-stu-id="e6f00-173">**`json` example**</span></span>
 
-<span data-ttu-id="3ef83-172">Si tratta di una risposta DevOps di Azure in cui la proprietà `message` è una stringa serializzata in JSON.</span><span class="sxs-lookup"><span data-stu-id="3ef83-172">This is an Azure DevOps response where the `message` property is a JSON-serialized string.</span></span> <span data-ttu-id="3ef83-173">Per accedere ai valori all'interno della stringa, dobbiamo usare la funzione `JSON.parse` nel modello.</span><span class="sxs-lookup"><span data-stu-id="3ef83-173">In order to access values within the string, we need to use the `JSON.parse` function in our template.</span></span>
+<span data-ttu-id="e6f00-174">Si tratta di una risposta DevOps di Azure in cui la proprietà `message` è una stringa serializzata in JSON.</span><span class="sxs-lookup"><span data-stu-id="e6f00-174">This is an Azure DevOps response where the `message` property is a JSON-serialized string.</span></span> <span data-ttu-id="e6f00-175">Per accedere ai valori all'interno della stringa, dobbiamo usare la funzione `json` nel modello.</span><span class="sxs-lookup"><span data-stu-id="e6f00-175">In order to access values within the string, we need to use the `json` function in our template.</span></span>
 
-<span data-ttu-id="3ef83-174">**Dati**</span><span class="sxs-lookup"><span data-stu-id="3ef83-174">**Data**</span></span> 
+<span data-ttu-id="e6f00-176">**Dati**</span><span class="sxs-lookup"><span data-stu-id="e6f00-176">**Data**</span></span> 
 
 ```json
 {
@@ -288,16 +296,16 @@ var card = template.expand(dataContext);
 }
 ```
 
-<span data-ttu-id="3ef83-175">**Utilizzo**</span><span class="sxs-lookup"><span data-stu-id="3ef83-175">**Usage**</span></span>
+<span data-ttu-id="e6f00-177">**Utilizzo**</span><span class="sxs-lookup"><span data-stu-id="e6f00-177">**Usage**</span></span>
 
 ```json
 {
     "type": "TextBlock",
-    "text": "{JSON.parse(message).releaseName}"
+    "text": "${json(message).releaseName}"
 }
 ```
 
-<span data-ttu-id="3ef83-176">**Risultato**</span><span class="sxs-lookup"><span data-stu-id="3ef83-176">**Resulting In**</span></span>
+<span data-ttu-id="e6f00-178">**Risultato**</span><span class="sxs-lookup"><span data-stu-id="e6f00-178">**Resulting In**</span></span>
 
 ```json
 {
@@ -306,13 +314,13 @@ var card = template.expand(dataContext);
 }
 ```
 
-### <a name="custom-functions"></a><span data-ttu-id="3ef83-177">Funzioni personalizzate</span><span class="sxs-lookup"><span data-stu-id="3ef83-177">Custom functions</span></span>
+### <a name="custom-functions"></a><span data-ttu-id="e6f00-179">Funzioni personalizzate</span><span class="sxs-lookup"><span data-stu-id="e6f00-179">Custom functions</span></span>
 
-<span data-ttu-id="3ef83-178">Vogliamo assicurarci che gli host possano aggiungere funzioni personalizzate e dobbiamo quindi prevedere un supporto efficace per il fallback nel caso in cui una funzione non sia supportata.</span><span class="sxs-lookup"><span data-stu-id="3ef83-178">We want to make sure Hosts can add custom functions, which means we need robust support for fallback support if a function isn't supported.</span></span> <span data-ttu-id="3ef83-179">Questo aspetto è ancora in fase di valutazione.</span><span class="sxs-lookup"><span data-stu-id="3ef83-179">We are still evaluating this.</span></span>
+<span data-ttu-id="e6f00-180">Le funzioni personalizzate sono supportate tramite le API negli [SDK per la creazione di modelli](sdk.md).</span><span class="sxs-lookup"><span data-stu-id="e6f00-180">Custom functions are supported via APIs in the [Templating SDKs](sdk.md).</span></span> 
 
-## <a name="conditional-layout"></a><span data-ttu-id="3ef83-180">Layout condizionale</span><span class="sxs-lookup"><span data-stu-id="3ef83-180">Conditional layout</span></span>
+## <a name="conditional-layout-with-when"></a><span data-ttu-id="e6f00-181">Layout condizionale con `$when`</span><span class="sxs-lookup"><span data-stu-id="e6f00-181">Conditional layout with `$when`</span></span>
 
-<span data-ttu-id="3ef83-181">Per eliminare un intero elemento nel caso in cui venga soddisfatta una condizione, usa la proprietà `$when`.</span><span class="sxs-lookup"><span data-stu-id="3ef83-181">To drop an entire element if a condition is met, use the `$when` property.</span></span> <span data-ttu-id="3ef83-182">Se il valore di `$when` risulta essere `false`, l'elemento non verrà visualizzato per l'utente.</span><span class="sxs-lookup"><span data-stu-id="3ef83-182">If `$when` evaluates to `false` the element will not appear to the user.</span></span>
+<span data-ttu-id="e6f00-182">Per eliminare un intero elemento nel caso in cui venga soddisfatta una condizione, usa la proprietà `$when`.</span><span class="sxs-lookup"><span data-stu-id="e6f00-182">To drop an entire element if a condition is met, use the `$when` property.</span></span> <span data-ttu-id="e6f00-183">Se il valore di `$when` risulta essere `false`, l'elemento non verrà visualizzato per l'utente.</span><span class="sxs-lookup"><span data-stu-id="e6f00-183">If `$when` evaluates to `false` the element will not appear to the user.</span></span>
 
 ```json
 {
@@ -323,13 +331,13 @@ var card = template.expand(dataContext);
     "body": [
         {
             "type": "TextBlock",
-            "$when": "{price > 30}",
+            "$when": "${price > 30}",
             "text": "This thing is pricy!",
             "color": "attention",
         },
          {
             "type": "TextBlock",
-            "$when": "{price <= 30}",
+            "$when": "${price <= 30}",
             "text": "Dang, this thing is cheap!",
             "color": "good"
         }
@@ -337,11 +345,10 @@ var card = template.expand(dataContext);
 }
 ```
 
-### <a name="composing-templates"></a><span data-ttu-id="3ef83-183">Composizione di modelli</span><span class="sxs-lookup"><span data-stu-id="3ef83-183">Composing templates</span></span>
+### <a name="composing-templates"></a><span data-ttu-id="e6f00-184">Composizione di modelli</span><span class="sxs-lookup"><span data-stu-id="e6f00-184">Composing templates</span></span>
 
-<span data-ttu-id="3ef83-184">Attualmente non è disponibile alcun supporto per la composizione di parti del modello.</span><span class="sxs-lookup"><span data-stu-id="3ef83-184">Currently there is no support for composing template "parts" together.</span></span> <span data-ttu-id="3ef83-185">Tuttavia, stiamo esplorando varie opzioni e ci auguriamo di condividere presto altre informazioni.</span><span class="sxs-lookup"><span data-stu-id="3ef83-185">But we are exploring options and hope to share more soon.</span></span> <span data-ttu-id="3ef83-186">Si accetta qualsiasi suggerimento.</span><span class="sxs-lookup"><span data-stu-id="3ef83-186">Any thoughts here welcome!</span></span>
+<span data-ttu-id="e6f00-185">Attualmente non è disponibile alcun supporto per la composizione di parti del modello.</span><span class="sxs-lookup"><span data-stu-id="e6f00-185">Currently there is no support for composing template "parts" together.</span></span> <span data-ttu-id="e6f00-186">Tuttavia, stiamo esplorando varie opzioni e ci auguriamo di condividere presto altre informazioni.</span><span class="sxs-lookup"><span data-stu-id="e6f00-186">But we are exploring options and hope to share more soon.</span></span> <span data-ttu-id="e6f00-187">Si accetta qualsiasi suggerimento.</span><span class="sxs-lookup"><span data-stu-id="e6f00-187">Any thoughts here welcome!</span></span>
 
+## <a name="examples"></a><span data-ttu-id="e6f00-188">Esempi</span><span class="sxs-lookup"><span data-stu-id="e6f00-188">Examples</span></span>
 
-## <a name="examples"></a><span data-ttu-id="3ef83-187">Esempi</span><span class="sxs-lookup"><span data-stu-id="3ef83-187">Examples</span></span>
-
-<span data-ttu-id="3ef83-188">Accedi alla [pagina degli esempi](https://adaptivecards.io/samples) aggiornati per esplorare tutti i tipi di nuove schede basate su modelli.</span><span class="sxs-lookup"><span data-stu-id="3ef83-188">Browse the updated [Samples page](https://adaptivecards.io/samples) to explore all sorts of new templated cards.</span></span>
+<span data-ttu-id="e6f00-189">Accedi alla [pagina degli esempi](https://adaptivecards.io/samples) aggiornati per esplorare tutti i tipi di nuove schede basate su modelli.</span><span class="sxs-lookup"><span data-stu-id="e6f00-189">Browse the updated [Samples page](https://adaptivecards.io/samples) to explore all sorts of new templated cards.</span></span>
