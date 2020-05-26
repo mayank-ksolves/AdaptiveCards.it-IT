@@ -2,14 +2,14 @@
 title: SDK di creazione di modelli
 author: matthidinger
 ms.author: mahiding
-ms.date: 08/01/2019
+ms.date: 05/15/2020
 ms.topic: article
-ms.openlocfilehash: 3a9bfcd1bf8f87959a747997e04f5c5ad2a79980
-ms.sourcegitcommit: e6418d692296e06be7412c95c689843f9db5240d
+ms.openlocfilehash: dc20c22995bb0a259bc801a6ffcd674967bbe78f
+ms.sourcegitcommit: c921a7bb15a95c0ceb803ad375501ee3b8bef028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "72163617"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83631354"
 ---
 # <a name="adaptive-card-templating-sdks"></a>SDK per la creazione di modelli di schede adattive
 
@@ -19,15 +19,24 @@ Gli SDK per la creazione di modelli di schede adattive consentono di popolare co
 
 > [!IMPORTANT] 
 > 
-> Queste funzionalità sono disponibili **in anteprima e sono soggette a modifiche**. Il tuo feedback non solo è apprezzato, ma è anche fondamentale per aiutarci a offrire le funzionalità di cui **tu** hai bisogno.
-> 
-> Durante l'anteprima iniziale è disponibile solo JavaScript SDK, ma a breve dovrebbe arrivare anche .NET SKD.
+> **Modifiche importanti** apportate alla **versione finale candidata di maggio 2020**
+>
+> Abbiamo lavorato intensamente per il rilascio della creazione di modelli e abbiamo finalmente raggiunto l'obiettivo. Abbiamo dovuto apportare alcune piccole modifiche importanti, man mano che ci avvicinavamo alla data del rilascio.
+
+## <a name="breaking-changes-as-of-may-2020"></a>Modifiche importanti della versione di maggio 2020
+
+1. La sintassi di binding è cambiata da `{...}` a `${...}`. 
+    * Ad esempio, `"text": "Hello {name}"` diventa `"text": "Hello ${name}"`
+2. L'API JavaScript non contiene più un oggetto `EvaluationContext`. Passa semplicemente i dati alla funzione `expand`. Per informazioni dettagliate, vedi la [pagina dell'SDK](sdk.md).
+3. L'API .NET è stata riprogettata in modo da corrispondere più strettamente all'API JavaScript. Per informazioni dettagliate, leggi di seguito.
 
 ## <a name="javascript"></a>JavaScript
 
 La libreria [adaptivecards-templating](https://www.npmjs.com/package/adaptivecards-templating) è disponibile in npm e tramite CDN. Per la documentazione completa, vedi il collegamento al pacchetto.
 
 ### <a name="npm"></a>npm
+
+[![Installazione di NPM](https://img.shields.io/npm/v/adaptivecards-templating.svg)](https://www.npmjs.com/package/adaptivecards-templating)
 
 ```console
 npm install adaptivecards-templating
@@ -38,6 +47,7 @@ npm install adaptivecards-templating
 ```html
 <script src="https://unpkg.com/adaptivecards-templating/dist/adaptivecards-templating.min.js"></script>
 ``` 
+
 
 ### <a name="usage"></a>Utilizzo
 
@@ -56,7 +66,7 @@ var templatePayload = {
     "body": [
         {
             "type": "TextBlock",
-            "text": "Hello {name}!"
+            "text": "Hello ${name}!"
         }
     ]
 };
@@ -64,60 +74,127 @@ var templatePayload = {
 // Create a Template instamce from the template payload
 var template = new ACData.Template(templatePayload);
  
-// Create a data binding context, and set its $root property to the
-// data object to bind the template to
-var context = new ACData.EvaluationContext();
-context.$root = {
-    "name": "Mickey Mouse"
-};
+// Expand the template with your `$root` data object.
+// This binds it to the data and produces the final Adaptive Card payload
+var cardPayload = template.expand({
+   $root: {
+      name: "Matt Hidinger"
+   }
+});
  
-// "Expand" the template - this generates the final Adaptive Card,
-// ready to render
-var card = template.expand(context);
- 
-// Render the card
+// OPTIONAL: Render the card (required the adaptivecards library loaded)
 var adaptiveCard = new AdaptiveCards.AdaptiveCard();
-adaptiveCard.parse(card);
+adaptiveCard.parse(cardPayload);
  
 var htmlElement = adaptiveCard.render();
 ```
 
 ## <a name="net"></a>.NET 
 
+> [!IMPORTANT] 
+> 
+> La versione finale candidata di .NET sarà disponibile intorno al 23 maggio. Cerca la versione `1.0.0-RC1`.
+>
+
+[![Installazione di Nuget](https://img.shields.io/nuget/vpre/AdaptiveCards.Templating.svg)](https://www.nuget.org/packages/AdaptiveCards.Templating)
+
 ```console
-dotnet add package AdaptiveCards.Templating --version 0.1.0-alpha1
+dotnet add package AdaptiveCards.Templating
 ```
 
-> [!NOTE]
->
-> Prova a sostituire la versione indicata in precedenza con l'ultima versione pubblicata.
-
-Importa la libreria. 
+### <a name="usage"></a>Utilizzo
 
 ```cs
-using AdaptiveCards.Templating
+// Import the library 
+using AdaptiveCards.Templating;
 ```
-
-Usa il motore per la creazione di modelli passando il codice JSON del modello e dei dati.
 
 ```cs
 var templateJson = @"
 {
     ""type"": ""AdaptiveCard"",
-    ""version"": ""1.0"",
+    ""version"": ""1.2"",
     ""body"": [
         {
             ""type"": ""TextBlock"",
-            ""text"": ""Hello {name}""
+            ""text"": ""Hello ${name}!""
         }
     ]
 }";
 
-var dataJson = @"
+// Create a Template instance from the template payload
+AdaptiveCardTemplate template = new AdaptiveCardTemplate(templateJson);
+
+// You can use any serializable object as your data
+var myData = new
 {
-    ""name"": ""Mickey Mouse""
+    Name = "Matt Hidinger"
+};
+
+// "Expand" the template - this generates the final Adaptive Card payload
+string cardJson = template.Expand(myData);
+```
+
+### <a name="custom-functions"></a>Funzioni personalizzate
+
+Le funzioni personalizzate possono essere aggiunte alla libreria di espressioni adattive, oltre alle funzioni predefinite.
+
+Nell'esempio seguente viene aggiunta la funzione personalizzata stringFormat, usata per formattare una stringa.
+```cs
+string jsonTemplate = @"{
+    ""type"": ""AdaptiveCard"",
+    ""version"": ""1.0"",
+    ""body"": [{
+        ""type"": ""TextBlock"",
+        ""text"": ""${stringFormat(strings.myName, person.firstName, person.lastName)}""
+    }]
 }";
 
-var transformer = new AdaptiveTransformer();
-var cardJson = transformer.Transform(templateJson, dataJson);
+string jsonData = @"{
+    ""strings"": {
+        ""myName"": ""My name is {0} {1}""
+    },
+    ""person"": {
+        ""firstName"": ""Andrew"",
+        ""lastName"": ""Leader""
+    }
+}";
+
+AdaptiveCardTemplate template = new AdaptiveCardTemplate(jsonTemplate);
+
+var context = new EvaluationContext
+{
+    Root = jsonData
+};
+
+// a custom function is added
+AdaptiveExpressions.Expression.Functions.Add("stringFormat", (args) =>
+{
+    string formattedString = "";
+
+    // argument is packed in sequential order as defined in the template
+    // For example, suppose we have "${stringFormat(strings.myName, person.firstName, person.lastName)}"
+    // args will have following entries
+    // args[0]: strings.myName
+    // args[1]: person.firstName
+    // args[2]: strings.lastName
+    if (args[0] != null && args[1] != null && args[2] != null) 
+    {
+        string formatString = args[0];
+        string[] stringArguments = {args[1], args[2] };
+        formattedString = string.Format(formatString, stringArguments);
+    }
+    return formattedString;
+});
+
+string cardJson = template.Expand(context);
 ```
+
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+D: Perché mi sono imbattuto in un'eccezione di tipo AdaptiveTemplateException con chiamata a ```expand()```?   
+A. Se il messaggio di errore è simile a "\<elemento offensivo> alla riga \<numero di riga> ha un **formato non valido per la coppia '$data : '** ".   
+Verifica che per "$data" sia stato specificato un valore JSON valido, ad esempio numero, valore booleano, oggetto e matrice, oppure che segua la sintassi corretta per il linguaggio del modello adattivo e che la voce esista nel contesto dati al numero di riga. Tieni presente che ${LineItem} e '8' possono cambiare.
+
+D: Perché mi sono imbattuto in un'eccezione di tipo ArgumentNullException con chiamata a ```expand()```?   
+A. Se il messaggio di errore è simile a "**Controlla se il contesto dati padre è impostato oppure immetti un valore diverso da null per** \<elemento offensivo> alla riga \<numero di riga>".   
+Indica che non esiste alcun contesto dati per il data binding richiesto. Verifica che il contesto dati radice sia impostato, se esistente, e che qualsiasi contesto dati sia disponibile per il binding corrente come indicato dal numero di riga.

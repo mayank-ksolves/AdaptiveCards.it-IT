@@ -2,14 +2,14 @@
 title: Linguaggio del modello di Schede adattive
 author: matthidinger
 ms.author: mahiding
-ms.date: 08/01/2019
+ms.date: 05/18/2020
 ms.topic: article
-ms.openlocfilehash: ffd2ec065550f483bf602483eebf622565f7f47a
-ms.sourcegitcommit: e6418d692296e06be7412c95c689843f9db5240d
+ms.openlocfilehash: 1b5a7df25eedb96ec6edfe02912d328ab59d2801
+ms.sourcegitcommit: c921a7bb15a95c0ceb803ad375501ee3b8bef028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82136177"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83631342"
 ---
 # <a name="adaptive-cards-template-language"></a>Linguaggio del modello di Schede adattive
 
@@ -19,23 +19,51 @@ La creazione di modelli consente di separare i **dati** dal **layout** nella sch
 
 > [!IMPORTANT] 
 > 
-> Queste funzionalità sono disponibili **in anteprima e sono soggette a modifiche**. Il tuo feedback non solo è apprezzato, ma è anche fondamentale per aiutarci a offrire le funzionalità di cui **tu** hai bisogno.
+> **Modifiche importanti** apportate alla **versione finale candidata di maggio 2020**
+>
+> Abbiamo lavorato intensamente per il rilascio della creazione di modelli e abbiamo finalmente raggiunto l'obiettivo. Abbiamo dovuto apportare alcune piccole modifiche importanti, man mano che ci avvicinavamo alla data del rilascio.
 
-Quando crei un modello, puoi specificare i dati inline con il payload di `AdaptiveCard` oppure in fase di esecuzione usando gli [SDK per la creazione di modelli](sdk.md).
+## <a name="breaking-changes-as-of-may-2020"></a>Modifiche importanti della versione di maggio 2020
 
-## <a name="specify-data-within-the-card"></a>Specificare dati all'interno della scheda
+1. La sintassi di binding è cambiata da `{...}` a `${...}`.
+    * Ad esempio, `"text": "Hello {name}"` diventa `"text": "Hello ${name}"`
+    
+## <a name="binding-to-data"></a>Binding ai dati
 
-Per fornire i dati direttamente all'interno del payload della scheda, aggiungi semplicemente un attributo `$data` ad `AdaptiveCard` (vedi più avanti).
+La scrittura di un modello è semplice quanto la sostituzione del contenuto "non statico" della scheda con "espressioni di binding".
 
-## <a name="binding-to-the-data"></a>Binding ai dati
+### <a name="static-card-payload"></a>Payload scheda statica
 
-Puoi eseguire il binding ai dati all'interno di `body` o `actions` della scheda.
+```json
+{
+   "type": "TextBlock",
+   "text": "Matt"
+}
+```
 
-* La sintassi di binding inizia con `{` e termina con `}`, ad esempio `{myProperty}`
-* Notazione Dot per accedere ai sotto-oggetti
-* Sintassi dell'indicizzatore per recuperare le proprietà in base alla chiave o agli elementi di una matrice
-* Gestione automatica dei valori null per le gerarchie profonde
-* *Documentazione relativa alla sintassi di escape presto disponibile*
+### <a name="template-payload"></a>Payload modello
+
+```json
+{
+   "type": "TextBlock",
+   "text": "${firstName}"
+}
+```
+
+* Le espressioni di binding possono essere posizionate in qualsiasi punto in cui è presente contenuto statico
+* La sintassi di binding inizia con `${` e termina con `}`, ad esempio `${myProperty}`
+* Usa *Notazione Dot* per accedere agli oggetti secondari di una gerarchia di oggetti, ad esempio `${myParent.myChild}`
+* Una gestione regolare dei valori null garantisce che non vengano generate eccezioni se accedi a una proprietà null in un oggetto grafico
+* Usa la *sintassi dell'indicizzatore* per recuperare le proprietà in base alla chiave o agli elementi di una matrice, ad esempio `${myArray[0]}`
+
+## <a name="providing-the-data"></a>Specificare i dati
+
+Ora che disponi di un modello, devi specificare i dati che lo rendono completo. A questo scopo, sono disponibili due opzioni:
+
+1. **Opzione A: inline all'interno del payload del modello**. Puoi specificare i dati inline all'interno del payload del modello `AdaptiveCard`. Per eseguire questa operazione, aggiungi semplicemente un attributo `$data` all'oggetto radice `AdaptiveCard`.
+2. **Opzione B: come oggetto dati separato**. Con questa opzione, puoi specificare due oggetti separati nell'[SDK per la creazione di modelli](sdk.md) in fase di esecuzione: `template` e `data`. Si tratta dell'approccio più comune, dal momento che, in genere, si crea innanzitutto un modello e i dati dinamici vengono specificati in un secondo momento.
+
+### <a name="option-a-inline-data"></a>Opzione A: Dati inline
 
 ```json
 {
@@ -58,21 +86,21 @@ Puoi eseguire il binding ai dati all'interno di `body` o `actions` della scheda.
     "body": [
         {
             "type": "TextBlock",
-            "text": "Hi {employee.name}! Here's a bit about your org..."
+            "text": "Hi ${employee.name}! Here's a bit about your org..."
         },
         {
             "type": "TextBlock",
-            "text": "Your manager is: {employee.manager.name}"
+            "text": "Your manager is: ${employee.manager.name}"
         },
         {
             "type": "TextBlock",
-            "text": "3 of your peers are: {employee.peers[0].name}, {employee.peers[1].name}, {employee.peers[2].name}"
+            "text": "3 of your peers are: ${employee.peers[0].name}, ${employee.peers[1].name}, ${employee.peers[2].name}"
         }
     ]
 }
 ```
 
-## <a name="separating-the-template-from-the-data"></a>Separazione del modello dai dati
+### <a name="option-b-separating-the-template-from-the-data"></a>Opzione B: Separazione del modello dai dati
 
 In alternativa (e con maggiore probabilità), creerai un modello di scheda riutilizzabile senza includere i dati. Questo modello può essere archiviato come file e aggiunto al controllo del codice sorgente.
 
@@ -84,15 +112,15 @@ In alternativa (e con maggiore probabilità), creerai un modello di scheda riuti
     "body": [
         {
             "type": "TextBlock",
-            "text": "Hi {employee.name}! Here's a bit about your org..."
+            "text": "Hi ${employee.name}! Here's a bit about your org..."
         },
         {
             "type": "TextBlock",
-            "text": "Your manager is: {employee.manager.name}"
+            "text": "Your manager is: ${employee.manager.name}"
         },
         {
             "type": "TextBlock",
-            "text": "3 of your peers are: {employee.peers[0].name}, {employee.peers[1].name}, {employee.peers[2].name}"
+            "text": "3 of your peers are: ${employee.peers[0].name}, ${employee.peers[1].name}, ${employee.peers[2].name}"
         }
     ]
 }
@@ -110,24 +138,24 @@ var template = new ACData.Template({
 });
 
 // Specify data at runtime
-var dataContext = new ACData.EvaluationContext();
-dataContext.$root = {
-    "employee": {
-        "name": "Matt",
-        "manager": { "name": "Thomas" },
-        "peers": [{
-            "name": "Andrew" 
-        }, { 
-            "name": "Lei"
-        }, { 
-            "name": "Mary Anne"
-        }, { 
-            "name": "Adam"
-        }]
+var card = template.expand({
+    $root: {
+        "employee": {
+            "name": "Matt",
+            "manager": { "name": "Thomas" },
+            "peers": [{
+                "name": "Andrew" 
+            }, { 
+                "name": "Lei"
+            }, { 
+                "name": "Mary Anne"
+            }, { 
+                "name": "Adam"
+            }]
+        }
     }
-};
+});
 
-var card = template.expand(dataContext);
 // Now you have an AdaptiveCard ready to render!
 ```
 
@@ -140,7 +168,6 @@ Adaptive Cards Designer è stato aggiornato per supportare la creazione di model
 [![Immagine](https://user-images.githubusercontent.com/1432195/53214462-88d46980-3601-11e9-908d-253a1bb940a8.png)](https://adaptivecards.io/designer)
 
 * **Sample Data Editor**: specifica qui i dati di esempio per visualizzare la scheda associata ai dati quando si trova in modalità di anteprima. Il piccolo pulsante presente in questo riquadro consente di popolare la struttura dati dai dati di esempio esistenti.
-* **Data Structure**: è la struttura dei dati di esempio. I campi possono essere trascinati nell'area di progettazione per creare un binding. 
 * **Preview Mode**: premi il pulsante della barra degli strumenti per passare dall'esperienza di modifica a quella di anteprima dei dati di esempio e viceversa.
 * **Open Sample**: fai clic su questo pulsante per aprire vari payload di esempio.
 
@@ -150,15 +177,12 @@ Adaptive Cards Designer è stato aggiornato per supportare la creazione di model
 
 Esistono alcune parole chiave riservate per accedere a diversi ambiti di binding. 
 
-*Nota:* non tutti sono implementati nella versione di anteprima.
-
 ```json
 {
-    "{<property>}": "Implicitly binds to `$data.<property>`",
+    "${<property>}": "Implicitly binds to `$data.<property>`",
     "$data": "The current data object",
     "$root": "The root data object. Useful when iterating to escape to parent object",
-    "$index": "The current index when iterating",
-    "$host": "Access properties of the host *(not working yet)*"
+    "$index": "The current index when iterating"
 }
 ```
 
@@ -169,15 +193,15 @@ Per assegnare un contesto dati a qualsiasi elemento, aggiungi all'elemento un at
 ```json
 {
     "type": "Container",
-    "$data": "{mySubObject}",
+    "$data": "${mySubObject}",
     "items": [
         {
             "type": "TextBlock",
-            "text": "This TextBlock is now scoped directly to 'mySubObject': {mySubObjectProperty}"
+            "text": "This TextBlock is now scoped directly to 'mySubObject': ${mySubObjectProperty}"
         },
         {
             "type": "TextBlock",
-            "text": "To break-out and access the root data, use: {$root}"
+            "text": "To break-out and access the root data, use: ${$root}"
         }
     ]
 }
@@ -185,11 +209,9 @@ Per assegnare un contesto dati a qualsiasi elemento, aggiungi all'elemento un at
 
 ## <a name="repeating-items-in-an-array"></a>Ripetizione di elementi in una matrice
 
-Questa parte presenta numerosi aspetti da chiarire. Ringraziamo in anticipo per il feedback che vorrete fornirci.
-
 * Se la proprietà `$data` di un elemento Adaptive Card è associata a una **matrice**, l'**elemento Adaptive Card verrà ripetuto per ciascun elemento della matrice**. 
-* Tutte le espressioni di binding (`{myProperty}`) usate nei valori delle proprietà saranno limitate all'ambito del **singolo elemento** all'interno della matrice.
-* Se è stato eseguito il binding a una matrice di stringhe, usa `{$data}` per accedere al singolo elemento stringa, ad esempio `"text": "{$data}"`
+* Tutte le espressioni di binding (`${myProperty}`) usate nei valori delle proprietà saranno limitate all'ambito del **singolo elemento** all'interno della matrice.
+* Se è stato eseguito il binding a una matrice di stringhe, usa `${$data}` per accedere al singolo elemento stringa, ad esempio `"text": "${$data}"`
 
 Ad esempio, l'elemento `TextBlock` seguente sarà ripetuto tre volte poiché il relativo `$data` è una matrice. Si noti che la proprietà `text` è associata alla proprietà `name` di un singolo oggetto all'interno della matrice. 
 
@@ -204,7 +226,7 @@ Ad esempio, l'elemento `TextBlock` seguente sarà ripetuto tre volte poiché il 
                 { "name": "David" }, 
                 { "name": "Thomas" }
             ],
-            "text": "{name}"
+            "text": "${name}"
         }
     ]
 }
@@ -232,29 +254,15 @@ Ad esempio, l'elemento `TextBlock` seguente sarà ripetuto tre volte poiché il 
 }
 ```
 
-## <a name="functions"></a>Funzioni
+## <a name="built-in-functions"></a>Funzioni integrate
 
-Nessun linguaggio per la creazione di modelli è completo senza alcune funzioni helper. Forniremo un set di funzioni standard utili per ogni SDK. 
+Nessun linguaggio per la creazione di modelli è completo senza una suite completa di funzioni helper. La creazione di modelli di schede adattive si basa sul [linguaggio di espressioni adattive](https://aka.ms/adaptive-expressions), uno standard aperto per la dichiarazione di espressioni che possono essere valutate su molte piattaforme diverse. Si tratta di un superset appropriato di "app per la logica", quindi puoi usare una sintassi simile a quella di Power Automate e così via.
 
-La sintassi non è stata ancora definita, pertanto ricontrolla a breve. Ecco uno schema preliminare delle funzioni pianificate:
+**Ecco un piccolo campionamento delle funzioni predefinite.**
 
-### <a name="string-functions"></a>Funzioni stringa
+Vedi l'elenco completo delle [funzioni predefinite del linguaggio delle espressioni adattive](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-concept-adaptive-expressions?view=azure-bot-service-4.0).
 
-* substr
-* indexOf *(non ancora funzionante)*
-* toUpper *(non ancora funzionante)*
-* toLower *(non ancora funzionante)*
-
-### <a name="number-functions"></a>Funzioni numero
-
-* Formattazione (valuta, decimale e così via) *(non ancora funzionante)*
-
-### <a name="date-functions"></a>Funzioni data
-
-* Analisi dei formati di stringa di data noti *(non ancora funzionante)*
-* Formattazione delle rappresentazioni di data/ora note *(non ancora funzionante)*
-
-### <a name="conditional-functions"></a>Funzioni condizionali
+### <a name="conditional-evaluation"></a>Valutazione condizionale
 
 * if(*expression*, *trueValue*, *falseValue*)
 
@@ -263,17 +271,17 @@ La sintassi non è stata ancora definita, pertanto ricontrolla a breve. Ecco uno
 ```json
 {
     "type": "TextBlock",
-    "color": "{if(priceChange >= 0, 'good', 'attention')}"
+    "color": "${if(priceChange >= 0, 'good', 'attention')}"
 }
 ```
 
-### <a name="data-manipulation"></a>Manipolazione dei dati
+### <a name="parsing-json"></a>Analisi del contenuto JSON
 
-* JSON.parse: capacità di analizzare una stringa JSON 
+* json(*jsonString*) - Analizza una stringa JSON
 
-**Esempio di `JSON.parse`**
+**Esempio di `json`**
 
-Si tratta di una risposta DevOps di Azure in cui la proprietà `message` è una stringa serializzata in JSON. Per accedere ai valori all'interno della stringa, dobbiamo usare la funzione `JSON.parse` nel modello.
+Si tratta di una risposta DevOps di Azure in cui la proprietà `message` è una stringa serializzata in JSON. Per accedere ai valori all'interno della stringa, dobbiamo usare la funzione `json` nel modello.
 
 **Dati** 
 
@@ -293,7 +301,7 @@ Si tratta di una risposta DevOps di Azure in cui la proprietà `message` è una 
 ```json
 {
     "type": "TextBlock",
-    "text": "{JSON.parse(message).releaseName}"
+    "text": "${json(message).releaseName}"
 }
 ```
 
@@ -308,9 +316,9 @@ Si tratta di una risposta DevOps di Azure in cui la proprietà `message` è una 
 
 ### <a name="custom-functions"></a>Funzioni personalizzate
 
-Vogliamo assicurarci che gli host possano aggiungere funzioni personalizzate e dobbiamo quindi prevedere un supporto efficace per il fallback nel caso in cui una funzione non sia supportata. Questo aspetto è ancora in fase di valutazione.
+Le funzioni personalizzate sono supportate tramite le API negli [SDK per la creazione di modelli](sdk.md). 
 
-## <a name="conditional-layout"></a>Layout condizionale
+## <a name="conditional-layout-with-when"></a>Layout condizionale con `$when`
 
 Per eliminare un intero elemento nel caso in cui venga soddisfatta una condizione, usa la proprietà `$when`. Se il valore di `$when` risulta essere `false`, l'elemento non verrà visualizzato per l'utente.
 
@@ -323,13 +331,13 @@ Per eliminare un intero elemento nel caso in cui venga soddisfatta una condizion
     "body": [
         {
             "type": "TextBlock",
-            "$when": "{price > 30}",
+            "$when": "${price > 30}",
             "text": "This thing is pricy!",
             "color": "attention",
         },
          {
             "type": "TextBlock",
-            "$when": "{price <= 30}",
+            "$when": "${price <= 30}",
             "text": "Dang, this thing is cheap!",
             "color": "good"
         }
@@ -340,7 +348,6 @@ Per eliminare un intero elemento nel caso in cui venga soddisfatta una condizion
 ### <a name="composing-templates"></a>Composizione di modelli
 
 Attualmente non è disponibile alcun supporto per la composizione di parti del modello. Tuttavia, stiamo esplorando varie opzioni e ci auguriamo di condividere presto altre informazioni. Si accetta qualsiasi suggerimento.
-
 
 ## <a name="examples"></a>Esempi
 

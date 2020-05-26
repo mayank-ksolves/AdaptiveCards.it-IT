@@ -4,12 +4,12 @@ author: matthidinger
 ms.author: mahiding
 ms.date: 9/24/2018
 ms.topic: article
-ms.openlocfilehash: f214e15396200438d8dd2c173a004a728d3ff3a4
-ms.sourcegitcommit: e6418d692296e06be7412c95c689843f9db5240d
+ms.openlocfilehash: 53c9446b67db354dd3246534fe97d6a810fc61c8
+ms.sourcegitcommit: c921a7bb15a95c0ceb803ad375501ee3b8bef028
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82136157"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83631386"
 ---
 # <a name="partners"></a>Partner 
 
@@ -21,7 +21,7 @@ Se sei interessato a partecipare all'ecosistema di schede adattive, [accedi dire
 
 Piattaforma | Description | Documentazione | Version
 ---------|-------------|---------------|---------
-[Bot Framework Web Chat](https://github.com/Microsoft/BotFramework-WebChat)  | Controllo chat incorporato per Microsoft Bot Framework | [Operazioni preliminari](https://docs.microsoft.com/adaptive-cards/get-started/bots) | 1.2.3 (Web Chat 4.7.1)
+[Bot Framework Web Chat](https://github.com/Microsoft/BotFramework-WebChat)  | Controllo chat incorporato per Microsoft Bot Framework | [Operazioni preliminari](https://docs.microsoft.com/adaptive-cards/get-started/bots) | 1.2.5 (Web Chat 4.9.0)
 [Messaggi interattivi di Outlook](https://docs.microsoft.com/outlook/actionable-messages/)  | Possibilità di allegare un messaggio interattivo alla posta elettronica | [Operazioni preliminari](https://docs.microsoft.com/outlook/actionable-messages/) | 1.0
 [Microsoft Teams](https://products.office.com/microsoft-teams/group-chat-software) | Piattaforma che combina chat, riunioni e note dell'area di lavoro | [Operazioni preliminari](https://docs.microsoft.com/microsoftteams/platform/concepts/cards/cards-reference#adaptive-card) | 1.2
 [Funzionalità di Cortana](https://docs.microsoft.com/cortana/skills/adaptive-cards) | Assistente virtuale per Windows 10 | [Operazioni preliminari](https://docs.microsoft.com/adaptive-cards/get-started/bots) | 1.0
