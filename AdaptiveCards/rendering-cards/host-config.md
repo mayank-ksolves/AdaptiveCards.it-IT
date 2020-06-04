@@ -4,12 +4,12 @@ author: paulcam206
 ms.author: paulcam
 ms.date: 09/18/2018
 ms.topic: reference
-ms.openlocfilehash: 848ce3dd2ccca1f975dfd330c1c88292c753641d
-ms.sourcegitcommit: e6418d692296e06be7412c95c689843f9db5240d
+ms.openlocfilehash: d7fda209e6c470659d2fb2b66ac982e9c7183367
+ms.sourcegitcommit: eb71aebe40a592649461e468a87993a10cbe6187
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "77454924"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84318201"
 ---
 # <a name="what-is-hostconfig"></a>Che cos'è HostConfig?
 `HostConfig` è un **oggetto di configurazione tra piattaforme** che specifica il modo in cui un renderer di schede adattive genera l'interfaccia utente.
@@ -35,7 +35,7 @@ Vedi un file [HostConfig.json](https://github.com/Microsoft/AdaptiveCards/blob/m
    * [`SpacingsConfig`](#schema-spacingsconfig) - Controlla la disposizione degli elementi
    * [`TextBlockConfig`](#schema-textblockconfig) - Parametri che controllano la visualizzazione del testo
 
-# <a name="card-configuration"></a>Configurazione delle schede
+## <a name="card-configuration"></a>Configurazione delle schede
 
 <a name="schema-adaptivecardconfig"></a>
 ## <a name="adaptivecardconfig"></a>AdaptiveCardConfig
