@@ -4,12 +4,12 @@ author: matthidinger
 ms.author: mahiding
 ms.date: 05/15/2020
 ms.topic: article
-ms.openlocfilehash: dc20c22995bb0a259bc801a6ffcd674967bbe78f
-ms.sourcegitcommit: c921a7bb15a95c0ceb803ad375501ee3b8bef028
+ms.openlocfilehash: d04b38d6b2a389ca31b690d3298f64b3fced7c9a
+ms.sourcegitcommit: eb71aebe40a592649461e468a87993a10cbe6187
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83631354"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84318181"
 ---
 # <a name="adaptive-card-templating-sdks"></a>SDK per la creazione di modelli di schede adattive
 
@@ -71,7 +71,7 @@ var templatePayload = {
     ]
 };
  
-// Create a Template instamce from the template payload
+// Create a Template instance from the template payload
 var template = new ACData.Template(templatePayload);
  
 // Expand the template with your `$root` data object.
@@ -82,11 +82,10 @@ var cardPayload = template.expand({
    }
 });
  
-// OPTIONAL: Render the card (required the adaptivecards library loaded)
+// OPTIONAL: Render the card (requires that the adaptivecards library be loaded)
 var adaptiveCard = new AdaptiveCards.AdaptiveCard();
 adaptiveCard.parse(cardPayload);
- 
-var htmlElement = adaptiveCard.render();
+document.getElementById('exampleDiv').appendChild(adaptiveCard.render());
 ```
 
 ## <a name="net"></a>.NET 
@@ -192,9 +191,9 @@ string cardJson = template.Expand(context);
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 D: Perché mi sono imbattuto in un'eccezione di tipo AdaptiveTemplateException con chiamata a ```expand()```?   
-A. Se il messaggio di errore è simile a "\<elemento offensivo> alla riga \<numero di riga> ha un **formato non valido per la coppia '$data : '** ".   
+A. Se il messaggio di errore è simile a '\<offending item>' alla riga '\<line number>' ha un **formato non valido per la coppia '$data : '** ".   
 Verifica che per "$data" sia stato specificato un valore JSON valido, ad esempio numero, valore booleano, oggetto e matrice, oppure che segua la sintassi corretta per il linguaggio del modello adattivo e che la voce esista nel contesto dati al numero di riga. Tieni presente che ${LineItem} e '8' possono cambiare.
 
 D: Perché mi sono imbattuto in un'eccezione di tipo ArgumentNullException con chiamata a ```expand()```?   
-A. Se il messaggio di errore è simile a "**Controlla se il contesto dati padre è impostato oppure immetti un valore diverso da null per** \<elemento offensivo> alla riga \<numero di riga>".   
+A. Se il messaggio di errore è simile a "**Controlla se il contesto dati padre è impostato oppure immetti un valore diverso da null per** '\<offending item>' alla riga '\<line number>'".   
 Indica che non esiste alcun contesto dati per il data binding richiesto. Verifica che il contesto dati radice sia impostato, se esistente, e che qualsiasi contesto dati sia disponibile per il binding corrente come indicato dal numero di riga.
