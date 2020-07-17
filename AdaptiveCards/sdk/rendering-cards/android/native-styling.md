@@ -4,12 +4,12 @@ author: almedina-ms
 ms.author: almedina
 ms.date: 09/27/2017
 ms.topic: article
-ms.openlocfilehash: d0c6b56e0497b78aa149f73dc1d32537689c0386
-ms.sourcegitcommit: 9a9973129c36a41f5e4af30d95ffc146820ad173
+ms.openlocfilehash: 8d5dd9bbf17800c55aae1d416b7e6d80ac697b25
+ms.sourcegitcommit: fec0fd2c23293127e8e8f7ca7821c04d46987f37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76145481"
+ms.lasthandoff: 07/16/2020
+ms.locfileid: "86417608"
 ---
 # <a name="native-styling---android"></a>Applicazione di stili nativi - Android
 
@@ -35,3 +35,11 @@ Gli input di testo con un'azione inline permettono l'applicazione di stili per l
 
 > [!IMPORTANT]
 > Tutti i nomi degli elementi devono essere mantenuti come illustrato, dal momento che il renderer cerca esattamente questi nomi
+
+## <a name="actionshowcard"></a>Action.ShowCard
+
+È possibile applicare uno stile a Action. ShowCard aggiungendo stili al tema in styles.xml.
+
+```styles.xml
+ <item name="adaptiveShowCardAction">@style/adaptiveShowCardAction</item>
+```
