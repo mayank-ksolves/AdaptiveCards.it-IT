@@ -2,25 +2,260 @@
 title: Estendibilità-JavaScript SDK
 author: matthidinger
 ms.author: mahiding
-ms.date: 11/28/2017
+ms.date: 07/16/2020
 ms.topic: article
-ms.openlocfilehash: 4c43637d81bcf43251638133c66d1c77b92ace56
-ms.sourcegitcommit: 1e18c5dc0cf85d26f66335e312348bbfb903d95a
+ms.openlocfilehash: 81c60e200d2fcbc844a3ae3f4fdefa0ddaa399d3
+ms.sourcegitcommit: fec0fd2c23293127e8e8f7ca7821c04d46987f37
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77454674"
+ms.lasthandoff: 07/16/2020
+ms.locfileid: "86417537"
 ---
-# <a name="extensibility---javascript"></a><span data-ttu-id="508c9-102">Estendibilità-JavaScript</span><span class="sxs-lookup"><span data-stu-id="508c9-102">Extensibility - JavaScript</span></span>
+# <a name="extensibility---javascript"></a><span data-ttu-id="07065-102">Estendibilità-JavaScript</span><span class="sxs-lookup"><span data-stu-id="07065-102">Extensibility - JavaScript</span></span>
 
-## <a name="implement-and-register-a-custom-element"></a><span data-ttu-id="508c9-103">Implementare e registrare un elemento personalizzato</span><span class="sxs-lookup"><span data-stu-id="508c9-103">Implement and register a custom element</span></span>
+## <a name="extensibility-with-the-js-sdk-version-20-and-greater"></a><span data-ttu-id="07065-103">Estendibilità con JS SDK versione 2,0 e successive</span><span class="sxs-lookup"><span data-stu-id="07065-103">Extensibility with the JS SDK version 2.0 and greater</span></span>
 
-<span data-ttu-id="508c9-104">I passaggi per la creazione di un tipo di elemento della scheda Adaptive personalizzato sono:</span><span class="sxs-lookup"><span data-stu-id="508c9-104">The steps for creating a custom Adaptive Card element type are:</span></span>
-- <span data-ttu-id="508c9-105">Crea una nuova classe che conduce da `CardElement`</span><span class="sxs-lookup"><span data-stu-id="508c9-105">Create a new class driving from `CardElement`</span></span>
-- <span data-ttu-id="508c9-106">Implementare i metodi `getJsonTypeName`, `parse`, `toJSON`, `internalRender` e `renderSpeech`</span><span class="sxs-lookup"><span data-stu-id="508c9-106">Implement its `getJsonTypeName`, `parse`, `toJSON`, `internalRender` and `renderSpeech` methods</span></span>
-- <span data-ttu-id="508c9-107">Registrarlo aggiungendolo al registro elementi del renderer</span><span class="sxs-lookup"><span data-stu-id="508c9-107">Register it by adding it to the renderer's element registry</span></span>
+### <a name="before-you-start"></a><span data-ttu-id="07065-104">Prima di iniziare</span><span class="sxs-lookup"><span data-stu-id="07065-104">Before you start</span></span>
 
-<span data-ttu-id="508c9-108">Di seguito è riportato un esempio che consente di implementare un semplice elemento indicatore di stato:</span><span class="sxs-lookup"><span data-stu-id="508c9-108">Let's take an example and implement a simple Progress Bar element:</span></span>
+> <span data-ttu-id="07065-105">**Importante**: la versione 2,0 e successive di JS SDK si avvale di elementi [Decorator typescript](https://www.typescriptlang.org/docs/handbook/decorators.html).</span><span class="sxs-lookup"><span data-stu-id="07065-105">**IMPORTANT**: Version 2.0 and greater of the JS SDK makes use of [TypeScript decorators](https://www.typescriptlang.org/docs/handbook/decorators.html).</span></span> <span data-ttu-id="07065-106">Gli elementi Decorator sono ancora una funzionalità sperimentale e devono essere abilitati in modo esplicito nel `tsconfig.js` file:</span><span class="sxs-lookup"><span data-stu-id="07065-106">Decorators are still an experimental feature and must be explicitly enabled in your `tsconfig.js` file:</span></span>
+
+```json
+{
+   "compilerOptions": {
+       "experimentalDecorators": true
+   }
+}
+```
+<span data-ttu-id="07065-107">La versione 2,0 di JS SDK introduce modifiche di rilievo nel modo in cui gli elementi e le azioni personalizzati vengono implementati e registrati.</span><span class="sxs-lookup"><span data-stu-id="07065-107">Version 2.0 of the JS SDK introduces breaking changes in the way custom elements and actions are implemented and registered.</span></span> <span data-ttu-id="07065-108">Per un esempio su come implementare e registrare un elemento o un'azione usando le versioni precedenti dell'SDK, vedere [estensibilità con JS SDK prima della versione 2,0](#extensibility-with-the-js-sdk-prior-to-version-20).</span><span class="sxs-lookup"><span data-stu-id="07065-108">For an example on how to implement and register an element or action using previous versions of the SDK, see [Extensibility with the JS SDK prior to version 2.0](#extensibility-with-the-js-sdk-prior-to-version-20).</span></span>
+
+
+### <a name="custom-elements"></a><span data-ttu-id="07065-109">Elementi personalizzati</span><span class="sxs-lookup"><span data-stu-id="07065-109">Custom elements</span></span>
+<span data-ttu-id="07065-110">I passaggi per la creazione di un tipo di elemento della scheda Adaptive personalizzato sono:</span><span class="sxs-lookup"><span data-stu-id="07065-110">The steps for creating a custom Adaptive Card element type are:</span></span>
+- <span data-ttu-id="07065-111">Crea una nuova classe che deriva da`CardElement`</span><span class="sxs-lookup"><span data-stu-id="07065-111">Create a new class deriving from `CardElement`</span></span>
+- <span data-ttu-id="07065-112">Creare lo schema dichiarando le definizioni di proprietà statiche</span><span class="sxs-lookup"><span data-stu-id="07065-112">Create its schema by declaring static property definitions</span></span>
+- <span data-ttu-id="07065-113">Implementare i `getJsonTypeName` metodi, e `internalRender`</span><span class="sxs-lookup"><span data-stu-id="07065-113">Implement its `getJsonTypeName`, and `internalRender` methods</span></span>
+- <span data-ttu-id="07065-114">Registrarlo nel registro di sistema globale degli elementi o usare un registro personalizzato per ogni singola scheda</span><span class="sxs-lookup"><span data-stu-id="07065-114">Register it in the global element registry, or use a custom registry on a per-card basis</span></span>
+
+
+<span data-ttu-id="07065-115">Di seguito è riportato un esempio che consente di implementare un semplice elemento indicatore di stato:</span><span class="sxs-lookup"><span data-stu-id="07065-115">Let's take an example and implement a simple Progress Bar element:</span></span>
+```typescript
+export class ProgressBar extends AC.CardElement {
+    static readonly JsonTypeName = "ProgressBar";
+
+    //#region Schema
+
+    static readonly titleProperty = new AC.StringProperty(AC.Versions.v1_0, "title", true);
+    static readonly valueProperty = new AC.NumProperty(AC.Versions.v1_0, "value");
+
+    @AC.property(ProgressBar.titleProperty)
+    get title(): string | undefined {
+        return this.getValue(ProgressBar.titleProperty);
+    }
+
+    set title(value: string) {
+        if (this.title !== value) {
+            this.setValue(ProgressBar.titleProperty, value);
+
+            this.updateLayout();
+        }
+    }
+
+    @AC.property(ProgressBar.valueProperty)
+    get value(): number {
+        return this.getValue(ProgressBar.valueProperty);
+    }
+
+    set value(value: number) {
+        let adjustedValue = value;
+
+        if (adjustedValue < 0) {
+            adjustedValue = 0;
+        }
+        else if (adjustedValue > 100) {
+            adjustedValue = 100;
+        }
+
+        if (this.value !== adjustedValue) {
+            this.setValue(ProgressBar.valueProperty, adjustedValue);
+
+            this.updateLayout();
+        }
+    }
+
+    //#endregion
+
+    private _titleElement: HTMLElement;
+    private _leftBarElement: HTMLElement;
+    private _rightBarElement: HTMLElement;
+
+    protected internalRender(): HTMLElement {
+        let element = document.createElement("div");
+
+        let textBlock = new AC.TextBlock();
+        textBlock.setParent(this);
+        textBlock.text = this.title;
+        textBlock.wrap = true;
+
+        this._titleElement = textBlock.render();
+        this._titleElement.style.marginBottom = "6px";
+
+        let progressBarElement = document.createElement("div");
+        progressBarElement.style.display = "flex";
+
+        this._leftBarElement = document.createElement("div");
+        this._leftBarElement.style.height = "6px";
+        this._leftBarElement.style.backgroundColor = AC.stringToCssColor(this.hostConfig.containerStyles.emphasis.foregroundColors.accent.default);
+
+        this._rightBarElement = document.createElement("div");
+        this._rightBarElement.style.height = "6px";
+        this._rightBarElement.style.backgroundColor = AC.stringToCssColor(this.hostConfig.containerStyles.emphasis.backgroundColor);
+
+        progressBarElement.append(this._leftBarElement, this._rightBarElement);
+
+        element.append(this._titleElement, progressBarElement);
+
+        return element;
+    }
+
+    getJsonTypeName(): string {
+        return ProgressBar.JsonTypeName;
+    }
+
+    updateLayout(processChildren: boolean = true) {
+        super.updateLayout(processChildren);
+
+        if (this.renderedElement) {
+            if (this.title) {
+                this._titleElement.style.display = "none";
+            }
+            else {
+                this._titleElement.style.removeProperty("display");
+            }
+
+            this._leftBarElement.style.flex = "1 1 " + this.value + "%";
+            this._rightBarElement.style.flex = "1 1 " + (100 - this.value) + "%";
+        }
+    }
+}
+```
+<span data-ttu-id="07065-116">È tutto.</span><span class="sxs-lookup"><span data-stu-id="07065-116">That's it.</span></span> <span data-ttu-id="07065-117">È ora necessario registrare l'elemento ProgressBar per poter essere riconosciuto dall'SDK.</span><span class="sxs-lookup"><span data-stu-id="07065-117">The ProgressBar element now needs to be registered in order to be recognized by the SDK.</span></span> <span data-ttu-id="07065-118">È possibile registrarlo a livello globale:</span><span class="sxs-lookup"><span data-stu-id="07065-118">You can register it globally:</span></span>
+
+```typescript
+AC.GlobalRegistry.elements.register(ProgressBar.JsonTypeName, ProgressBar);
+```
+
+<span data-ttu-id="07065-119">In alternativa, è possibile usare un registro per scheda, che consente l'uso di diversi registri per schede diverse nell'applicazione:</span><span class="sxs-lookup"><span data-stu-id="07065-119">Or you can use a per-card registry, which allows the use of different registries for different cards in your application:</span></span>
+
+```typescript
+// Create a custom registry for elements
+let elementRegistry = new AC.CardObjectRegistry<AC.CardElement>();
+
+// Populate it with the default set of elements
+AC.GlobalRegistry.populateWithDefaultElements(elementRegistry);
+
+// Register the custom ProgressBar element
+elementRegistry.register(ProgressBar.JsonTypeName, ProgressBar);
+
+// Parse a card payload using the custom registry
+let serializationContext = new AC.SerializationContext();
+serializationContext.setElementRegistry(elementRegistry);
+
+let card = new AC.AdaptiveCard();
+card.parse(
+    {
+        type: "AdaptiveCard",
+        version: "1.0",
+        body: [
+            {
+                type: "ProgressBar",
+                title: "This is a progress bar",
+                value: 45
+            }
+        ]
+    },
+    serializationContext
+);
+```
+
+### <a name="custom-actions"></a><span data-ttu-id="07065-120">Azioni personalizzate</span><span class="sxs-lookup"><span data-stu-id="07065-120">Custom actions</span></span>
+<span data-ttu-id="07065-121">I passaggi per l'implementazione di un'azione personalizzata sono gli stessi di quelli per gli elementi.</span><span class="sxs-lookup"><span data-stu-id="07065-121">The steps to implementing a custom action are the same as those for elements.</span></span> <span data-ttu-id="07065-122">L'unica differenza è che le azioni vengono registrate nei registri delle azioni e non nei registri di elementi.</span><span class="sxs-lookup"><span data-stu-id="07065-122">The only difference is that actions are registered in action registries, and not in element registries.</span></span>
+
+```typescript
+export class AlertAction extends AC.Action {
+    static readonly JsonTypeName = "Action.Alert";
+
+    //#region Schema
+
+    static readonly textProperty = new AC.StringProperty(AC.Versions.v1_0, "text", true);
+
+    @AC.property(AlertAction.textProperty)
+    text?: string;
+
+    //#endregion
+
+    getJsonTypeName(): string {
+        return AlertAction.JsonTypeName;
+    }
+
+    execute() {
+        alert(this.text);
+    }
+}
+```
+
+<span data-ttu-id="07065-123">Registrare la nuova azione a livello globale:</span><span class="sxs-lookup"><span data-stu-id="07065-123">Register the new action globally:</span></span>
+```typescript
+AC.GlobalRegistry.actions.register(AlertAction.JsonTypeName, AlertAction);
+```
+
+<span data-ttu-id="07065-124">In alternativa, usare un registro per scheda:</span><span class="sxs-lookup"><span data-stu-id="07065-124">Or use a per-card registry:</span></span>
+```typescript
+// Create a custom registry for actions
+let actionRegistry = new AC.CardObjectRegistry<AC.Action>();
+
+// Populate it with the default set of actions
+AC.GlobalRegistry.populateWithDefaultActions(actionRegistry);
+
+// Register the custom AlertAction type
+actionRegistry.register(AlertAction.JsonTypeName, AlertAction);
+
+// Parse a card payload using the custom registry
+let serializationContext = new AC.SerializationContext();
+serializationContext.setActionRegistry(actionRegistry);
+
+let card = new AC.AdaptiveCard();
+card.parse(
+    {
+        type: "AdaptiveCard",
+        version: "1.0",
+        body: [
+            {
+                type: "TextBlock",
+                text: "This demonstrates the AlertAction action."
+            }
+        ],
+        actions: [
+            {
+                type: "Action.Alert",
+                title: "Click me!",
+                text: "Hello World"
+            }
+        ]
+    },
+    serializationContext
+);
+```
+
+## <a name="extensibility-with-the-js-sdk-prior-to-version-20"></a><span data-ttu-id="07065-125">Estendibilità con JS SDK prima della versione 2,0</span><span class="sxs-lookup"><span data-stu-id="07065-125">Extensibility with the JS SDK prior to version 2.0</span></span>
+
+### <a name="custom-elements"></a><span data-ttu-id="07065-126">Elementi personalizzati</span><span class="sxs-lookup"><span data-stu-id="07065-126">Custom elements</span></span>
+
+<span data-ttu-id="07065-127">I passaggi per la creazione di un tipo di elemento della scheda Adaptive personalizzato sono:</span><span class="sxs-lookup"><span data-stu-id="07065-127">The steps for creating a custom Adaptive Card element type are:</span></span>
+- <span data-ttu-id="07065-128">Crea una nuova classe che deriva da`CardElement`</span><span class="sxs-lookup"><span data-stu-id="07065-128">Create a new class deriving from `CardElement`</span></span>
+- <span data-ttu-id="07065-129">Implementare i `getJsonTypeName` relativi `parse` metodi,, `toJSON` `internalRender` e `renderSpeech`</span><span class="sxs-lookup"><span data-stu-id="07065-129">Implement its `getJsonTypeName`, `parse`, `toJSON`, `internalRender` and `renderSpeech` methods</span></span>
+- <span data-ttu-id="07065-130">Registrarlo aggiungendolo al registro elementi del renderer</span><span class="sxs-lookup"><span data-stu-id="07065-130">Register it by adding it to the renderer's element registry</span></span>
+
+<span data-ttu-id="07065-131">Di seguito è riportato un esempio che consente di implementare un semplice elemento indicatore di stato:</span><span class="sxs-lookup"><span data-stu-id="07065-131">Let's take an example and implement a simple Progress Bar element:</span></span>
 
 ```typescript
 import * as Adaptive from "adaptivecards";
@@ -136,15 +371,15 @@ export class ProgressBar extends Adaptive.CardElement {
 }
 ```
 
-<span data-ttu-id="508c9-109">È tutto!</span><span class="sxs-lookup"><span data-stu-id="508c9-109">That's it.</span></span> <span data-ttu-id="508c9-110">A questo punto, registrare la classe indicatore di stato con il renderer:</span><span class="sxs-lookup"><span data-stu-id="508c9-110">Now just register the Progress Bar class with the renderer:</span></span>
+<span data-ttu-id="07065-132">È tutto.</span><span class="sxs-lookup"><span data-stu-id="07065-132">That's it.</span></span> <span data-ttu-id="07065-133">A questo punto, registrare la classe indicatore di stato con il renderer:</span><span class="sxs-lookup"><span data-stu-id="07065-133">Now just register the Progress Bar class with the renderer:</span></span>
 
 ```typescript
 Adaptive.AdaptiveCard.elementTypeRegistry.registerType("ProgressBar", () => { return new ProgressBar(); });
 ```
 
-## <a name="implement-and-register-a-custom-action"></a><span data-ttu-id="508c9-111">Implementare e registrare un'azione personalizzata</span><span class="sxs-lookup"><span data-stu-id="508c9-111">Implement and register a custom action</span></span>
+## <a name="custom-actions"></a><span data-ttu-id="07065-134">Azioni personalizzate</span><span class="sxs-lookup"><span data-stu-id="07065-134">Custom actions</span></span>
 
-<span data-ttu-id="508c9-112">La procedura per la creazione di un'azione personalizzata per le schede adattive è essenzialmente identica a quella per gli elementi personalizzati.</span><span class="sxs-lookup"><span data-stu-id="508c9-112">The steps for creating a custom Adaptive Card action are essentially the same as those for custom elements.</span></span> <span data-ttu-id="508c9-113">Ecco un semplice esempio di azione di avviso che visualizza semplicemente una finestra di messaggio con testo configurabile:</span><span class="sxs-lookup"><span data-stu-id="508c9-113">Here is a simple example of an Alert Action that simply displays a message box with configurable text:</span></span>
+<span data-ttu-id="07065-135">La procedura per la creazione di un'azione personalizzata per le schede adattive è essenzialmente identica a quella per gli elementi personalizzati.</span><span class="sxs-lookup"><span data-stu-id="07065-135">The steps for creating a custom Adaptive Card action are essentially the same as those for custom elements.</span></span> <span data-ttu-id="07065-136">Ecco un semplice esempio di azione di avviso che visualizza semplicemente una finestra di messaggio con testo configurabile:</span><span class="sxs-lookup"><span data-stu-id="07065-136">Here is a simple example of an Alert Action that simply displays a message box with configurable text:</span></span>
 
 ```typescript
 import * as Adaptive from "adaptivecards";
@@ -176,16 +411,16 @@ export class AlertAction extends Adaptive.Action {
 }
 ```
 
-<span data-ttu-id="508c9-114">Registrare ora la nuova azione:</span><span class="sxs-lookup"><span data-stu-id="508c9-114">Now register the new action:</span></span>
+<span data-ttu-id="07065-137">Registrare ora la nuova azione:</span><span class="sxs-lookup"><span data-stu-id="07065-137">Now register the new action:</span></span>
 
-```
+```typescript
 Adaptive.AdaptiveCard.actionTypeRegistry.registerType("Action.Alert", () => { return new AlertAction(); });
 ```
 
-## <a name="example"></a><span data-ttu-id="508c9-115">Esempio</span><span class="sxs-lookup"><span data-stu-id="508c9-115">Example</span></span>
+## <a name="example"></a><span data-ttu-id="07065-138">Esempio</span><span class="sxs-lookup"><span data-stu-id="07065-138">Example</span></span>
 
-<span data-ttu-id="508c9-116">Ecco una scheda di esempio che usa sia l'elemento ProgressBar che l'azione AlertAction:</span><span class="sxs-lookup"><span data-stu-id="508c9-116">Here is a sample card that uses both the ProgressBar element and AlertAction action:</span></span>
-```
+<span data-ttu-id="07065-139">Ecco una scheda di esempio che usa sia l'elemento ProgressBar che l'azione AlertAction:</span><span class="sxs-lookup"><span data-stu-id="07065-139">Here is a sample card that uses both the ProgressBar element and AlertAction action:</span></span>
+```json
 {
     "type": "AdaptiveCard",
     "version": "1.0",
@@ -212,4 +447,4 @@ Adaptive.AdaptiveCard.actionTypeRegistry.registerType("Action.Alert", () => { re
 }
 ```
 
-<span data-ttu-id="508c9-117">Ecco come viene eseguito il rendering: ![immagine](https://user-images.githubusercontent.com/1334689/52665466-8155e780-2ec0-11e9-841a-7d272ad1d103.png)</span><span class="sxs-lookup"><span data-stu-id="508c9-117">And here is how it renders: ![image](https://user-images.githubusercontent.com/1334689/52665466-8155e780-2ec0-11e9-841a-7d272ad1d103.png)</span></span>
+<span data-ttu-id="07065-140">Ecco come viene eseguito il rendering: ![ Image](https://user-images.githubusercontent.com/1334689/52665466-8155e780-2ec0-11e9-841a-7d272ad1d103.png)</span><span class="sxs-lookup"><span data-stu-id="07065-140">And here is how it renders: ![image](https://user-images.githubusercontent.com/1334689/52665466-8155e780-2ec0-11e9-841a-7d272ad1d103.png)</span></span>
