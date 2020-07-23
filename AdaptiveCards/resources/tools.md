@@ -4,12 +4,12 @@ author: matthidinger
 ms.author: mahiding
 ms.date: 03/14/2019
 ms.topic: article
-ms.openlocfilehash: f0c5a61d3406e1defffefc575ee0a6ec78fba93d
-ms.sourcegitcommit: e6418d692296e06be7412c95c689843f9db5240d
+ms.openlocfilehash: f26550a73610073000166357df5b70c1bd8ccdc8
+ms.sourcegitcommit: fec0fd2c23293127e8e8f7ca7821c04d46987f37
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "77454834"
+ms.lasthandoff: 07/16/2020
+ms.locfileid: "86417585"
 ---
 # <a name="tools-and-samples"></a>Strumenti ed esempi
 
@@ -29,7 +29,7 @@ Per iniziare, vedi il pacchetto [adaptivecards-designer](https://npmjs.com/adapt
 
 La convalida dello schema è un modo efficace per semplificare la creazione e abilitare gli strumenti.
 
-È stato fornito un [file di schema JSON](http://adaptivecards.io/schemas/1.2.0/adaptive-card.json) completo per la modifica e la convalida di schede adattive in JSON. L'URL dello schema è con versione, pertanto le versioni più recenti delle schede adattive avranno un URL corrispondente.
+È stato fornito un [file di schema JSON](https://adaptivecards.io/schemas/1.2.0/adaptive-card.json) completo per la modifica e la convalida di schede adattive in JSON. L'URL dello schema è con versione, pertanto le versioni più recenti delle schede adattive avranno un URL corrispondente.
 
 In Visual Studio e Visual Studio Code puoi ottenere IntelliSense automatico includendo un riferimento `$schema`.
 

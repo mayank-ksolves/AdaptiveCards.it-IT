@@ -4,12 +4,12 @@ author: matthidinger
 ms.author: mahiding
 ms.date: 05/30/2018
 ms.topic: article
-ms.openlocfilehash: 1c3ad2a4588244a8bd30011a4b6e25e37062624a
-ms.sourcegitcommit: e6418d692296e06be7412c95c689843f9db5240d
+ms.openlocfilehash: e460bf50cdb4f0c1af54f5c7ad6c1d02db9af746
+ms.sourcegitcommit: fec0fd2c23293127e8e8f7ca7821c04d46987f37
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "76145381"
+ms.lasthandoff: 07/16/2020
+ms.locfileid: "86417497"
 ---
 # <a name="adaptive-cards-for-bot-developers"></a>Schede adattive per gli sviluppatori di bot
 
@@ -107,7 +107,7 @@ Le schede adattive offrono molto più che semplice testo personalizzabile.
 * Aggiungere più tipi di `Actions`
 * Raccogliere `Input` dagli utenti
 * Usare una scheda per `show another card`
-* [Consulta tutte le informazioni in Schema Explorer](http://adaptivecards.io/explorer/). 
+* [Consulta tutte le informazioni in Schema Explorer](https://adaptivecards.io/explorer/). 
 
 ## <a name="platform-sdks"></a>SDK delle piattaforme
 
@@ -128,7 +128,7 @@ Bot Framework consente di pubblicare i bot in più canali. Stiamo collaborando c
 
 In questa esercitazione è stata fornita solo una presentazione generale. Visita i collegamenti seguenti per altre informazioni su come usare le schede adattive per migliorare i bot.
 
-* [Esamina le schede di esempio](http://adaptivecards.io/samples/) per trovare l'ispirazione
-* Usa [Schema Explorer](http://adaptivecards.io/explorer) per informazioni sugli elementi disponibili
-* Crea una scheda usando il [visualizzatore interattivo](http://adaptivecards.io/visualizer/index.html?hostApp=Skype)
-* [Contattaci](http://adaptivecards.io/connect) per eventuali commenti
+* [Esamina le schede di esempio](https://adaptivecards.io/samples/) per trovare l'ispirazione
+* Usa [Schema Explorer](https://adaptivecards.io/explorer) per informazioni sugli elementi disponibili
+* Crea una scheda usando il [visualizzatore interattivo](https://adaptivecards.io/visualizer/index.html?hostApp=Skype)
+* [Contattaci](https://adaptivecards.io/connect) per eventuali commenti

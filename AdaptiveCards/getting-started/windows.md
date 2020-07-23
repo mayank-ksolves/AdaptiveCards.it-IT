@@ -4,12 +4,12 @@ author: matthidinger
 ms.author: mahiding
 ms.date: 06/26/2017
 ms.topic: article
-ms.openlocfilehash: f6ae9b99decf8176af68334a681eb9e370f04484
-ms.sourcegitcommit: c921a7bb15a95c0ceb803ad375501ee3b8bef028
+ms.openlocfilehash: 8a73bcaf52e838453c6484ecd210d8ad7a577113
+ms.sourcegitcommit: fec0fd2c23293127e8e8f7ca7821c04d46987f37
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83631319"
+ms.lasthandoff: 07/16/2020
+ms.locfileid: "86417558"
 ---
 # <a name="adaptive-cards-for-windows-developers"></a>Schede adattive per gli sviluppatori Windows
 
@@ -52,7 +52,7 @@ Anche se non è ancora possibile condividere informazioni, stiamo lavorando per 
 
 In questa esercitazione è stata fornita solo una presentazione generale. Ricontrolla questa pagina e visita i collegamenti seguenti per altre informazioni sulle schede adattive.
 
-* [Esamina le schede di esempio](http://adaptivecards.io/samples/) per trovare l'ispirazione
-* Usa [Schema Explorer](http://adaptivecards.io/explorer) per informazioni sugli elementi disponibili
-* Crea una scheda usando il [visualizzatore interattivo](http://adaptivecards.io/visualizer/index.html?hostApp=Skype)
-* [Contattaci](http://adaptivecards.io/connect) per eventuali commenti
+* [Esamina le schede di esempio](https://adaptivecards.io/samples/) per trovare l'ispirazione
+* Usa [Schema Explorer](https://adaptivecards.io/explorer) per informazioni sugli elementi disponibili
+* Crea una scheda usando il [visualizzatore interattivo](https://adaptivecards.io/visualizer/index.html?hostApp=Skype)
+* [Contattaci](https://adaptivecards.io/connect) per eventuali commenti
