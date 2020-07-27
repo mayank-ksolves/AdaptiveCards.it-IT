@@ -4,12 +4,12 @@ author: matthidinger
 ms.author: mahiding
 ms.date: 05/15/2020
 ms.topic: article
-ms.openlocfilehash: d04b38d6b2a389ca31b690d3298f64b3fced7c9a
-ms.sourcegitcommit: eb71aebe40a592649461e468a87993a10cbe6187
+ms.openlocfilehash: a8db2f5ef84203187ed1b9d0fc8dd3ce63ee3569
+ms.sourcegitcommit: fec0fd2c23293127e8e8f7ca7821c04d46987f37
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84318181"
+ms.lasthandoff: 07/16/2020
+ms.locfileid: "86417574"
 ---
 # <a name="adaptive-card-templating-sdks"></a>SDK per la creazione di modelli di schede adattive
 
@@ -192,8 +192,11 @@ string cardJson = template.Expand(context);
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 D: Perché mi sono imbattuto in un'eccezione di tipo AdaptiveTemplateException con chiamata a ```expand()```?   
 A. Se il messaggio di errore è simile a '\<offending item>' alla riga '\<line number>' ha un **formato non valido per la coppia '$data : '** ".   
-Verifica che per "$data" sia stato specificato un valore JSON valido, ad esempio numero, valore booleano, oggetto e matrice, oppure che segua la sintassi corretta per il linguaggio del modello adattivo e che la voce esista nel contesto dati al numero di riga. Tieni presente che ${LineItem} e '8' possono cambiare.
+Verifica che per "$data" sia stato specificato un valore JSON valido, ad esempio numero, valore booleano, oggetto e matrice, oppure che segua la sintassi corretta per il linguaggio del modello adattivo e che la voce esista nel contesto dati al numero di riga.
 
 D: Perché mi sono imbattuto in un'eccezione di tipo ArgumentNullException con chiamata a ```expand()```?   
 A. Se il messaggio di errore è simile a "**Controlla se il contesto dati padre è impostato oppure immetti un valore diverso da null per** '\<offending item>' alla riga '\<line number>'".   
 Indica che non esiste alcun contesto dati per il data binding richiesto. Verifica che il contesto dati radice sia impostato, se esistente, e che qualsiasi contesto dati sia disponibile per il binding corrente come indicato dal numero di riga.
+
+D: Perché l'indicazione data/ora in formato RFC 3389, ad esempio "2017-02-14T06:08:00Z", se usata con un modello non funziona con le funzioni TIME/DATE?   
+A. Il pacchetto NuGet di .NET SDK versione 1.0.0-rc.0 presenta questo comportamento, che è stato corretto nelle versioni successive. Il comportamento predefinito del deserializzatore json.Net modifica la stringa del formato data/ora e viene disabilitato per le versioni successive. Usare la funzione formatDateTime() per formattare la stringa data/ora con RFC 3389 come illustrato in [questo esempio](https://github.com/microsoft/AdaptiveCards/blob/db99ee07dadf317fe45e114a508e3de6e4325d0f/samples/Templates/Elements/Template.Functions.DateFunctions.json#L28). In alternativa, è possibile ignorare le funzioni TIME/DATE e usare semplicemente formatDateTime(). Per altre informazioni su formatDateTime(), visitare [qui](https://docs.microsoft.com/azure/bot-service/adaptive-expressions/adaptive-expressions-prebuilt-functions?view=azure-bot-service-4.0#date-and-time-functions).

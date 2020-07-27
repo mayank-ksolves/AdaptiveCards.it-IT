@@ -2,21 +2,26 @@
 title: Funzionalità per il testo
 author: matthidinger
 ms.author: mahiding
-ms.date: 11/09/2017
+ms.date: 06/18/2020
 ms.topic: article
-ms.openlocfilehash: f7ea40b80df4d976c0a8a86b15254018fdf2fac6
-ms.sourcegitcommit: e6418d692296e06be7412c95c689843f9db5240d
+ms.openlocfilehash: d685007cb24e7fa8ef15b53ee5547708fba6b490
+ms.sourcegitcommit: fec0fd2c23293127e8e8f7ca7821c04d46987f37
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "77454874"
+ms.lasthandoff: 07/16/2020
+ms.locfileid: "86417503"
 ---
 # <a name="text-features"></a>Funzionalità per il testo
 
-`TextBlock` offre alcune funzionalità avanzate per la formattazione e la localizzazione del testo.
+[TextBlock](https://adaptivecards.io/explorer/TextBlock.html) offre funzionalità avanzate per la formattazione e la localizzazione del testo.
 
-## <a name="markdown"></a>Markdown
-Per supportare il markup inline, le schede adattive supportano un **subset** della sintassi Markdown.
+## <a name="markdown-commonmark-subset"></a>Markdown (subset di Commonmark)
+
+Per supportare il markup inline, Schede adattive supporta un **subset** della sintassi Markdown di [Commonmark](https://commonmark.org/help/).
+
+> [!NOTE]
+>
+> [RichTextBlock](https://adaptivecards.io/explorer/RichTextBlock.html) non supporta Markdown, ma offre un'ampia gamma di opzioni di configurazione del testo direttamente all'interno di [TextRun](https://adaptivecards.io/explorer/TextRun.html)
 
 _Supportato_
 
@@ -67,7 +72,7 @@ Il payload che segue determina un rendering simile al seguente:
         },
         {
             "type": "TextBlock",
-            "text": "Check out [Adaptive Cards](http://adaptivecards.io)"
+            "text": "Check out [Adaptive Cards](https://adaptivecards.io)"
         }
     ]
 }

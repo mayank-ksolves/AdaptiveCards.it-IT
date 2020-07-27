@@ -4,12 +4,12 @@ author: dclaux
 ms.author: dclaux
 ms.date: 5/10/2018
 ms.topic: article
-ms.openlocfilehash: 3bf8f04307e0ad65cae609e56295269254ca1e06
-ms.sourcegitcommit: e6418d692296e06be7412c95c689843f9db5240d
+ms.openlocfilehash: 891b9ca4e1682d4249963f6ceb3da7dab026addc
+ms.sourcegitcommit: fec0fd2c23293127e8e8f7ca7821c04d46987f37
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "76145421"
+ms.lasthandoff: 07/16/2020
+ms.locfileid: "86417566"
 ---
 # <a name="adaptive-cards-for-outlook-actionable-message-developers"></a>Schede adattive per gli sviluppatori di messaggi interattivi di Outlook
 
@@ -28,4 +28,4 @@ Ora è possibile usare le schede adattive per rendere più efficaci i messaggi i
 
 - Visita https://docs.microsoft.com/outlook/actionable-messages/, in cui è illustrata la procedura per la creazione del primo scenario per i messaggi interattivi.
 - Usa lo strumento Actionable Message Card Playground per vedere esempi di schede, creare schede personalizzate, inviarle nel tuo account di Office 365 e visualizzarle in [Outlook per il Web](https://outlook.office.com).
-- Preferisci evitare di scrivere il codice JSON manualmente? [Adaptive Card Designer (anteprima)](https://acdesignerbeta.azurewebsites.net) ti permette di creare schede adattive senza scrivere nemmeno una riga di codice JSON.
+- Preferisci evitare di scrivere il codice JSON manualmente? La [finestra di progettazione di Schede adattive](https://adaptivecards.io/designer/) consente di creare schede adattive senza scrivere nemmeno una riga di codice JSON.
