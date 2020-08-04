@@ -1,6 +1,6 @@
 - name: Panoramica
   href: index.md
-- name: Guida introduttiva
+- name: Introduzione
   items:
     - name: Sviluppatori di bot
       href: getting-started/bots.md
@@ -18,6 +18,8 @@
       href: authoring-cards/speech.md
     - name: Funzionalità per il testo
       href: authoring-cards/text-features.md
+    - name: Convalida dell'input
+      href: authoring-cards/input-validation.md
 - name: Rendering delle schede
   items:
     - name: Guida introduttiva
