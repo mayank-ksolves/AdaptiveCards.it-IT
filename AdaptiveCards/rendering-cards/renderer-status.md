@@ -4,12 +4,12 @@ author: matthidinger
 ms.author: mahiding
 ms.date: 10/12/2018
 ms.topic: article
-ms.openlocfilehash: 63426b2250407cc40af8c46975c10f57d1028a40
-ms.sourcegitcommit: e6418d692296e06be7412c95c689843f9db5240d
+ms.openlocfilehash: 1042fd862990a79c77110ebdf5d804eadcc606ea
+ms.sourcegitcommit: 19c08b1370305fb2965de0140c5e632356e78513
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "77454904"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87879147"
 ---
 # <a name="renderer-status"></a>Stato del renderer
 Le tabelle seguenti mostrano lo stato corrente di ogni renderer in base alle rispettive versioni pubbliche che sono pubblicate.
@@ -30,7 +30,7 @@ Le tabelle seguenti mostrano lo stato corrente di ogni renderer in base alle ris
 |Rendering della barra delle azioni | ✅ | ✅ | ✅ | ✅ | ✅ |
 |Possibilità di ignorare gli elementi sconosciuti | ✅ | ✅ | ✅ | ✅ | ✅ |
 |Supporto della configurazione dell'host | ✅ | ✅ | ✅ | ✅ | ✅ |
-|Applicazione di stili della piattaforma nativa | ✅ | ✅ | ✅ | ✅ | ✅ |
+|Applicazione di stili della piattaforma nativa | ✅ | ✅ | ✅ | ✅ | ❌ |
 
 ### <a name="element-rendering"></a>Rendering degli elementi
 
@@ -38,8 +38,9 @@ Le tabelle seguenti mostrano lo stato corrente di ogni renderer in base alle ris
 |--- | --- | --- | --- | --- | --- | --- |
 |Spaziatura e separatore | ✅ | ✅ | ✅ | ✅ | ✅ |
 |[Formattazione di DATE/TIME TextBlock](../authoring-cards/text-features.md#datetime-formatting-and-localization) | ✅ | ✅ | ✅ | ✅ | ✅ |
-|[Supporto di Markdown di TextBlock](../authoring-cards/text-features.md#markdown) | ✅* | ✅ | ✅ | ✅ | ✅ |
-|Supporto dell'input completo | ✅ | ✅ | ✅ | ✅ | ✅ |
+|[Supporto di Markdown di TextBlock](../authoring-cards/text-features.md#markdown-commonmark-subset) | ✅* | ✅ | ✅ | ✅ | ✅ |
+|Etichette e convalida dell'input | ❌ | ✅ | ✅ | ✅ | ✅ |
+
 
 \* Il renderer HTML non include il supporto di Markdown incorporato in modo da ridurre al minimo le dimensioni della libreria e consentire alle applicazioni di usare il processore Markdown preferito. Il renderer HTML tuttavia userà automaticamente Markdown, se caricato.
 

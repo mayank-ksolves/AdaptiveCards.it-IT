@@ -1,15 +1,15 @@
 ---
 title: HostConfig per schede adattive
-author: paulcam206
-ms.author: paulcam
-ms.date: 09/18/2018
+author: almedina-ms
+ms.author: almedina
+ms.date: 08/05/2020
 ms.topic: reference
-ms.openlocfilehash: d7fda209e6c470659d2fb2b66ac982e9c7183367
-ms.sourcegitcommit: eb71aebe40a592649461e468a87993a10cbe6187
+ms.openlocfilehash: 6a7dd189a5fd39c76241544679011f22c53ccc66
+ms.sourcegitcommit: 19c08b1370305fb2965de0140c5e632356e78513
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84318201"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87879168"
 ---
 # <a name="what-is-hostconfig"></a>Che cos'è HostConfig?
 `HostConfig` è un **oggetto di configurazione tra piattaforme** che specifica il modo in cui un renderer di schede adattive genera l'interfaccia utente.
@@ -29,6 +29,10 @@ Vedi un file [HostConfig.json](https://github.com/Microsoft/AdaptiveCards/blob/m
    * [`ForegroundColorsConfig`](#schema-foregroundcolorsconfig) - Controlla i vari colori del carattere
    * [`ImageSetConfig`](#schema-imagesetconfig) - Controlla la modalità di visualizzazione degli elementi `ImageSet`
    * [`ImageSizesConfig`](#schema-imagesizesconfig) - Controlla le dimensioni degli elementi `Image`
+   * [`InputsConfig`](#schema-inputsconfig) - Controlla la modalità di visualizzazione di etichette e messaggi di errore 
+      * [`LabelConfig`](#schema-labelconfig) - Controlla la modalità di visualizzazione delle etichette
+         * [`InputLabelConfig`](#schema-inputlabelconfig) - Controlla la modalità di visualizzazione delle etichette obbligatorie o facoltative
+      * [`ErrorMessageConfig`](#schema-errormessageconfig) - Controlla la modalità di visualizzazione dei messaggi di errore
    * [`MediaConfig`](#schema-mediaconfig) - Controlla la visualizzazione e il comportamento degli elementi `Media`
    * [`SeparatorConfig`](#schema-separatorconfig) - Controlla la modalità di visualizzazione dei separatori
    * [`ShowCardConfig`](#schema-showcardconfig) - Controlla il comportamento e lo stile di `Action.ShowCard`
@@ -42,7 +46,7 @@ Vedi un file [HostConfig.json](https://github.com/Microsoft/AdaptiveCards/blob/m
 
 Opzioni di livello principale per `AdaptiveCards`
 
-|Proprietà|Type|Obbligatoria|Description|Versione|
+|Proprietà|Type|Obbligatorio|Descrizione|Versione|
 |--------|----|--------|-----------|-------|
 |**allowCustomStyle**|`boolean`| No, impostazione predefinita: `true`|Controlla se è consentito lo stile personalizzato|1.0
 |**supportsInteractivity**|`boolean`| No, impostazione predefinita: `true`|Controlla se è consentito richiamare gli elementi `Action` interattivi|1.0
@@ -66,7 +70,7 @@ Opzioni di livello principale per `AdaptiveCards`
 
 Opzioni per gli elementi `Action`
 
-|Proprietà|Type|Obbligatoria|Description|Versione|
+|Proprietà|Type|Obbligatorio|Descrizione|Versione|
 |--------|----|--------|-----------|-------|
 |**actionsOrientation**|`string`| No, impostazione predefinita: `"horizontal"`|Controlla la disposizione dei pulsanti|1.0
 |**actionAlignment**|`string`| No, impostazione predefinita: `"stretch"`|Controlla il layout dei pulsanti|1.0
@@ -83,7 +87,7 @@ Opzioni per gli elementi `Action`
 
 Controlla l'applicazione dello stile per i contenitori predefiniti e di enfasi
 
-|Proprietà|Type|Obbligatoria|Description|Versione|
+|Proprietà|Type|Obbligatorio|Descrizione|Versione|
 |--------|----|--------|-----------|-------|
 |**default**|`object`| No|Stile contenitore predefinito|1.0
 |**emphasis**|`object`| No|Stile contenitore da usare per l'enfasi|1.0
@@ -94,7 +98,7 @@ Controlla l'applicazione dello stile per i contenitori predefiniti e di enfasi
 
 Controlla la visualizzazione degli elementi `FactSet`
 
-|Proprietà|Type|Obbligatoria|Description|Versione|
+|Proprietà|Type|Obbligatorio|Descrizione|Versione|
 |--------|----|--------|-----------|-------|
 |**title**|`object`| No, impostazione predefinita: `{"weight":"bolder","size":"default","color":"default","isSubtle":false,"wrap":true,"maxWidth":150}`|Parametri che controllano la visualizzazione del testo|1.0
 |**value**|`object`| No, impostazione predefinita: `{"weight":"default","size":"default","color":"default","isSubtle":false,"wrap":true,"maxWidth":0}`|Parametri che controllano la visualizzazione del testo|1.0
@@ -106,10 +110,10 @@ Controlla la visualizzazione degli elementi `FactSet`
 
 Controlla la metrica relativa alle dimensioni del carattere per i diversi stili di testo
 
-|Proprietà|Type|Obbligatoria|Description|Versione|
+|Proprietà|Type|Obbligatorio|Descrizione|Versione|
 |--------|----|--------|-----------|-------|
 |**small**|`integer`| No, impostazione predefinita: `10`|Dimensione piccola dei caratteri|1.0
-|**default**|`integer`| No, impostazione predefinita: `12`|Dimensione predefinita dei caratteri|1.0
+|**default**|`integer`| No, impostazione predefinita: `12`|Dimensioni del carattere predefinite|1.0
 |**medium**|`integer`| No, impostazione predefinita: `14`|Dimensione media dei caratteri|1.0
 |**large**|`integer`| No, impostazione predefinita: `17`|Dimensione grande dei caratteri|1.0
 |**extraLarge**|`integer`| No, impostazione predefinita: `20`|Dimensione molto grande dei caratteri|1.0
@@ -120,7 +124,7 @@ Controlla la metrica relativa alle dimensioni del carattere per i diversi stili 
 
 Controlla la metrica relativa allo spessore del carattere
 
-|Proprietà|Type|Obbligatoria|Description|Versione|
+|Proprietà|Type|Obbligatorio|Descrizione|Versione|
 |--------|----|--------|-----------|-------|
 |**lighter**|`integer`| No, impostazione predefinita: `200`|&nbsp;|1.0
 |**default**|`integer`| No, impostazione predefinita: `400`|&nbsp;|1.0
@@ -132,7 +136,7 @@ Controlla la metrica relativa allo spessore del carattere
 
 Controlla i vari colori del carattere
 
-|Proprietà|Type|Obbligatoria|Description|Versione|
+|Proprietà|Type|Obbligatorio|Descrizione|Versione|
 |--------|----|--------|-----------|-------|
 |**default**|`object`| No, impostazione predefinita: `{"default":"#FF000000","subtle":"#B2000000"}`|&nbsp;|1.0
 |**accent**|`object`| No, impostazione predefinita: `{"default":"#FF0000FF","subtle":"#B20000FF"}`|&nbsp;|1.0
@@ -148,7 +152,7 @@ Controlla i vari colori del carattere
 
 Controlla la modalità di visualizzazione degli elementi `ImageSet`
 
-|Proprietà|Type|Obbligatoria|Description|Versione|
+|Proprietà|Type|Obbligatorio|Descrizione|Versione|
 |--------|----|--------|-----------|-------|
 |**imageSize**|`string`| No, impostazione predefinita: `"auto"`|Controlla le dimensioni delle singole immagini|1.0
 |**maxImageHeight**|`integer`| No, impostazione predefinita: `100`|Vincola l'altezza dell'immagine a questo valore|1.0
@@ -159,12 +163,56 @@ Controlla la modalità di visualizzazione degli elementi `ImageSet`
 
 Controlla le dimensioni degli elementi `Image`
 
-|Proprietà|Type|Obbligatoria|Description|Versione|
+|Proprietà|Type|Obbligatorio|Descrizione|Versione|
 |--------|----|--------|-----------|-------|
 |**small**|`integer`| No, impostazione predefinita: `80`|Valore relativo alle dimensioni immagine piccole|1.0
 |**medium**|`integer`| No, impostazione predefinita: `120`|Valore relativo alle dimensioni immagine medie|1.0
 |**large**|`integer`| No, impostazione predefinita: `180`|Valore relativo alle dimensioni immagine grandi|1.0
 
+<a name="schema-inputsconfig"></a>
+## <a name="inputsconfig"></a>InputsConfig
+
+Controlla la modalità di visualizzazione di etichette e messaggi di errore 
+
+|Proprietà|Type|Obbligatorio|Descrizione|Versione|
+|--------|----|--------|-----------|-------|
+|**label**|`LabelConfig`| No |Controlla la modalità di visualizzazione delle etichette|1.3|
+|**errorMessage**|`ErrorMessageConfig`| No|Controlla la modalità di visualizzazione dei messaggi di errore |1.3|
+
+<a name="schema-labelconfig"></a>
+### <a name="labelconfig"></a>LabelConfig
+
+Controlla la modalità di visualizzazione delle etichette
+
+|Proprietà|Type|Obbligatorio|Descrizione|Versione|
+|--------|----|--------|-----------|-------|
+|**requiredInputs**|`InputLabelConfig`| No |Controlla la modalità di visualizzazione delle etichette per gli input obbligatori|1.3|
+|**optionalInputs**|`InputLabelConfig`| No|Controlla la modalità di visualizzazione delle etichette per gli input facoltativi |1.3|
+|**spacing**|`string`| No, impostazione predefinita: `"default"` |[Spaziatura](#schema-spacingsconfig) tra l'etichetta e l'input|1.3|
+
+<a name="schema-inputlabelconfig"></a>
+#### <a name="inputlabelconfig"></a>InputLabelConfig
+
+Controlla la modalità di visualizzazione delle etichette obbligatorie o facoltative
+
+|Proprietà|Type|Obbligatorio|Descrizione|Versione|
+|--------|----|--------|-----------|-------|
+|**color**|`string`|No, impostazione predefinita: `"default"`| [Colore](#schema-foregroundcolorsconfig) del carattere dell'etichetta (il rendering del suffisso ha sempre il colore `attention`) |1.3|
+|**isSubtle**|`bool`| No, impostazione predefinita: `false`| Definisce se usare il colore di primo piano `subtle` |1.3|
+|**size**|`string`| No, impostazione predefinita: `"default"` | [Dimensione](#schema-fontsizesconfig) del carattere dell'etichetta da visualizzare |1.3|
+|**suffix**|`string`| No, impostazione predefinita: `"*"` | Suffisso da visualizzare alla fine dell'etichetta per gli input obbligatori. Se non è definito alcun valore, viene aggiunto un asterisco `*` all'etichetta |1.3|
+|**weight**|`string`| No, impostazione predefinita: `"default"` | [Spessore](#schema-fontweightsconfig) del carattere dell'etichetta |1.3|
+
+<a name="schema-errormessageconfig"></a>
+### <a name="errormessageconfig"></a>ErrorMessageConfig
+
+Controlla la modalità di visualizzazione dei messaggi di errore. I messaggi di errore vengono sempre visualizzati con il colore `attention`.
+
+|Proprietà|Type|Obbligatorio|Descrizione|Versione|
+|--------|----|--------|-----------|-------|
+|**spacing**|`string`| No, impostazione predefinita: `"default"` |[Spaziatura](#schema-spacingsconfig) tra l'input e il messaggio di errore|1.3|
+|**size**|`string`| No, impostazione predefinita: `"default"` | [Dimensione](#schema-fontsizesconfig) del carattere del messaggio di errore  |1.3|
+|**weight**|`string`| No, impostazione predefinita: `"default"` | [Spessore](#schema-fontweightsconfig) del carattere del messaggio di errore |1.3|
 
 <a name="schema-mediaconfig"></a>
 ## <a name="mediaconfig"></a>MediaConfig
@@ -173,7 +221,7 @@ Controlla la visualizzazione e il comportamento degli elementi `Media`
 
 #### <a name="introduced-in-version-11"></a>Introdotta nella versione 1.1
 
-|Proprietà|Type|Obbligatoria|Description|Versione|
+|Proprietà|Type|Obbligatorio|Descrizione|Versione|
 |--------|----|--------|-----------|-------|
 |**defaultPoster**|`string`| No|URI dell'immagine da visualizzare quando il pulsante Riproduci non è stato richiamato|1.1
 |**playButton**|`string`| No|Immagine da visualizzare come pulsante Riproduci|1.1
@@ -185,7 +233,7 @@ Controlla la visualizzazione e il comportamento degli elementi `Media`
 
 Controlla la modalità di visualizzazione dei separatori
 
-|Proprietà|Type|Obbligatoria|Description|Versione|
+|Proprietà|Type|Obbligatorio|Descrizione|Versione|
 |--------|----|--------|-----------|-------|
 |**lineThickness**|`integer`| No, impostazione predefinita: `1`|Spessore della linea di separazione|1.0
 |**lineColor**|`string,null`| No, impostazione predefinita: `#B2000000`|Colore da usare per tracciare la linea di separazione|1.0
@@ -196,7 +244,7 @@ Controlla la modalità di visualizzazione dei separatori
 
 Controlla il comportamento e lo stile di `Action.ShowCard`
 
-|Proprietà|Type|Obbligatoria|Description|Versione|
+|Proprietà|Type|Obbligatorio|Descrizione|Versione|
 |--------|----|--------|-----------|-------|
 |**actionMode**|`string`| No, impostazione predefinita: `"inline"`|Controlla la modalità di visualizzazione della scheda|1.0
 |**style**|`object`| No, impostazione predefinita: `emphasis`|Controlla lo stile di un contenitore|1.0
@@ -208,7 +256,7 @@ Controlla il comportamento e lo stile di `Action.ShowCard`
 
 Controlla la disposizione degli elementi
 
-|Proprietà|Type|Obbligatoria|Description|Versione|
+|Proprietà|Type|Obbligatorio|Descrizione|Versione|
 |--------|----|--------|-----------|-------|
 |**small**|`integer`| No, impostazione predefinita: `3`|Valore relativo alla spaziatura piccola|1.0
 |**default**|`integer`| No, impostazione predefinita: `8`|Valore relativo alla spaziatura predefinita|1.0
@@ -223,7 +271,7 @@ Controlla la disposizione degli elementi
 
 Parametri che controllano la visualizzazione del testo
 
-|Proprietà|Type|Obbligatoria|Description|Versione|
+|Proprietà|Type|Obbligatorio|Descrizione|Versione|
 |--------|----|--------|-----------|-------|
 |**size**|`string`| No, impostazione predefinita: `"default"`|Dimensioni del carattere da usare quando non è presente la specifica di una scheda|1.0
 |**weight**|`string`| No, impostazione predefinita: `"normal"`|Spessore del carattere da usare quando non è presente la specifica di una scheda|1.0
