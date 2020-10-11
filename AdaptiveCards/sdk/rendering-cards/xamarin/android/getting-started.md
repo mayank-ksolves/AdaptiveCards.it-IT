@@ -4,12 +4,12 @@ author: almedina-ms
 ms.author: almedina
 ms.date: 12/02/2019
 ms.topic: article
-ms.openlocfilehash: a7fd40ac7f026e2a325e7dc52e10defe550fd43a
-ms.sourcegitcommit: 9a9973129c36a41f5e4af30d95ffc146820ad173
+ms.openlocfilehash: cd8dccd2aece23dd67ee8d601e8efaa2a1bcd4f2
+ms.sourcegitcommit: 588f3e97ed3de96dfff54906ac666ce42ef1e7f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76146005"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91928831"
 ---
 # <a name="getting-started---xamarinandroid"></a>Guida introduttiva-Novell. Android
 
@@ -44,7 +44,7 @@ using AdaptiveCards.Rendering.Xamarin.Android.Renderer.Registration;
 
 ## <a name="xamarinandroid-visualizer-sample"></a>Esempio del Visualizzatore Novell. Android
 
-L' [esempio di Visualizzatore Novell. Android](https://github.com/Microsoft/AdaptiveCards/tree/master/source/xamarin/Xamarin.Droid.Sample) consente di visualizzare le schede usando Novell. Android. Se hai mai usato l'applicazione di esempio Android, scoprirai che l'esperienza è molto simile.
+L' [esempio di Visualizzatore Novell. Android](https://github.com/Microsoft/AdaptiveCards/tree/main/source/xamarin/Xamarin.Droid.Sample) consente di visualizzare le schede usando Novell. Android. Se hai mai usato l'applicazione di esempio Android, scoprirai che l'esperienza è molto simile.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
